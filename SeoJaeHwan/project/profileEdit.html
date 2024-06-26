@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/bootstrap.bundle.js"></script>
+  <style>
+    .box{
+      background: rgb(163,163,163);
+      border-radius: 15px;
+    }
+    img{
+      border-radius: 50%;
+    }
+    #website{
+      border-radius: 7px;
+      background: white;
+      height: 2.5rem;
+    }
+    #intro{
+      background: white;
+      border-radius: 7px;
+      resize: none;
+    }
+    div{
+      margin: 2em auto;
+    }
+  </style>
+</head>
+<body>
+<form action="#" method="get">
+  <div class="container">
+    <div class="w-100 h-25 box d-flex align-items-center">
+      <div class="box d-inline-block m-3 p-3">
+        <img src="img/cat1.jpg" alt="" class="w-50">
+      </div>
+      <div class="d-inline-block">
+        <h2>아이디</h2>
+        <p>이름</p>
+      </div>
+      <div class="d-inline-block">
+        <button type="button" class="btn btn-primary ">
+          사진 변경
+        </button>
+      </div>
+    </div>
+    <div>
+      <label for="website" class="form-label">웹 사이트</label>
+      <input type="url" name="website" id="website" placeholder="웹사이트 주소" class="w-100 form-control" row="2">
+      <div class="form-text">연락 사이트나 개인 포폴이 모아진 주소를 입력해 주세요</div>
+    </div>
+    <div>
+      <label for="intro" class="form-label">소개</label>
+      <textarea name="intro" id="intro" class="w-100 form-control"></textarea>
+      <div class="form-text">유저 상세페이지 상단에 출력되는 글입니다</div>
+    </div>
+    <div class="d-flex">
+      <button type="submit" class="btn btn-primary w-25"> 제출</button>
+    </div>
+  </div>
+</form>
+<script>
+  $(()=>{
+    $('#singUp').on('click',(e)=>{
+      window.location.href='index.html';
+    });
+  });
+</script>
+</body>
+</html>
