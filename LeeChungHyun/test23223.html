@@ -77,34 +77,25 @@
             position: absolute;
             display: flex;
             top: 0;
+            opacity: 0;
             right: -5vw;
             width: 25vw;
             height: 95vh;
-            z-index: 1050;
-            padding: 0;
-            visibility: hidden;
-            align-items: center;
-            transition: opacity 0.5s ease, right 0.5s ease, visibility 0s 0.5s;
-            opacity: 0;
-        }
-
-        .comment-content {
-            width: 25vw;
-            height: 60vh;
             background-color: white;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            padding: 0;
-            border-radius: 10px;
-            display: flex;
+            z-index: 1050;
+            padding: 10px;
+            visibility: hidden;
             flex-direction: column;
             justify-content: space-between;
+            transition: opacity 0.5s ease, right 0.5s ease, visibility 0s 0.5s;
+            border-radius: 10px;
         }
 
         .modal.show .comment-section.active {
             visibility: visible;
             right: 0;
             opacity: 100;
-            padding: 0;
             transition: opacity 0.5s ease, right 0.5s ease;
         }
 
@@ -112,8 +103,6 @@
             text-align: center;
             margin-bottom: 10px;
             display: flex;
-            min-height: 7vh;
-            border-bottom: 1px gainsboro solid;
         }
 
         .comment-main {
@@ -125,19 +114,9 @@
 
         .comment-footer {
             display: flex;
-            flex-direction: column;
-        }
-
-        .likeCnt {
-            min-height: 7vh;
-        }
-
-        .leaveComment {
-            display: flex;
             align-items: center;
             justify-content: space-between;
             font-size: 20px;
-            min-height: 7vh;
         }
 
         .comment-input {
@@ -167,14 +146,6 @@
             /* Font family */
             text-align: center;
         }
-
-        .like-logo {
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
     </style>
 </head>
 
@@ -198,33 +169,25 @@
                         </svg>
                     </div>
                     <div class="comment-section" id="commentSection">
-                        <div class="comment-content" id="commentContent">
-                            <div class="comment comment-header" id="commentHeader">
+                        <div class="comment comment-header" id="commentHeader">
+                        </div>
+                        <div class="comment comment-main" id="commentMain">
+                            <!-- 여기에 작성된 댓글들이 자동으로 추가될 예정 -->
+                        </div>
+                        <div class="comment comment-footer">
+                            <div class="like-count">
+                                <span id="likeCount">0</span> 좋아요
                             </div>
-                            <div class="comment comment-main" id="commentMain">
-                                <!-- 여기에 작성된 댓글들이 자동으로 추가될 예정 -->
+                            <div class="comment-input">
+                                <input type="text" id="commentInput" class="form-control" placeholder="댓글을 입력하세요...">
                             </div>
-                            <div class="comment comment-footer">
-                                <div class="likeCnt">
-                                    <div class="like-logo"> <svg width="32" height="32" viewBox="0 0 48 48">
-                                            <path
-                                                d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
-                                                stroke="black" stroke-width="2" fill="none" />
-                                        </svg></div>
-                                    <span id="likeCount">0</span> 좋아요
-                                </div>
-                                <div class="leaveComment">
-                                    <input type="text" id="commentInput" class="form-control"
-                                        placeholder="댓글을 입력하세요...">
-                                </div>
-                            </div>
-                            <div class="comment-hide">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                                    class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                    <path
-                                        d="M5.646 1.646a.5.5 0 0 1 .708 0L12.354 8l-6 6a.5.5 0 0 1-.708-.708L10.293 8 5.646 3.354a.5.5 0 0 1 0-.708z" />
-                                </svg>
-                            </div>
+                        </div>
+                        <div class="comment-hide">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path
+                                    d="M5.646 1.646a.5.5 0 0 1 .708 0L12.354 8l-6 6a.5.5 0 0 1-.708-.708L10.293 8 5.646 3.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
                         </div>
                     </div>
                 </div>
