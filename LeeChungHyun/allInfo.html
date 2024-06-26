@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .grid-item {
+            width: 33.33%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .modal-custom-body {
+            padding: 0;
+            position: relative;
+        }
+
+        .modal-custom {
+            min-width: 70vw;
+        }
+
+        .modal-faded {
+            opacity: 70%;
+        }
+
+        .comment-show {
+            position: absolute;
+            display: flex;
+            top: 0;
+            right: 0;
+            height: 95vh;
+            z-index: 1050;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .comment-hide {
+            position: absolute;
+            display: flex;
+            top: 0;
+            right: 0;
+            height: 95vh;
+            z-index: 1050;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .comment-section {
+            position: absolute;
+            display: flex;
+            top: 0;
+            opacity: 0;
+            right: -5vw;
+            width: 25vw;
+            height: 95vh;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1050;
+            padding: 10px;
+            visibility: hidden;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: opacity 0.5s ease, right 0.5s ease, visibility 0s 0.5s;
+            border-radius: 10px;
+        }
+
+        .modal.show .comment-section.active {
+            visibility: visible;
+            right: 0;
+            opacity: 100;
+            transition: opacity 0.5s ease, right 0.5s ease;
+        }
+
+        .comment-header {
+            text-align: center;
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .comment-main {
+            flex-grow: 1;
+            overflow-y: auto;
+            font-size: 20px;
+            /* 메인 콘텐츠가 넘칠 경우 스크롤 가능하게 설정 */
+        }
+
+        .comment-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 20px;
+        }
+
+        .comment-input {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        .comment {
+            margin: 10px;
+        }
+
+        .cat-name {
+            display: flex;
+            /* Flexbox를 이용한 정렬 */
+            align-items: center;
+            margin: 0;
+            /* Reset margin */
+            font-size: 30px;
+            /* Adjust font size */
+            text-align: center;
+            /* Center align text */
+            line-height: 1.5;
+            /* Adjust line height */
+            color: #333;
+            /* Text color */
+            font-family: Arial, sans-serif;
+            /* Font family */
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="grid-container" id="grid-container">
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="portfolioModal" class="modal fade" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-custom">
+            <div class="modal-content">
+                <div class="modal-body modal-custom-body">
+                    <div class="shadow-host" id="shadow-host"></div>
+                    <div class="comment-show">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-chevron-left" viewBox="0 0 16 16">
+                            <path
+                                d="M10.354 1.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 0 .708l6 6a.5.5 0 0 0 .708-.708L5.707 8l4.647-4.646a.5.5 0 0 0 0-.708z" />
+                        </svg>
+                    </div>
+                    <div class="comment-section" id="commentSection">
+                        <div class="comment comment-header" id="commentHeader">
+                        </div>
+                        <div class="comment comment-main" id="commentMain">
+                            <!-- 여기에 작성된 댓글들이 자동으로 추가될 예정 -->
+                        </div>
+                        <div class="comment comment-footer">
+                            <div class="like-count">
+                                <span id="likeCount">0</span> 좋아요
+                            </div>
+                            <div class="comment-input">
+                                <input type="text" id="commentInput" class="form-control" placeholder="댓글을 입력하세요...">
+                            </div>
+                        </div>
+                        <div class="comment-hide">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path
+                                    d="M5.646 1.646a.5.5 0 0 1 .708 0L12.354 8l-6 6a.5.5 0 0 1-.708-.708L10.293 8 5.646 3.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(() => {
+            let page = 1;
+
+            // Function to load images
+            function loadImages() {
+                for (let i = 0; i < 9; i++) {
+                    $('#grid-container').append(`
+                        <div class="grid-item">
+                            <img src="img/cat${(page - 1) * 9 + i + 1}.jpg" data-bs-toggle="modal"
+                                data-bs-target="#portfolioModal" alt="Image">
+                        </div>
+                    `);
+                }
+
+                // Re-bind the click event for the new images
+                $(".grid-item img").off("click").on("click", function () {
+                    const imgSrc = $(this).attr('src');
+                    loadShadowContent('example.html');
+                });
+            }
+
+            // Function to load external HTML content into Shadow DOM
+            function loadShadowContent(url) {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(html => {
+                        const shadowHost = document.getElementById('shadow-host');
+                        const shadowRoot = shadowHost.shadowRoot || shadowHost.attachShadow({
+                            mode: 'open'
+                        });
+
+                        // Clear existing content
+                        shadowRoot.innerHTML = '';
+
+                        // Create a container for the external content
+                        const contentContainer = document.createElement('div');
+                        contentContainer.innerHTML = html;
+
+                        // Append the external content to the shadow root
+                        shadowRoot.appendChild(contentContainer);
+
+                        // Show the modal
+                        $("#portfolioModal").modal("show");
+                    })
+                    .catch(error => console.error('Error loading content:', error));
+            }
+
+            // Initial image load
+            loadImages();
+
+            // Scroll event handler
+            $(window).scroll(function () {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+                    page++;
+                    loadImages();
+                }
+            });
+
+            // Toggle comment section visibility
+            $('.comment-show').on('click', function () {
+                $('#commentSection').addClass('active');
+                $('.shadow-host').addClass('modal-faded');
+            });
+
+            $('.comment-hide').on('click', function () {
+                $('#commentSection').removeClass('active');
+                $('.shadow-host').removeClass('modal-faded');
+            });
+
+            $('#portfolioModal').on('hidden.bs.modal', function () {
+                $('#commentSection').removeClass('active');
+                $('.shadow-host').removeClass('modal-faded');
+            });
+
+            $('#commentInput').on('keydown', function (e) {
+                if (e.keyCode === 13) { // Enter key
+                    e.preventDefault();
+                    const comment = $(this).val().trim(); // 입력된 코멘트 가져오기 (앞뒤 공백 제거)
+                    if (comment) {
+                        addComment(comment);
+                        $(this).val(''); // 입력 필드 비우기
+                    }
+                }
+            });
+
+            function addComment(comment) {
+                const commentElement = `<div class="comment"><p>${comment}</p></div>`;
+                $('#commentMain').append(commentElement);
+            }
+
+            addComment('댓글');
+            addComment('댓글');
+            addComment('댓글');
+
+            // 예시 헤더 메인 초기화
+
+            var commentHeader = document.getElementById('commentHeader');
+
+            // Create a box with background image
+            var imageUrl = '../img/cat1.jpg';
+            var boxElement = createBoxWithBackgroundImage(imageUrl);
+
+            // Append the box to the comment header
+            commentHeader.appendChild(boxElement);
+
+            function createBoxWithBackgroundImage(imageUrl) {
+                // Create a new div element
+                var newBox = document.createElement('div');
+                newBox.classList.add('box');
+                newBox.style.backgroundImage = `url('${imageUrl}')`;
+                return newBox;
+            }
+
+            var catNameElement = document.createElement('p');
+            catNameElement.textContent = '냐옹';
+            catNameElement.classList.add('cat-name');
+            commentHeader.appendChild(catNameElement);
+
+            const modalBody = document.querySelector('.modal');
+            const commentSection = document.querySelector('.comment-section');
+            const commentShow = document.querySelector('.comment-show');
+
+            $(modalBody).on('scroll', function () {
+                // modal-body의 스크롤된 수직 픽셀 값을 가져옵니다.
+                const scrollTop = $(this).scrollTop();
+                commentSection.style.top = scrollTop + 'px';
+                commentShow.style.top = scrollTop + 'px';
+            });
+
+        });
+    </script>
+</body>
+
+</html>
