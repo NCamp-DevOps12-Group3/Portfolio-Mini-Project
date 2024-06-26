@@ -39,10 +39,10 @@
             <button type="button" class="btn btn-primary" id="baseViewAllBtn">전체보기</button>
             <button type="button" class="btn btn-outline-primary" id="basePersonalBtn">개인 포트폴리오</button>
             <button type="button" class="btn btn-outline-primary" id="baseCompanyBtn">기업 소개</button>
-          </div>
+        </div>
     </div>
     <div class="base-sector" id="baseContentSector">
-        <div class="base-sector-personal">
+        <!-- <div class="base-sector-personal">
             <div class="base-sector-personal-title">
                 <h4 class="mb-2">개인 포트폴리오</h4>
             </div>
@@ -127,7 +127,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <!-- 상세보기 모달 -->
@@ -153,6 +153,7 @@
     <script>
         $(()=>{
             $(".base-header button").each(function(){
+                if($(this).hasClass("btn-primary")) $("#baseContentSector").load("first_main_sector.html");
                 $(this).on("click", function(){
                     $(this).siblings().each(function(){
                         if($(this).hasClass("btn-primary")){
@@ -165,7 +166,9 @@
                         $(this).removeClass("btn-outline-primary");
                         $(this).addClass("btn-primary");
                     }
-                    $("#baseContentSector").load("test.html");
+                    if($(this).attr("id") === "baseViewAllBtn")
+                        $("#baseContentSector").load("first_main_sector.html");
+                    else $("#baseContentSector").load("test.html");
                 })
             })
             
