@@ -8,35 +8,172 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <style>
-        .base-header{
-            width:100%;
-            height:100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
         .base-sector{
             width:100%;
             height:100%;
-            background:orange;
         }
-    </style>
+        .base-sector-personal, .base-sector-company{
+            width:100%;
+            height:30%;
+            padding:10px;
+        }
+        .base-sector-personal-title, .base-sector-company-title{
+            margin:0 5px 10px;
+            min-width:200px;
+        }
+        .sector-content-item{
+            margin-bottom:10px;
+        }
+
+        .content-img-thumbnail{
+            width:100%;
+            height:25vh;
+            object-fit: cover;
+        }
+
+</style>
 </head>
 <body>
-    <div class="base-header">
-        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-            <label class="btn btn-outline-primary" for="btnradio1">개인</label>
-          
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-            <label class="btn btn-outline-primary" for="btnradio2">기업</label>
-          
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-            <label class="btn btn-outline-primary" for="btnradio3">..</label>
-          </div>
+    <div class="base-header d-flex justify-content-center align-items-center">
+        <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary" id="baseViewAllBtn">전체보기</button>
+            <button type="button" class="btn btn-outline-primary" id="basePersonalBtn">개인 포트폴리오</button>
+            <button type="button" class="btn btn-outline-primary" id="baseCompanyBtn">기업 소개</button>
+        </div>
     </div>
-    <div class="base-sector">
+    <div class="base-sector" id="baseContentSector">
+        <!-- <div class="base-sector-personal">
+            <div class="base-sector-personal-title">
+                <h4 class="mb-2">개인 포트폴리오</h4>
+            </div>
+            <div class="base-sector-personal-content row row-cols-md-4 row-cols-1">
+                <div class="col">
+                    <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                        <div class="card-body">
+                            <h5 class="card-title mb2">쿼카</h5>
+                            <p class="card-subtitle">쿼카는귀엽다</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="img/cute2.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                        <div class="card-body">
+                            <h5 class="card-title">마멋</h5>
+                            <p class="card-subtitle">마멋도귀엽다</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                        <div class="card-body">
+                            <h5 class="card-title">personal Name</h5>
+                            <p class="card-subtitle">R&B</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                        <div class="card-body">
+                            <h5 class="card-title">personal Name</h5>
+                            <p class="card-subtitle">R&B</p>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div class="base-sector-company">
+            <div class="base-sector-company-title">
+                <h4 class="mb-2">기업 소개</h4>
+            </div>
+            <div class="base-sector-personal-content row row row-cols-md-4 row-cols-1">
+                <div class="col">
+                    <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                        <div class="card-body">
+                            <h5 class="card-title">personal Name</h5>
+                            <p class="card-subtitle">R&B</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                        <div class="card-body">
+                            <h5 class="card-title">personal Name</h5>
+                            <p class="card-subtitle">R&B</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                        <div class="card-body">
+                            <h5 class="card-title">personal Name</h5>
+                            <p class="card-subtitle">R&B</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                        <div class="card-body">
+                            <h5 class="card-title">personal Name</h5>
+                            <p class="card-subtitle">R&B</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
 
+    <!-- 상세보기 모달 -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- 스크립트 -->
+    <script>
+        $(()=>{
+            $(".base-header button").each(function(){
+                if($(this).hasClass("btn-primary")) $("#baseContentSector").load("first_main_sector.html");
+                $(this).on("click", function(){
+                    $(this).siblings().each(function(){
+                        if($(this).hasClass("btn-primary")){
+                            $(this).removeClass("btn-primary");
+                            $(this).addClass("btn-outline-primary");
+                        }
+                    })
+                    
+                    if($(this).hasClass("btn-outline-primary")){
+                        $(this).removeClass("btn-outline-primary");
+                        $(this).addClass("btn-primary");
+                    }
+                    if($(this).attr("id") === "baseViewAllBtn")
+                        $("#baseContentSector").load("first_main_sector.html");
+                    else $("#baseContentSector").load("test.html");
+                })
+            })
+            
+        })
+        
+    </script>
 </body>
 </html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setting</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/bootstrap.bundle.js"></script>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .pobox{
+      position: fixed;
+      
+      background: rgb(241, 241, 241);
+      
+    }
+    .pobox a{
+      display: flex;
+      flex-direction: column;
+      height: 70px;
+      width: 200px;
+      background: rgb(241, 241, 241);
+      text-align: center;
+      line-height: 60px;
+      padding: 30px;
+    }
+    a{
+      
+      color: black;
+      text-decoration: none;
+    }
+    .pobox a:hover {
+        background-color: #ddd;
+        text-decoration: none;
+        
+    }
+  
+
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="col-3">
+      <div id="setting-list" class="d-flex flex-column gap-2 setting-list-scrollspy text-center">
+        <div class="pobox">      
+                <a class="p-1 rounded" href="#profile">Profile</a>
+                <a class="p-1 rounded" href="#locksandsecurity">Locks And Security</a>
+                <a class="p-1 rounded" href="#cancelmembership">Cancel Membership</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+        <h4 id="profile">Profile</h4>
+        <p>...</p>
+        <h4 id="locksandsecurity">Locks And Security</h4>
+        <p>...</p>
+        <h4 id="cancelmembership">Cancel Membership</h4>
+        <p>...</p>
+        
+      </div>
+    </div>
+  </div>
+
+
+  
+
+</body>
+</html>
