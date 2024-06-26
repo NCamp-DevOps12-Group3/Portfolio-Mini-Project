@@ -11,39 +11,59 @@
     body {
         font-family: Arial, sans-serif;
     }
-    .sidebar {
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 250px;
-        background-color: #f8f9fa;
-        padding-top: 20px;
+    .pobox{
+      position: fixed;
+      
+      background: rgb(241, 241, 241);
+      
     }
-    .sidebar a {
-        display: block;
-        padding: 20px 20px;
-        color: #333;
-        text-decoration: none;
-        border-bottom: 1px solid ;
+    .pobox a{
+      display: flex;
+      flex-direction: column;
+      height: 70px;
+      width: 200px;
+      background: rgb(241, 241, 241);
+      text-align: center;
+      line-height: 60px;
+      padding: 30px;
     }
-    .sidebar a:hover {
+    a{
+      
+      color: black;
+      text-decoration: none;
+    }
+    .pobox a:hover {
         background-color: #ddd;
+        text-decoration: none;
+        
     }
-    .content {
-        margin-left: 270px;
-        padding: 20px;
-    }
+  
 
 </style>
 </head>
 <body>
-  <div class="sidebar">
-    <a href="#">프로필</a>
-    <a href="#"></a>
-    <a href="#"></a>
+  <div class="row">
+    <div class="col-3">
+      <div id="setting-list" class="d-flex flex-column gap-2 setting-list-scrollspy text-center">
+        <div class="pobox">      
+                <a class="p-1 rounded" href="#profile">Profile</a>
+                <a class="p-1 rounded" href="#locksandsecurity">Locks And Security</a>
+                <a class="p-1 rounded" href="#cancelmembership">Cancel Membership</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+        <h4 id="profile">Profile</h4>
+        <p>...</p>
+        <h4 id="locksandsecurity">Locks And Security</h4>
+        <p>...</p>
+        <h4 id="cancelmembership">Cancel Membership</h4>
+        <p>...</p>
+        
+      </div>
+    </div>
   </div>
-
 
 
   
