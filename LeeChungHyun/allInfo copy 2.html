@@ -4,9 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
     <title>Document</title>
     <style>
         body {
@@ -46,6 +43,19 @@
         .modal-custom {
             min-width: 70vw;
             min-height: 70vh;
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-show {
+            display: block;
         }
 
         .modal-faded {
@@ -103,7 +113,7 @@
             justify-content: space-between;
         }
 
-        .modal.show .comment-section.active {
+        .modal-show .comment-section.active {
             visibility: visible;
             right: 0;
             opacity: 100;
@@ -358,61 +368,57 @@
         </div>
     </div>
     <!-- Modal -->
-    <div id="portfolioModal" class="modal fade" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-custom">
-            <div class="modal-content">
-                <div class="modal-body modal-custom-body">
-                    <div class="shadow-host" id="shadow-host"></div>
-                    <div class="comment-show">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                            class="bi bi-chevron-left" viewBox="0 0 16 16">
-                            <path
-                                d="M10.354 1.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 0 .708l6 6a.5.5 0 0 0 .708-.708L5.707 8l4.647-4.646a.5.5 0 0 0 0-.708z" />
-                        </svg>
-                    </div>
-                    <div class="comment-section" id="commentSection">
-                        <div class="comment-content" id="commentContent">
-                            <div class="comment comment-header" id="commentHeader">
-                                <div class="comment-header-logo" id="commentHeaderLogo"></div>
-                                <div class="comment-header-userId"> <strong>cat1</strong></div>
-                                <div class="comment-header-more" id="more-options"><svg aria-label="옵션 더 보기"
-                                        class="x1lliihq x1n2onr6 x5n08af" fill="currentColor" height="24" role="img"
-                                        viewBox="0 0 24 24" width="24">
-                                        <title>옵션 더 보기</title>
-                                        <circle cx="12" cy="12" r="1.5"></circle>
-                                        <circle cx="6" cy="12" r="1.5"></circle>
-                                        <circle cx="18" cy="12" r="1.5"></circle>
-                                    </svg>
-                                </div>
-
-                            </div>
-                            <div class="comment comment-main" id="commentMain">
-                                <!-- 여기에 코멘트 추가-->
-                            </div>
-                            <div class="comment comment-footer">
-                                <div class="likeCnt">
-                                    <div class="like-logo"> <svg width="24" height="24" viewBox="0 0 50 50">
-                                            <path
-                                                d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
-                                                stroke="black" stroke-width="2" fill="none"
-                                                transform="translate(1, 0)" />
-                                        </svg></div>
-                                    <div class="likeCnt-text">
-                                        <!-- js로 현재까지 클릭된 좋아요 수-->
-                                    </div>
-                                </div>
-                                <div class="leaveComment">
-                                    <input type="text" id="commentInput" class="form-control"
-                                        placeholder="댓글을 입력하세요...">
-                                </div>
-                            </div>
-                            <div class="comment-hide">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                                    class="bi bi-chevron-right" viewBox="0 0 16 16">
-                                    <path
-                                        d="M5.646 1.646a.5.5 0 0 1 .708 0L12.354 8l-6 6a.5.5 0 0 1-.708-.708L10.293 8 5.646 3.354a.5.5 0 0 1 0-.708z" />
+    <div id="portfolioModal" class="modal modal-custom">
+        <div class="modal-content">
+            <div class="modal-body modal-custom-body">
+                <div class="shadow-host" id="shadow-host"></div>
+                <div class="comment-show">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        class="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path
+                            d="M10.354 1.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 0 .708l6 6a.5.5 0 0 0 .708-.708L5.707 8l4.647-4.646a.5.5 0 0 0 0-.708z" />
+                    </svg>
+                </div>
+                <div class="comment-section" id="commentSection">
+                    <div class="comment-content" id="commentContent">
+                        <div class="comment comment-header" id="commentHeader">
+                            <div class="comment-header-logo" id="commentHeaderLogo"></div>
+                            <div class="comment-header-userId"> <strong>cat1</strong></div>
+                            <div class="comment-header-more" id="more-options"><svg aria-label="옵션 더 보기"
+                                    class="x1lliihq x1n2onr6 x5n08af" fill="currentColor" height="24" role="img"
+                                    viewBox="0 0 24 24" width="24">
+                                    <title>옵션 더 보기</title>
+                                    <circle cx="12" cy="12" r="1.5"></circle>
+                                    <circle cx="6" cy="12" r="1.5"></circle>
+                                    <circle cx="18" cy="12" r="1.5"></circle>
                                 </svg>
                             </div>
+
+                        </div>
+                        <div class="comment comment-main" id="commentMain">
+                            <!-- 여기에 코멘트 추가-->
+                        </div>
+                        <div class="comment comment-footer">
+                            <div class="likeCnt">
+                                <div class="like-logo"> <svg width="24" height="24" viewBox="0 0 50 50">
+                                        <path
+                                            d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                                            stroke="black" stroke-width="2" fill="none" transform="translate(1, 0)" />
+                                    </svg></div>
+                                <div class="likeCnt-text">
+                                    <!-- js로 현재까지 클릭된 좋아요 수-->
+                                </div>
+                            </div>
+                            <div class="leaveComment">
+                                <input type="text" id="commentInput" class="form-control" placeholder="댓글을 입력하세요...">
+                            </div>
+                        </div>
+                        <div class="comment-hide">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path
+                                    d="M5.646 1.646a.5.5 0 0 1 .708 0L12.354 8l-6 6a.5.5 0 0 1-.708-.708L10.293 8 5.646 3.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -421,19 +427,18 @@
     </div>
 
     <script>
-        $(() => {
+        document.addEventListener('DOMContentLoaded', function () {
 
             let page = 1;
 
             // Function to load images
             function loadImages() {
+                const gridContainer = document.getElementById('grid-container');
                 for (let i = 0; i < 9; i++) {
-                    $('#grid-container').append(`
-                        <div class="grid-item">
-                            <img src="img/cat${(page - 1) * 9 + i + 1}.jpg" data-bs-toggle="modal"
-                                data-bs-target="#portfolioModal" alt="Image">
-                        </div>
-                    `);
+                    const gridItem = document.createElement('div');
+                    gridItem.classList.add('grid-item');
+                    gridItem.innerHTML = `<img src="img/cat${(page - 1) * 9 + i + 1}.jpg" alt="Image">`;
+                    gridContainer.appendChild(gridItem);
                 }
             }
 
@@ -441,16 +446,17 @@
             loadImages();
 
             // Scroll event handler
-            $(window).scroll(function () {
-                if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+            window.addEventListener('scroll', function () {
+                if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 100) {
                     page++;
                     loadImages();
                 }
             });
 
-            // Re-bind the click event for the new images
-            $(".grid-item img").off("click").on("click", function () {
-                loadShadowContent('example.html');
+            document.getElementById('grid-container').addEventListener('click', function (e) {
+                if (e.target.tagName === 'IMG') {
+                    loadShadowContent('example.html');
+                }
             });
 
             // Function to load external HTML content into Shadow DOM
@@ -474,7 +480,7 @@
                         shadowRoot.appendChild(contentContainer);
 
                         // Show the modal
-                        $("#portfolioModal").modal("show");
+                        document.getElementById('portfolioModal').classList.add('modal-show');
                     })
                     .catch(error => console.error('Error loading content:', error));
             }
@@ -512,47 +518,43 @@
             const commentShow = document.querySelector('.comment-show');
 
             // Toggle comment section visibility
-            $('.comment-show').on('click', function () {
-                $('#commentSection').addClass('active');
-                $('.shadow-host').addClass('modal-faded');
+            document.querySelector('.comment-show').addEventListener('click', function () {
+                document.getElementById('commentSection').classList.add('active');
+                document.querySelector('.shadow-host').classList.add('modal-faded');
             });
 
-            $('#portfolioModal').on('hidden.bs.modal', function () {
-                $('#commentSection').removeClass('active');
-                $('.shadow-host').removeClass('modal-faded');
+            document.querySelector('.comment-hide').addEventListener('click', function () {
+                document.getElementById('commentSection').classList.remove('active');
+                document.querySelector('.shadow-host').classList.remove('modal-faded');
             });
 
-            $('.comment-hide').on('click', function () {
-                $('#commentSection').removeClass('active');
-                $('.shadow-host').removeClass('modal-faded');
-            });
-
-            $(modalBody).on('scroll', function () {
+            modalBody.addEventListener('scroll', function () {
                 // modal-body의 스크롤된 수직 픽셀 값을 가져옵니다.
-                const scrollTop = $(this).scrollTop();
+                const scrollTop = modalBody.scrollTop;
                 commentSection.style.top = scrollTop + 'px';
                 commentShow.style.top = scrollTop + 'px';
             });
 
             function addComment(comment) {
-                const commentElement = `<div class="comment">
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.innerHTML = `
                     <div class="comment-user-logo"></div>
                     <div class="comment-main">
                         <div class="comment-main-userid"><strong>cat1</strong></div>
                         <div class="comment-main-content">${comment}</div>
                     </div>
-                </div>`;
-
-                $('#commentMain').append(commentElement);
+                `;
+                document.getElementById('commentMain').appendChild(commentElement);
             }
 
-            $('#commentInput').on('keydown', function (e) {
+            document.getElementById('commentInput').addEventListener('keydown', function (e) {
                 if (e.keyCode === 13) { // Enter key
                     e.preventDefault();
-                    const comment = $(this).val().trim(); // 입력된 코멘트 가져오기 (앞뒤 공백 제거)
+                    const comment = this.value.trim(); // 입력된 코멘트 가져오기 (앞뒤 공백 제거)
                     if (comment) {
                         addComment(comment);
-                        $(this).val(''); // 입력 필드 비우기
+                        this.value = ''; // 입력 필드 비우기
                     }
                 }
             });
@@ -592,7 +594,7 @@
             });
 
             document.getElementById('option-cancle').addEventListener('click', function (event) {
-                document.querySelector('.options-menu').style.display = none;
+                document.querySelector('.options-menu').style.display = 'none';
             });
 
             document.getElementById('option-delete').addEventListener('click', function (event) {
@@ -608,6 +610,14 @@
                 var isVisible = menu.style.display === 'block';
                 menu.style.display = isVisible ? 'none' : 'block';
                 menu.style.zIndex = 1200;
+            });
+
+            // Close modal when clicking outside of it
+            window.addEventListener('click', function (event) {
+                const modal = document.getElementById('portfolioModal');
+                if (event.target === modal) {
+                    modal.classList.remove('modal-show');
+                }
             });
 
         });
