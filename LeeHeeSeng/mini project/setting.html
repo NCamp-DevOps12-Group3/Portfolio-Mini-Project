@@ -1,87 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>setting</title>
-  <link href="css/bootstrap.css" rel="stylesheet">
+  <!-- <link href="css/bootstrap.css" rel="stylesheet">
   <script src="js/jquery-3.7.1.min.js"></script>
-  <script src="js/bootstrap.bundle.js"></script>
+  <script src="js/bootstrap.bundle.js"></script> -->
   <style>
     body {
         font-family: Arial, sans-serif;
+        
     }
     .pobox{
       position: fixed;
       height: 100vh;
-      background: rgb(241, 241, 241);
-      
+      background: #f8f9fa;
+      width: 200px;
     }
     .pobox a{
       display: flex;
       flex-direction: column;
       height: 70px;
       width: 200px;
-      background: rgb(241, 241, 241);
+      background: #f8f9fa;
       text-align: center;
       line-height: 60px;
       padding: 30px;
       
     }
-    .seetbox{
-      display: flex;
-      width: 200px;
-      height: 100vh;
-      background: rgb(241, 241, 241);
-    }
+    
     a{
       
       color: black;
       text-decoration: none;
     }
-    .pobox a:hover {
+    /* .pobox a:hover {
         background-color: #ddd;
         text-decoration: none;
         
+    } */
+    .col-8 h4{
+      margin: 30px 0;
+      font-weight: bolder;
     }
-    .col-9 h4{
-      margin: 20px;
-
-    }
-    .col-9 p{
+    .col-8 p{
       margin-left: 20px;
     }
+    
+   .termsofuse{
+    margin-top: 200px;
+    width: 80%;
+    min-width: 200px;
+    margin-bottom: 50px;
+    
+   }
+   .boardt{
+          width: 100%;
+          max-width: 70%;
+          margin-top: 100px;
+          margin-bottom: 200px;
+          justify-content: center;
+          min-width:300px ;
+          margin-left: 15%;
+          
+   }
+   a.list-group-item.active {
+    background: -webkit-linear-gradient( 90deg , #ddd, white);
+    background: -moz-linear-gradient( 90deg , #ddd, white);
+    background: -o-linear-gradient( 90deg , #ddd, white);
+    background: -ms-linear-gradient( 90deg , #ddd, white);
+    background: linear-gradient( 90deg , #ddd, white);
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    color: black;
+    font-weight: bolder;
+    text-transform: uppercase;
 
+   }
+   a.list-group-item{
+    
+    border: 0px ;
+   }
+   
 </style>
 </head>
 <body>
-  <div class="row">
-    <div class="col-3">
-      <div id="setting-list" class="d-flex flex-column gap-2 setting-list-scrollspy text-center">
-        <div class="seetbox">
-          <div class="pobox">      
-                  <a class="p-1 rounded" href="#profile">Profile</a>
-                  <a class="p-1 rounded" href="#locksandsecurity">Locks And Security</a>
-                  <a class="p-1 rounded" href="#cancelmembership">Cancel Membership</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-9">
-      <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-        <h4 id="profile">Profile</h4>
-        <p>...</p>
-        <h4 id="locksandsecurity">Locks And Security</h4>
-        <p>...</p>
-        <h4 id="cancelmembership">Cancel Membership</h4>
-        <p>...</p>
-        
-      </div>
-    </div>
-  </div>
-
-
   
+      <div class="row">
+          <div class="col-4">
+            <div id="setting-list" class=" list-group d-flex flex-column gap-2 setting-list-scrollspy text-center">
+              
+                <div class="pobox">      
+                        <a class="list-group-item list-group-item-action p-1 rounded pobox1 " href="#list-profile">Profile</a>
+                        <a class="list-group-item list-group-item-action p-1 rounded" href="#list-locksandsecurity">Locks And Security</a>                        
+                        <a class="list-group-item list-group-item-action p-1 rounded" href="#list-termsofuse">Terms Of Use</a>
+                        <a class="list-group-item list-group-item-action p-1 rounded" href="#list-account">Account</a>
+                </div>
+              
+            </div>
+          </div>
 
+          
+          <div class="col-8">
+            <div class="boardt">
+            <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                <h4 id="list-profile">Profile</h4>
+                <p>...</p>
+                <h4 id="list-locksandsecurity">Locks And Security</h4>
+                <p>...</p>
+                
+                <div class="termsofuse">
+                  <h4 id="list-termsofuse">Terms Of Use</h4>
+                  <div class="accordion accordion-flush" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="#collapseOne">
+                          <h4>이용약관</h4>
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                          <p>Instagram에 오신 것을 환영합니다! <br>
+                            <br>
+                            저희가 명시적으로 별도의 약관(본 약관이 아님)이 적용된다고 밝히지 않는 한 본 이용 약관(또는 '약관')이 회원님의 Instagram 이용에 적용되며 아래 설명된 Instagram 서비스('서비스')에 대한 정보를 제공합니다. 회원님이 Instagram 계정을 만들거나 Instagram을 이용하는 경우, 회원님은 본 약관에 동의하는 것으로 간주됩니다. Meta 서비스 약관은 이 서비스에 적용되지 않습니다.
+                            
+                            Instagram 서비스는 Meta Platforms, Inc.에서 회원님에게 제공하는 Meta 제품 중 하나입니다. 따라서 본 이용 약관은 회원님과 Meta Platforms, Inc. 사이의 계약에 해당됩니다.</p>
+                          <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 id="list-account">Account</h4>
+                    <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Cancel Membership
+                    </button>
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Cancel Membership</h1>
+                            
+                          </div>
+                          <div class="modal-body">
+                            ...
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancle</button>
+                            <button type="button" class="btn btn-danger">Unsubscribe</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
 </body>
+<!-- <footer>sdfgahg</footer> -->
 </html>
