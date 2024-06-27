@@ -61,6 +61,7 @@
             z-index: 1050;
             flex-direction: column;
             justify-content: center;
+            cursor: pointer;
         }
 
         .comment-hide {
@@ -72,6 +73,7 @@
             z-index: 1050;
             flex-direction: column;
             justify-content: center;
+            cursor: pointer;
         }
 
         .comment-section {
@@ -137,6 +139,8 @@
             justify-content: center;
             flex-shrink: 0;
             margin-right: 3%;
+            cursor: pointer;
+            z-index: 1100;
         }
 
 
@@ -252,6 +256,82 @@
             flex-wrap: wrap;
             white-space: pre-wrap;
         }
+
+        .options-menu {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            position: absolute;
+            /* 기본적으로 숨김 */
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.3);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 요소를 정확히 중앙에 배치 */
+        }
+
+        .options-menu-inner {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            width: 8vw;
+            align-items: center;
+            position: fixed;
+            top: 50vh;
+            left: 50vw;
+            transform: translate(-50%, -50%);
+        }
+
+        .option-item {
+            display: flex;
+            padding: 8px 12px;
+            cursor: pointer;
+            flex-wrap: nowrap;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .option-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .modify-modal-inner {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            width: 30vw;
+            height: 50vh;
+            align-items: center;
+            position: fixed;
+            top: 50vh;
+            left: 50vw;
+            transform: translate(-50%, -50%);
+        }
+
+        .modify-modal {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            position: absolute;
+            /* 기본적으로 숨김 */
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.3);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 요소를 정확히 중앙에 배치 */
+        }
     </style>
 </head>
 
@@ -260,7 +340,20 @@
         <div class="grid-container" id="grid-container">
         </div>
     </div>
-
+    <div class="options-menu" id="options-menu">
+        <div class="options-menu-inner">
+            <div class="option-item" id="option-modify">게시글 수정</div>
+            <div class="option-item" id="option-delete" style="color : red">게시글 삭제</div>
+            <div class="option-item" id="option-report">신고</div>
+            <div class="option-item" id="option-cancle">취소</div>
+        </div>
+    </div>
+    <div class="modify-modal" id="modify-modal">
+        <div class="modify-modal-inner">
+            <div style="font-size: 14px;"> <strong>소개글 수정</strong></div>
+            <div class="modify-intro"><input type="text" id="intro-input" placeholder="소개글을 입력하세요"></div>
+        </div>
+    </div>
     <!-- Modal -->
     <div id="portfolioModal" class="modal fade" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-custom">
@@ -286,7 +379,9 @@
                                         <circle cx="12" cy="12" r="1.5"></circle>
                                         <circle cx="6" cy="12" r="1.5"></circle>
                                         <circle cx="18" cy="12" r="1.5"></circle>
-                                    </svg></div>
+                                    </svg>
+                                </div>
+
                             </div>
                             <div class="comment comment-main" id="commentMain">
                                 <!-- 여기에 코멘트 추가-->
@@ -301,7 +396,6 @@
                                         </svg></div>
                                     <div class="likeCnt-text">
                                         <!-- js로 현재까지 클릭된 좋아요 수-->
-                                        <p> 좋아요 10만</p>
                                     </div>
                                 </div>
                                 <div class="leaveComment">
@@ -325,6 +419,7 @@
 
     <script>
         $(() => {
+
             let page = 1;
 
             // Function to load images
@@ -463,8 +558,53 @@
             addComment('댓글');
             addComment('댓글');
 
+            let likeCnt = 180;
+
+            const likeText = document.querySelector('.likeCnt-text');
+            likeText.innerHTML = `<p> 좋아요 ${likeCnt}</p> `
+
             document.querySelector('.like-logo svg').addEventListener('click', function () {
-                this.querySelector('path').classList.toggle('filled');
+                const isFilled = this.querySelector('path').classList.toggle('filled');
+                if (isFilled) {
+                    likeCnt++;
+                } else {
+                    likeCnt--;
+                }
+                likeText.innerHTML = `<p> 좋아요 ${likeCnt}</p> `
+            });
+
+            document.getElementById('more-options').addEventListener('click', function (event) {
+                var menu = document.getElementById('options-menu');
+                var isVisible = menu.style.display === 'block';
+                menu.style.display = isVisible ? 'none' : 'block';
+                menu.style.zIndex = 1200;
+            });
+
+            document.addEventListener('click', function (event) {
+                var menu = document.getElementById('options-menu');
+                var moreOptions = document.getElementById('more-options');
+                if (event.target !== moreOptions && !moreOptions.contains(event.target)) {
+                    menu.style.display = 'none';
+                }
+            });
+
+            document.getElementById('option-cancle').addEventListener('click', function (event) {
+                document.querySelector('.options-menu').style.display = none;
+            });
+
+            document.getElementById('option-delete').addEventListener('click', function (event) {
+                window.alert("정말로 삭제하시겠습니까?");
+            });
+
+            document.getElementById('option-report').addEventListener('click', function (event) {
+                window.alert("신고하시는 이유가 무엇인가요?");
+            });
+
+            document.getElementById('option-modify').addEventListener('click', function (event) {
+                var menu = document.getElementById('modify-modal');
+                var isVisible = menu.style.display === 'block';
+                menu.style.display = isVisible ? 'none' : 'block';
+                menu.style.zIndex = 1200;
             });
 
         });
