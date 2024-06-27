@@ -30,15 +30,44 @@
             height:25vh;
             object-fit: cover;
         }
+        .base-header button{
+            display:flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .base-header img{
+            width:30px;
+            height:auto;
+        }
+        .base-header button div{
+            display: inline-block;
+            margin-left:10px;
+        }
+        @media screen and (max-width:900px){
+            .base-header button div{
+                display: none;
+            }
+        }
 
-</style>
+        
+
+    </style>
 </head>
 <body>
     <div class="base-header d-flex justify-content-center align-items-center">
         <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-primary" id="baseViewAllBtn">전체보기</button>
-            <button type="button" class="btn btn-outline-primary" id="basePersonalBtn">개인 포트폴리오</button>
-            <button type="button" class="btn btn-outline-primary" id="baseCompanyBtn">기업 소개</button>
+            <button type="button" class="btn btn-primary" id="baseViewAllBtn">
+                <img src="img/allview.png">
+                <div>전체보기</div>
+            </button>
+            <button type="button" class="btn btn-outline-primary" id="basePersonalBtn">
+                <img src="img/portfolio.png">
+                <div>개인 포트폴리오</div>
+            </button>
+            <button type="button" class="btn btn-outline-primary" id="baseCompanyBtn">
+                <img src="img/business.png">
+                <div>기업 소개</div>
+            </button>
         </div>
     </div>
     <div class="base-sector" id="baseContentSector">
