@@ -15,7 +15,6 @@
         .base-sector-personal, .base-sector-company{
             width:100%;
             height:30%;
-            padding:10px;
         }
         .base-sector-personal-title, .base-sector-company-title{
             margin:0 5px 10px;
@@ -29,6 +28,13 @@
             width:100%;
             height:25vh;
             object-fit: cover;
+        }
+        .card-content-item{
+            transition: transform 0.3s;
+        }
+        .card-content-item:hover{
+            transform: scale(1.2);
+            z-index:50;
         }
 
 </style>
@@ -81,7 +87,7 @@
         <div class="base-sector-company-title">
             <h4 class="mb-2">기업 소개</h4>
         </div>
-        <div class="base-sector-personal-content row row row-cols-md-4 row-cols-1">
+        <div class="base-sector-company-content row row row-cols-md-4 row-cols-1">
             <div class="col">
                 <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
