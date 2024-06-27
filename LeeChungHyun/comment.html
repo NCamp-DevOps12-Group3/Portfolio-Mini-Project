@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .modal-comment-section {
+            display: flex;
+            opacity: 100;
+            padding: 0;
+            width: 20vw;
+            height: 95vh;
+            align-items: center;
+        }
+
+        .modal-comment-content {
+            width: 20vw;
+            height: 60vh;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .modal-comment-header {
+            margin-bottom: 10px;
+            display: flex;
+            min-height: 7vh;
+            border-bottom: 1px gainsboro solid;
+        }
+
+        .modal-comment-header-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .modal-comment-header-userId {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            font-size: 14px;
+            margin-left: 5%;
+        }
+
+        .modal-comment-header-more {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 3%;
+        }
+
+        .modal-comment-main {
+            flex-grow: 1;
+            overflow-y: auto;
+            font-size: 14px;
+        }
+
+        .modal-comment-footer {
+            display: flex;
+            flex-direction: column;
+            min-height: 10vh;
+        }
+
+        .modal-leaveComment {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .modal-comment-input {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        .modal-likeCnt {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            margin: 0px 5px 5px 5px;
+        }
+
+        .modal-like-logo svg {
+            cursor: pointer;
+            transition: fill 0.3s ease;
+        }
+
+        .filled {
+            fill: red;
+            stroke: none;
+        }
+
+        .modal-likeCnt-text {
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        input[type="text"] {
+            font-size: 14px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .modal-comment {
+            width: 95%;
+            margin: 10px;
+            display: flex;
+        }
+
+        .modal-comment-user-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('img/cat1.jpg');
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-size: cover;
+            flex-shrink: 0;
+        }
+
+        .modal-comment-main {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .modal-comment-main-userid {
+            font-size: 14px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            margin-left: 5%;
+            margin-right: 1px;
+        }
+
+        .modal-comment-main-content {
+            display: flex;
+            font-size: 14px;
+            justify-content: left;
+            margin-left: 5%;
+            margin-right: 1px;
+            flex-wrap: wrap;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="modal-comment-section" id="modalCommentSection">
+        <div class="modal-comment-content" id="modalCommentContent">
+            <div class="modal-comment-header" id="modalCommentHeader">
+                <div class="modal-comment-header-logo" id="modalCommentHeaderLogo"></div>
+                <div class="modal-comment-header-userId"> <strong>cat1</strong></div>
+                <div class="modal-comment-header-more" id="modalCommentHeaderMore"><svg aria-label="옵션 더 보기"
+                        class="x1lliihq x1n2onr6 x5n08af" fill="currentColor" height="24" role="img" viewBox="0 0 24 24"
+                        width="24">
+                        <title>옵션 더 보기</title>
+                        <circle cx="12" cy="12" r="1.5"></circle>
+                        <circle cx="6" cy="12" r="1.5"></circle>
+                        <circle cx="18" cy="12" r="1.5"></circle>
+                    </svg></div>
+            </div>
+            <div class="modal-comment-main" id="modalCommentMain">
+                <!-- 여기에 코멘트 추가-->
+            </div>
+            <div class="modal-comment-footer" id="modalCommentFooter">
+                <div class="modal-likeCnt" id="modalLikeCnt">
+                    <div class="modal-like-logo" id="modalLikeLogo"> <svg width="24" height="24" viewBox="0 0 50 50">
+                            <path
+                                d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                                stroke="black" stroke-width="2" fill="none" transform="translate(1, 0)" />
+                        </svg></div>
+                    <div class="modal-likeCnt-text" id="modalLikeCntText">
+                        <!-- js로 현재까지 클릭된 좋아요 수-->
+                        <p> 좋아요 10만</p>
+                    </div>
+                </div>
+                <div class="modal-leaveComment" id="modalLeaveComment">
+                    <input type="text" id="modalCommentInput" class="form-control" placeholder="댓글을 입력하세요...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createBoxWithBackgroundImage(imageUrl, linkUrl) {
+            // Create a new a element
+            var linkElement = document.createElement('a');
+            linkElement.href = linkUrl;
+            linkElement.target = '_blank'; // Opens the link in a new tab
+
+            // Create a new div element
+            var newBox = document.createElement('div');
+            newBox.classList.add('box');
+            newBox.style.backgroundImage = `url('${imageUrl}')`;
+
+            // Append the newBox to the linkElement
+            linkElement.appendChild(newBox);
+
+            return linkElement;
+        }
+
+        // 예시 초기화
+        var modalCommentHeaderLogo = document.getElementById('modalCommentHeaderLogo');
+
+        // Create a box with background image
+        var imageUrl = 'img/cat1.jpg';
+        var linkUrl = 'userfeeds.html';
+        var newBoxWithLink = createBoxWithBackgroundImage(imageUrl, linkUrl);
+
+        // Append the box to the comment header
+        modalCommentHeaderLogo.appendChild(newBoxWithLink);
+
+        const modalBody = document.querySelector('.modal-comment-section');
+        const commentSection = document.getElementById('modalCommentSection');
+        const commentShow = document.querySelector('.modal-comment-show');
+
+        // Toggle comment section visibility
+        document.querySelector('.modal-comment-show').addEventListener('click', function () {
+            document.getElementById('modalCommentSection').classList.add('active');
+            document.querySelector('.shadow-host').classList.add('modal-faded');
+        });
+
+        document.getElementById('portfolioModal').addEventListener('hidden.bs.modal', function () {
+            document.getElementById('modalCommentSection').classList.remove('active');
+            document.querySelector('.shadow-host').classList.remove('modal-faded');
+        });
+
+        document.querySelector('.modal-comment-hide').addEventListener('click', function () {
+            document.getElementById('modalCommentSection').classList.remove('active');
+            document.querySelector('.shadow-host').classList.remove('modal-faded');
+        });
+
+        modalBody.addEventListener('scroll', function () {
+            // modal-body의 스크롤된 수직 픽셀 값을 가져옵니다.
+            const scrollTop = modalBody.scrollTop;
+            commentSection.style.top = scrollTop + 'px';
+            commentShow.style.top = scrollTop + 'px';
+        });
+
+        function addComment(comment) {
+            const commentElement = `<div class="modal-comment">
+                        <div class="modal-comment-user-logo"></div>
+                        <div class="modal-comment-main">
+                            <div class="modal-comment-main-userid"><strong>cat1</strong></div>
+                            <div class="modal-comment-main-content">${comment}</div>
+                        </div>
+                    </div>`;
+
+            document.getElementById('modalCommentMain').insertAdjacentHTML('beforeend', commentElement);
+        }
+
+        document.getElementById('modalCommentInput').addEventListener('keydown', function (e) {
+            if (e.keyCode === 13) { // Enter key
+                e.preventDefault();
+                const comment = this.value.trim(); // 입력된 코멘트 가져오기 (앞뒤 공백 제거)
+                if (comment) {
+                    addComment(comment);
+                    this.value = ''; // 입력 필드 비우기
+                }
+            }
+        });
+
+        addComment('네비게이션 애니메니션을 활용한 웹 포트폴리오 입니다.');
+        addComment('댓글');
+        addComment('댓글');
+
+        document.querySelector('.modal-like-logo svg').addEventListener('click', function () {
+            this.querySelector('path').classList.toggle('filled');
+        });
+    </script>
+</body>
+
+</html>
