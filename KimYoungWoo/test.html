@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>무한 스크롤</title>
+    <style>
+        /* 스타일을 추가하세요 */
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- 초기 요소 -->
+        <div class="container1">
+            <div class="box">
+                <div>
+                    <img src="1.jpg" alt="Image 1">
+                </div>
+                <div class="iframe-container">
+                    <iframe src="https://rogierdeboeve.com/"></iframe>
+                </div>
+            </div>
+            <div class="box2">
+                <p>얼굴의 아름다움을 3D로 표현</p>
+                <ul class="horizontal-list list-style-image">
+                    <li>Css</li>
+                    <li>JavaScript</li>
+                    <li>Vue</li>
+                    <li>React</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('container');
+            let containerCounter = 1;
+
+            // 새로운 요소를 생성하는 함수
+            function createBox() {
+                containerCounter++;
+                const newContainer = document.createElement('div');
+                newContainer.classList.add(`container${containerCounter}`);
+
+                const box = document.createElement('div');
+                box.classList.add('box');
+
+                const imgDiv = document.createElement('div');
+                const img = document.createElement('img');
+                img.src = '1.jpg';
+                img.alt = 'Image 1';
+                imgDiv.appendChild(img);
+
+                const iframeContainer = document.createElement('div');
+                iframeContainer.classList.add('iframe-container');
+                const iframe = document.createElement('iframe');
+                iframe.src = 'https://rogierdeboeve.com/';
+                iframeContainer.appendChild(iframe);
+
+                box.appendChild(imgDiv);
+                box.appendChild(iframeContainer);
+
+                const box2 = document.createElement('div');
+                box2.classList.add('box2');
+                const paragraph = document.createElement('p');
+                paragraph.textContent = '얼굴의 아름다움을 3D로 표현';
+                const ul = document.createElement('ul');
+                ul.classList.add('horizontal-list', 'list-style-image');
+                const technologies = ['Css', 'JavaScript', 'Vue', 'React'];
+                technologies.forEach(tech => {
+                    const li = document.createElement('li');
+                    li.textContent = tech;
+                    ul.appendChild(li);
+                });
+
+                box2.appendChild(paragraph);
+                box2.appendChild(ul);
+
+                newContainer.appendChild(box);
+                newContainer.appendChild(box2);
+
+                return newContainer;
+            }
+
+            // IntersectionObserver 콜백 함수
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const newBox = createBox();
+                        container.appendChild(newBox);
+                        observer.unobserve(entry.target); // 기존 요소는 더 이상 관찰하지 않음
+                        observer.observe(newBox); // 새로운 요소를 관찰 대상으로 추가
+                    }
+                });
+            };
+
+            // IntersectionObserver 설정
+            const observerOptions = {
+                threshold: 1.0
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            // 초기 요소를 관찰 대상으로 설정
+            const initialBox = container.querySelector('.container1');
+            observer.observe(initialBox);
+        });
+    </script>
+</body>
+</html>
