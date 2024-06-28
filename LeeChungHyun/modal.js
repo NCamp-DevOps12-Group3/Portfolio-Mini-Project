@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    let currentPortfolioIndex = null;
+
     // 그리드 컨테이너 클릭시 loadShadowContent 호출
     const portfolioContainer = document.getElementById('portfolioContainer');
     if (portfolioContainer) {
@@ -9,11 +11,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 var portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
                 var portfolio = portfolioData[index];
                 if (portfolio) {
+                    currentPortfolioIndex = index;
                     loadShadowContent(portfolio, index);
                 }
             }
         });
     }
+
 
     // 포트폴리오 데이터를 인자로 받아서 shadow dom 객체를 dom tree에 추가하는 메소드
     function loadShadowContent(portfolio, index) {
@@ -166,10 +170,60 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('modalOptions').classList.remove('modal-options-active');
     });
 
-    // 삭제 클릭시 정말로 삭제하는지 물어봄
+    // 삭제 클릭시 삭제 모달 열림
     document.getElementById('modalOptionsItemDelete').addEventListener('click', function (event) {
-        window.alert("정말로 삭제하시겠습니까?");
+        document.getElementById('modalDelete').classList.add('modal-delete-active');
     });
+
+    // 포트폴리오 로드하는 로직
+    function loadPortfolios() {
+        var portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
+        var portfolioContainer = document.getElementById('portfolioContainer');
+        if (portfolioContainer) {
+            portfolioContainer.innerHTML = ''; // 기존 항목을 비움
+
+            portfolioData.forEach(function (portfolio, index) {
+                var portfolioItem = `
+            <div class="col-md-3 portfolio-item">
+                <img src="${portfolio.thumbnailImage}" alt="Portfolio ${index + 1}" class="portfolio-img" data-index="${index}">
+            </div>
+        `;
+                portfolioContainer.insertAdjacentHTML('beforeend', portfolioItem);
+            });
+        }
+    }
+
+   // 예 클릭시 실제로 삭제되고 모달 전부 꺼짐
+   document.getElementById('modalDeleteBtnYes').addEventListener('click', function (event) {
+    if (currentPortfolioIndex !== null) {
+        var portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
+        if (portfolioData.length > currentPortfolioIndex) {
+            portfolioData.splice(currentPortfolioIndex, 1);
+            localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
+            alert('포트폴리오가 삭제되었습니다.');
+
+            // 모달 전부 꺼짐
+            document.getElementById('modalPortfolioOverlay').classList.remove('modal-portfolio-overlay-show');
+            document.getElementById('modalCommentSection').classList.remove('modal-comment-section-active');
+            document.getElementById('modalPortfolioShadowHost').classList.remove('modal-portfolio-shadow-host-faded');
+            document.getElementById('modalOptions').classList.remove('modal-options-active');
+            document.getElementById('modalDelete').classList.remove('modal-delete-active');
+
+            // 포트폴리오 목록 업데이트
+            loadPortfolios();
+
+            currentPortfolioIndex = null;
+        }
+    }
+
+    });
+
+    // 아니오 클릭시 옵션창까지 꺼짐
+    document.getElementById('modalDeleteBtnNo').addEventListener('click', function (event) {
+        document.getElementById('modalOptions').classList.remove('modal-options-active');
+        document.getElementById('modalDelete').classList.remove('modal-delete-active');
+    });
+
 
     // 신고 클릭시 신고하는 이유 물어봄
     document.getElementById('modalOptionsItemReport').addEventListener('click', function (event) {
@@ -178,7 +232,119 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 수정 클릭시 수정하는 모달
     document.getElementById('modalOptionsItemModify').addEventListener('click', function (event) {
-        document.getElementById('modalModify').classList.add('modal-modify-active');
+        document.getElementById('modalOptions').classList.remove('modal-options-active');
     });
 
+    // 수정 클릭시 수정하는 모달 열기
+    document.getElementById('modalOptionsItemModify').addEventListener('click', function (event) {
+        var portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
+        var portfolio = portfolioData[currentPortfolioIndex];
+        if (portfolio) {
+            // 수정 폼에 기존 포트폴리오 데이터 채우기
+            document.getElementById('portfolioDescription').value = portfolio.portfolioDescription;
+            document.getElementById('portfolioTags').value = portfolio.portfolioTags;
+            var thumbnailPreview = document.getElementById('thumbnailPreview');
+            thumbnailPreview.src = portfolio.thumbnailImage;
+            thumbnailPreview.style.display = 'block';
+
+            // 수정 모달 열기
+            var modifyModal = new bootstrap.Modal(document.getElementById('modifyModal'));
+            modifyModal.show();
+        }
+    });
+
+    // 썸네일 이미지 변경 시 미리보기 업데이트
+    document.getElementById('thumbnailImage').addEventListener('change', function () {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var thumbnailPreview = document.getElementById('thumbnailPreview');
+            thumbnailPreview.src = e.target.result;
+            thumbnailPreview.style.display = 'block';
+        };
+        reader.readAsDataURL(this.files[0]);
+    });
+
+    // 수정 폼 제출 시 로컬 스토리지 업데이트
+    document.getElementById('modifyForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
+        var portfolio = portfolioData[currentPortfolioIndex];
+        if (portfolio) {
+            portfolio.portfolioDescription = document.getElementById('portfolioDescription').value;
+            portfolio.portfolioTags = document.getElementById('portfolioTags').value;
+
+            var files = document.getElementById('codeFiles').files;
+            var fileReaders = [];
+
+            var htmlFiles = [];
+            var cssFiles = [];
+            var jsFiles = [];
+
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                if (file.name.endsWith('.html')) {
+                    htmlFiles.push(file);
+                } else if (file.name.endsWith('.css')) {
+                    cssFiles.push(file);
+                } else if (file.name.endsWith('.js')) {
+                    jsFiles.push(file);
+                }
+            }
+
+            var orderedFiles = htmlFiles.concat(cssFiles, jsFiles);
+
+            orderedFiles.forEach(function (file) {
+                var reader = new FileReader();
+
+                var promise = new Promise(function (resolve, reject) {
+                    reader.onload = function (e) {
+                        if (file.name.endsWith('.html')) {
+                            portfolio.htmlContent = e.target.result;
+                        } else if (file.name.endsWith('.css')) {
+                            portfolio.cssContent = e.target.result;
+                        } else if (file.name.endsWith('.js')) {
+                            portfolio.jsContent = e.target.result;
+                        }
+                        resolve();
+                    };
+
+                    reader.onerror = function (e) {
+                        reject(e);
+                    };
+                });
+
+                reader.readAsText(file);
+                fileReaders.push(promise);
+            });
+
+            Promise.all(fileReaders).then(function () {
+                if (document.getElementById('thumbnailImage').files[0]) {
+                    var thumbnailReader = new FileReader();
+                    thumbnailReader.onload = function (e) {
+                        portfolio.thumbnailImage = e.target.result;
+                        saveUpdatedPortfolioData(portfolioData);
+                    };
+                    thumbnailReader.readAsDataURL(document.getElementById('thumbnailImage').files[0]);
+                } else {
+                    saveUpdatedPortfolioData(portfolioData);
+                }
+            }).catch(function (error) {
+                console.error('파일 읽기 중 오류 발생:', error);
+            });
+        }
+    });
+
+    function saveUpdatedPortfolioData(portfolioData) {
+        localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
+        alert('포트폴리오가 수정되었습니다.');
+        
+        $('#modifyModal').modal('hide');
+        document.querySelector('.modal-backdrop').remove();
+        document.getElementById('modalPortfolioOverlay').classList.remove('modal-portfolio-overlay-show');
+            document.getElementById('modalCommentSection').classList.remove('modal-comment-section-active');
+            document.getElementById('modalPortfolioShadowHost').classList.remove('modal-portfolio-shadow-host-faded');
+            document.getElementById('modalOptions').classList.remove('modal-options-active');
+        loadPortfolios();
+    }
 });
