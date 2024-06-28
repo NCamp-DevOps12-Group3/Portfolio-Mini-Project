@@ -196,7 +196,7 @@
             </div>
             <div class="base-sector-company">
                 <div class="base-sector-company-title">
-                    <h4 class="mb-2">기업 소개</h4>
+                    <h4 class="mb-2">기업 채용</h4>
                 </div>
                 <div class="base-sector-company-content row row row-cols-md-4 row-cols-1">
                     <div class="col">
@@ -282,6 +282,16 @@
                     else $("#baseContentSector").load("mini_project.html");
                 })
             })
+
+            $("#baseViewAllBtn").on("click", function(){
+                window.location.href = "main.html";
+            });
+            $("#basePersonalBtn").on("click", function(){
+                window.location.href = "mini_project.html";
+            });
+            $("#baseCompanyBtn").on("click", function(){
+                window.location.href = "mini_project.html";
+            });
             
         })
         
