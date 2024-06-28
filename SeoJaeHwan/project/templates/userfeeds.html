@@ -6,24 +6,20 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up Page</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/bootstrap.bundle.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
         }
         .top-section {
-            margin-left: 270px;
             height: 30%;
             background: white;
+            margin-bottom: 10%;
         }
         .bottom-section {
-            margin-top: 30%;
             height: 70%;
-        }
-        #profile{
-
         }
         .toggle-btn {
             display: block;
@@ -31,11 +27,6 @@
             top: 10px;
             right: 10px;
             z-index: 1;
-        }
-        @media(max-width: 1200px) {
-            .top-section {
-                display: none !important;
-            }
         }
         #modalProfile{
             -ms-overflow-style: none;
@@ -74,9 +65,14 @@
             color: white;
             height: 100%;
         }
-        /*#modal-short{*/
-        /*    border: ;*/
-        /*}*/
+        @media (max-width: 1200px) {
+            .top-section{
+                display: none !important;
+            }
+            #profileInfoBtn{
+                display: block !important;
+            }
+        }
         .modal-content {
             border: 5px solid #4CAF50; /* 기본 보더 색상 */
             border-radius: 15px; /* 모서리를 둥글게 */
@@ -98,6 +94,9 @@
             height: 2em;
             width: 4em;
             cursor: pointer;
+        }
+        #profileInfoBtn{
+            display: none;
         }
 
         .modal-fullscreen .modal-content {
@@ -131,105 +130,136 @@
         .inactive {
 
         }
+        #profileImgBtn{
+            border:none;
+        }
+        #profileImg{
+            border-radius: 50%;
+        }
+        #checkImg{
+            width: 1em;
+            height: 1em;
+        }
+        .top-section > *{
+            margin-left: 10px;
+        }
+        #toTop {
+            display: none; /* 기본적으로 숨겨진 상태 */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
-<div class="container h-100">
+<button type="button" id="toTop">top</button>
+<div class="container-fluid d-flex">
+    <div id="sidebar"></div>
+    <div class="h-100 d-inline-block">
+        <button class="btn btn-primary toggle-btn" data-bs-toggle="modal" data-bs-target="#modalProfile" id="profileInfoBtn">프로필 정보</button>
 
-    <button class="btn btn-primary toggle-btn" data-bs-toggle="modal" data-bs-target="#modalProfile" id="profileInfoBtn">프로필 정보</button>
+        <div class="top-section d-flex align-items-center justify-content-around">
+            <button class="" type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
+                <img src="../static/img/cat1.jpg" alt="" class="mouse-Cursor w-100 h-100" id="profileImg">
+            </button>
+            <div class="mouse-Cursor" id="profileName">
+                <p class="d-inline-block" >name</p>
+                <img src="../static/img/check.jpg" alt="" class="d-inline-block" id="checkImg">
+            </div>
+            <div>
+           <pre class="overflow-x-scroll sil">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
+            </div>
+            <div class="list-group text-center">
+                <a href="#" class="list-group-item">follow</a>
+                <a href="#" class="list-group-item">message</a>
+                <button type="button" class="list-group-item inactive" id="portfolioDelete">delete</button>
+            </div>
 
-     <div class="top-section  fixed-top d-flex align-items-center justify-content-around">
-         <div class="d-inline-block h-75">
-             <button class="h-100 d-inline-block border-0" type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
-                 <img src="img/cat1.jpg" alt="" class="h-100 mouse-Cursor" id="profileImg">
-             </button>
-             <h3 class="d-inline-block mouse-Cursor" id="profileName">name</h3>
-         </div>
-
-
-         <div class="w-50">
-            <pre class="overflow-x-scroll sil">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
-         </div>
-         <div class="list-group ">
-             <!-- 리스트 항목으로 만드는 클래스 -->
-             <a href="#" class="list-group-item">follow</a>
-             <a href="#" class="list-group-item">message</a>
-             <button type="button" class="list-group-item inactive" id="portfolioDelete">delete</button>
-         </div>
-
-     </div>
-
-
-    <div class="modal fade" data-bs-backdrop="static" id="modal-short">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content modal-content-short">
-                <div class="modal-header">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        <div class="bottom-section">
+            <form action="#" method="get" id="formFeeds">
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3  g-4" id="feed">
                 </div>
-                <div class="modal-body d-flex justify-content-between" id="modal-body-div">
-                    <div class="d-inline-block align-content-center">
-                        <button type="button" class="btn btn modal-portfolio-btn btn-primary" id="modal-portfolio-btn-left">
-                            <
-                        </button>
+            </form>
+
+        </div>
+
+        <div class="modal fade" data-bs-backdrop="static" id="modal-short">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content modal-content-short">
+                    <div class="modal-header">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
-                    <iframe class="modal-content mx-2"></iframe>
-                    <div class="d-inline-block align-content-center">
-                        <button type="button" class="btn btn modal-portfolio-btn btn-primary" id="modal-portfolio-btn-right">
-                            >
-                        </button>
+                    <div class="modal-body d-flex justify-content-between" id="modal-body-div">
+                        <div class="d-inline-block align-content-center">
+                            <button type="button" class="btn btn modal-portfolio-btn btn-primary" id="modal-portfolio-btn-left">
+                                <
+                            </button>
+                        </div>
+                        <iframe class="modal-content mx-2"></iframe>
+                        <div class="d-inline-block align-content-center">
+                            <button type="button" class="btn btn modal-portfolio-btn btn-primary" id="modal-portfolio-btn-right">
+                                >
+                            </button>
+                        </div>
+
                     </div>
 
                 </div>
-
             </div>
         </div>
-    </div>
 
-    <div class="modal fade" id="modalProfile">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-head">
-                    <h3 class="text-lg-center mt-3">정보</h3>
-                </div>
-                <div class="modal-body h-75">
-                    <img src="img/cat1.jpg" alt="" class="w-100" id="profile-vertical">
-                    <div>
+        <div class="modal fade" id="modalProfile">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-head">
+                        <h3 class="text-lg-center mt-3">정보</h3>
+                    </div>
+                    <div class="modal-body h-75">
+                        <img src="../static/img/cat1.jpg" alt="" class="w-100" id="profile-vertical">
+                        <div>
                         <pre class="overflow-x-scroll sil" id="scrollContainer">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
-                    </div>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">follow</a>
-                        <a href="#" class="list-group-item">message</a>
-                    </div>
+                        </div>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">follow</a>
+                            <a href="#" class="list-group-item">message</a>
+                        </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-                        닫기
-                    </button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            닫기
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bottom-section">
-        <form action="#" method="get" id="formFeeds">
-            <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3  g-4" id="feed">
-            </div>
-        </form>
-
-    </div>
-
-
 </div>
+
 <script>
     $(()=>{
+        fetch('sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar').innerHTML = data;
+            });
         function toggleButtonState() {
             // 버튼 요소를 id로 선택
             let button = document.getElementById('portfolioDelete');
@@ -286,7 +316,7 @@
         <div class="card">
             <input type="checkbox" class="delete-dot">
             <a href="#">
-            <img src="img/cat${((page - 1) * 9 + i + 1)%9}.jpg" class="card-img-top" alt=".">
+            <img src="../static/img/cat${((page - 1) * 9 + i + 1)%9}.jpg" class="card-img-top" alt=".">
             </a>
             <div class="card-body">
             <div class="card-title">
@@ -300,11 +330,27 @@
         }
         load();
         $(window).scroll(function() {
+
             if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
                 page++;
                 load();
             }
+            scrollFunction();
         });
+
+        function scrollFunction() {
+            if (document.documentElement.scrollTop > 3) {
+                document.getElementById("toTop").style.display = "block";
+            } else {
+                document.getElementById("toTop").style.display = "none";
+            }
+        }
+
+        // 맨 위로 스크롤하는 함수
+        $('#toTop').on('click',function scrollToTop() {
+                document.documentElement.scrollTop = 0;
+            }
+        )
         const scrollContainer = document.getElementById('scrollContainer');
 
         let isDown = false;
@@ -352,11 +398,10 @@
         });
         $('#modal-portfolio-btn-left').on('click',function (e) {
             $('#modal-short .modal-body .modal-content').attr("src", 'example/example1.html');
-        })
+        });
         $('#modal-portfolio-btn-right').on('click',function (e) {
             $('#modal-short .modal-body .modal-content').attr("src", 'example/example2.html');
-        })
-
+        });
     });
 </script>
 </body>
