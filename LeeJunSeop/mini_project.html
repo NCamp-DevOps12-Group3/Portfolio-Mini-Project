@@ -5,17 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/mini_project.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div style="display: flex; height: 100%;">
-        <!-- <div style="width: 20%; border-right: 1px solid black;">
+        <div style="width: 20%; border-right: 1px solid black;">
             <div style="display: flex; flex-direction: column; justify-content: flex-start;">
                 <div>홈</div>
                 <div>홈</div>
@@ -23,23 +40,20 @@
                 <div>홈</div>
                 <div>홈</div>
             </div>
-        </div> -->
+        </div>
         <div style="width: 80%; display: flex; justify-content: center; align-items: center;">
             <div class="container">
                 <!-- 1번박스 -->
-                <div class="container2">
+                <div class="container1">
                     <div class="box">
-                        <a>
-                            <div>
-                                <img src="img/11.png" alt="Image 1">
-                            </div>
-
-                        </a>
-                    </div>
-                    <div class="box2">
+                        <div>
+                            <img src="img/1.jpg" alt="Image 1">
+                        </div>
                         <div class="iframe-container">
                             <iframe src="https://rogierdeboeve.com/"></iframe>
                         </div>
+                    </div>
+                    <div class="box2">
                         <p>얼굴의 아름다움을 3D로 표현</p>
                         <ul class="horizontal-list list-style-image">
                             <li>Css</li>
@@ -47,23 +61,26 @@
                             <li>Vue</li>
                             <li>React</li>
                         </ul>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            자세히 보기
+                        </button>
                     </div>
                 </div>
 
                 <!-- 2번박스 -->
                 <div class="container2">
                     <div class="box">
-                        <a>
-                            <div>
-                                <img src="img/11.png" alt="Image 1">
-                            </div>
-                            <div class="iframe-container">
-                                <iframe src="https://www.redis.agency/"></iframe>
-                            </div>
-                        </a>
+                        <div>
+                            <img src="img/2.jpg" alt="Image 1">
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="https://des.obys.agency/"></iframe>
+                        </div>
                     </div>
                     <div class="box2">
-                        <p>얼굴의 아름다움을 3D로 표현</p>
+                        <p>웹 디자인 강좌 홈페이지 </p>
                         <ul class="horizontal-list list-style-image">
                             <li>Css</li>
                             <li>JavaScript</li>
@@ -74,19 +91,17 @@
                 </div>
 
                 <!-- 3번박스 -->
-                <div class="container2">
+                <div class="container3">
                     <div class="box">
-                        <a>
-                            <div>
-                                <img src="img/11.png" alt="Image 1">
-                            </div>
-                            <div class="iframe-container">
-                                <iframe src="https://thevariable.com/"></iframe>
-                            </div>
-                        </a>
+                        <div>
+                            <img src="img/3.jpg" alt="Image 1">
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="https://cedroweb3.ai/"></iframe>
+                        </div>
                     </div>
                     <div class="box2">
-                        <p>얼굴의 아름다움을 3D로 표현</p>
+                        <p>스타트업 홈페이지 제작</p>
                         <ul class="horizontal-list list-style-image">
                             <li>Css</li>
                             <li>JavaScript</li>
@@ -97,40 +112,17 @@
                 </div>
 
                 <!-- 4번박스 -->
-                <div class="container2">
+                <div class="container4">
                     <div class="box">
-                        <a>
-                            <div>
-                                <img src="img/11.png" alt="Image 1">
-                            </div>
-                            <div class="iframe-container">
-                                <iframe src="https://des.obys.agency/"></iframe>
-                            </div>
-                        </a>
+                        <div>
+                            <img src="img/4.jpg" alt="Image 1">
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="https://www.umault.com/"></iframe>
+                        </div>
                     </div>
                     <div class="box2">
-                        <p>얼굴의 아름다움을 3D로 표현</p>
-                        <ul class="horizontal-list list-style-image">
-                            <li>Css</li>
-                            <li>JavaScript</li>
-                            <li>Vue</li>
-                            <li>React</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="container2">
-                    <div class="box">
-                        <a>
-                            <div>
-                                <img src="img/11.png" alt="Image 1">
-                            </div>
-                            <div class="iframe-container">
-                                <iframe src="https://rogierdeboeve.com/"></iframe>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="box2">
-                        <p>얼굴의 아름다움을 3D로 표현</p>
+                        <p>광고제작회사 홈페이지</p>
                         <ul class="horizontal-list list-style-image">
                             <li>Css</li>
                             <li>JavaScript</li>
@@ -140,20 +132,18 @@
                     </div>
                 </div>
 
-                <!-- 2번박스 -->
-                <div class="container2">
+                <!-- 5번박스 -->
+                <div class="container5">
                     <div class="box">
-                        <a>
-                            <div>
-                                <img src="img/11.png" alt="Image 1">
-                            </div>
-                            <div class="iframe-container">
-                                <iframe src="https://www.redis.agency/"></iframe>
-                            </div>
-                        </a>
+                        <div>
+                            <img src="img/5.jpg" alt="Image 1">
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="https://www.hellokuya.co/"></iframe>
+                        </div>
                     </div>
                     <div class="box2">
-                        <p>얼굴의 아름다움을 3D로 표현</p>
+                        <p>광고 홈페이지 제작</p>
                         <ul class="horizontal-list list-style-image">
                             <li>Css</li>
                             <li>JavaScript</li>
@@ -163,20 +153,18 @@
                     </div>
                 </div>
 
-                <!-- 3번박스 -->
-                <div class="container2">
+                <!-- 6번박스 -->
+                <div class="container6">
                     <div class="box">
-                        <a>
-                            <div>
-                                <img src="img/11.png" alt="Image 1">
-                            </div>
-                            <div class="iframe-container">
-                                <iframe src="https://thevariable.com/"></iframe>
-                            </div>
-                        </a>
+                        <div>
+                            <img src="img/6.jpg" alt="Image 1">
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="https://dolceactivation.dolcegabbana.com/"></iframe>
+                        </div>
                     </div>
                     <div class="box2">
-                        <p>얼굴의 아름다움을 3D로 표현</p>
+                        <p>DOLCE & GABBANA 홈페이지 </p>
                         <ul class="horizontal-list list-style-image">
                             <li>Css</li>
                             <li>JavaScript</li>
@@ -186,20 +174,18 @@
                     </div>
                 </div>
 
-                <!-- 4번박스 -->
-                <div class="container2">
+                <!-- 7번박스 -->
+                <div class="container7">
                     <div class="box">
-                        <a>
-                            <div>
-                                <img src="img/11.png" alt="Image 1">
-                            </div>
-                            <div class="iframe-container">
-                                <iframe src="https://des.obys.agency/"></iframe>
-                            </div>
-                        </a>
+                        <div>
+                            <img src="img/7.jpg" alt="Image 1">
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="https://hailstonelabs.com/"></iframe>
+                        </div>
                     </div>
                     <div class="box2">
-                        <p>얼굴의 아름다움을 3D로 표현</p>
+                        <p>웹 디자인 수업 </p>
                         <ul class="horizontal-list list-style-image">
                             <li>Css</li>
                             <li>JavaScript</li>
@@ -209,15 +195,209 @@
                     </div>
                 </div>
 
+                <!-- 8번박스 -->
+                <div class="container8">
+                    <div class="box">
+                        <div>
+                            <img src="img/8.jpg" alt="Image 1">
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="https://www.kreyda.art/"></iframe>
+                        </div>
+                    </div>
+                    <div class="box2">
+                        <p>회사 및 스타트업 웹 디자인 수정</p>
+                        <ul class="horizontal-list list-style-image">
+                            <li>Css</li>
+                            <li>JavaScript</li>
+                            <li>Vue</li>
+                            <li>React</li>
+                        </ul>
+                    </div>
+                </div>
 
+                <!-- 9번박스 -->
+                <div class="container9">
+                    <div class="box">
+                        <div>
+                            <img src="img/9.jpg" alt="Image 1">
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="https://awsmd.com/"></iframe>
+                        </div>
+                    </div>
+                    <div class="box2">
+                        <p>UI/UX 디자인 제작 업체</p>
+                        <ul class="horizontal-list list-style-image">
+                            <li>Css</li>
+                            <li>JavaScript</li>
+                            <li>Vue</li>
+                            <li>React</li>
+                        </ul>
+                    </div>
+                </div>
 
+                <!-- 10번박스 -->
+                <div class="container10">
+                    <div class="box">
+                        <div>
+                            <img src="img/10.jpg" alt="Image 1">
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="https://youniqlabs.io/"></iframe>
+                        </div>
+                    </div>
+                    <div class="box2">
+                        <p>웹 디자인 제작</p>
+                        <ul class="horizontal-list list-style-image">
+                            <li>Css</li>
+                            <li>JavaScript</li>
+                            <li>Vue</li>
+                            <li>React</li>
+                        </ul>
+                    </div>
+                </div>
 
+                <!-- 11번박스 -->
+                <div class="container11">
+                    <div class="box">
+                        <div>
+                            <img src="img/11.jpg" alt="Image 1">
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="https://prand-n.ava-case.com/"></iframe>
+                        </div>
+                    </div>
+                    <div class="box2">
+                        <p>애니메이션 제작 홈페이지</p>
+                        <ul class="horizontal-list list-style-image">
+                            <li>Css</li>
+                            <li>JavaScript</li>
+                            <li>Vue</li>
+                            <li>React</li>
+                        </ul>
+                    </div>
+                </div>
 
-
-
+                <!-- 12번박스 -->
+                <div class="container12">
+                    <div class="box">
+                        <div>
+                            <img src="img/12.jpg" alt="Image 1">
+                        </div>
+                        <div class="iframe-container">
+                            <iframe src="https://www.danielroth.com/"></iframe>
+                        </div>
+                    </div>
+                    <div class="box2">
+                        <p>시계 제작 디자인 업체</p>
+                        <ul class="horizontal-list list-style-image">
+                            <li>Css</li>
+                            <li>JavaScript</li>
+                            <li>Vue</li>
+                            <li>React</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            let currentIndex = 0; // 처음 컨테이너 인덱스 시작
+
+            // URL 소스 배열
+            const urlSources = [
+                'https://rogierdeboeve.com/', 'https://des.obys.agency/', 'https://cedroweb3.ai/',
+                'https://www.umault.com/', 'https://www.hellokuya.co/', 'https://dolceactivation.dolcegabbana.com/',
+                'https://hailstonelabs.com/', 'https://www.kreyda.art/', 'https://awsmd.com/',
+                'https://youniqlabs.io/', 'https://awsmd.com', 'https://awsmd.com/'
+            ];
+
+            // URL 소스 배열
+            const mentSources = [
+                '얼굴의 아름다움을 3D로 표현', '웹 디자인 강좌 홈페이지', '스타트업 홈페이지 제작',
+                '광고제작회사 홈페이지', '광고 홈페이지 제작', 'DOLCE & GABBANA 홈페이지',
+                '웹 디자인 수업', '회사 및 스타트업 웹 디자인 수정', 'UI/UX 디자인 제작 업체',
+                '웹 디자인 제작', '애니메이션 제작 홈페이지', '시계 제작 디자인 업체'
+            ];
+
+            // 새로운 요소를 생성하는 함수
+            function createBox() {
+                if (currentIndex >= urlSources.length) {
+                    currentIndex = 0; // 인덱스가 배열 길이를 넘어가면 다시 0으로
+                }
+
+                const newContainer = document.createElement('div');
+                newContainer.classList.add(`container${currentIndex + 1}`); // 클래스 이름을 인덱스 기반으로 설정
+
+                const box = document.createElement('div');
+                box.classList.add('box');
+
+                const imgDiv = document.createElement('div');
+                const img = document.createElement('img');
+                img.src = `${currentIndex + 1}.jpg`; // 이미지 소스를 인덱스 기반으로 설정
+                img.alt = `Image ${currentIndex + 1}`;
+                imgDiv.appendChild(img);
+
+                const iframeContainer = document.createElement('div');
+                iframeContainer.classList.add('iframe-container');
+                const iframe = document.createElement('iframe');
+                iframe.src = urlSources[currentIndex]; // URL 소스를 배열에서 가져옴
+                iframeContainer.appendChild(iframe);
+
+                box.appendChild(imgDiv);
+                box.appendChild(iframeContainer);
+
+                const box2 = document.createElement('div');
+                box2.classList.add('box2');
+                const paragraph = document.createElement('p');
+                paragraph.textContent = mentSources[currentIndex];
+                const ul = document.createElement('ul');
+                ul.classList.add('horizontal-list', 'list-style-image');
+                const technologies = ['Css', 'JavaScript', 'Vue', 'React'];
+                technologies.forEach(tech => {
+                    const li = document.createElement('li');
+                    li.textContent = tech;
+                    ul.appendChild(li);
+                });
+
+                box2.appendChild(paragraph);
+                box2.appendChild(ul);
+
+                newContainer.appendChild(box);
+                newContainer.appendChild(box2);
+
+                currentIndex++; // 다음 인덱스로 이동
+
+                return newContainer;
+            }
+
+            // IntersectionObserver 콜백 함수
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const newBox = createBox();
+                        container.appendChild(newBox);
+                        observer.unobserve(entry.target); // 기존 요소는 더 이상 관찰하지 않음
+                        observer.observe(newBox); // 새로운 요소를 관찰 대상으로 추가
+                    }
+                });
+            };
+
+            // IntersectionObserver 설정
+            const observerOptions = {
+                threshold: 1.0
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            // 초기 요소를 관찰 대상으로 설정
+            const initialBoxes = container.querySelectorAll('.container1, .container2');
+            initialBoxes.forEach(box => observer.observe(box));
+        });
+    </script>
 </body>
 
 </html>
