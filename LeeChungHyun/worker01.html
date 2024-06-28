@@ -200,7 +200,8 @@
     <!-- 옵션 모달 -->
     <div class="modal-options" id="modalOptions">
         <div class="modal-options-bond" id="modalOptionsBond">
-            <div class="modal-options-item" id="modalOptionsItemModify">게시글 수정</div>
+            <div class="modal-options-item" id="modalOptionsItemModify" data-bs-toggle="modal"
+                data-bs-target="#modifyModal">게시글 수정</div>
             <div class="modal-options-item" id="modalOptionsItemDelete">게시글 삭제</div>
             <div class="modal-options-item" id="modalOptionsItemReport">신고</div>
             <div class="modal-options-item" id="modalOptionsItemCancle">취소</div>
@@ -208,14 +209,51 @@
     </div>
 
     <!--수정 모달-->
-    <div class="modal-modify" id="modalModify">
-        <div class="modal-modify-bond" id="modalModifyBond">
-            <div style="font-size: 14px;"> <strong>소개글 수정</strong></div>
-            <div class="modify-intro"><input type="text" id="intro-input" placeholder="소개글을 입력하세요"></div>
+    <div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modifyModalLabel">포트폴리오 수정</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="modifyForm">
+                        <div class="modify-section">
+                            <label for="codeFiles">수정하신 HTML, CSS, JS 파일만 업로드 가능합니다.</label>
+                            <input type="file" class="form-control" id="codeFiles" accept=".html,.css,.js" multiple
+                                required>
+                        </div>
+                        <div class="modify-section">
+                            <label for="thumbnailImage">수정하신 썸네일 이미지를 올려주세요.</label>
+                            <input type="file" class="form-control" id="thumbnailImage" accept="image/*" required>
+                            <img id="thumbnailPreview" class="thumbnail-preview" src="#" alt="Thumbnail Preview">
+                        </div>
+                        <div class="modify-section">
+                            <label for="portfolioDescription">수정하신 포트폴리오 설명</label>
+                            <textarea class="form-control" id="portfolioDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="modify-section">
+                            <label for="portfolioTags">수정하신 태그</label>
+                            <input type="text" class="form-control" id="portfolioTags" placeholder="태그를 쉼표로 구분하여 입력하세요"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">수정</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- 삭제 모달-->
+    <div class="modal-delete" id="modalDelete">
+        <div class="modal-delete-bond" id="modalDeleteBond">
+            <div class="modal-delete-alert" id="modalDeleteAlert">정말로 삭제하시겠습니까?</div>
+            <div class="modal-deleteBtn-section" id="modalDeleteBtnSection">
+                <div class="modal-deleteBtn-yes" id="modalDeleteBtnYes">예</div>
+                <div class="modal-deleteBtn-no" id="modalDeleteBtnNo">아니오</div>
+            </div>
+        </div>
+    </div>
 
 
     <!--업로드 모달-->
