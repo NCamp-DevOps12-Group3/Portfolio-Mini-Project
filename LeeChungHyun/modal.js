@@ -21,34 +21,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 포트폴리오 데이터를 인자로 받아서 shadow dom 객체를 dom tree에 추가하는 메소드
     function loadShadowContent(portfolio, index) {
-
         const shadowHost = document.getElementById('modalPortfolioShadowHost');
         const shadowRoot = shadowHost.shadowRoot || shadowHost.attachShadow({ mode: 'open' });
-
+    
         // Clear existing content
         shadowRoot.innerHTML = '';
-
+    
         // Create a container for the external content
         const contentContainer = document.createElement('div');
         
-        // Construct the HTML content
+        // Construct the HTML content using template literals
         const htmlContent = `
             <style>${portfolio.cssContent}</style>
             ${portfolio.htmlContent}
             <script>
                 ${portfolio.jsContent}
-            </script>
+            <\/script>
         `;
         contentContainer.innerHTML = htmlContent;
-
+    
         // Append the external content to the shadow root
         shadowRoot.appendChild(contentContainer);
-
+    
         // 댓글창 열때마다 초기화
         const modalCommentMain = document.getElementById('modalCommentMain');
         if (modalCommentMain) {
             modalCommentMain.innerHTML = '';
-
+    
             // 제일 위 댓글은 소개글
             addComment(portfolio.portfolioDescription);
             // 포트폴리오에 저장되어 있는 코멘트를 등록
@@ -56,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 addComment(portfolio.comments[i]);
             }
         }
-
+    
         // 모달 오버레이 표시
         const modalPortfolioOverlay = document.getElementById('modalPortfolioOverlay');
         if (modalPortfolioOverlay) {
@@ -64,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // 전체화면의 스크롤은 모달이 떠있을 때는 사용 불가
             document.body.style.overflow = 'hidden';
         }
-
+    
         // 댓글 입력 이벤트 핸들러 설정
         const modalCommentInput = document.getElementById('modalCommentInput');
         if (modalCommentInput) {
