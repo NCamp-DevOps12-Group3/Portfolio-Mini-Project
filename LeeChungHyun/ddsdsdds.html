@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow DOM Script Example</title>
+</head>
+
+<body>
+    <div class="testing"></div>
+    <script>
+        const script = document.createElement('script');
+        script.textContent = `alert("hey");`;
+
+        const el = document.querySelector('.testing');
+        el.attachShadow({ mode: 'open' });
+        el.shadowRoot.appendChild(script);
+    </script>
+</body>
+
+</html>

@@ -29,19 +29,23 @@ document.addEventListener('DOMContentLoaded', function () {
     
         // Create a container for the external content
         const contentContainer = document.createElement('div');
-        
+            
         // Construct the HTML content using template literals
         const htmlContent = `
-            <style>${portfolio.cssContent}</style>
+            <meta charset="UTF-8">
+            <style>
+            html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}${portfolio.cssContent}</style>
             ${portfolio.htmlContent}
-            <script>
-                ${portfolio.jsContent}
-            <\/script>
         `;
-        contentContainer.innerHTML = htmlContent;
     
-        // Append the external content to the shadow root
+        contentContainer.innerHTML = htmlContent;
         shadowRoot.appendChild(contentContainer);
+    
+        // Execute JavaScript code
+        const scriptContent = `${portfolio.jsContent}`;
+        executeScriptInShadowDOM(scriptContent, shadowRoot);
     
         // 댓글창 열때마다 초기화
         const modalCommentMain = document.getElementById('modalCommentMain');
@@ -54,6 +58,17 @@ document.addEventListener('DOMContentLoaded', function () {
             for (let i = 0; i < portfolio.comments.length; i++) {
                 addComment(portfolio.comments[i]);
             }
+        }
+
+        function executeScriptInShadowDOM(scriptContent, shadowRoot) {
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.textContent = scriptContent;
+        
+            shadowRoot.appendChild(script);
+        
+            // 디버깅 메시지 추가
+            console.log('JavaScript 코드가 로드 및 실행되었습니다.');
         }
     
         // 모달 오버레이 표시
@@ -346,4 +361,5 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('modalOptions').classList.remove('modal-options-active');
         loadPortfolios();
     }
+    loadPortfolios();
 });

@@ -523,3 +523,8 @@ div.highlightTextIn a:before
 {
     transform: scale(1.2);
 } 
+
+/* Allow scrolling but hide scroll bars */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}

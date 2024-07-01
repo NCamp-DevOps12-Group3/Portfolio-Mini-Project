@@ -71,7 +71,7 @@ body {
   background: #fff;
 }
 .modal__btn:hover {
-  opacity: 0.6; 
+  opacity: 0.6;
 }
 
 .disabled {
@@ -91,6 +91,3 @@ body {
   font-size: 32px;
 }/*# sourceMappingURL=example3.css.map */
 
-html::-webkit-scrollbar, body::-webkit-scrollbar {
-  display: none;
-}
