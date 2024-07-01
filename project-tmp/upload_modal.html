@@ -1,0 +1,35 @@
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadModalLabel">포트폴리오 업로드</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="uploadForm">
+                    <div class="upload-section">
+                        <label for="codeFiles">HTML, CSS, JS 파일만 업로드 가능합니다.</label>
+                        <input type="file" class="form-control" id="codeFiles" accept=".html,.css,.js" multiple required>
+                    </div>
+                    <div class="upload-section">
+                        <label for="thumbnailImage">본인만의 썸네일 이미지를 올려주세요.</label>
+                        <input type="file" class="form-control" id="thumbnailImage" accept="image/*" required>
+                        <img id="thumbnailPreview" class="thumbnail-preview" src="#" alt="Thumbnail Preview">
+                    </div>
+                    <div class="upload-section">
+                        <label for="portfolioDescription">포트폴리오 설명</label>
+                        <textarea class="form-control" id="portfolioDescription" rows="3" required></textarea>
+                    </div>
+                    <div class="upload-section">
+                        <label for="portfolioTags">태그</label>
+                        <input type="text" class="form-control" id="portfolioTags" placeholder="태그를 쉼표로 구분하여 입력하세요" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">업로드</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/upload_modal.js"></script>  
