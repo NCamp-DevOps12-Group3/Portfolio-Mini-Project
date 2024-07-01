@@ -146,10 +146,6 @@
             top: 10px;
             right: 10px;
         }
-        .active {
-        }
-        .inactive {
-        }
         #profileImgBtn {
             border: none;
             background: white;
@@ -325,7 +321,11 @@
                 elements.forEach(function(element) {
                     (element.parentNode.parentNode).remove();
                 });
-                $('#formFeeds').submit();
+                imagesLoaded(grid, function () {
+                    msnry.reloadItems();
+                    msnry.layout();
+                });
+                // $('#formFeeds').submit();
             } else {
                 button.classList.remove('inactive');
                 button.classList.add('active');
