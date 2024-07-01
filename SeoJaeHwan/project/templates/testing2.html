@@ -12,26 +12,10 @@
     <script src="../static/js/masonry.pkgd.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <style>
-        *{
-            background-color: inherit;
-            color: inherit;
-            transition: background-color 0.3s, color 0.3s;
-        }
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             background-color: #fafafa;
             color: #262626;
-        }
-        .dark-mode {
-            background-color: #121212 !important;
-            color: white !important;
-            .card > *{
-                border: white 1px solid ;
-                border-collapse: collapse;
-            }
-            #sidebar{
-                border: 1px solid white;
-            }
         }
         .top-section {
             padding: 20px;
@@ -190,7 +174,6 @@
         .grid-item {
             margin-bottom: 20px;
         }
-
     </style>
 </head>
 <body>
@@ -291,10 +274,6 @@
 
 <script>
     $(function(){
-        const savedMode = localStorage.getItem('dark-mode');
-        if (savedMode === 'enabled') {
-            document.body.classList.add('dark-mode');
-        }
         fetch('sidebar.html')
             .then(response => response.text())
             .then(data => {
@@ -350,19 +329,13 @@
         $('#profileName').on('click',()=>{
             $('#profileInfoBtn').click();
         });
-
         let page = 1;
-
         function load(){
             for (let i = 0; i < 9; i++) {
                 $('#feed').append(`
-    <div class="col-12 col-sm-6 col-md-4 col-xl-3 grid-item">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 grid-item">
         <div class="card">
-            <div class="card-header">
-
-            </div>
             <input type="checkbox" class="delete-dot">
-
             <a href="">
             <img src="../static/img/${((page - 1) * 9 + i + 1)%23}.jpg" class="card-img-top" alt=".">
             </a>
@@ -370,12 +343,6 @@
             <div class="card-title">
 
             </div>
-            <p class="card-text">
-
-            </p>
-            </div>
-            <div class="card-footer">
-                <small class="text-body-secondary">upload 일자</small>
             </div>
         </div>
     </div>
@@ -440,31 +407,14 @@
         });
 
         $('#modal-short').on('show.bs.modal', function (e) {
-            $('#modal-short .modal-body .modal-content').attr("src", '../static/example/example.html');
+            $('#modal-short .modal-body .modal-content').attr("src", 'example/example.html');
         });
         $('#modal-portfolio-btn-left').on('click',function (e) {
-            $('#modal-short .modal-body .modal-content').attr("src", '../static/example/example1.html');
+            $('#modal-short .modal-body .modal-content').attr("src", 'example/example1.html');
         });
         $('#modal-portfolio-btn-right').on('click',function (e) {
-            $('#modal-short .modal-body .modal-content').attr("src", '../static/example/example2.html');
+            $('#modal-short .modal-body .modal-content').attr("src", 'example/example2.html');
         });
-
-        function applyDarkModeToNewElements() {
-            if (document.body.classList.contains('dark-mode')) {
-                document.querySelectorAll('*:not(.dark-mode-applied)').forEach(el => {
-                    el.classList.add('dark-mode');
-                });
-            } else {
-                document.querySelectorAll('.dark-mode-applied').forEach(el => {
-                    el.classList.remove('dark-mode');
-                });
-            }
-        }
-
-// MutationObserver를 사용하여 DOM 변경 감지 및 다크 모드 적용
-        const observer = new MutationObserver(applyDarkModeToNewElements);
-        observer.observe(document.body, { childList: true, subtree: true });
-
     });
 </script>
 </body>

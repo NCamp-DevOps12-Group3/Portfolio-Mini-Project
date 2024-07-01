@@ -12,71 +12,46 @@
     <script src="../static/js/masonry.pkgd.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <style>
-        *{
-            background-color: inherit;
-            color: inherit;
-            transition: background-color 0.3s, color 0.3s;
-        }
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #fafafa;
-            color: #262626;
-        }
-        .dark-mode {
-            background-color: #121212 !important;
-            color: white !important;
-            .card > *{
-                border: white 1px solid ;
-                border-collapse: collapse;
-            }
-            #sidebar{
-                border: 1px solid white;
-            }
+            font-family: Arial, sans-serif;
         }
         .top-section {
-            padding: 20px;
-            background: #fff;
-            border-bottom: 1px solid #dbdbdb;
-            margin-bottom: 20px;
+            height: 30%;
+            background: white;
+            margin-bottom: 10%;
         }
         .bottom-section {
-            padding: 20px;
+            height: 70%;
         }
         .toggle-btn {
             display: block;
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 10px;
+            right: 10px;
             z-index: 1;
-            border: none;
-            background: none;
-            cursor: pointer;
         }
-        .toggle-btn img {
-            width: 30px;
-            height: 30px;
-        }
-        #modalProfile {
+        #modalProfile{
             -ms-overflow-style: none;
         }
-        #modalProfile::-webkit-scrollbar {
-            display: none;
+        #modalProfile::-webkit-scrollbar{
+            display:none;
             max-width: 75vw;
             min-width: 25vw;
             min-height: 70vh;
         }
-        .sil {
+        .sil{
             cursor: pointer;
             -ms-overflow-style: none;
         }
-        .sil::-webkit-scrollbar {
-            display: none;
+        .sil::-webkit-scrollbar{
+            display:none;
         }
         .card-img-top:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            top: -2px;
+            box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+            opacity: 0.5;
         }
-        .mouse-Cursor {
+        .mouse-Cursor{
             cursor: pointer;
         }
         .modal-fullscreen {
@@ -85,87 +60,94 @@
             height: 90%;
             margin: 15px auto;
         }
+
         .modal-content-short {
-            background-color: rgba(0, 0, 0, 0.5);
+
+            background-color: rgba(0, 0, 0, 0.5); /* 반투명한 배경색 */
             color: white;
             height: 100%;
         }
         @media (max-width: 1200px) {
-            .top-section {
+            .top-section{
                 display: none !important;
             }
-            #profileInfoBtn {
+            #profileInfoBtn{
                 display: block !important;
             }
         }
         .modal-content {
-            border: none;
-            border-radius: 15px;
+            border: 5px solid #4CAF50; /* 기본 보더 색상 */
+            border-radius: 15px; /* 모서리를 둥글게 */
         }
+
         .modal-header {
-            border-bottom: 1px solid #dbdbdb;
+            border-bottom: 3px solid #FFC107; /* 헤더에 보더 추가 */
         }
+
         .modal-footer {
-            border-top: 1px solid #dbdbdb;
+            border-top: 3px solid #FFC107; /* 푸터에 보더 추가 */
         }
         .carousel-item img {
-            height: 75vh;
+            height: 75vh; /* 모달 창 높이에 맞춤 */
             width: auto;
             object-fit: cover;
         }
-        .modal-portfolio-btn {
+        .modal-portfolio-btn{
             height: 2em;
             width: 4em;
             cursor: pointer;
         }
-        #profileInfoBtn {
+        #profileInfoBtn{
             display: none;
         }
+
         .modal-fullscreen .modal-content {
             height: 100vh;
             border: none;
         }
         .preview-box {
-            position: absolute;
-            display: none;
+            position: absolute; /* 절대 위치 설정 */
+            display: none; /* 초기에는 보이지 않음 */
             background-color: #fff;
             border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
             padding: 10px;
-            z-index: 1000;
+            z-index: 1000; /* 다른 요소들 위에 나타나도록 설정 */
         }
-        .delete-dot {
+        .delete-dot{
             cursor: pointer;
             position: absolute;
-            background: rgba(0, 0, 0, 0.5);
+            background: black;
             display: none;
             z-index: 1000;
-            width: 20px;
-            height: 20px;
+            float: right;
+            width: 10%;
+            height: 10%;
             border-radius: 50%;
-            top: 10px;
-            right: 10px;
+            top: 5%;
+            right: 5%;
         }
         .active {
         }
         .inactive {
+
         }
-        #profileImgBtn {
-            border: none;
+        #profileImgBtn{
+            border:none;
             background: white;
         }
-        #profileImg {
+        #profileImg{
             border-radius: 50%;
         }
-        #checkImg {
+        #checkImg{
             width: 1em;
             height: 1em;
         }
-        .top-section > * {
+        .top-section > *{
             margin-left: 10px;
         }
         #toTop {
-            display: none;
+            display: none; /* 기본적으로 숨겨진 상태 */
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -178,6 +160,7 @@
             color: white;
             border-radius: 5px;
         }
+
         .card img {
             max-height: 100%;
             max-width: 100%;
@@ -185,22 +168,18 @@
         .grid-item img {
             display: block;
             width: 100%;
-            transition: transform 0.2s ease-in-out;
         }
         .grid-item {
             margin-bottom: 20px;
         }
-
     </style>
 </head>
 <body>
-<button type="button" id="toTop">↑</button>
+<button type="button" id="toTop">top</button>
 <div class="container-fluid d-flex">
     <div id="sidebar"></div>
     <div class="h-100 d-inline-block w-100">
-        <button class="btn-toggle btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProfile" id="profileInfoBtn">
-            profile
-        </button>
+        <button class="btn btn-primary toggle-btn" data-bs-toggle="modal" data-bs-target="#modalProfile" id="profileInfoBtn">프로필 정보</button>
 
         <div class="top-section d-flex align-items-center justify-content-around">
             <button class="" type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
@@ -263,8 +242,8 @@
                     <div class="modal-head">
                         <h3 class="text-lg-center mt-3">정보</h3>
                     </div>
-                    <div class="modal-body h-75 text-center">
-                        <img src="../static/img/1.jpg" alt="" class="w-50 rounded-circle mb-3" id="profile-vertical">
+                    <div class="modal-body h-75">
+                        <img src="../static/img/1.jpg" alt="" class="w-100" id="profile-vertical">
                         <div>
                         <pre class="overflow-x-scroll sil" id="scrollContainer">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -291,10 +270,7 @@
 
 <script>
     $(function(){
-        const savedMode = localStorage.getItem('dark-mode');
-        if (savedMode === 'enabled') {
-            document.body.classList.add('dark-mode');
-        }
+
         fetch('sidebar.html')
             .then(response => response.text())
             .then(data => {
@@ -339,30 +315,24 @@
         });
         $('.modal-portfolio-btn').hover(
             ()=>{
-                $('#modal-short').css('cursor','pointer');
-                $('body').css('cursor','pointer');
+                $('#modal-short').style.cursor='pointer';
+                document.body.style.cursor='pointer';
             },
             ()=>{
-                $('#modal-short').css('cursor','default');
-                $('body').css('cursor','default');
+                $('#modal-short').style.cursor='default';
+                document.body.style.cursor='default';
             }
-        );
+        )
         $('#profileName').on('click',()=>{
             $('#profileInfoBtn').click();
         });
-
         let page = 1;
-
         function load(){
             for (let i = 0; i < 9; i++) {
                 $('#feed').append(`
-    <div class="col-12 col-sm-6 col-md-4 col-xl-3 grid-item">
+    <div class="col-md-4 grid-item">
         <div class="card">
-            <div class="card-header">
-
-            </div>
             <input type="checkbox" class="delete-dot">
-
             <a href="">
             <img src="../static/img/${((page - 1) * 9 + i + 1)%23}.jpg" class="card-img-top" alt=".">
             </a>
@@ -370,12 +340,6 @@
             <div class="card-title">
 
             </div>
-            <p class="card-text">
-
-            </p>
-            </div>
-            <div class="card-footer">
-                <small class="text-body-secondary">upload 일자</small>
             </div>
         </div>
     </div>
@@ -404,10 +368,11 @@
             }
         }
 
+        // 맨 위로 스크롤하는 함수
         $('#toTop').on('click',function scrollToTop() {
                 document.documentElement.scrollTop = 0;
             }
-        );
+        )
         const scrollContainer = document.getElementById('scrollContainer');
 
         let isDown = false;
@@ -440,31 +405,14 @@
         });
 
         $('#modal-short').on('show.bs.modal', function (e) {
-            $('#modal-short .modal-body .modal-content').attr("src", '../static/example/example.html');
+            $('#modal-short .modal-body .modal-content').attr("src", 'example/example.html');
         });
         $('#modal-portfolio-btn-left').on('click',function (e) {
-            $('#modal-short .modal-body .modal-content').attr("src", '../static/example/example1.html');
+            $('#modal-short .modal-body .modal-content').attr("src", 'example/example1.html');
         });
         $('#modal-portfolio-btn-right').on('click',function (e) {
-            $('#modal-short .modal-body .modal-content').attr("src", '../static/example/example2.html');
+            $('#modal-short .modal-body .modal-content').attr("src", 'example/example2.html');
         });
-
-        function applyDarkModeToNewElements() {
-            if (document.body.classList.contains('dark-mode')) {
-                document.querySelectorAll('*:not(.dark-mode-applied)').forEach(el => {
-                    el.classList.add('dark-mode');
-                });
-            } else {
-                document.querySelectorAll('.dark-mode-applied').forEach(el => {
-                    el.classList.remove('dark-mode');
-                });
-            }
-        }
-
-// MutationObserver를 사용하여 DOM 변경 감지 및 다크 모드 적용
-        const observer = new MutationObserver(applyDarkModeToNewElements);
-        observer.observe(document.body, { childList: true, subtree: true });
-
     });
 </script>
 </body>
