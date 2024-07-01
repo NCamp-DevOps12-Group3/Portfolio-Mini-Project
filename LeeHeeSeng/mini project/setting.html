@@ -12,6 +12,11 @@
         font-family: Arial, sans-serif;
         
     }
+    .wrapper {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 0 4%;
+}
     h3{
       margin-bottom: 0px;
     }
@@ -21,14 +26,22 @@
     }
     footer{
     width: 100%;
-    
-    
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 26px 0;
     background: #999999;  
     height: 100px;
     text-align: center;
-    
+    margin-top: 10%;
+    justify-content: center;
     }
-    
+    footer p{
+      justify-content: center;
+      display: flex;
+      top: 100px;
+      padding-top: 15px;
+          
+    }
     .sidebar {
             height: 100vh;
             position: fixed;
@@ -153,6 +166,26 @@
     margin-top: 10px;
     
   }
+  .box{
+      background: rgb(163,163,163);
+      border-radius: 15px;
+    }
+    img{
+      border-radius: 50%;
+    }
+    #website{
+      border-radius: 7px;
+      background: white;
+      height: 2.5rem;
+    }
+    #intro{
+      background: white;
+      border-radius: 7px;
+      resize: none;
+    }
+    .boardt div{
+      margin: 2em auto;
+    }
   @media screen and (max-width: 1400px) {
     
     .sidebar {
@@ -186,7 +219,7 @@
       padding-right: 0%;
 
     }
-    .col-9{
+    .col-9{ 
       padding-left: 0%;
       
     }
@@ -268,8 +301,8 @@
                 <div class="pobox">      
                         <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-profile">Profile</a><br>
                         <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-locksandsecurity">Locks And Security</a>        <br>                
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-termsofuse">Terms Of Use</a><br>
                         <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-account">Account</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-termsofuse">Terms Of Use</a><br>
                 </div>
               
             </div>
@@ -278,51 +311,93 @@
           
           <div class="col-9" data-bs-spy="scroll">
             <div class="boardt" data-bs-spy="scroll">
-            <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy" tabindex="0">
+            <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy gap-2" tabindex="0">
                 <h4 id="list-profile">Profile</h4>
-                <p>...</p>
+                <form action="#" method="get">
+                  <div class="container position-relative">
+                    <div class="modal fade" id="modalPic">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-head">
+                            <h3 class="text-lg-center mt-3">정보</h3>
+                          </div>
+                          <div class="modal-body h-75">
+                            <div class="mb-3">
+                              <label for="formFile" class="form-label">변경할 프로필 사진</label>
+                              <input class="form-control" type="file" id="formFile">
+                              <div id="imagePreview" class="mt-3">
+                                <!-- Preview will be displayed here -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                              닫기
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <header class="w-100 h-25 box d-flex align-items-center">
+                      <div class="box d-inline-block m-3">
+                        <img src="img/cat1.jpg" alt="" class="w-75">
+                      </div>
+                      <div class="d-inline-block">
+                        <h2 style="width: 100px;">닉네임</h2>
+                        <p>아이디</p>
+                      </div>
+                      <div class="d-inline-block">
+                        <button type="button" style="width: 100px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPic">
+                          사진 변경
+                        </button>
+                      </div>
+                    </header>
+                    <div>
+                      <label for="website" class="form-label">웹 사이트</label>
+                      <input type="url" name="website" id="website" placeholder="웹사이트 주소" class="w-100 form-control" row="2">
+                      <div class="form-text">연락 사이트나 개인 포폴이 모아진 주소를 입력해 주세요</div>
+                    </div>
+                    <div>
+                      <label for="intro" class="form-label">소개</label>
+                      <textarea name="intro" id="intro" class="w-100 form-control"></textarea>
+                      <div class="form-text">유저 상세페이지 상단에 출력되는 글입니다</div>
+                    </div>
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+                    <button type="submit" class="btn btn-primary w-25"> 제출</button>
+                  </div>
+                </form>
+               <br><br><br><br>
                 <h4 id="list-locksandsecurity">Locks And Security</h4>
                 <div>
-                <h5>비밀번호변경</h5>
-                  <p>사용자님의 개인정보보호와 안전한 사이트사용을 위해 3개월마다 비밀번호 변경을 권장하고있습니다 비밀번호 가 사용된지 3개월이지났다면 변경을 권장하는 바입니다  </p>
+                <h5>Change Password</h5>
+                  <p>사용자님의 개인정보보호와 안전한 사이트사용을 위해 3개월마다  비밀번호 변경을 권장하고있습니다 <br>비밀번호 가 사용된지 3개월이지났다면 변경을 권장하는 바입니다  </p> <br><br>
+                 <h5>비밀번호 변경 시 유의사항</h5><br>
+                  <ul>
+                    <li>이동전화/주민번호/생일 등의 개인정보와 관련 없는 번호로 변경하시기 바랍니다. </li><br>
+                    <li>현재 아이디와 유사하거나 유추하기 쉬운 비밀번호를 피하시기 바랍니다. </li><br>
+                    <li>비밀번호는 특수문자, 숫자, 영문자 조합의 8자리 이상으로 지정하세요. </li><br>
+                    <li>특수문자는 !@#$%^&*+=- 만 사용가능합니다.</li> <br>
+                  </ul><br><br>
+
+                  <h5>당부드리는 말씀</h5><br>
+                  <ul>
+                    <li>변경후 로그인 되어있는 다른기기에서 로그아웃됩니다</li><br>
+                    <li>타 사이트에서 사용하는 비밀번호와 같은 번호로 설정하면 보안이 취약해질수있습니다 </li><br>
+                    <li><b>추측이나 유추가 어렵도록</b> 설정해주시길바랍니다</li><br>
+                    <li>비밀번호가 제3자에게 노출되었을때 반드시 <b>새 비밀번호로 변경</b>해야합니다</li><br>
+                    <li>단순한 증감의 <b>내용의  번갈아 사용하는 것은 자제</b>해주십시오</li><br>
+                    <li>단순 혹은 시도해볼법한 내용으로 비밀번호를 지정하지마세요 (예시) <br>
+                    <ul><br>
+                      <li>password1234!</li><br>
+                      <li>!1q2w3e4r</li><br>
+                      <li>이름+생년월일조합</li><br>
+                      <li>abcdefgh1234!</li><br>
+                      <li>qwerasdf1234!</li><br>
+                      <li>Password1!</li><br>
+                    </ul>
+                    </li><br>
+                    <li><a href="https://nordpass.com/blog/top-worst-passwords-2019/">비밀번호가 다음 사이트의 200 개의 비밀번호목록과 유사점이있다면 즉시 비밀번호를 변경하십시오</a></li>
+                  </ul>
                 </div>  
                 <div>
                   <h4 id="list-locksandsecurity"></h4>
@@ -331,17 +406,17 @@
                     </button>
                     <div class="modal fade" id="staticpassswordBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header">
+                        <div class="modal-content" >
+                          <div class="modal-header" style="border-bottom:1px solid rgb(163, 163, 163) ; margin: 0px; text-align: center; justify-content: center;">
                             <h1 class="modal-title fs-5" id="staticBackdropLabel">Change Password</h1>
                             
                           </div>
                           <div class="modal-body">
                             <h3>비밀번호를 변경 하시겠습니까?</h3>
                           </div>
-                          <div class="modal-footer">
+                          <div class="modal-footer" style="border-top:1px solid rgb(163, 163, 163) ; margin: 0px; text-align: center; justify-content: center;">
                             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancle</button>
-                            <a href=".html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
+                            <a href="passwordchangesChk.html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
                               Change Password
                               
                             </button></a>
@@ -354,94 +429,66 @@
               
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                
+                <div><br><br><br><br>
+                  <h4 id="list-account">Account</h4>
+
+                    <h5 style="color: red ;">멤버쉽 해지시 유의사항</h5>
+                    <ul>
+                      <li>회원정보삭제
+                        <ul>
+                          <li>회원 탈퇴와 함께  Instagram 에 등록된 모든 개인정보는 삭제, 폐기 처리되며 복구되지 않습니다.</li>
+                          <li>회원탈퇴 시 동일 아이디(이메일)로 재가입하실 수 없습니다.</li>
+                          <li><b>단, 상법 및 '전자상거래 등에서 소비자 보호에 관한 법률' 등 관련 법령의 규정에 의하여 다음과 같이 ‘거래 관련 관리의무 관계 확인’ 등을 이유로 일정 기간 보관됩니다.</b>
+                            <ul>
+                              <li>계약 또는 청약 철회 등에 관한 기록 : 5년</li>
+                              <li>대금결제 및 재화 등의 공급에 관한 기록 : 5년</li>
+                              <li>소비자의 불만 또는 분쟁 처리에 관한 기록 : 3년</li>
+                              <li>설문조사, 이벤트 등 일시적 목적을 위하여 수집한 경우 : 당해 설문조사, 이벤트 등의 종료 시까지</li>
+                            </ul>
+                          </li>
+                          <li>
+                            탈퇴 시 해당 아이디는 즉시 탈퇴 처리 되며, 탈퇴한 아이디는  본인과 타인 모두 재사용 및 복구가 불가 하오니 신중하게 선택하시기 바랍니다.
+                          </li>
+                          <li>
+                            탈퇴 후에도 게시판에 등록한 게시물은 그대로 남아 있습니다.
+                            홈페이지에 올린 게시글 및 댓글은 탈퇴 시 자동 삭제되지 않고 그대로 남아 있으므로, 삭제를 원하는 게시글이 있다면 반드시  탈퇴 전 삭제하시기 바랍니다.
+                          </li>
+
+                        </ul>
+                      </li>
+
+                    </ul>
+
+                    <br><br><br><br><br><br>
+                    <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Cancel Membership
+                    </button>
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" >
+                        <div class="modal-content" >
+                          <div class="modal-header" >
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Cancel Membership</h1>
+                            
+                          </div>
+                          <div class="modal-body">
+                                정말로 멤버쉽을 해제하시겠습니까?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancle</button>
+                            <a href="index.html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
+                              Unsubscribe
+                              
+                            </button></a>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br>
+            
 
 
 
@@ -449,7 +496,16 @@
 
 
                 <div class="termsofuse">
-                  <h4 id="list-termsofuse">Terms Of Use</h4>
+                  <h4 id="list-termsofuse">Terms Of Use</h4><br>
+
+                  <p>
+                    저희가 명시적으로 별도의 약관(본 약관이 아님)이 적용된다고 밝히지 않는 한
+                    본 이용 약관(또는 '약관')이 회원님의 Instagram 이용에 적용되며
+                     아래 설명된 Instagram 서비스('서비스')에 대한 정보를 제공합니다. <br>
+                     회원님이 Instagram 계정을 만들거나 Instagram을 이용하는 경우, 
+                     회원님은 본 약관에 동의하는 것으로 간주됩니다. Meta 서비스 약관은
+                      이 서비스에 적용되지 않습니다.</div>
+                  </p>
                   <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                       <h2 class="accordion-header">
@@ -459,9 +515,9 @@
                       </h2>
                       <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                          <p><h4>Instagram에 오신 것을 환영합니다!</h4> <br>
+                          <p><h4>Instagram에 오신 것을 환영합니다!</h4> 
                             <br>
-                            저희가 명시적으로 별도의 약관(본 약관이 아님)이 적용된다고 밝히지 않는 한 본 이용 약관(또는 '약관')이 회원님의 Instagram 이용에 적용되며 아래 설명된 Instagram 서비스('서비스')에 대한 정보를 제공합니다. 회원님이 Instagram 계정을 만들거나 Instagram을 이용하는 경우, 회원님은 본 약관에 동의하는 것으로 간주됩니다. Meta 서비스 약관은 이 서비스에 적용되지 않습니다. <br><br>
+                            
 
                             Instagram 서비스는 Meta Platforms, Inc.에서 회원님에게 제공하는 Meta 제품 중 하나입니다. 따라서 본 이용 약관은 회원님과 Meta Platforms, Inc. 사이의 계약에 해당됩니다.<br><br>
                               <h4><b>Instagram 서비스</b></h4>
@@ -778,47 +834,59 @@
                   </div>
                 </div>
 
-                <div>
-                  <h4 id="list-account">Account</h4>
-                    <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Cancel Membership
-                    </button>
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Cancel Membership</h1>
-                            
-                          </div>
-                          <div class="modal-body">
-                                정말로 멤버쉽을 해제하시겠습니까
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancle</button>
-                            <a href="index.html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
-                              Unsubscribe
-                              
-                            </button></a>
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
             </div>
           </div>
       </div>
     </div>
-    <div class="footank"></div>
+    
 </body>
-<footer>
-<div>
+<footer class="wrapper">
+<br>
+  <p>
+    <small>&copy; 브랜드 이름</small>
+  </p>
 
-</div>
 </footer>
 <script>
   $(()=>{
+    document.getElementById('formFile').addEventListener('change', function(event) {
+      const input = event.target;
+      const previewContainer = document.getElementById('imagePreview');
+      previewContainer.innerHTML = ''; // Clear any existing preview
 
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+          const imgElement = document.createElement('img');
+          imgElement.src = e.target.result;
+          imgElement.classList.add('img-fluid', 'mt-2'); // Bootstrap classes for styling
+          imgElement.style.maxWidth = '100%';
+          imgElement.style.height = 'auto';
+
+          previewContainer.appendChild(imgElement);
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    });
   })
 </script>
 </html>
