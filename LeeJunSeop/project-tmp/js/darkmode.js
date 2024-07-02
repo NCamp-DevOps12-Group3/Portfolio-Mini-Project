@@ -10,9 +10,9 @@ function loadDarkModeState() {
 function applyDarkMode(isDarkMode) {
     if (isDarkMode) {
         $('body').addClass('dark-mode');
-        $('#darkModeToggle').text("").append(`<div>라이트 모드</div>`)
+        $('#darkModeToggle').text("").append(`<i class="bi bi-brightness-low"></i><div>화면 모드</div>`)
     } else {
         $('body').removeClass('dark-mode');
-        $('#darkModeToggle').text("").append(`<div>다크 모드</div>`);
+        $('#darkModeToggle').text("").append(`<i class="bi bi-moon-fill"></i><div>다크 모드</div>`);
     }
 }
