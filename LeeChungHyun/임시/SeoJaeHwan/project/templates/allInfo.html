@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/bootstrap.bundle.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .grid-item {
+            width: 33.33%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .modal-custom-body{
+            overflow-y: auto;
+            min-width: 80vw;
+            min-height: 80vh;
+        }
+        .modal-custom{
+            min-width: 80vw;
+            min-height: 80vh;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+        .button-container button {
+            flex: 0 auto;
+        }
+        .button-modal-left{
+            position: absolute;
+            top: 50%;
+            left:0;
+        }
+        .button-modal-right{
+            position: absolute;
+            top: 50%;
+            right:0;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <div class="grid-container" id="grid-container">
+    </div>
+</div>
+<!-- 모달 -->
+<div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-custom">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="portfolioModalLabel">Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body modal-custom-body">
+                <button class="btn btn-primary d-inline-block button-modal-left"><</button>
+                <div id="dynamicModalBody">
+
+                </div>
+                <button class="btn btn-primary d-inline-block button-modal-right">></button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    $(()=>{
+        let page = 1;
+
+        // 이미지를 로드하는 함수
+        function loadImages() {
+            for (let i = 0; i < 9; i++) {
+                $('#grid-container').append(`
+                    <div class="grid-item">
+                        <img src="img/cat${(page - 1) * 9 + i + 1}.jpg" data-bs-toggle="modal" data-bs-target="#portfolioModal" alt="Image">
+                    </div>
+                `);
+            }
+        }
+
+        // 초기 이미지 로드
+        loadImages();
+
+        // 스크롤 이벤트 핸들러
+        $(window).scroll(function() {
+            if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+                page++;
+                loadImages();
+            }
+        });
+
+        // 이미지 클릭 이벤트 핸들러
+        $(document).on('click', '.grid-item img', function(){
+            let data=
+            $('#dynamicModalBody').html(portfolioInfoModal.html);
+    //        $('#dynamicModalBody').html('<p>Loading...</p>'); // 로딩 메시지 표시
+    //        $.ajax({
+    //            url: 'portfol', // 가져올 HTML 문서의 경로
+    //            method: 'GET',
+    //            success: function(data) {
+    //                $('#dynamicModalBody').html(data); // 가져온 HTML 콘텐츠를 모달 바디에 삽입
+    //                $('#dynamicModalBody').append(`
+    //                    <div class="button-container">
+    //                        <button class="btn btn-primary">Left Button</button>
+    //                        <button class="btn btn-secondary">Right Button</button>
+    //                    </div>
+    //                `); // 동적으로 로드된 콘텐츠 뒤에 버튼 추가
+     //           },
+    //            error: function() {
+    //                $('#dynamicModalBody').html('<p>Failed to load content.</p>'); // 실패 시 메시지 표시
+    //            }
+    //        });
+
+        });
+    });
+</script>
+</body>
+</html>
