@@ -139,8 +139,6 @@
                 const iframe = document.getElementById('modalPortfolioIframe');
                 const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
             
-                console.log(iframe.contentDocument);
-            
                 window.addEventListener('wheel', (event) => {
                     if (iframeDocument) {
                         iframeDocument.documentElement.scrollTop += event.deltaY;
@@ -160,7 +158,7 @@
                     </head>
                     <body>
                         ${portfolio.htmlContent} 
-                        <script>
+                         <script type="text/javascript">
                             ${portfolio.jsContent}
                         <\/script>
                     </body>
@@ -169,9 +167,9 @@
             
                 // Write the HTML content to the iframe
                 iframeDocument.open();
-                iframeDocument.write(htmlContent);
+                iframe.srcdoc = htmlContent;
                 iframeDocument.close();
-            
+
                 // 댓글창 열때마다 초기화
                 const modalCommentMain = document.getElementById('modalCommentMain');
                 if (modalCommentMain) {
@@ -218,12 +216,22 @@
                                     currentPortfolio.comments = [comment];
                                 }
                                 localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
-                                console.log('Updated Comments:', currentPortfolio.comments);
                             }
                         }
-                    }, { once: true });
+                    });
                 }
             }
+
+               // iframe 외부 스크롤 이벤트 핸들러 설정
+               window.addEventListener('wheel', function(event) {
+                const iframe = document.getElementById('modalPortfolioIframe');
+                if (iframe) {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (iframeDoc) {
+                    iframeDoc.documentElement.scrollTop += event.deltaY;
+                }
+                }
+            });
             
 
             // 코멘트를 인자로 받아서 댓글창에 띄워주는 함수
@@ -238,21 +246,19 @@
                 document.getElementById('modalCommentMain').insertAdjacentHTML('beforeend', commentElement);
             }
 
+            window.addEventListener('click', function(e) {
+                console.log('Clicked element:', e.target.id);
+            });
+
             // 모달이 떴을 때 shadow host 외부를 클릭하면 닫히는 방식으로 이벤트 핸들러 추가
             document.getElementById('modalPortfolioOverlay').addEventListener('click', function (e) {
                 if (e.target.id === 'modalPortfolioOverlayBond' || e.target.id === 'modalPortfolioOverlay') {
                     document.getElementById('modalPortfolioOverlay').classList.remove('modal-portfolio-overlay-show');
                     document.getElementById('modalCommentSection').classList.remove('modal-comment-section-active');
-                    document.getElementById('modalPortfolioShadowHost').classList.remove('modal-portfolio-shadow-host-faded');
+                    document.getElementById('modalPortfolioIframe').classList.remove('modal-portfolio-shadow-host-faded');
                     // 전체화면의 스크롤 복구
                     document.body.style.overflow = '';
 
-                    const iframe = document.getElementById('modalPortfolioIframe');
-                    iframe.onload = () => {
-                    iframe.contentWindow.location.reload();
-                    };
-                    console.log('재실행');
-                    iframe.src = iframe.src;
                 }
             });
 
@@ -266,13 +272,13 @@
             // openBtn을 누르면 코멘트창이 나타나고 뒤 배경 불투명도 증가
             document.getElementById('modalCommentOpenBtn').addEventListener('click', function (e) {
                 document.getElementById('modalCommentSection').classList.add('modal-comment-section-active');
-                document.getElementById('modalPortfolioShadowHost').classList.add('modal-portfolio-shadow-host-faded');
+                document.getElementById('modalPortfolioIframe').classList.add('modal-portfolio-shadow-host-faded');
             });
 
             // closeBtn을 누르면 코멘트창이 사라지고 뒤 배경 불투명도 감소
             document.getElementById('modalCommentCloseBtn').addEventListener('click', function (e) {
                 document.getElementById('modalCommentSection').classList.remove('modal-comment-section-active');
-                document.getElementById('modalPortfolioShadowHost').classList.remove('modal-portfolio-shadow-host-faded');
+                document.getElementById('modalPortfolioIframe').classList.remove('modal-portfolio-shadow-host-faded');
             });
 
             // 현재의 좋아요 수를 댓글창에 표시
@@ -323,7 +329,7 @@
                         // 모달 전부 꺼짐
                         document.getElementById('modalPortfolioOverlay').classList.remove('modal-portfolio-overlay-show');
                         document.getElementById('modalCommentSection').classList.remove('modal-comment-section-active');
-                        document.getElementById('modalPortfolioShadowHost').classList.remove('modal-portfolio-shadow-host-faded');
+                        document.getElementById('modalPortfolioIframe').classList.remove('modal-portfolio-shadow-host-faded');
                         document.getElementById('modalOptionsOverlay').classList.remove('modal-options-active');
                         document.getElementById('modalDelete').classList.remove('modal-delete-active');
 
@@ -455,7 +461,7 @@
                 document.querySelector('.modal-backdrop').remove();
                 document.getElementById('modalPortfolioOverlay').classList.remove('modal-portfolio-overlay-show');
                 document.getElementById('modalCommentSection').classList.remove('modal-comment-section-active');
-                document.getElementById('modalPortfolioShadowHost').classList.remove('modal-portfolio-shadow-host-faded');
+                document.getElementById('modalPortfolioIframe').classList.remove('modal-portfolio-shadow-host-faded');
                 document.getElementById('modalOptionsOverlay').classList.remove('modal-options-active');
                 loadPortfolios();
             }
