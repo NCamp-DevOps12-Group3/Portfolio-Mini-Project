@@ -19,8 +19,6 @@
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <style>
         *{
-            background-color: inherit;
-            color: inherit;
             transition: background-color 0.3s, color 0.3s;
         }
         body {
@@ -29,14 +27,42 @@
             color: #262626;
         }
         .dark-mode {
-            background-color: #121212 !important;
-            color: white !important;
+            background-color: #121212;
+            color: white;
+            .top-section{
+                background-color: black;
+            }
+            .top-section #profileImgBtn{
+                background-color: black;
+            }
+            .list-group-item {
+                background-color: black;
+                color: white;
+            }
             .card > *{
                 border: white 1px solid ;
                 border-collapse: collapse;
+                
+                background-color: #262626;
             }
-            #sidebar{
+            .card *{
+                color: white !important;
+            }
+        
+            .sidebar{
+                background-color: #262626;
                 border: 1px solid white;
+            }
+            .sidebar *{
+                color: white;
+            }
+            .sidebar > *{
+                border: white 1px solid;
+                border-collapse: collapse;
+            }
+            #modalProfile *{
+                background: black;
+                color: white;
             }
         }
         .top-section {
@@ -323,7 +349,9 @@
                         <h3 class="text-lg-center mt-3">정보</h3>
                     </div>
                     <div class="modal-body h-75 text-center">
-                        <img src="img/1.jpg" alt="" class="w-50 rounded-circle mb-3" id="profile-vertical">
+                        <div class="ratio ratio-1x1 mb-3">
+                            <img src="img/1.jpg" alt="" id="profile-vertical">
+                        </div> 
                         <div>
                         <pre class="overflow-x-scroll sil" id="scrollContainer">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -347,14 +375,18 @@
         </div>
     </div>
 </div>
-
+<script src="js/darkmode.js"></script>
 <script>
     $(function(){
-        const savedMode = localStorage.getItem('dark-mode');
-        if (savedMode === 'enabled') {
-            document.body.classList.add('dark-mode');
-        }
         
+         var isDarkMode = loadDarkModeState();
+            applyDarkMode(isDarkMode);
+
+            $('#darkModeToggle').on('click', function() {
+                isDarkMode = !$('body').hasClass('dark-mode');
+                applyDarkMode(isDarkMode);
+                saveDarkModeState(isDarkMode);
+            });
         // Masonry initialization
         var msnry;
         var grid = document.querySelector('.grid');
@@ -506,22 +538,6 @@
         $('#modal-portfolio-btn-right').on('click',function (e) {
             $('#modal-short .modal-body .modal-content').attr("src", 'example/example2.html');
         });
-
-        function applyDarkModeToNewElements() {
-            if (document.body.classList.contains('dark-mode')) {
-                document.querySelectorAll('*:not(.dark-mode-applied)').forEach(el => {
-                    el.classList.add('dark-mode');
-                });
-            } else {
-                document.querySelectorAll('.dark-mode-applied').forEach(el => {
-                    el.classList.remove('dark-mode');
-                });
-            }
-        }
-
-// MutationObserver를 사용하여 DOM 변경 감지 및 다크 모드 적용
-        const observer = new MutationObserver(applyDarkModeToNewElements);
-        observer.observe(document.body, { childList: true, subtree: true });
 
     });
 </script>
