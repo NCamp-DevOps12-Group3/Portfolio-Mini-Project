@@ -53,7 +53,7 @@
                             <img src="1.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://rogierdeboeve.com/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe1"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -79,7 +79,7 @@
                             <img src="2.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://des.obys.agency/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe2"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -105,7 +105,7 @@
                             <img src="3.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://cedroweb3.ai/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe3"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -131,7 +131,7 @@
                             <img src="4.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://www.umault.com/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe4"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -157,7 +157,7 @@
                             <img src="5.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://www.hellokuya.co/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe5"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -183,7 +183,7 @@
                             <img src="6.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://dolceactivation.dolcegabbana.com/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe6"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -209,7 +209,7 @@
                             <img src="7.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://hailstonelabs.com/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe7"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -235,7 +235,7 @@
                             <img src="8.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://www.kreyda.art/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe8"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -261,7 +261,7 @@
                             <img src="9.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://awsmd.com/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe9"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -287,7 +287,7 @@
                             <img src="10.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://youniqlabs.io/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe10"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -313,7 +313,7 @@
                             <img src="11.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://prand-n.ava-case.com/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe11"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -339,7 +339,7 @@
                             <img src="12.jpg" alt="Image 1">
                         </div>
                         <div class="iframe-container">
-                            <iframe src="https://www.danielroth.com/" loading="lazy"></iframe>
+                            <iframe src="" loading="lazy" class="iframe12" class="iframe12"></iframe>
                         </div>
                     </div>
                     <div class="box2">
@@ -361,99 +361,247 @@
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const container = document.querySelector('.container');
-            let currentIndex = 0; // 처음 컨테이너 인덱스 시작
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     const container = document.querySelector('.container');
+        //     let currentIndex = 0; // 처음 컨테이너 인덱스 시작
 
-            // URL 소스 배열
-            const urlSources = [
-                'https://rogierdeboeve.com/', 'https://des.obys.agency/', 'https://cedroweb3.ai/',
-                'https://www.umault.com/', 'https://www.hellokuya.co/', 'https://dolceactivation.dolcegabbana.com/',
-                'https://hailstonelabs.com/', 'https://www.kreyda.art/', 'https://awsmd.com/',
-                'https://youniqlabs.io/', 'https://awsmd.com', 'https://awsmd.com/'
-            ];
+        //     // URL 소스 배열
+        //     const urlSources = [
+        //         'https://rogierdeboeve.com/', 'https://des.obys.agency/', 'https://cedroweb3.ai/',
+        //         'https://www.umault.com/', 'https://www.hellokuya.co/', 'https://dolceactivation.dolcegabbana.com/',
+        //         'https://hailstonelabs.com/', 'https://www.kreyda.art/', 'https://awsmd.com/',
+        //         'https://youniqlabs.io/', 'https://awsmd.com', 'https://awsmd.com/'
+        //     ];
 
-            // URL 소스 배열
-            const mentSources = [
-                '얼굴의 아름다움을 3D로 표현', '웹 디자인 강좌 홈페이지', '스타트업 홈페이지 제작',
-                '광고제작회사 홈페이지', '광고 홈페이지 제작', 'DOLCE & GABBANA 홈페이지',
-                '웹 디자인 수업', '회사 및 스타트업 웹 디자인 수정', 'UI/UX 디자인 제작 업체',
-                '웹 디자인 제작', '애니메이션 제작 홈페이지', '시계 제작 디자인 업체'
-            ];
+        //     // URL 소스 배열
+        //     const mentSources = [
+        //         '얼굴의 아름다움을 3D로 표현', '웹 디자인 강좌 홈페이지', '스타트업 홈페이지 제작',
+        //         '광고제작회사 홈페이지', '광고 홈페이지 제작', 'DOLCE & GABBANA 홈페이지',
+        //         '웹 디자인 수업', '회사 및 스타트업 웹 디자인 수정', 'UI/UX 디자인 제작 업체',
+        //         '웹 디자인 제작', '애니메이션 제작 홈페이지', '시계 제작 디자인 업체'
+        //     ];
 
-            // 새로운 요소를 생성하는 함수
-            function createBox() {
-                if (currentIndex >= urlSources.length) {
-                    currentIndex = 0; // 인덱스가 배열 길이를 넘어가면 다시 0으로
-                }
+        //     // 새로운 요소를 생성하는 함수
+        //     function createBox() {
+        //         if (currentIndex >= urlSources.length) {
+        //             currentIndex = 0; // 인덱스가 배열 길이를 넘어가면 다시 0으로
+        //         }
 
-                const newContainer = document.createElement('div');
-                newContainer.classList.add(`container${currentIndex + 1}`); // 클래스 이름을 인덱스 기반으로 설정
+        //         const newContainer = document.createElement('div');
+        //         newContainer.classList.add(`container${currentIndex + 1}`); // 클래스 이름을 인덱스 기반으로 설정
 
-                const box = document.createElement('div');
-                box.classList.add('box');
+        //         const box = document.createElement('div');
+        //         box.classList.add('box');
 
-                const imgDiv = document.createElement('div');
-                const img = document.createElement('img');
-                img.src = `${currentIndex + 1}.jpg`; // 이미지 소스를 인덱스 기반으로 설정
-                img.alt = `Image ${currentIndex + 1}`;
-                imgDiv.appendChild(img);
+        //         const imgDiv = document.createElement('div');
+        //         const img = document.createElement('img');
+        //         img.src = `${currentIndex + 1}.jpg`; // 이미지 소스를 인덱스 기반으로 설정
+        //         img.alt = `Image ${currentIndex + 1}`;
+        //         imgDiv.appendChild(img);
 
-                const iframeContainer = document.createElement('div');
-                iframeContainer.classList.add('iframe-container');
-                const iframe = document.createElement('iframe');
-                iframe.src = urlSources[currentIndex]; // URL 소스를 배열에서 가져옴
-                iframeContainer.appendChild(iframe);
+        //         const iframeContainer = document.createElement('div');
+        //         iframeContainer.classList.add('iframe-container');
+        //         const iframe = document.createElement('iframe');
+        //         iframe.src = urlSources[currentIndex]; // URL 소스를 배열에서 가져옴
+        //         iframeContainer.appendChild(iframe);
 
-                box.appendChild(imgDiv);
-                box.appendChild(iframeContainer);
+        //         box.appendChild(imgDiv);
+        //         box.appendChild(iframeContainer);
 
-                const box2 = document.createElement('div');
-                box2.classList.add('box2');
-                const paragraph = document.createElement('p');
-                paragraph.textContent = mentSources[currentIndex];
-                const ul = document.createElement('ul');
-                ul.classList.add('horizontal-list', 'list-style-image');
-                const technologies = ['Css', 'JavaScript', 'Vue', 'React'];
-                technologies.forEach(tech => {
-                    const li = document.createElement('li');
-                    li.textContent = tech;
-                    ul.appendChild(li);
-                });
+        //         const box2 = document.createElement('div');
+        //         box2.classList.add('box2');
+        //         const paragraph = document.createElement('p');
+        //         paragraph.textContent = mentSources[currentIndex];
+        //         const ul = document.createElement('ul');
+        //         ul.classList.add('horizontal-list', 'list-style-image');
+        //         const technologies = ['Css', 'JavaScript', 'Vue', 'React'];
+        //         technologies.forEach(tech => {
+        //             const li = document.createElement('li');
+        //             li.textContent = tech;
+        //             ul.appendChild(li);
+        //         });
 
-                box2.appendChild(paragraph);
-                box2.appendChild(ul);
+        //         box2.appendChild(paragraph);
+        //         box2.appendChild(ul);
 
-                newContainer.appendChild(box);
-                newContainer.appendChild(box2);
+        //         newContainer.appendChild(box);
+        //         newContainer.appendChild(box2);
 
-                currentIndex++; // 다음 인덱스로 이동
+        //         currentIndex++; // 다음 인덱스로 이동
 
-                return newContainer;
-            }
+        //         return newContainer;
+        //     }
 
-            // IntersectionObserver 콜백 함수
-            const observerCallback = (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const newBox = createBox();
-                        container.appendChild(newBox);
-                        observer.unobserve(entry.target); // 기존 요소는 더 이상 관찰하지 않음
-                        observer.observe(newBox); // 새로운 요소를 관찰 대상으로 추가
-                    }
-                });
-            };
+        //     // IntersectionObserver 콜백 함수
+        //     const observerCallback = (entries) => {
+        //         entries.forEach(entry => {
+        //             if (entry.isIntersecting) {
+        //                 const newBox = createBox();
+        //                 container.appendChild(newBox);
+        //                 observer.unobserve(entry.target); // 기존 요소는 더 이상 관찰하지 않음
+        //                 observer.observe(newBox); // 새로운 요소를 관찰 대상으로 추가
+        //             }
+        //         });
+        //     };
 
-            // IntersectionObserver 설정
-            const observerOptions = {
-                threshold: 1.0
-            };
+        // IntersectionObserver 설정
+        //     const observerOptions = {
+        //         threshold: 1.0
+        //     };
 
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
+        //     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-            // 초기 요소를 관찰 대상으로 설정
-            const initialBoxes = container.querySelectorAll('.container1, .container2');
-            initialBoxes.forEach(box => observer.observe(box));
+        //     // 초기 요소를 관찰 대상으로 설정
+        //     const initialBoxes = container.querySelectorAll('.container1, .container2');
+        //     initialBoxes.forEach(box => observer.observe(box));
+        // });
+
+        const container1 = document.querySelector('.container1');
+        const iframe1 = document.querySelector('.iframe1');
+
+        container1.addEventListener('mouseenter', () => {
+            iframe1.src = 'https://rogierdeboeve.com/';
+        });
+
+        container1.addEventListener('mouseleave', () => {
+            iframe1.src = '';
+        });
+
+        const container2 = document.querySelector('.container2');
+        const iframe2 = document.querySelector('.iframe2');
+
+        container2.addEventListener('mouseenter', () => {
+            iframe2.src = 'https://des.obys.agency/';
+        });
+
+        container2.addEventListener('mouseleave', () => {
+            iframe2.src = '';
+        });
+
+        const container3 = document.querySelector('.container3');
+        const iframe3 = document.querySelector('.iframe3');
+
+        container3.addEventListener('mouseenter', () => {
+            iframe3.src = 'https://cedroweb3.ai/';
+        });
+
+        container3.addEventListener('mouseleave', () => {
+            iframe3.src = '';
+        });
+
+        const container4 = document.querySelector('.container4');
+        const iframe4 = document.querySelector('.iframe4');
+
+        container4.addEventListener('mouseenter', () => {
+            iframe4.src = 'https://www.umault.com/';
+        });
+
+        container4.addEventListener('mouseleave', () => {
+            iframe4.src = '';
+        });
+
+        const container5 = document.querySelector('.container5');
+        const iframe5 = document.querySelector('.iframe5');
+
+        container5.addEventListener('mouseenter', () => {
+            iframe5.src = 'https://www.hellokuya.co/';
+        });
+
+        container5.addEventListener('mouseleave', () => {
+            iframe5.src = '';
+        });
+
+        const container6 = document.querySelector('.container6');
+        const iframe6 = document.querySelector('.iframe6');
+
+        container6.addEventListener('mouseenter', () => {
+            iframe6.src = 'https://dolceactivation.dolcegabbana.com/';
+        });
+
+        container6.addEventListener('mouseleave', () => {
+            iframe6.src = '';
+        });
+
+        const container7 = document.querySelector('.container7');
+        const iframe7 = document.querySelector('.iframe7');
+
+        container7.addEventListener('mouseenter', () => {
+            iframe7.src = 'https://hailstonelabs.com/';
+        });
+
+        container7.addEventListener('mouseleave', () => {
+            iframe7.src = '';
+        });
+
+        // 8번 
+
+        const container8 = document.querySelector('.container8');
+        const iframe8 = document.querySelector('.iframe8');
+
+        container8.addEventListener('mouseenter', () => {
+            iframe8.src = 'https://www.kreyda.art/';
+        });
+
+        container8.addEventListener('mouseleave', () => {
+            iframe8.src = '';
+        });
+
+        //
+
+        // 9번 
+
+        const container9 = document.querySelector('.container9');
+        const iframe9 = document.querySelector('.iframe9');
+
+        container9.addEventListener('mouseenter', () => {
+            iframe9.src = 'https://awsmd.com/';
+        });
+
+        container9.addEventListener('mouseleave', () => {
+            iframe9.src = '';
+        });
+
+        //
+
+        // 10번 
+
+        const container10 = document.querySelector('.container10');
+        const iframe10 = document.querySelector('.iframe10');
+
+        container10.addEventListener('mouseenter', () => {
+            iframe10.src = 'https://youniqlabs.io/';
+        });
+
+        container10.addEventListener('mouseleave', () => {
+            iframe10.src = '';
+        });
+
+        //
+
+        // 11번 
+
+        const container11 = document.querySelector('.container11');
+        const iframe11 = document.querySelector('.iframe11');
+
+        container11.addEventListener('mouseenter', () => {
+            iframe11.src = 'https://prand-n.ava-case.com/';
+        });
+
+        container11.addEventListener('mouseleave', () => {
+            iframe11.src = '';
+        });
+
+        //
+
+        const container12 = document.querySelector('.container12');
+        const iframe = document.querySelector('.iframe12');
+
+        container12.addEventListener('mouseenter', () => {
+            iframe.src = 'https://www.danielroth.com/';
+        });
+
+        container12.addEventListener('mouseleave', () => {
+            iframe.src = '';
         });
     </script>
 </body>
