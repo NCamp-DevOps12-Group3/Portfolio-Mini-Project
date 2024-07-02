@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/darkmode.css">
     <style>
         .sidebar { 
@@ -24,6 +25,7 @@
             padding: 10px 20px;
             color: #333;
             text-decoration: none;
+            transition:color 1s;
         }
         .sidebar a:hover {
             background-color: #ddd;
@@ -36,6 +38,9 @@
             display: inline-block;
             margin-left:10px;
             
+        }
+        .sidebar i{
+            font-size:1.5em;
         }
         .content {  
             padding: 20px;
@@ -125,27 +130,31 @@
     <div class="container-content d-flex">
         <div class="sidebar">
             <a href="main.html" class="active nav-link" data-page="main.html">
-                <img src="img/home.png">
+                <i class="bi bi-house-door"></i>
                 <div>홈</div>
             </a>
             <a href="setting.html" class="nav-link" data-page="setting.html">
-                <img src="img/setting.png">
+                <i class="bi bi-gear"></i>
                 <div>설정</div>
             </a>    
             <a href="#" class="nav-link" data-page="search.html">
-                <img src="img/search.png">
+                <i class="bi bi-search"></i>
                 <div>검색</div>
             </a>
-            <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html"><div>내 프로필</div></a>
-            <a class="nav-link" id="uploadWindowBtn"><i class="fas fa-upload" style="margin-top: 20px;"></i><div>업로드</div></a>
+            <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
+                <i class="bi bi-person-circle"></i>
+                <div>내 프로필</div></a>
+            <a class="nav-link" id="uploadWindowBtn">
+                <i class="bi bi-upload"></i><div>업로드</div></a>
             <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon" >
-                <i class="fas fa-bell"></i><div>알림</div></a>
+                <i class="bi bi-bell"></i><div>알림</div></a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item notification-item" href="#"><div>알람1</div></a></li>
                 <li><a class="dropdown-item notification-item" href="#"><div>알람2</div></a></li>
                 <li><a class="dropdown-item notification-item" href="#"><div>알람3</div></a></li>
               </ul>
-            <a href="#" id="darkModeToggle"><div>다크모드</div></a>
+            <a href="#" id="darkModeToggle"><i class="bi bi-brightness-high"></i><div>다크모드</div></a>
+            <a href="#">..</a>
             <a href="#">..</a>
         </div>
         <div class="content d-flex flex-column justify-content-start" id="main-content">
@@ -310,11 +319,24 @@
                     $('#uploadModal').modal('show');
             });
 
+            // $('.sidebar').children().each().hover(, )
+        })
+        // $(()=>{
             
 
-            
-        });
-    })  
+
+
+
+
+        //     // 사이드바 이벤트
+        //     $('.sidebar').children().each().hover(function(){
+        //         $(this).child().animate({
+        //             color:'blue'
+        //         }, 300), $(this).child().animate({
+        //             color:'blue'
+        //         }, 300)});
+        //     }
+        // })  
             
     </script>
 </body>
