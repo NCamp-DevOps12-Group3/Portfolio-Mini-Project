@@ -81,14 +81,15 @@
       display: flex;
       flex-direction: column;
       height: 70px;
-      width: 170px;
+      width: auto;
       background: #ffffff;
       text-align: center;
       line-height: 60px;
       padding: 30px;
       position: relative;
       border: 1px solid black;
-      margin: 5%;
+      margin-left: 5%;
+      margin-right: 5%;
       
     }
     
@@ -173,6 +174,8 @@
     }
     img{
       border-radius: 50%;
+      width: 75%;
+      height: 75%;
     }
     #website{
       border-radius: 7px;
@@ -262,6 +265,9 @@
       padding: 0px 20px;
       padding-top: 30px; 
     }
+    button{
+      margin-right: 10px;
+    }
 }
 @media screen and (max-width: 500px) {
     .pobox {
@@ -281,8 +287,15 @@
           padding: 20px 0px;
           
         }
-        
-        
+        .m-3{
+          margin: 0;
+        }
+      img { 
+        width: 70px;
+        height: 70px;
+      } 
+    
+      
 }
 </style>
 </head>
@@ -298,10 +311,10 @@
             <div id="#setting-list" class=" list-group">
               
                 <div class="pobox">      
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-profile">프로필</a><br>
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-locksandsecurity">잠금과 보안</a>        <br>                
+                        <a class="p-1 rounded list-group-item list-group-item-action mt-4 "  href="#list-profile">프로필</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-locksandsecurity">잠금과 보안</a>                       <br>
                         <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-account">계정</a><br>
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-termsofuse">이용약관</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-termsofuse">이용약관</a>
                 </div>
               
             </div>
@@ -339,14 +352,14 @@
                     </div>
                     <header class="w-100 h-25 box d-flex align-items-center">
                       <div class="box d-inline-block m-3">
-                        <img src="img/cat1.jpg" alt="" class="w-75">
+                        <img src="img/cat1.jpg" alt="" >
                       </div>
                       <div class="d-inline-block">
                         <h2 style="width: 100px;">닉네임</h2>
                         <p>아이디</p>
                       </div>
                       <div class="d-inline-block">
-                        <button type="button" style="width: 100px; " class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPic">
+                        <button type="button" style="width: 75px; padding-top: 12px; padding-bottom: 12px" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modalPic">
                           사진 변경
                         </button>
                       </div>
