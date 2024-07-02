@@ -13,7 +13,6 @@
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -24,25 +23,19 @@
 
 .container1:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container1:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
+    border-top: 1px solid black;
 }
 
 .container2 {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -53,25 +46,18 @@
 
 .container2:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container2:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
 }
 
 .container3 {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -82,25 +68,18 @@
 
 .container3:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container3:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
 }
 
 .container4 {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -111,25 +90,18 @@
 
 .container4:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container4:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
 }
 
 .container5 {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -140,25 +112,18 @@
 
 .container5:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container5:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
 }
 
 .container6 {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -169,25 +134,18 @@
 
 .container6:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container6:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
 }
 
 .container7 {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -198,25 +156,18 @@
 
 .container7:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container7:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
 }
 
 .container8 {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -227,25 +178,18 @@
 
 .container8:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container8:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
 }
 
 .container9 {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -256,25 +200,18 @@
 
 .container9:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container9:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
 }
 
 .container10 {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -285,25 +222,18 @@
 
 .container10:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container10:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
 }
 
 .container11 {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -314,25 +244,18 @@
 
 .container11:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container11:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
 }
 
 .container12 {
     display: flex;
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -343,18 +266,12 @@
 
 .container12:hover {
     z-index: 1;
-    /* height: 500px; 
-    width: 500px; */
     overflow: auto;
-    /* transform: translateY(-50px); */
-    /* position:absolute; */
     transform: scale(1.5);
-    /* transform: scaleY(1.5); */
 }
 
 .container12:hover .box2 {
     display: block;
-    /* transform: scaleY(0.6667); */
 }
 
 .iframe-container {
@@ -364,17 +281,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* z-index: 2;  */
     animation: showIframe 1.5s forwards;
 }
 
 .box {
     width: 100%;
     height: 400px;
-    /* border: 1px black solid; */
     overflow: hidden;
     background-size: cover;
-    /* display: none; */
 }
 
 .box2 {
@@ -416,6 +330,8 @@
 .box:hover .iframe-container {
     display: block;
 }
+
+
 
 .iframe-container iframe {
     width: 100%;
@@ -462,7 +378,6 @@ ul.horizontal-list li:last-child {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -473,25 +388,18 @@ ul.horizontal-list li:last-child {
 
     .container1:hover {
         z-index: 1;
-        /* height: 500px; 
-        width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container1:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
     .container2 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -502,25 +410,18 @@ ul.horizontal-list li:last-child {
 
     .container2:hover {
         z-index: 1;
-        /* height: 500px; 
-        width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container2:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
     .container3 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -531,25 +432,18 @@ ul.horizontal-list li:last-child {
 
     .container3:hover {
         z-index: 1;
-        /* height: 500px; 
-        width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container3:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
     .container4 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -560,25 +454,18 @@ ul.horizontal-list li:last-child {
 
     .container4:hover {
         z-index: 1;
-        /* height: 500px; 
-        width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container4:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
     .container5 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -589,25 +476,18 @@ ul.horizontal-list li:last-child {
 
     .container5:hover {
         z-index: 1;
-        /* height: 500px; 
-        width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container5:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
     .container6 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -618,25 +498,18 @@ ul.horizontal-list li:last-child {
 
     .container6:hover {
         z-index: 1;
-        /* height: 500px; 
-    width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container6:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
     .container7 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -647,25 +520,18 @@ ul.horizontal-list li:last-child {
 
     .container7:hover {
         z-index: 1;
-        /* height: 500px; 
-        width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container7:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
     .container8 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -676,25 +542,18 @@ ul.horizontal-list li:last-child {
 
     .container8:hover {
         z-index: 1;
-        /* height: 500px; 
-        width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container8:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
     .container9 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -705,18 +564,12 @@ ul.horizontal-list li:last-child {
 
     .container9:hover {
         z-index: 1;
-        /* height: 500px; 
-        width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container9:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
 
@@ -724,7 +577,6 @@ ul.horizontal-list li:last-child {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -735,25 +587,18 @@ ul.horizontal-list li:last-child {
 
     .container10:hover {
         z-index: 1;
-        /* height: 500px; 
-        width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container10:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
     .container11 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -764,25 +609,18 @@ ul.horizontal-list li:last-child {
 
     .container11:hover {
         z-index: 1;
-        /* height: 500px; 
-        width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container11:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
     .container12 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -793,18 +631,12 @@ ul.horizontal-list li:last-child {
 
     .container12:hover {
         z-index: 1;
-        /* height: 500px; 
-    width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
         transform: scale(1.5);
-        /* transform: scaleY(1.5); */
     }
 
     .container12:hover .box2 {
         display: block;
-        /* transform: scaleY(0.6667); */
     }
 
     .iframe-container {
@@ -814,7 +646,6 @@ ul.horizontal-list li:last-child {
         left: 0;
         width: 100%;
         height: 100%;
-        /* z-index: 2;  */
         animation: showIframe 1.5s forwards;
     }
 }
@@ -824,7 +655,6 @@ ul.horizontal-list li:last-child {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -835,25 +665,18 @@ ul.horizontal-list li:last-child {
 
     .container1:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container1:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
     }
 
     .container2 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -864,25 +687,19 @@ ul.horizontal-list li:last-child {
 
     .container2:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container2:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
+ 
     }
 
     .container3 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -893,25 +710,19 @@ ul.horizontal-list li:last-child {
 
     .container3:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container3:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
+ 
     }
 
     .container4 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -922,25 +733,19 @@ ul.horizontal-list li:last-child {
 
     .container4:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container4:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
+ 
     }
 
     .container5 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -951,25 +756,19 @@ ul.horizontal-list li:last-child {
 
     .container5:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container5:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
+ 
     }
 
     .container6 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -980,25 +779,19 @@ ul.horizontal-list li:last-child {
 
     .container6:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container6:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
+ 
     }
 
     .container7 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -1009,25 +802,19 @@ ul.horizontal-list li:last-child {
 
     .container7:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container7:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
+ 
     }
 
     .container8 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -1038,25 +825,19 @@ ul.horizontal-list li:last-child {
 
     .container8:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container8:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
+ 
     }
 
     .container9 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -1067,18 +848,13 @@ ul.horizontal-list li:last-child {
 
     .container9:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container9:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
+ 
     }
 
 
@@ -1086,7 +862,6 @@ ul.horizontal-list li:last-child {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -1097,25 +872,19 @@ ul.horizontal-list li:last-child {
 
     .container10:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container10:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
+ 
     }
 
     .container11 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -1126,25 +895,19 @@ ul.horizontal-list li:last-child {
 
     .container11:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container11:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
+ 
     }
 
     .container12 {
         display: flex;
         width: 100%;
         height: 400px;
-        /* border: 1px black solid; */
         overflow: hidden;
         flex-direction: column;
         align-items: center;
@@ -1155,17 +918,12 @@ ul.horizontal-list li:last-child {
 
     .container12:hover {
         z-index: 1;
-        /* height: 500px; 
-            width: 500px; */
         overflow: auto;
-        /* transform: translateY(-50px); */
-        /* position:absolute; */
-        /* transform: scale(1.5); */
         transform: scaleY(1.1);
     }
 
     .container12:hover .box2 {
         display: block;
-        transform: scaleY(0.867);
+ 
     }
 }
