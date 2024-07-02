@@ -249,20 +249,9 @@
             } 
             const getpassword = document.getElementById("password"); 
             userdata.password = getpassword.value; 
-<<<<<<< HEAD
-            $("input[name='btnuser']").each(function() {
-                console.log($("input[name='btnuser']").is(":checked"));
-                if(!$(this).is(":checked")) {
-                    appendAlert('사용자유형을 지정해주십시오.', 'success'); 
-                    e.preventDefault(); 
-                    return; 
-                }
-            });
-=======
-           
+
             let userTypeCtn = 0;
 
->>>>>>> origin/leeheeseung
             $("input[name='btnuser']").each(function() {
                 console.log($("input[name='btnuser']").is(":checked"));
                 if($(this).is(":checked")) {
