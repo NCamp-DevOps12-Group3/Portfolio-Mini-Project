@@ -6,26 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
+        .main {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            flex-wrap: wrap;
         }
 
         .box {
-            background-image: url('img/cat1.jpg');
-            width: 100px;
-            height: 100px;
-            background-size: cover;
-            border-radius: 50%;
+            border: 1px black solid;
+            width: 300px;
+            height: 300px;
+            margin: 10px;
         }
     </style>
 </head>
 
 <body>
-    <div class="box"></div>
-    <div> <span> 냐옹 </span> </div>
+    <main class="main">
+        <div class="box"></div>
+        <div class="box"></div>
+    </main>
 </body>
 
 </html>

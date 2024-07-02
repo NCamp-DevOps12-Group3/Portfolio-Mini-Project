@@ -135,40 +135,46 @@
             });
 
 
-            // 포트폴리오 데이터를 인자로 받아서 iframe 객체를 dom tree에 추가하는 메소드
             function loadIframeContent(portfolio, index) {
                 const iframe = document.getElementById('modalPortfolioIframe');
-                
                 const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
             
-                // Construct the HTML content
+                window.addEventListener('wheel', (event) => {
+                    if (iframeDocument) {
+                        iframeDocument.documentElement.scrollTop += event.deltaY;
+                    }
+                });
+            
                 const htmlContent = `
                     <!DOCTYPE html>
                     <html lang="en">
                     <head>
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <style>${portfolio.cssContent}</style>
+                        <style>${portfolio.cssContent}
+                        body::-webkit-scrollbar {
+                        display: none;
+                        }</style>
                     </head>
                     <body>
-                        ${portfolio.htmlContent}
-                        <script>
+                        ${portfolio.htmlContent} 
+                         <script type="text/javascript">
                             ${portfolio.jsContent}
-                        </script>
+                        <\/script>
                     </body>
                     </html>
                 `;
-                
+            
                 // Write the HTML content to the iframe
                 iframeDocument.open();
-                iframeDocument.write(htmlContent);
+                iframe.srcdoc = htmlContent;
                 iframeDocument.close();
 
                 // 댓글창 열때마다 초기화
                 const modalCommentMain = document.getElementById('modalCommentMain');
                 if (modalCommentMain) {
                     modalCommentMain.innerHTML = '';
-
+            
                     // 제일 위 댓글은 소개글
                     addComment(portfolio.portfolioDescription);
                     // 포트폴리오에 저장되어 있는 코멘트를 등록
@@ -176,7 +182,7 @@
                         addComment(portfolio.comments[i]);
                     }
                 }
-
+            
                 // 모달 오버레이 표시
                 const modalPortfolioOverlay = document.getElementById('modalPortfolioOverlay');
                 if (modalPortfolioOverlay) {
@@ -184,7 +190,7 @@
                     // 전체화면의 스크롤은 모달이 떠있을 때는 사용 불가
                     document.body.style.overflow = 'hidden';
                 }
-
+            
                 // 댓글 입력 이벤트 핸들러 설정
                 const modalCommentInput = document.getElementById('modalCommentInput');
                 if (modalCommentInput) {
@@ -210,12 +216,23 @@
                                     currentPortfolio.comments = [comment];
                                 }
                                 localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
-                                console.log('Updated Comments:', currentPortfolio.comments);
                             }
                         }
-                    }, { once: true });
+                    });
                 }
             }
+
+               // iframe 외부 스크롤 이벤트 핸들러 설정
+               window.addEventListener('wheel', function(event) {
+                const iframe = document.getElementById('modalPortfolioIframe');
+                if (iframe) {
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (iframeDoc) {
+                    iframeDoc.documentElement.scrollTop += event.deltaY;
+                }
+                }
+            });
+            
 
             // 코멘트를 인자로 받아서 댓글창에 띄워주는 함수
             function addComment(comment) {
@@ -229,14 +246,19 @@
                 document.getElementById('modalCommentMain').insertAdjacentHTML('beforeend', commentElement);
             }
 
+            window.addEventListener('click', function(e) {
+                console.log('Clicked element:', e.target.id);
+            });
+
             // 모달이 떴을 때 shadow host 외부를 클릭하면 닫히는 방식으로 이벤트 핸들러 추가
             document.getElementById('modalPortfolioOverlay').addEventListener('click', function (e) {
                 if (e.target.id === 'modalPortfolioOverlayBond' || e.target.id === 'modalPortfolioOverlay') {
                     document.getElementById('modalPortfolioOverlay').classList.remove('modal-portfolio-overlay-show');
                     document.getElementById('modalCommentSection').classList.remove('modal-comment-section-active');
-                    document.getElementById('modalPortfolioShadowHost').classList.remove('modal-portfolio-shadow-host-faded');
+                    document.getElementById('modalPortfolioIframe').classList.remove('modal-portfolio-shadow-host-faded');
                     // 전체화면의 스크롤 복구
                     document.body.style.overflow = '';
+
                 }
             });
 
@@ -250,13 +272,13 @@
             // openBtn을 누르면 코멘트창이 나타나고 뒤 배경 불투명도 증가
             document.getElementById('modalCommentOpenBtn').addEventListener('click', function (e) {
                 document.getElementById('modalCommentSection').classList.add('modal-comment-section-active');
-                document.getElementById('modalPortfolioShadowHost').classList.add('modal-portfolio-shadow-host-faded');
+                document.getElementById('modalPortfolioIframe').classList.add('modal-portfolio-shadow-host-faded');
             });
 
             // closeBtn을 누르면 코멘트창이 사라지고 뒤 배경 불투명도 감소
             document.getElementById('modalCommentCloseBtn').addEventListener('click', function (e) {
                 document.getElementById('modalCommentSection').classList.remove('modal-comment-section-active');
-                document.getElementById('modalPortfolioShadowHost').classList.remove('modal-portfolio-shadow-host-faded');
+                document.getElementById('modalPortfolioIframe').classList.remove('modal-portfolio-shadow-host-faded');
             });
 
             // 현재의 좋아요 수를 댓글창에 표시
@@ -307,7 +329,7 @@
                         // 모달 전부 꺼짐
                         document.getElementById('modalPortfolioOverlay').classList.remove('modal-portfolio-overlay-show');
                         document.getElementById('modalCommentSection').classList.remove('modal-comment-section-active');
-                        document.getElementById('modalPortfolioShadowHost').classList.remove('modal-portfolio-shadow-host-faded');
+                        document.getElementById('modalPortfolioIframe').classList.remove('modal-portfolio-shadow-host-faded');
                         document.getElementById('modalOptionsOverlay').classList.remove('modal-options-active');
                         document.getElementById('modalDelete').classList.remove('modal-delete-active');
 
@@ -439,7 +461,7 @@
                 document.querySelector('.modal-backdrop').remove();
                 document.getElementById('modalPortfolioOverlay').classList.remove('modal-portfolio-overlay-show');
                 document.getElementById('modalCommentSection').classList.remove('modal-comment-section-active');
-                document.getElementById('modalPortfolioShadowHost').classList.remove('modal-portfolio-shadow-host-faded');
+                document.getElementById('modalPortfolioIframe').classList.remove('modal-portfolio-shadow-host-faded');
                 document.getElementById('modalOptionsOverlay').classList.remove('modal-options-active');
                 loadPortfolios();
             }

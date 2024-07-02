@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up Page</title>
-  <link href="../static/css/bootstrap.css" rel="stylesheet">
-  <script src="../static/js/jquery-3.7.1.min.js"></script>
-  <script src="../static/js/bootstrap.bundle.js"></script>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/bootstrap.bundle.js"></script>
   <style>
     .box{
       background: rgb(163,163,163);
@@ -25,16 +25,14 @@
       border-radius: 7px;
       resize: none;
     }
-    form{
-      height: 100vh;
+    div{
+      margin: 2em auto;
     }
   </style>
 </head>
 <body>
-<div class="container-fluid d-flex">
-<div id="sidebar"></div>
-<form action="#" method="get" class="w-100 d-inline-block">
-  <div class="">
+<form action="#" method="get">
+  <div class="container position-relative">
     <div class="modal fade" id="modalPic">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -51,51 +49,44 @@
             </div>
           </div>
           <div class="modal-footer">
-            <input type="submit" class="btn btn-primary" data-bs-dismiss="modal" value="제출">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
-              취소
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+              닫기
             </button>
           </div>
         </div>
       </div>
     </div>
     <header class="w-100 h-25 box d-flex align-items-center">
-      <div class="d-inline-block m-3 p-3">
-        <img src="../static/img/1.jpg" alt="">
+      <div class="box d-inline-block m-3 p-3">
+        <img src="img/cat1.jpg" alt="" class="w-50">
       </div>
-      <div class="d-inline-block m-auto">
+      <div class="d-inline-block">
         <h2>아이디</h2>
         <p>이름</p>
       </div>
-      <div class="d-inline-block m-auto">
+      <div class="d-inline-block">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPic">
           사진 변경
         </button>
       </div>
     </header>
-    <div class="my-2">
+    <div>
       <label for="website" class="form-label">웹 사이트</label>
-      <input type="url" name="website" id="website" placeholder="웹사이트 주소" class="w-100 form-control" >
+      <input type="url" name="website" id="website" placeholder="웹사이트 주소" class="w-100 form-control" row="2">
       <div class="form-text">연락 사이트나 개인 포폴이 모아진 주소를 입력해 주세요</div>
     </div>
-    <div class="my-2">
+    <div>
       <label for="intro" class="form-label">소개</label>
-      <textarea name="intro" id="intro" class="w-100 form-control" rows="2"></textarea>
+      <textarea name="intro" id="intro" class="w-100 form-control"></textarea>
       <div class="form-text">유저 상세페이지 상단에 출력되는 글입니다</div>
     </div>
 
-    <button type="submit" class="btn my-2 btn-primary w-25"> 제출</button>
+    <button type="submit" class="btn btn-primary w-25"> 제출</button>
   </div>
 </form>
-</div>
 
 <script>
   $(()=>{
-    fetch('sidebar.html')
-            .then(response => response.text())
-            .then(data => {
-              document.getElementById('sidebar').innerHTML = data;
-            });
     document.getElementById('formFile').addEventListener('change', function(event) {
       const input = event.target;
       const previewContainer = document.getElementById('imagePreview');
@@ -103,24 +94,19 @@
 
       if (input.files && input.files[0]) {
         const file = input.files[0];
-        if (file.type.match('image.*')) { // 파일이 이미지인 경우
-          const reader = new FileReader();
+        const reader = new FileReader();
 
-          reader.onload = function (e) {
-            const imgElement = document.createElement('img');
-            imgElement.src = e.target.result;
-            imgElement.classList.add('img-fluid', 'mt-2');
-            imgElement.style.maxWidth = '100%';
-            imgElement.style.height = 'auto';
+        reader.onload = function(e) {
+          const imgElement = document.createElement('img');
+          imgElement.src = e.target.result;
+          imgElement.classList.add('img-fluid', 'mt-2'); // Bootstrap classes for styling
+          imgElement.style.maxWidth = '100%';
+          imgElement.style.height = 'auto';
 
-            previewContainer.appendChild(imgElement);
-          };
+          previewContainer.appendChild(imgElement);
+        };
 
-          reader.readAsDataURL(file);
-        }
-        else{
-          previewContainer.innerHTML = '<p class="text-danger">선택한 파일은 이미지 파일이 아닙니다.</p>';
-        }
+        reader.readAsDataURL(file);
       }
     });
   });
