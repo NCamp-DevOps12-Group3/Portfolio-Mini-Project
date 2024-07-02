@@ -30,7 +30,7 @@ p{
 }
 
 .img-section{
-    background-image: url('../image/home-phones.png');
+    background-image: url('image/home-phones.png');
     background-position: -47px 0px;
     background-repeat: no-repeat;
     position: relative;
@@ -49,19 +49,19 @@ p{
 /* @keyframes로 애니메이션 효과 정의 */
 @keyframes fadeAnimation {
     0% {
-        background-image: url('../image/screenshot1.png');
+        background-image: url('image/screenshot1.png');
     }
     25% {
-        background-image: url('../image/screenshot2.png');
+        background-image: url('image/screenshot2.png');
     }
     50%{
-        background-image: url('../image/screenshot3.png');
+        background-image: url('image/screenshot3.png');
     }
     75%{
-        background-image: url('../image/screenshot4.png');
+        background-image: url('image/screenshot4.png');
     }
     100% {
-        background-image: url('../image/screenshot1.png');
+        background-image: url('image/screenshot1.png');
     }
 }
 
@@ -118,7 +118,7 @@ div{
 }
 
 .form-login-logo{
-    background-image: url('../image/8n91YnfPq0s.png');
+    background-image: url('/image/8n91YnfPq0s.png');
     background-position: 0 -50px;
     background-repeat: no-repeat;
     width: 155px;
@@ -209,7 +209,7 @@ div{
 }
 
 .logo-facebook{
-    background-image: url('../image/logo.png');
+    background-image: url('image/logo.png');
     background-repeat: no-repeat;
     background-position: -414px -259px;
     width: 15px;
@@ -224,7 +224,7 @@ div{
 }
 
 .logo-google{
-    background-image: url('../image/UtJtFmFLCiD.png');
+    background-image: url(image/UtJtFmFLCiD.png);
     background-repeat: no-repeat;
     background-size : cover;
     width: 130px;
@@ -234,7 +234,7 @@ div{
 }
 
 .logo-microsoft{
-    background-image: url('../image/LBxTdceDfgS.png');
+    background-image: url(image/LBxTdceDfgS.png);
     background-repeat: no-repeat;
     background-size : cover;
     width: 130px;

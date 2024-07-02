@@ -79,46 +79,20 @@
                 ` <div>${message}</div>`, /*wrapper에들어갈메세지*/
                 '</div>' /*div닫기*/
             ].join(''); /*위내용을 문자열로 바꾸기 */
+            alertPlaceholder.append(wrapper); /*liveAlertPlaceholder 에 써 넣기*/
             
-            
-              // 기존 알림 메시지 수 확인 및 제거
-              const alerts = alertPlaceholder.querySelectorAll('.alert');
-                if (alerts.length >= 2) {
-                    alertPlaceholder.removeChild(alerts[0]);
-                }
-
-                alertPlaceholder.append(wrapper); /*liveAlertPlaceholder 에 써 넣기*/
-
-
-
-
-
-            // 알림 메시지 1.2초 지속하고 서서히 지우기 함수입니다.
+            // 알림 메시지 1.5초 지속하고 서서히 지우기 함수입니다.
             setTimeout(() => { 
                 wrapper.querySelector('.alert').classList.remove('show'); 
                 wrapper.querySelector('.alert').classList.add('fade'); 
                 setTimeout(() => { 
                     wrapper.remove(); 
-                }, 100); // fade-out 효과를 위해 약간의 지연을 줍니다.
-            }, 1200); 
+                }, 1500); // fade-out 효과를 위해 약간의 지연을 줍니다.
+            }, 1500); 
         }
 
-         
-        $("#email").on("keydown", (e) => {
-            if(e.key.toLowerCase() === 'enter') {
-                $("#signIn").click();
-            }
-        });
-
-
-        $("#password").on("keydown", (e) => {
-            if(e.key.toLowerCase() === 'enter') {
-                $("#signIn").click();
-            }
-        });
-
-
-
+            
+            
         $("#signIn").on("click", (e) => {  
             
             // 이메일 미 입력시
