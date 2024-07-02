@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 reader.readAsDataURL(this.files[0]);
             });
 
-            $('#uploadModal').on('hidden.bs.modal', function () {
+            $('#uploadModal').on('show.bs.modal', function () {
                 // 폼을 초기화
                 $('#uploadForm')[0].reset();
                 // 썸네일 미리보기도 초기화
@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             // 포트폴리오 로드하는 로직
-            function loadPortfolios() {
-                var portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
+                function loadPortfolios() {
+                    var portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
                 var portfolioContainer = document.getElementById('portfolioContainer');
                 if (portfolioContainer) {
                     portfolioContainer.innerHTML = ''; // 기존 항목을 비움
@@ -131,17 +131,17 @@ document.addEventListener('DOMContentLoaded', function () {
             loadPortfolios();
 
             // 포트폴리오 로드하는 로직에서 loadShadowContent 호출을 loadIframeContent로 변경
-            portfolioContainer.addEventListener('click', function (e) {
-                if (e.target.classList.contains('portfolio-img')) {
-                    let index = e.target.getAttribute('data-index');
-                    var portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
-                    var portfolio = portfolioData[index];
-                    if (portfolio) {
-                        currentPortfolioIndex = index;
-                        loadIframeContent(portfolio, index);
+                portfolioContainer.addEventListener('click', function (e) {
+                    if (e.target.classList.contains('portfolio-img')) {
+                        let index = e.target.getAttribute('data-index');
+                        var portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
+                        var portfolio = portfolioData[index];
+                        if (portfolio) {
+                            currentPortfolioIndex = index;
+                            loadIframeContent(portfolio, index);
+                        }
                     }
-                }
-            });
+                });
 
 
             function loadIframeContent(portfolio, index) {
