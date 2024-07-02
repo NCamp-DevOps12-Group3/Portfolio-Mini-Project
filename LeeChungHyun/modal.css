@@ -31,20 +31,15 @@
 .modal-portfolio-bond {
     position: relative;
     width: 100%;
-<<<<<<< HEAD
-=======
     height: 100%;
     border-radius: 20px;
->>>>>>> origin/chunghyun
     background-color: white;
 }
 
-.modal-portfolio-shadow-host-faded {
+.modal-portfolio-iframe-faded {
     opacity: 0.7;
 }
 
-<<<<<<< HEAD
-=======
 .modal-portfolio-iframe{
     position: absolute;
     width: 100%;
@@ -52,7 +47,6 @@
     border-radius: 20px;
 }
 
->>>>>>> origin/chunghyun
 .model-comment-openBtn-section {
     position: absolute;
     top: 0;
@@ -259,39 +253,7 @@ p {
 .modal-comment-closeBtn {
     cursor: pointer;
 }
-<<<<<<< HEAD
 
-#modalOptionsItemDelete {
-    color: red;
-}
-
-.modal-options {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    display: none;
-    z-index: 1100;
-    background-color: rgba(0, 0, 0, 0.3);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.modal-options-bond {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 10px;
-    width: 8vw;
-    align-items: center;
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-=======
 .modal-options-overlay {
     position: fixed;
     top: 50%;
@@ -330,7 +292,6 @@ p {
     background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
->>>>>>> origin/chunghyun
 }
 
 .modal-options-active {
@@ -338,18 +299,6 @@ p {
 }
 
 .modal-options-item {
-<<<<<<< HEAD
-    display: flex;
-    padding: 8px 12px;
-    cursor: pointer;
-    flex-wrap: nowrap;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.modal-options-item:hover {
-    background-color: #f0f0f0;
-=======
     width: 100%;
     padding: 8px 12px;
     flex-grow: 1;
@@ -366,7 +315,6 @@ p {
 
 #modalOptionsItemDelete {
     color: red;
->>>>>>> origin/chunghyun
 }
 
 .modal-modify {
