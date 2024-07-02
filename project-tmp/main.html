@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/darkmode.css">
+    <style>
+        .sidebar { 
+            width: 15vw;    
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background: #f8f9fa;
+            padding-top: 20px;  
+        }
+        .sidebar a {
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            transition:color 1s;
+        }
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+        .sidebar img{
+            width:30px;
+            height:auto;
+        }
+        .sidebar div{
+            display: inline-block;
+            margin-left:10px;
+            
+        }
+        .sidebar i{
+            font-size:1.5em;
+        }
+        .content {  
+            padding: 20px;
+            width:100vw;
+            height:100vh;
+            
+        }
+
+        /* .base-sector{
+
+        } */
+        .base-sector-personal, .base-sector-company{
+            margin : 5vh auto;
+        }
+
+
+        .base-sector-personal-title, .base-sector-company-title{
+            margin:0 5px 10px;
+            min-width:200px;
+        }
+        .sector-content-item{
+            margin-bottom:10px;
+        }
+
+        .content-img-thumbnail{
+            width:100%;
+            height:25vh;
+            object-fit: cover;
+        }
+        .card-content-item{
+            transition: transform 0.3s;
+        }
+        .card-content-item:hover{
+            transform: scale(1.1);
+            z-index:50;
+        }
+
+        .base-header button{
+            display:flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .base-header img{
+            width:30px;
+            height:auto;
+        }
+        .base-header button div{
+            display: inline-block;
+            margin-left:10px;
+        }
+        @media screen and (max-width:900px){
+            .base-header button div{
+                display: none;
+            }
+            
+            .sidebar div{
+                display:none;
+            }
+        }
+
+        @media screen and (max-width:770px){
+            .sidebar{
+                width:50px;
+            }
+            .sidebar a {
+                padding: 10px 10px;
+
+            }
+            .sidebar div{
+                display:none;
+            }
+            .content {  
+                padding: 20px;
+            }
+            .card-content-item{
+                margin: 2vh
+            }
+        }
+
+        .notification-dropdown {
+            transition: background-color 0.3s, border-color 0.3s;
+            }
+
+    </style>
+</head>
+<body>
+    <div class="container-content d-flex">
+        <div class="sidebar">
+            <a href="main.html" class="active nav-link" data-page="main.html">
+                <i class="bi bi-house-door"></i>
+                <div>홈</div>
+            </a>
+            <a href="setting.html" class="nav-link" data-page="setting.html">
+                <i class="bi bi-gear"></i>
+                <div>설정</div>
+            </a>    
+            <a href="#" class="nav-link" data-page="search.html">
+                <i class="bi bi-search"></i>
+                <div>검색</div>
+            </a>
+            <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
+                <i class="bi bi-person-circle"></i>
+                <div>내 프로필</div></a>
+            <a class="nav-link" id="uploadWindowBtn">
+                <i class="bi bi-upload"></i><div>업로드</div></a>
+            <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon" >
+                <i class="bi bi-bell"></i><div>알림</div></a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item notification-item" href="#"><div>알람1</div></a></li>
+                <li><a class="dropdown-item notification-item" href="#"><div>알람2</div></a></li>
+                <li><a class="dropdown-item notification-item" href="#"><div>알람3</div></a></li>
+              </ul>
+            <a href="#" id="darkModeToggle"><i class="bi bi-brightness-high"></i><div>다크모드</div></a>
+            <a href="#">..</a>
+            <a href="#">..</a>
+        </div>
+        <div class="content d-flex flex-column justify-content-start" id="main-content">
+            <div class="base-header d-flex justify-content-center align-items-center">
+                <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-primary" id="baseViewAllBtn">
+                        <img src="img/allview.png">
+                        <div>전체보기</div>
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" id="basePersonalBtn">
+                        <img src="img/portfolio.png">
+                        <div>개인 포트폴리오</div>
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" id="baseCompanyBtn">
+                        <img src="img/business.png">
+                        <div>기업 채용</div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="base-sector" id="baseContentSector">
+                <div class="base-sector-personal">
+                    <div class="base-sector-personal-title">
+                        <h4 class="mb-2">개인 포트폴리오</h4>
+                    </div>
+                    <div class="base-sector-personal-content row row-cols-md-4 row-cols-1 ">
+                        <div class="col">
+                            <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                                <div class="card-body">
+                                    <h5 class="card-title mb2">쿼카</h5>
+                                    <p class="card-subtitle">쿼카는귀엽다</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src="img/cute2.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                                <div class="card-body">
+                                    <h5 class="card-title">마멋</h5>
+                                    <p class="card-subtitle">마멋도귀엽다</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                                <div class="card-body">
+                                    <h5 class="card-title">personal Name</h5>
+                                    <p class="card-subtitle">R&B</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                                <div class="card-body">
+                                    <h5 class="card-title">personal Name</h5>
+                                    <p class="card-subtitle">R&B</p>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                <div class="base-sector-company">
+                    <div class="base-sector-company-title">
+                        <h4 class="mb-2">기업 채용</h4>
+                    </div>
+                    <div class="base-sector-company-content row row row-cols-md-4 row-cols-1">
+                        <div class="col">
+                            <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                                <div class="card-body">
+                                    <h5 class="card-title">personal Name</h5>
+                                    <p class="card-subtitle">R&B</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                                <div class="card-body">
+                                    <h5 class="card-title">personal Name</h5>
+                                    <p class="card-subtitle">R&B</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                                <div class="card-body">
+                                    <h5 class="card-title">personal Name</h5>
+                                    <p class="card-subtitle">R&B</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card border-light card-content-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src="img/cute.jpg" alt="" class="content-img-thumbnail card-img-top card-img-bottom">
+                                <div class="card-body">
+                                    <h5 class="card-title">personal Name</h5>
+                                    <p class="card-subtitle">R&B</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 업로드 모달 -->
+    <div id="upload-modal-container"></div>
+
+
+    <!-- 상세보기 모달 -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 스크립트 -->
+    <script src="js/darkmode.js"></script>
+    <script>
+        $(()=>{
+            // Load dark mode state
+            var isDarkMode = loadDarkModeState();
+            applyDarkMode(isDarkMode);
+
+            $('#darkModeToggle').on('click', function() {
+                isDarkMode = !$('body').hasClass('dark-mode');
+                applyDarkMode(isDarkMode);
+                saveDarkModeState(isDarkMode);
+            });
+
+            $("#baseViewAllBtn").on("click", function(){
+                window.location.href = "main.html";
+            });
+            $("#basePersonalBtn").on("click", function(){
+                window.location.href = "mini_project.html";
+            });
+            $("#baseCompanyBtn").on("click", function(){
+                window.location.href = "mini_project.html";
+            });
+
+            // 업로드 버튼 이벤트
+            $('#uploadWindowBtn').on('click', function() {
+                $('#upload-modal-container').load('upload_modal.html', function() {
+                    $('#uploadModal').modal('show');
+            });
+
+            // $('.sidebar').children().each().hover(, )
+        })
+        // $(()=>{
+            
+
+
+
+
+
+        //     // 사이드바 이벤트
+        //     $('.sidebar').children().each().hover(function(){
+        //         $(this).child().animate({
+        //             color:'blue'
+        //         }, 300), $(this).child().animate({
+        //             color:'blue'
+        //         }, 300)});
+        //     }
+        // })  
+            
+    </script>
+</body>
+</html>
