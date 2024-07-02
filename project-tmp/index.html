@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login an account</title>
+    <title>로그인 페이지</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
@@ -36,27 +36,27 @@
     </style>
 </head>
 <body>
-    <div id="liveAlertPlaceholder"></div><!-- 경고창 위치 마커--><div class="container">
+    <div id="liveAlertPlaceholder" ></div><!-- 경고창 위치 마커--><div class="container">
     <div class="card">
-        <p class="h5 card-title text-center">login an account</p>
-        <p class="text-center">Enter your email to sign in for this app</p>
+        <p class="h5 card-title text-center">로그인</p>
+        <p class="text-center">이메일로 로그인하기</p>
         <form  action="" id="login-form">
             <div class="mb-3">
                 <label class="d-inline">
                     이메일
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="이메일">
                 </label>
                 <label class="d-inline">
                     비밀번호
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호">
                 </label>
             </div>
             <div class="d-grid mb-3">
-                <button type="button" class="btn btn-dark" id="signIn">Sign in</button>
+                <button type="button" class="btn btn-dark" id="signIn">로그인</button>
             </div>
             
             <div class="d-grid mb-3">
-                <button type="button" class="btn btn-dark" id="signUp">Sign up with email</button>
+                <button type="button" class="btn btn-dark" id="signUp">이메일로 회원가입</button>
             </div>
         </form>
     </div>
@@ -81,7 +81,18 @@
             ].join(''); /*위내용을 문자열로 바꾸기 */
             alertPlaceholder.append(wrapper); /*liveAlertPlaceholder 에 써 넣기*/
             
-            // 알림 메시지 1.5초 지속하고 서서히 지우기 함수입니다.
+            const alerts = alertPlaceholder.querySelectorAll('.alert');
+                if (alerts.length >= 2) {
+                    alertPlaceholder.removeChild(alerts[0]);
+                }
+
+                alertPlaceholder.append(wrapper); /*liveAlertPlaceholder 에 써 넣기*/
+
+
+
+
+
+            // 알림 메시지 1.2초 지속하고 서서히 지우기 함수입니다.
             setTimeout(() => { 
                 wrapper.querySelector('.alert').classList.remove('show'); 
                 wrapper.querySelector('.alert').classList.add('fade'); 
@@ -90,9 +101,21 @@
                 }, 1500); // fade-out 효과를 위해 약간의 지연을 줍니다.
             }, 1500); 
         }
+         
+        $("#email").on("keydown", (e) => {
+            if(e.key.toLowerCase() === 'enter') {
+                e.preventDefault();
+                $("#signIn").click();
+            }
+        });
 
-            
-            
+
+        $("#password").on("keydown", (e) => {
+            if(e.key.toLowerCase() === 'enter') {
+                e.preventDefault();
+                $("#signIn").click();
+            }
+        });
         $("#signIn").on("click", (e) => {  
             
             // 이메일 미 입력시
@@ -133,7 +156,7 @@
             } 
             userdata.info(); 
 
-            window.location.href='main.html';
+            window.location.href='base.html';
         });
      
         $('#signUp').on('click',(e)=>{
