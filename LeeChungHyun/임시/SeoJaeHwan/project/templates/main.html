@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/bootstrap.bundle.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+        .Enterprise, .personal {
+            margin-bottom: 20px;
+        }
+        .Enterprise img, .personal img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .card-title {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+        .card-subtitle {
+            color: gray;
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary">개인</button>
+                <button type="button" class="btn btn-outline-secondary">기업</button>
+                <button type="button" class="btn btn-outline-secondary">...</button>
+            </div>
+        </div>
+    </header>
+
+
+    <h2 class="mb-2">Title</h2>
+    <p class="text-muted mb-4">Subheading</p>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4 Enterprise">
+        <div class="col">
+            <div class="card">
+                <img src="" class="card-img-top" alt="1">
+                <div class="card-body">
+                    <h5 class="card-title">Enterprise 1</h5>
+                    <p class="card-subtitle">Description of Enterprise</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="" class="card-img-top" alt="2">
+                <div class="card-body">
+                    <h5 class="card-title">Enterprise 2</h5>
+                    <p class="card-subtitle">Description of Enterprise</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="" class="card-img-top" alt="3">
+                <div class="card-body">
+                    <h5 class="card-title">Enterprise 2</h5>
+                    <p class="card-subtitle">Description of Enterprise</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="" class="card-img-top" alt="4">
+                <div class="card-body">
+                    <h5 class="card-title">Enterprise 2</h5>
+                    <p class="card-subtitle">Description of Enterprise</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mb-2 mt-5">Title</h2>
+    <p class="text-muted mb-4">Subheading</p>
+
+    <div class="row row-cols-1 row-cols-md-4 g-4 personal">
+        <div class="col">
+            <div class="card">
+                <img src="" class="card-img-top" alt="personal Name">
+                <div class="card-body">
+                    <h5 class="card-title">personal Name</h5>
+                    <p class="card-subtitle">R&B</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="" class="card-img-top" alt="personal Name">
+                <div class="card-body">
+                    <h5 class="card-title">personal Name</h5>
+                    <p class="card-subtitle">Indie pop</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="" class="card-img-top" alt="personal Name">
+                <div class="card-body">
+                    <h5 class="card-title">personal Name</h5>
+                    <p class="card-subtitle">Electronic</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="" class="card-img-top" alt="personal Name">
+                <div class="card-body">
+                    <h5 class="card-title">personal Name</h5>
+                    <p class="card-subtitle">R&B</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    $(()=>{
+       $('header div button').on('click',(e)=>{
+         window.location.href='allInfo.html';
+       });
+    });
+</script>
+</body>
+</html>
