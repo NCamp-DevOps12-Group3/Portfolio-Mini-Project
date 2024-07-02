@@ -1,0 +1,12 @@
+diff a/LeeHeeSeng/mini project/Register.html b/LeeHeeSeng/mini project/Register.html	(rejected hunks)
+@@ -73,8 +73,8 @@
+                         <input type="radio" class="btn-check" name="btnuser" id="individualuser" value="individualuser" autocomplete="off" >
+                         <label class="btn btn-outline-dark" for="individualuser">개인 사용자</label>
+                         
+-                        
+-                       
++                        <input type="radio" class="btn-check" name="btnuser" id="btndefult" value="btndefult" autocomplete="off" checked>
++                        <label class="btn btn-outline-dark" for="btndefult">사용자 유형</label>
+                         
+                         <input type="radio" class="btn-check" name="btnuser" id="corporateusers" value="corporateusers" autocomplete="off">
+                         <label class="btn btn-outline-dark" for="corporateusers">기업 사용자</label>
