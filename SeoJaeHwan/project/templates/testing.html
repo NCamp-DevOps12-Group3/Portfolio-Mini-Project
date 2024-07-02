@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Page</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.7.1.min.js"></script>
+    <script src="../static/js/bootstrap.bundle.js"></script>
+    <script src="../static/js/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <style>
+        * {
+            background-color: inherit;
+            color: inherit;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #fafafa;
+            color: #262626;
+        }
+
+        .dark-mode {
+            background-color: #121212 !important;
+            color: white !important;
+        }
+
+        .dark-mode .card > * {
+            border: white 1px solid;
+            border-collapse: collapse;
+        }
+
+        .dark-mode #sidebar {
+            border: 1px solid white;
+        }
+
+        .top-section {
+            padding: 20px;
+            background: #fff;
+            border-bottom: 1px solid #dbdbdb;
+            margin-bottom: 20px;
+        }
+
+        .bottom-section {
+            padding: 20px;
+        }
+
+        .toggle-btn {
+            display: block;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .toggle-btn img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .modal-fullscreen {
+            max-width: none;
+            width: 100%;
+            height: 90%;
+            margin: 15px auto;
+        }
+
+        .modal-content-short {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            height: 100%;
+        }
+
+        .card-img-top:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .mouse-Cursor {
+            cursor: pointer;
+        }
+
+        .modal-content {
+            border: none;
+            border-radius: 15px;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid #dbdbdb;
+        }
+
+        .modal-footer {
+            border-top: 1px solid #dbdbdb;
+        }
+
+        .carousel-item img {
+            height: 75vh;
+            width: auto;
+            object-fit: cover;
+        }
+
+        .modal-portfolio-btn {
+            height: 2em;
+            width: 4em;
+            cursor: pointer;
+        }
+
+        #profileInfoBtn {
+            display: none;
+        }
+
+        .modal-fullscreen .modal-content {
+            height: 100vh;
+            border: none;
+        }
+
+        .preview-box {
+            position: absolute;
+            display: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .delete-dot {
+            cursor: pointer;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1000;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            top: 10px;
+            right: 10px;
+        }
+
+        #profileImgBtn {
+            border: none;
+            background: white;
+        }
+
+        #profileImg {
+            border-radius: 50%;
+        }
+
+        #checkImg {
+            width: 1em;
+            height: 1em;
+        }
+
+        .top-section > * {
+            margin-left: 10px;
+        }
+
+        #toTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .card img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        .grid-item img {
+            display: block;
+            width: 100%;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .grid-item {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<button type="button" id="toTop">↑</button>
+<div class="container-fluid d-flex">
+    <div id="sidebar"></div>
+    <div class="h-100 d-inline-block w-100">
+        <button class="btn-toggle btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProfile" id="profileInfoBtn">
+            profile
+        </button>
+
+        <div class="top-section d-flex align-items-center justify-content-around">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
+                <img src="../static/img/1.jpg" alt="" class="mouse-Cursor w-100 h-100" id="profileImg">
+            </button>
+            <div class="mouse-Cursor" id="profileName">
+                <p class="d-inline-block">name</p>
+                <img src="../static/img/check.jpg" alt="" class="d-inline-block" id="checkImg">
+            </div>
+            <div>
+           <pre class="overflow-x-scroll sil">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
+            </div>
+            <div class="list-group text-center">
+                <a href="#" class="list-group-item">follow</a>
+                <a href="#" class="list-group-item">message</a>
+                <button type="button" class="list-group-item inactive" id="portfolioDelete">delete</button>
+            </div>
+        </div>
+        <div class="bottom-section">
+            <form action="#" method="get" id="formFeeds">
+                <div class="row grid" id="feed">
+                    <!-- Masonry grid items will be appended here -->
+                </div>
+            </form>
+        </div>
+
+        <div class="modal fade" data-bs-backdrop="static" id="modal-short">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content modal-content-short">
+                    <div class="modal-header">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                    <div class="modal-body d-flex justify-content-between" id="modal-body-div">
+                        <div class="d-inline-block align-content-center">
+                            <button type="button" class="btn btn modal-portfolio-btn btn-primary" id="modal-portfolio-btn-left">
+                                &lt;
+                            </button>
+                        </div>
+                        <iframe class="modal-content mx-2"></iframe>
+                        <div class="d-inline-block align-content-center">
+                            <button type="button" class="btn btn modal-portfolio-btn btn-primary" id="modal-portfolio-btn-right">
+                                &gt;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalProfile">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-head">
+                        <h3 class="text-lg-center mt-3">정보</h3>
+                    </div>
+                    <div class="modal-body h-75 text-center">
+                        <img src="../static/img/1.jpg" alt="" class="w-50 rounded-circle mb-3" id="profile-vertical">
+                        <div>
+                        <pre class="overflow-x-scroll sil" id="scrollContainer">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
+                        </div>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">follow</a>
+                            <a href="#" class="list-group-item">message</a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            닫기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        // 다크 모드 초기화
+        const savedMode = localStorage.getItem('dark-mode');
+        if (savedMode === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // 사이드바 로드
+        fetch('sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar').innerHTML = data;
+            });
+
+        // Masonry 초기화
+        var msnry;
+        var grid = document.querySelector('.grid');
+        imagesLoaded(grid, function () {
+            msnry = new Masonry(grid, {
+                itemSelector: '.grid-item',
+                columnWidth: '.grid-item',
+                percentPosition: true
+            });
+        });
+
+        // 포트폴리오 삭제 버튼 상태 전환
+        function toggleButtonState() {
+            let button = document.getElementById('portfolioDelete');
+            let isActive = button.classList.contains('active');
+
+            if (isActive) {
+                button.classList.remove('active');
+                button.classList.add('inactive');
+                button.textContent = 'delete';
+                $('.delete-dot').css('display', 'none');
+                let elements = document.querySelectorAll('.delete-dot:checked');
+                elements.forEach(function (element) {
+                    (element.parentNode.parentNode).remove();
+                });
+                imagesLoaded(grid, function () {
+                    msnry.reloadItems();
+                    msnry.layout();
+                });
+                $('#formFeeds').submit();
+            } else {
+                button.classList.remove('inactive');
+                button.classList.add('active');
+                button.textContent = 'confirm';
+                $('.delete-dot').css('display', 'inline-block');
+            }
+        }
+
+        $('#portfolioDelete').on('click', () => {
+            toggleButtonState();
+        });
+
+        $('.modal-portfolio-btn').hover(
+            () => {
+                $('#modal-short').css('cursor', 'pointer');
+                $('body').css('cursor', 'pointer');
+            },
+            () => {
+                $('#modal-short').css('cursor', 'default');
+                $('body').css('cursor', 'default');
+            }
+        );
+
+        $('#profileName').on('click', () => {
+            $('#profileInfoBtn').click();
+        });
+
+        let page = 1;
+
+        function load() {
+            for (let i = 0; i < 9; i++) {
+                $('#feed').append(`
+                    <div class="col-12 col-sm-6 col-md-4 col-xl-3 grid-item">
+                        <div class="card">
+                            <div class="card-header"></div>
+                            <input type="checkbox" class="delete-dot">
+                            <a href="">
+                                <img src="../static/img/${((page - 1) * 9 + i + 1) % 23}.jpg" class="card-img-top"
+                                onerror="this.onerror=null; this.src='../static/img/check.jpg'" alt=".">
+                            </a>
+                            <div class="card-body">
+                                <div class="card-title"></div>
+                                <p class="card-text"></p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-body-secondary">upload 일자</small>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            }
+            imagesLoaded(grid, function () {
+                msnry.reloadItems();
+                msnry.layout();
+            });
+        }
+
+        load();
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+                page++;
+                load();
+            }
+            scrollFunction();
+        });
+
+        function scrollFunction() {
+            if (document.documentElement.scrollTop > 3) {
+                document.getElementById("toTop").style.display = "block";
+            } else {
+                document.getElementById("toTop").style.display = "none";
+            }
+        }
+
+        $('#toTop').on('click', function scrollToTop() {
+            document.documentElement.scrollTop = 0;
+        });
+
+        const scrollContainer = document.getElementById('scrollContainer');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            scrollContainer.classList.add('active');
+            startX = e.pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            scrollContainer.classList.remove('active');
+        });
+
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContainer.offsetLeft;
+            const walk = (x - startX) * 2; // 스크롤 속도 조정
+            scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        $('#modal-short').on('show.bs.modal', function () {
+            $('#modal-short .modal-body .modal-content').attr("src", '../static/example/example.html');
+        });
+
+        $('#modal-portfolio-btn-left').on('click', function () {
+            $('#modal-short .modal-body .modal-content').attr("src", '../static/example/example1.html');
+        });
+
+        $('#modal-portfolio-btn-right').on('click', function () {
+            $('#modal-short .modal-body .modal-content').attr("src", '../static/example/example2.html');
+        });
+
+        // 다크 모드 적용 함수
+        function applyDarkModeToNewElements() {
+            if (document.body.classList.contains('dark-mode')) {
+                document.querySelectorAll('*:not(.dark-mode-applied)').forEach(el => {
+                    el.classList.add('dark-mode-applied');
+                });
+            } else {
+                document.querySelectorAll('.dark-mode-applied').forEach(el => {
+                    el.classList.remove('dark-mode-applied');
+                });
+            }
+        }
+
+        // MutationObserver를 사용하여 DOM 변경 감지 및 다크 모드 적용
+        const observer = new MutationObserver(applyDarkModeToNewElements);
+        observer.observe(document.body, { childList: true, subtree: true });
+    });
+</script>
+</body>
+</html>
