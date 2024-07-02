@@ -9,27 +9,23 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
+
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             background-color: #fafafa;
             color: #262626;
         }
-        /* .dark-mode {
-            background-color: #121212 !important;
-            color: white !important;
-            .card > *{
-                border: white 1px solid ;
-                border-collapse: collapse;
-            }
-            #sidebar{
-                border: 1px solid white; */
-
         .list-group .list-group-item:hover{
             background-color: #ddd;
         }
         .dark-mode {
-        
+
             background-color: #121212;
             color: white;
             .top-section{
@@ -45,20 +41,20 @@
             .card > *{
                 border: white 1px solid ;
                 border-collapse: collapse;
-                
+
                 background-color: #262626;
             }
             .card *{
                 color: white !important;
             }
-        
+
             .sidebar{
                 background-color: #262626;
             }
             .sidebar *{
                 color: white;
             }
-        
+
             .sidebar .dropdown-menu{
                 background-color: black;
                 color: white;
@@ -66,55 +62,54 @@
             #modalProfile *{
                 background: black;
                 color: white;
-
             }
         }
         .top-section {
-            margin-left: 270px;
-            height: 30%;
-            background: white;
+            padding: 20px;
+            background: #fff;
+            border-bottom: 1px solid #dbdbdb;
+            margin-bottom: 20px;
+            height: 30vh;
         }
         .bottom-section {
-            margin-top: 30%;
-            height: 70%;
-        }
-        #profile{
-
+            padding: 20px;
+            height: 70vh;
         }
         .toggle-btn {
             display: block;
             position: fixed;
-            top: 10px;
-            right: 10px;
+            top: 20px;
+            right: 20px;
             z-index: 1;
+            border: none;
+            background: none;
+            cursor: pointer;
         }
-        @media(max-width: 1200px) {
-            .top-section {
-                display: none !important;
-            }
+        .toggle-btn img {
+            width: 30px;
+            height: 30px;
         }
-        #modalProfile{
+        #modalProfile {
             -ms-overflow-style: none;
         }
-        #modalProfile::-webkit-scrollbar{
-            display:none;
+        #modalProfile::-webkit-scrollbar {
+            display: none;
             max-width: 75vw;
             min-width: 25vw;
             min-height: 70vh;
         }
-        .sil{
+        .sil {
             cursor: pointer;
             -ms-overflow-style: none;
         }
-        .sil::-webkit-scrollbar{
-            display:none;
+        .sil::-webkit-scrollbar {
+            display: none;
         }
         .card-img-top:hover {
-            top: -2px;
-            box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-            opacity: 0.5;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .mouse-Cursor{
+        .mouse-Cursor {
             cursor: pointer;
         }
         .modal-fullscreen {
@@ -123,49 +118,52 @@
             height: 90%;
             margin: 15px auto;
         }
-
         .modal-content-short {
-
-            background-color: rgba(0, 0, 0, 0.5); /* 반투명한 배경색 */
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
             height: 100%;
         }
-        /*#modal-short{*/
-        /*    border: ;*/
-        /*}*/
+        @media (max-width: 1200px) {
+            .top-section {
+                display: none !important;
+            }
+            #profileInfoBtn {
+                display: block !important;
+            }
+        }
         .modal-content {
-            border: 5px solid #4CAF50; /* 기본 보더 색상 */
-            border-radius: 15px; /* 모서리를 둥글게 */
+            border: none;
+            border-radius: 15px;
         }
-
         .modal-header {
-            border-bottom: 3px solid #FFC107; /* 헤더에 보더 추가 */
+            border-bottom: 1px solid #dbdbdb;
         }
-
         .modal-footer {
-            border-top: 3px solid #FFC107; /* 푸터에 보더 추가 */
+            border-top: 1px solid #dbdbdb;
         }
         .carousel-item img {
-            height: 75vh; /* 모달 창 높이에 맞춤 */
+            height: 75vh;
             width: auto;
             object-fit: cover;
         }
-        .modal-portfolio-btn{
+        .modal-portfolio-btn {
             height: 2em;
             width: 4em;
             cursor: pointer;
         }
-
+        #profileInfoBtn {
+            display: none;
+        }
         .modal-fullscreen .modal-content {
             height: 100vh;
             border: none;
         }
         .preview-box {
-            position: absolute; /* 절대 위치 설정 */
-            display: none; /* 초기에는 보이지 않음 */
+            position: absolute;
+            display: none;
             background-color: #fff;
             border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 10px;
             z-index: 1000;
         }
@@ -225,13 +223,13 @@
         .grid-item {
             margin-bottom: 20px;
         }
-        .sidebar { 
-            width: 15vw;    
+        .sidebar {
+            width: 15vw;
             height: 100vh;
             top: 0;
             left: 0;
             background: #f8f9fa;
-            padding-top: 20px;  
+            padding-top: 20px;
         }
         .sidebar a {
             display:flex;
@@ -291,68 +289,37 @@
     </style>
 </head>
 <body>
-<div class="container h-100">
-
-    <button class="btn btn-primary toggle-btn" data-bs-toggle="modal" data-bs-target="#modalProfile" id="profileInfoBtn">프로필 정보</button>
-
-     <div class="top-section  fixed-top d-flex align-items-center justify-content-around">
-         <div class="d-inline-block h-75">
-             <button class="h-100 d-inline-block border-0" type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
-                 <img src="img/cat1.jpg" alt="" class="h-100 mouse-Cursor" id="profileImg">
-             </button>
-             <h3 class="d-inline-block mouse-Cursor" id="profileName">name</h3>
-         </div>
-
-
-         <div class="w-50">
-         <pre class="overflow-x-scroll sil">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
-         </div>
-         <div class="list-group ">
-             <!-- 리스트 항목으로 만드는 클래스 -->
-             <a href="#" class="list-group-item">follow</a>
-             <a href="#" class="list-group-item">message</a>
-             <a href="#" class="list-group-item">...</a>
-         </div>
-     </div>
-
-
-    <div class="modal fade" data-bs-backdrop="static" id="modal-short">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content modal-content-short">
-                <div class="modal-header">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-                <div class="modal-body d-flex justify-content-between" id="modal-body-div">
-                    <div class="d-inline-block align-content-center">
-                        <button type="button" class="btn btn modal-portfolio-btn btn-primary" id="modal-portfolio-btn-left">
-                            <
-                        </button>
-                    </div>
-                    <iframe class="modal-content mx-2"></iframe>
-                    <div class="d-inline-block align-content-center">
-                        <button type="button" class="btn btn modal-portfolio-btn btn-primary" id="modal-portfolio-btn-right">
-                            >
-                        </button>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
+<button type="button" id="toTop">↑</button>
+<div class="container-fluid d-flex">
+    <div class="sidebar">
+        <a href="main.html" class="active nav-link" data-page="main.html">
+            <img src="img/home.png">
+            <div>홈</div>
+        </a>
+        <a href="setting.html" class="nav-link" data-page="setting.html">
+            <img src="img/setting.png">
+            <div>설정</div>
+        </a>
+        <a href="#" class="nav-link" data-page="search.html">
+            <img src="img/search.png">
+            <div>검색</div>
+        </a>
+        <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html"><div>내 프로필</div></a>
+        <a class="nav-link" id="uploadWindowBtn"><i class="fas fa-upload" style="margin-top: 20px;"></i><div>업로드</div></a>
+        <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon" >
+            <i class="fas fa-bell"></i><div>알림</div></a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item notification-item" href="#"><div>알람1</div></a></li>
+            <li><a class="dropdown-item notification-item" href="#"><div>알람2</div></a></li>
+            <li><a class="dropdown-item notification-item" href="#"><div>알람3</div></a></li>
+        </ul>
+        <a href="#" id="darkModeToggle"><div>다크모드</div></a>
+        <a href="#">..</a>
     </div>
-    <!-- <div class="modal fade" id="modalProfile">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-head">
-                    <h3 class="text-lg-center mt-3">정보</h3>
-                </div>
-                <div class="modal-body h-75">
-                    <img src="img/cat1.jpg" alt="" class="w-100" id="profile-vertical">
-                    <div> -->
+    <div class="h-100 d-inline-block w-100">
+        <button class="btn-toggle btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProfile" id="profileInfoBtn">
+            profile
+        </button>
 
         <div class="top-section d-flex align-items-center justify-content-around">
             <button class="ratio ratio-1x1" type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
@@ -389,8 +356,6 @@
                     <div class="modal-header">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
-                    <!-- <div class="modal-body d-flex justify-content-between" id="modal-body-div"> -->
-
                     <div class="modal-body sil" id="modal-body-div">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
@@ -412,32 +377,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="modal fade" data-bs-backdrop="static" id="modal-short">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content modal-content-short">
-                    <div class="modal-header">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                    
-                    <div class="modal-body d-flex justify-content-between sil" id="modal-body-div">
-
-                        <div class="d-inline-block align-content-center">
-                            <button type="button" class="btn btn modal-portfolio-btn btn-primary" id="modal-portfolio-btn-left">
-                                <
-                            </button>
-                        </div>
-                        <iframe class="modal-content mx-2"></iframe>
-                        <div class="d-inline-block align-content-center">
-                            <button type="button" class="btn btn modal-portfolio-btn btn-primary" id="modal-portfolio-btn-right">
-                                >
-                            </button>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div> -->
 
         <div class="modal fade" id="modalProfile">
             <div class="modal-dialog">
@@ -446,63 +385,46 @@
                         <h3 class="text-lg-center mt-3">정보</h3>
                     </div>
                     <div class="modal-body h-75 text-center">
-                        <!-- <img src="img/1.jpg" alt="" class="w-50 rounded-circle mb-3" id="profile-vertical"> -->
-
                         <div class="ratio ratio-1x1 mb-3">
                             <img src="img/1.jpg" alt="" id="profile-vertical">
-                        </div> 
-
+                        </div>
                         <div>
->>>>>>> LeeJunSeop
                         <pre class="overflow-x-scroll sil" id="scrollContainer">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
+                        </div>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">follow</a>
+                            <a href="#" class="list-group-item">message</a>
+                        </div>
+
                     </div>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">follow</a>
-                        <a href="#" class="list-group-item">message</a>
-                        <a href="#" class="list-group-item">...</a>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            닫기
+                        </button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-                        닫기
-                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="bottom-section">
-        <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3  g-4" id="feed">
-        </div>
-    </div>
-
-
 </div>
-<!-- <script>
-    $(function(){
-        const savedMode = localStorage.getItem('dark-mode');
-        if (savedMode === 'enabled') {
-            document.body.classList.add('dark-mode');
-        }
-         -->
-
 <div id="upload-modal-container"></div>
 <script src="js/darkmode.js"></script>
 <script>
     $(function(){
-        
-        
-         var isDarkMode = loadDarkModeState();
-            applyDarkMode(isDarkMode);
 
-            $('#darkModeToggle').on('click', function() {
-                isDarkMode = !$('body').hasClass('dark-mode');
-                applyDarkMode(isDarkMode);
-                saveDarkModeState(isDarkMode);
-            });
+
+        var isDarkMode = loadDarkModeState();
+        applyDarkMode(isDarkMode);
+
+        $('#darkModeToggle').on('click', function() {
+            isDarkMode = !$('body').hasClass('dark-mode');
+            applyDarkMode(isDarkMode);
+            saveDarkModeState(isDarkMode);
+        });
         // Masonry initialization
         var msnry;
         var grid = document.querySelector('.grid');
@@ -545,28 +467,24 @@
         });
         $('.modal-portfolio-btn').hover(
             ()=>{
-                $('#modal-short').style.cursor='pointer';
-                document.body.style.cursor='pointer';
-            }
-            ,
+                $('#modal-short').css('cursor','pointer');
+                $('body').css('cursor','pointer');
+            },
             ()=>{
-                $('#modal-short').style.cursor='default';
-                document.body.style.cursor='default';
+                $('#modal-short').css('cursor','default');
+                $('body').css('cursor','default');
             }
-        )
+        );
         $('#profileName').on('click',()=>{
             $('#profileInfoBtn').click();
         });
-        $('#profileImg').on('click',()=>{
 
-        });
-        let page=1;
-        let src="";
+        let page = 1;
+
         function load(){
-            for (let i=0;i<9;i++) {
-                // src=
+            for (let i = 0; i < 9; i++) {
                 $('#feed').append(`
-    <div class="col">
+    <div class="col-sm-12 col-lg-6 col-xxl-4 grid-item">
         <div class="card">
             <div class="card-header">
                 포트폴리오 제목
@@ -577,11 +495,6 @@
             <img src="img/${(((page - 1) * 9 + i)%12 + 1)}.jpg" class="card-img-top" alt=".">
             </a>
             <div class="card-body">
-            // <div class="card-title">
-
-            // </div>
-            // <p class="card-text">
-
             <p class="card-text">
                 포트폴리오 간단 설명 혹은 태그
             </p>
@@ -591,7 +504,7 @@
                 포트폴리오 상세 설명
                 포트폴리오 상세 설명
                 포트폴리오 상세 설명
-                포트폴리오 상세 설명    
+                포트폴리오 상세 설명
             </p>
             </div>
             <div class="card-footer">
@@ -601,14 +514,57 @@
     </div>
                 `);
             }
+            imagesLoaded(grid, function() {
+                msnry.reloadItems();
+                msnry.layout();
+            });
         }
         load();
+        $(".card-img-top").hover(
+            function (evt){
+
+                var target = event.target;
+
+                var rect = target.getBoundingClientRect();
+                var startX = rect.left + window.scrollX;
+                console.log(startX);
+                let a=window.innerWidth/2;
+                let pos;
+                if(startX < a){
+                    pos="top left";
+                }
+                else{
+                    pos = "top right";
+                }
+
+                console.log(pos);
+            }
+            ,
+            function (evt){
+
+            }
+        )
         $(window).scroll(function() {
+
             if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
                 page++;
                 load();
             }
+            scrollFunction();
         });
+
+        function scrollFunction() {
+            if (document.documentElement.scrollTop > 3) {
+                document.getElementById("toTop").style.display = "block";
+            } else {
+                document.getElementById("toTop").style.display = "none";
+            }
+        }
+
+        $('#toTop').on('click',function scrollToTop() {
+                document.documentElement.scrollTop = 0;
+            }
+        );
         const scrollContainer = document.getElementById('scrollContainer');
 
         let isDown = false;
@@ -640,62 +596,35 @@
             scrollContainer.scrollLeft = scrollLeft - walk;
         });
         $('#uploadWindowBtn').on('click', function() {
-                $('#upload-modal-container').load('upload_modal.html', function() {
-                    $('#uploadModal').modal('show');
+            $('#upload-modal-container').load('upload_modal.html', function() {
+                $('#uploadModal').modal('show');
             });
         });
         $('#modal-short').on('show.bs.modal', function (e) {
-            // $('#modal-short .modal-body .modal-content').load('example/example.html');
             $('#modal-short .modal-body .modal-content').attr("src", 'example/example.html');
-            // var modal = $(this);
-            // $.ajax({
-            //     url: 'https://www.naver.com', // URL of the HTML file to load
-            //     success: function(data) {
-            //         modal.find('.modal-body').html(data);
-            //     },
-            //     error: function() {
-            //         modal.find('.modal-body').html('<p>An error has occurred</p>');
-            //     }
-            // });
         });
         $('#modal-portfolio-btn-left').on('click',function (e) {
             $('#modal-short .modal-body .modal-content').attr("src", 'example/example1.html');
-        })
+        });
         $('#modal-portfolio-btn-right').on('click',function (e) {
             $('#modal-short .modal-body .modal-content').attr("src", 'example/example2.html');
-
         });
-//         function applyDarkModeToNewElements() {
-//             if (document.body.classList.contains('dark-mode')) {
-//                 document.querySelectorAll('*:not(.dark-mode-applied)').forEach(el => {
-//                     el.classList.add('dark-mode');
-//                 });
-//             } else {
-//                 document.querySelectorAll('.dark-mode-applied').forEach(el => {
-//                     el.classList.remove('dark-mode');
-//                 });
-//             }
-//         }
-
-// // MutationObserver를 사용하여 DOM 변경 감지 및 다크 모드 적용
-//         const observer = new MutationObserver(applyDarkModeToNewElements);
-//         observer.observe(document.body, { childList: true, subtree: true });
-
-        $('.card-text').hover(
-            function(){
-                $(this).siblings().first().css("display","block");
-                imagesLoaded(grid, function() {
+        $(document).on('mouseenter', '.card-text', function(){
+            $(this).siblings('.card-info-toggle').css("display", "block");
+            imagesLoaded('.grid', function() {
                 msnry.reloadItems();
                 msnry.layout();
             });
-            },
-            function(){
-                $(this).siblings().first().css("display","none");
-                imagesLoaded(grid, function() {
+        });
+
+        $(document).on('mouseleave', '.card-text', function(){
+            $(this).siblings('.card-info-toggle').css("display", "none");
+            imagesLoaded('.grid', function() {
                 msnry.reloadItems();
                 msnry.layout();
             });
-            });
+        });
+
         let swiper;
         $('#modal-short').on('shown.bs.modal', function () {
             if (swiper) {
