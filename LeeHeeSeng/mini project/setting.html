@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>setting</title>
+  <meta  name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>설정</title>
   <link href="css/bootstrap.css" rel="stylesheet">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/bootstrap.bundle.js"></script>
@@ -12,40 +12,450 @@
         font-family: Arial, sans-serif;
     }
     .sidebar {
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 250px;
-        background-color: #f8f9fa;
-        padding-top: 20px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+            border-right: 1px solid black;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+        .content {
+            margin-left: 270px;
+            padding:  0 20px;
+        }
+
+    .pobox{
+      position: fixed;
+      height: 100vh;
+      background: #f8f9fa;
+      width: 190px;
+      display:  inline-block;
+      left: 250px;
+      border-right: 1px solid black;
     }
-    .sidebar a {
-        display: block;
-        padding: 20px 20px;
-        color: #333;
+    .pobox a {
+      
+      display: flex;
+      flex-direction: column;
+      height: 70px;
+      width: auto;
+      background: #ffffff;
+      text-align: center;
+      line-height: 60px;
+      padding: 30px;
+      position: relative;
+      border: 1px solid black;
+      margin-left: 5%;
+      margin-right: 5%;
+      
+    }
+    
+    .boardt{
+    margin-left:10%;
+    
+    margin-right: 20%;
+   }
+   .scrollspy{
+          width: 100%;
+          max-width: 100%;
+          height: 100%;
+          
+          justify-content: center;
+          /* min-width:300px ; */
+
+          padding: 20px;
+          position: relative;
+          margin-bottom: 250px;
+   }
+   
+    a{
+      
+      color: black;
+      text-decoration: none;
+    }
+    /* .pobox a:hover {
+        background-color: #ddd;
+>>>>>>> origin/leeheeseung
         text-decoration: none;
         border-bottom: 1px solid ;
     }
     .sidebar a:hover {
         background-color: #ddd;
     }
-    .content {
-        margin-left: 270px;
-        padding: 20px;
+    img{
+      border-radius: 50%;
+      width: 75%;
+      height: 75%;
     }
+    #website{
+      border-radius: 7px;
+      background: white;
+      height: 2.5rem;
+    }
+    #intro{
+      background: white;
+      border-radius: 7px;
+      resize: none;
+    }
+    .boardt div{
+      margin: 2em auto;
+    }
+  @media screen and (max-width: 1400px) {
+    
+    .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100px;
+            
+        }
+        .sidebar a {
+          text-align: center;
+          padding: 20px 0px;
+          
+        }
+    .pobox{
+      position: fixed;
+      height: 100vh;
+      background: #f8f9fa;
+      width: 190px;
+      display:  inline-block;
+      left: 100px;
+      border-left:none;
+    }
+    .boardt{
+      margin-right: 10%;
+    }
+      }
+    @media screen and (max-width: 925px) {
+    .col-3{
+      padding-right: 0%;
 
+    }
+    .col-9{ 
+      padding-left: 0%;
+      
+    }
+    .col-9 h4{
+      margin-bottom: 30px ;
+      font-weight: bolder;
+      
+    }
+    
+      .pobox {
+        display: none;
+    }
+    .scrollspy{
+      padding: 20px 0px;
+    }
+    .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 115px;
+            border-right: 1px solid black;
+        }
+        .boardt{
+          margin-left: 0%;
+          box-shadow: none;
+          border-left: none;
+    
+          
+    
+          margin-right: 10%;
+        }
+        .sidebar a {
+          text-align: center;
+          padding: 20px 0px;
+          
+        }
+        .scrollspy{
+      padding: 0px 20px;
+      padding-top: 30px; 
+    }
+    button{
+      margin-right: 10px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .pobox {
+        display: none;
+    }
+    .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 115px;    
+            
+            
+        }
+        .sidebar a {
+          text-align: center;
+          padding: 20px 0px;
+          
+        }
+        .m-3{
+          margin: 0;
+        }
+      img { 
+        width: 70px;
+        height: 70px;
+      } 
+    
+      
+}
 </style>
 </head>
-<body>
-  <div class="sidebar">
-    <a href="#">프로필</a>
-    <a href="#"></a>
-    <a href="#"></a>
-  </div>
+
+      <div class="row">
+          <div class="col-3"><body>
+                <div class="sidebar">
+                  <a href="#" class="active nav-link" data-page="main.html">홈페이지</a>
+                  <a href="#" class="nav-link" data-page="setting.html">설정</a>
+                  <a href="#" class="nav-link" data-page="search.html">검색</a>
+                  
+                </div>
+            <div id="#setting-list" class=" list-group">
+              
+                <div class="pobox">      
+                        <a class="p-1 rounded list-group-item list-group-item-action mt-4 "  href="#list-profile">프로필</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-locksandsecurity">잠금과 보안</a>                       <br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-account">계정</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-termsofuse">이용약관</a>
+                </div>
+              
+            </div>
+          </div>
+
+          
+          <div class="col-9" data-bs-spy="scroll">
+            <div class="boardt" data-bs-spy="scroll">
+            <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy gap-2" tabindex="0">
+                <h4 id="list-profile">프로필</h4>
+                <form action="#" method="get">
+                  <div class="container position-relative">
+                    <div class="modal fade" id="modalPic">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-head">
+                            <h3 class="text-lg-center mt-3">정보</h3>
+                          </div>
+                          <div class="modal-body h-75">
+                            <div class="mb-3">
+                              <label for="formFile" class="form-label">변경할 프로필 사진</label>
+                              <input class="form-control" type="file" id="formFile">
+                              <div id="imagePreview" class="mt-3">
+                                <!-- Preview will be displayed here -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                              닫기
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <header class="w-100 h-25 box d-flex align-items-center">
+                      <div class="box d-inline-block m-3">
+                        <img src="img/cat1.jpg" alt="" >
+                      </div>
+                      <div class="d-inline-block">
+                        <h2 style="width: 100px;">닉네임</h2>
+                        <p>아이디</p>
+                      </div>
+                      <div class="d-inline-block">
+                        <button type="button" style="width: 75px; padding-top: 12px; padding-bottom: 12px" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modalPic">
+                          사진 변경
+                        </button>
+                      </div>
+                    </header>
+                    <div>
+                      <label for="website" class="form-label">웹 사이트</label>
+                      <input type="url" name="website" id="website" placeholder="웹사이트 주소" class="w-100 form-control" row="2">
+                      <div class="form-text">연락 사이트나 개인 포폴이 모아진 주소를 입력해 주세요</div>
+                    </div>
+                    <div>
+                      <label for="intro" class="form-label">소개</label>
+                      <textarea name="intro" id="intro" class="w-100 form-control"></textarea>
+                      <div class="form-text">유저 상세페이지 상단에 출력되는 글입니다</div>
+                    </div>
+                
+                    <button type="submit" class="btn btn-primary w-25"> 제출</button>
+                  </div>
+                </form><br><br><br><br>
+               
+                
+                <div><h4 id="list-locksandsecurity">잠금과 보안</h4>
+                <h5>비밀번호 변경</h5>
+                  <p>사용자님의 개인정보보호와 안전한 사이트사용을 위해 3개월마다  비밀번호 변경을 권장하고있습니다 <br>비밀번호 가 사용된지 3개월이지났다면 변경을 권장하는 바입니다  </p> 
+                 <h5>비밀번호 변경 시 유의사항</h5><br>
+                  <ul>
+                    <li>이동전화/주민번호/생일 등의 개인정보와 관련 없는 번호로 변경하시기 바랍니다. </li><br>
+                    <li>현재 아이디와 유사하거나 유추하기 쉬운 비밀번호를 피하시기 바랍니다. </li><br>
+                    <li>변경후 로그인 되어있는 다른기기에서 로그아웃됩니다</li><br>
+                    <li>타 사이트에서 사용하는 비밀번호와 같은 번호로 설정하면 보안이 취약해질수있습니다 </li><br>
+                    <li><b>추측이나 유추가 어렵도록</b> 설정해주시길바랍니다</li><br>
+                    <li>비밀번호가 제3자에게 노출되었을때 반드시 <b>새 비밀번호로 변경</b>해야합니다</li><br>
+                    <li>단순한 증감의 <b>내용의  번갈아 사용하는 것은 자제</b>해주십시오</li><br>
+                    <li>단순 혹은 시도해볼법한 내용으로 비밀번호를 지정하지마세요 (예시) <br>
+                    <ul>
+                      <li>password1234!</li>
+                      <li>!1q2w3e4r</li>
+                      <li>이름+생년월일조합</li>
+                      <li>abcdefgh1234!</li>
+                      <li>qwerasdf1234!</li>
+                      <li>Password1!</li>
+                    </ul>
+                    </li>
+                    <li><a href="https://nordpass.com/blog/top-worst-passwords-2019/" target="_blank">비밀번호가 다음 사이트의 200 개의 비밀번호목록과 유사점이있다면 즉시 비밀번호를 변경하십시오</a></li>
+                  </ul>
+                </div>  
+                <div>
+                  <h4 id="list-locksandsecurity"></h4>
+                    <button type="button" class="btn bg-secondary-subtle " data-bs-toggle="modal" data-bs-target="#staticpassswordBackdrop">
+                      비밀번호 변경
+                    </button>
+                    <div class="modal fade" id="staticpassswordBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content" >
+                          <div class="modal-header" style="border-bottom:1px solid rgb(163, 163, 163) ; margin: 0px; text-align: center; justify-content: center;">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">비밀번호 변경</h1>
+                            
+                          </div>
+                          <div class="modal-body">
+                            <h3>비밀번호를 변경 하시겠습니까?</h3>
+                          </div>
+                          <div class="modal-footer" style="border-top:1px solid rgb(163, 163, 163) ; margin: 0px; text-align: center; justify-content: center;">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">취소</button>
+                            <a href="passwordchangesChk.html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
+                              비밀번호 변경
+                              
+                            </button></a>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              
+
+
+                
+                <div><br><br><br><br>
+                  <h4 id="list-account">계정</h4>
+
+                    <h5 style="color: red ;">계정 삭제시 유의사항</h5>
+                    <ul>
+                      <li>회원정보 삭제
+                        <ul>
+                          <li>회원 탈퇴와 함께  브랜드 이름  에 등록된 모든 개인정보는 삭제, 폐기 처리되며 복구되지 않습니다.</li>
+                          <li>회원탈퇴 시 동일 아이디(이메일)로 재가입하실 수 없습니다.</li>
+                          <li><b>단, 상법 및 '전자상거래 등에서 소비자 보호에 관한 법률' 등 관련 법령의 규정에 의하여 다음과 같이 ‘거래 관련 관리의무 관계 확인’ 등을 이유로 일정 기간 보관됩니다.</b>
+                            <ul>
+                              <li>계약 또는 청약 철회 등에 관한 기록 : 5년</li>
+                              <li>대금결제 및 재화 등의 공급에 관한 기록 : 5년</li>
+                              <li>소비자의 불만 또는 분쟁 처리에 관한 기록 : 3년</li>
+                              <li>설문조사, 이벤트 등 일시적 목적을 위하여 수집한 경우 : 당해 설문조사, 이벤트 등의 종료 시까지</li>
+                            </ul>
+                          </li>
+                          <li>
+                            탈퇴 시 해당 아이디는 즉시 탈퇴 처리 되며, 탈퇴한 아이디는  본인과 타인 모두 재사용 및 복구가 불가 하오니 신중하게 선택하시기 바랍니다.
+                          </li>
+                          <li>
+                            탈퇴 후에도 게시판에 등록한 게시물은 그대로 남아 있습니다.
+                            홈페이지에 올린 게시글 및 댓글은 탈퇴 시 자동 삭제되지 않고 그대로 남아 있으므로, 삭제를 원하는 게시글이 있다면 반드시  탈퇴 전 삭제하시기 바랍니다.
+                          </li>
+
+                        </ul>
+                      </li>
+
+                    </ul>
+
+                    
+                    <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    계정 삭제
+                    </button>
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" >
+                        <div class="modal-content" >
+                          <div class="modal-header" >
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">계정 삭제</h1>
+                            
+                          </div>
+                          <div class="modal-body">
+                                정말로계정을 삭제 하시겠습니까?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">취소</button>
+                            <a href="index.html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
+                              계정 삭제
+                              
+                            </button></a>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            
 
 
 
+
+
+
+                <div class="termsofuse">
+                  <h4 id="list-termsofuse">이용약관</h4><br>
+
+                  <p>
+                    저희가 명시적으로 별도의 약관(본 약관이 아님)이 적용된다고 밝히지 않는 한
+                    본 이용 약관(또는 '약관')이 회원님의 브랜드 이름  이용에 적용되며
+                     아래 설명된 브랜드 이름  서비스('서비스')에 대한 정보를 제공합니다. <br>
+                     회원님이 브랜드 이름  계정을 만들거나 브랜드 이름 을 이용하는 경우, 
+                     회원님은 본 약관에 동의하는 것으로 간주됩니다. 브랜드 이름  서비스 약관은
+                      이 서비스에 적용되지 않습니다.
+                </div>
+                  </p>
+                  <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="#collapseOne">
+                          <h3>이용약관</h3>
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                          <p><h4>브랜드 이름 에 오신 것을 환영합니다!</h4> 
+                            <br>
+                            
+
+                            브랜드 이름  서비스는 브랜드 이름  Platforms, Inc.에서 회원님에게 제공하는 브랜드 이름  제품 중 하나입니다. 따라서 본 이용 약관은 회원님과 브랜드 이름  Platforms, Inc. 사이의 계약에 해당됩니다.<br><br>
+                              <h4><b>브랜드 이름  서비스</b></h4>
+                              저희는 회원님에게 브랜드 이름  서비스를 제공하는 것에 동의합니다. 
+                              서비스에는 저희가 브랜드 이름 의 사명을 실현하기 위해 제공하는 모든 브랜드 이름  제품, 기능, 앱, 서비스, 기술, 소프트웨어가 포함됩니다. 
+                              브랜드 이름 은 회원님이 사랑하는 사람들과 사항들을 더 가까이 접할 기회를 마련하는 것을 사명으로 삼습니다. 
+                              서비스는 다음과 같은 부분으로 구성됩니다.<br><br>
+                            <ul>
+                              
+>>>>>>> origin/leeheeseung
   
 
 </body>
