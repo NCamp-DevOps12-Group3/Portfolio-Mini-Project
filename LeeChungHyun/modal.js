@@ -13,6 +13,15 @@
                 reader.readAsDataURL(this.files[0]);
             });
 
+            $('#uploadModal').on('hidden.bs.modal', function () {
+                // 폼을 초기화
+                $('#uploadForm')[0].reset();
+                // 썸네일 미리보기도 초기화
+                var thumbnailPreview = document.getElementById('uploadThumbnailPreview');
+                thumbnailPreview.src = '';
+                thumbnailPreview.style.display = 'none';
+            }); 
+
             // 업로드 버튼 클릭(submit)시 실행되는 콜백
             document.getElementById('uploadForm').addEventListener('submit', function (e) {
 

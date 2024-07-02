@@ -9,7 +9,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css(test)/company,worker01.css">
-    <link rel="stylesheet" href="newpage copy 4.css">
+    <link rel="stylesheet" href="modal.css">
 </head>
 
 <body>
@@ -174,7 +174,7 @@
                                     <!--댓글 입력창-->
                                     <div class="modal-leaveComment" id="modalLeaveComment">
                                         <input type="text" id="modalCommentInput" class="form-control"
-                                            placeholder="댓글을 입력하세요...">
+                                            autocomplete="off" placeholder="댓글을 입력하세요...">
                                     </div>
                                 </div>
 
@@ -219,7 +219,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="modifyForm">
+                    <form id="modifyForm" autocomplete="off">
                         <div class="modify-section">
                             <label for="modifyCodeFiles">수정하신 HTML, CSS, JS 파일만 업로드 가능합니다.</label>
                             <input type="file" class="form-control" id="modifyCodeFiles" accept=".html,.css,.js"
@@ -267,7 +267,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="uploadForm">
+                    <form id="uploadForm" autocomplete="off">
                         <div class="upload-section">
                             <label for="uploadCodeFiles">HTML, CSS, JS 파일만 업로드 가능합니다.</label>
                             <input type="file" class="form-control" id="uploadCodeFiles" accept=".html,.css,.js"
@@ -309,7 +309,7 @@
     <script src="darkmode.js"></script>
     <script src="notificationIcon.js"></script>
     <script src="searchBtn.js"></script>
-    <script src="newpage copy 4.js"></script>
+    <script src="modal.js"></script>
 </body>
 
 </html>
