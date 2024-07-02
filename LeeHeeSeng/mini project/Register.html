@@ -44,9 +44,9 @@
     </style>
 </head>
 <body>
-    
+<div> 
 <div id="liveAlertPlaceholder" ></div><!-- 경고창 위치 마커-->
-
+</div>  
 <div class="container">
     
     <div class="card"><!-- 회원가입 양식 -->
@@ -74,7 +74,10 @@
                         <label class="btn btn-outline-dark" for="individualuser">개인 사용자</label>
                         
                         
+<<<<<<< HEAD
                        
+=======
+>>>>>>> origin/leeheeseung
                         
                         <input type="radio" class="btn-check" name="btnuser" id="corporateusers" value="corporateusers" autocomplete="off">
                         <label class="btn btn-outline-dark" for="corporateusers">기업 사용자</label>
@@ -112,16 +115,26 @@
                 ` <div>${message}</div>`, /*wrapper에들어갈메세지*/
                 '</div>' /*div닫기*/
             ].join(''); /*위내용을 문자열로 바꾸기 */
-            alertPlaceholder.append(wrapper); /*liveAlertPlaceholder 에 써 넣기*/
+           
+
+               // 기존 알림 메시지 수 확인 및 제거
+                const alerts = alertPlaceholder.querySelectorAll('.alert');
+                if (alerts.length >= 2) {
+                    alertPlaceholder.removeChild(alerts[0]);
+                }
+
+                alertPlaceholder.append(wrapper); /*liveAlertPlaceholder 에 써 넣기*/
             
-            // 알림 메시지 1.5초 지속하고 서서히 지우기 함수입니다.
+            
+
+            // 알림 메시지 1.2초 지속하고 서서히 지우기 함수입니다.
             setTimeout(() => { 
                 wrapper.querySelector('.alert').classList.remove('show'); 
                 wrapper.querySelector('.alert').classList.add('fade'); 
                 setTimeout(() => { 
                     wrapper.remove(); 
-                }, 1500); // fade-out 효과를 위해 약간의 지연을 줍니다.
-            }, 1500); 
+                }, 100); // fade-out 효과를 위해 약간의 지연을 줍니다.
+            }, 1200); 
         }
     
         let idValidation = false; // 아이디 유효성 검사를 위한 변수입니다.
@@ -236,6 +249,7 @@
             } 
             const getpassword = document.getElementById("password"); 
             userdata.password = getpassword.value; 
+<<<<<<< HEAD
             $("input[name='btnuser']").each(function() {
                 console.log($("input[name='btnuser']").is(":checked"));
                 if(!$(this).is(":checked")) {
@@ -244,14 +258,24 @@
                     return; 
                 }
             });
+=======
+           
+            let userTypeCtn = 0;
+
+>>>>>>> origin/leeheeseung
             $("input[name='btnuser']").each(function() {
                 console.log($("input[name='btnuser']").is(":checked"));
                 if($(this).is(":checked")) {
                     userdata.usertype = $(this).val(); 
+                    userTypeCtn++;
                 }
             });
 
-            
+            if(userTypeCtn === 0) {
+                appendAlert('사용자 유형을 지정해주세요.', 'success'); 
+                e.preventDefault(); 
+                return; 
+            }
     
             // 사용자의 정보를 콘솔에 출력합니다. 테스트용
             userdata.info = function() { 
