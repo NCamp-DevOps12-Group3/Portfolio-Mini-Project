@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up Page</title>
+<<<<<<< HEAD
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
@@ -18,11 +19,24 @@
             color: inherit;
             transition: background-color 0.3s, color 0.3s;
         }
+=======
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        
+>>>>>>> main
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             background-color: #fafafa;
             color: #262626;
         }
+<<<<<<< HEAD
         .dark-mode {
             background-color: #121212 !important;
             color: white !important;
@@ -32,6 +46,49 @@
             }
             #sidebar{
                 border: 1px solid white;
+=======
+        .list-group .list-group-item:hover{
+            background-color: #ddd;
+        }
+        .dark-mode {
+        
+            background-color: #121212;
+            color: white;
+            .top-section{
+                background-color: black;
+            }
+            .top-section #profileImgBtn{
+                background-color: black;
+            }
+            .list-group-item {
+                background-color: black;
+                color: white;
+            }
+            .card > *{
+                border: white 1px solid ;
+                border-collapse: collapse;
+                
+                background-color: #262626;
+            }
+            .card *{
+                color: white !important;
+            }
+        
+            .sidebar{
+                background-color: #262626;
+            }
+            .sidebar *{
+                color: white;
+            }
+        
+            .sidebar .dropdown-menu{
+                background-color: black;
+                color: white;
+            }
+            #modalProfile *{
+                background: black;
+                color: white;
+>>>>>>> main
             }
         }
         .top-section {
@@ -219,7 +276,46 @@
         .sidebar div{
             display: inline-block;
             margin-left:10px;
+<<<<<<< HEAD
             
+=======
+        }
+        @media screen and (max-width:900px){
+            .sidebar div{
+                display:none;
+            }
+        }
+
+        @media screen and (max-width:770px){
+            .sidebar{
+                width:50px;
+            }
+            .sidebar a {
+                padding: 10px 10px;
+
+            }
+            .sidebar div{
+                display:none;
+            }
+        }
+        .card-info-toggle{
+            display: none;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-slide {
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-slide iframe {
+            width: 80%;
+            height: 80%;
+            border: none;
+>>>>>>> main
         }
     </style>
 </head>
@@ -258,7 +354,11 @@
 
         <div class="top-section d-flex align-items-center justify-content-around">
             <button class="ratio ratio-1x1" type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
+<<<<<<< HEAD
                 <img src="img/1.jpg" alt="" class="mouse-Cursor " id="profileImg">
+=======
+                <img src="img/1.jpg" alt="" class="mouse-Cursor" id="profileImg">
+>>>>>>> main
             </button>
             <div class="mouse-Cursor" id="profileName">
                 <p class="d-inline-block" >name</p>
@@ -285,14 +385,49 @@
                 </div>
             </form>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
         <div class="modal fade" data-bs-backdrop="static" id="modal-short">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content modal-content-short">
                     <div class="modal-header">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
+<<<<<<< HEAD
                     <div class="modal-body d-flex justify-content-between" id="modal-body-div">
+=======
+                    <div class="modal-body sil" id="modal-body-div">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <iframe src="index.html"></iframe>
+                                </div>
+                                <div class="swiper-slide">
+                                    <iframe src="main.html"></iframe>
+                                </div>
+                                <div class="swiper-slide">
+                                    <iframe src="setting.html"></iframe>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="modal fade" data-bs-backdrop="static" id="modal-short">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content modal-content-short">
+                    <div class="modal-header">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                    
+                    <div class="modal-body d-flex justify-content-between sil" id="modal-body-div">
+>>>>>>> main
                         <div class="d-inline-block align-content-center">
                             <button type="button" class="btn btn modal-portfolio-btn btn-primary" id="modal-portfolio-btn-left">
                                 <
@@ -309,7 +444,11 @@
 
                 </div>
             </div>
+<<<<<<< HEAD
         </div>
+=======
+        </div> -->
+>>>>>>> main
 
         <div class="modal fade" id="modalProfile">
             <div class="modal-dialog">
@@ -318,7 +457,13 @@
                         <h3 class="text-lg-center mt-3">정보</h3>
                     </div>
                     <div class="modal-body h-75 text-center">
+<<<<<<< HEAD
                         <img src="img/1.jpg" alt="" class="w-50 rounded-circle mb-3" id="profile-vertical">
+=======
+                        <div class="ratio ratio-1x1 mb-3">
+                            <img src="img/1.jpg" alt="" id="profile-vertical">
+                        </div> 
+>>>>>>> main
                         <div>
                         <pre class="overflow-x-scroll sil" id="scrollContainer">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
                             aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -342,6 +487,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 
 <script>
     $(function(){
@@ -350,6 +496,22 @@
             document.body.classList.add('dark-mode');
         }
         
+=======
+<div id="upload-modal-container"></div>
+<script src="js/darkmode.js"></script>
+<script>
+    $(function(){
+        
+        
+         var isDarkMode = loadDarkModeState();
+            applyDarkMode(isDarkMode);
+
+            $('#darkModeToggle').on('click', function() {
+                isDarkMode = !$('body').hasClass('dark-mode');
+                applyDarkMode(isDarkMode);
+                saveDarkModeState(isDarkMode);
+            });
+>>>>>>> main
         // Masonry initialization
         var msnry;
         var grid = document.querySelector('.grid');
@@ -412,7 +574,11 @@
     <div class="col-12 col-sm-6 col-md-4 col-xl-3 grid-item">
         <div class="card">
             <div class="card-header">
+<<<<<<< HEAD
 
+=======
+                포트폴리오 제목
+>>>>>>> main
             </div>
             <input type="checkbox" class="delete-dot">
 
@@ -420,11 +586,24 @@
             <img src="img/${(((page - 1) * 9 + i)%12 + 1)}.jpg" class="card-img-top" alt=".">
             </a>
             <div class="card-body">
+<<<<<<< HEAD
             <div class="card-title">
 
             </div>
             <p class="card-text">
 
+=======
+            <p class="card-text">
+                포트폴리오 간단 설명 혹은 태그
+            </p>
+            <p class="card-text card-info-toggle">
+                포트폴리오 상세 설명
+                포트폴리오 상세 설명
+                포트폴리오 상세 설명
+                포트폴리오 상세 설명
+                포트폴리오 상세 설명
+                포트폴리오 상세 설명    
+>>>>>>> main
             </p>
             </div>
             <div class="card-footer">
@@ -491,7 +670,15 @@
             const walk = (x - startX) * 2; // 스크롤 속도 조정
             scrollContainer.scrollLeft = scrollLeft - walk;
         });
+<<<<<<< HEAD
 
+=======
+        $('#uploadWindowBtn').on('click', function() {
+                $('#upload-modal-container').load('upload_modal.html', function() {
+                    $('#uploadModal').modal('show');
+            });
+        });
+>>>>>>> main
         $('#modal-short').on('show.bs.modal', function (e) {
             $('#modal-short .modal-body .modal-content').attr("src", 'example/example.html');
         });
@@ -501,6 +688,7 @@
         $('#modal-portfolio-btn-right').on('click',function (e) {
             $('#modal-short .modal-body .modal-content').attr("src", 'example/example2.html');
         });
+<<<<<<< HEAD
 
         function applyDarkModeToNewElements() {
             if (document.body.classList.contains('dark-mode')) {
@@ -518,6 +706,40 @@
         const observer = new MutationObserver(applyDarkModeToNewElements);
         observer.observe(document.body, { childList: true, subtree: true });
 
+=======
+        $('.card-text').hover(
+            function(){
+                $(this).siblings().first().css("display","block");
+                imagesLoaded(grid, function() {
+                msnry.reloadItems();
+                msnry.layout();
+            });
+            },
+            function(){
+                $(this).siblings().first().css("display","none");
+                imagesLoaded(grid, function() {
+                msnry.reloadItems();
+                msnry.layout();
+            });
+            });
+        let swiper;
+        $('#modal-short').on('shown.bs.modal', function () {
+            if (swiper) {
+                swiper.destroy(true, true);
+            }
+            swiper = new Swiper('.swiper-container', {
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        });
+>>>>>>> main
     });
 </script>
 </body>

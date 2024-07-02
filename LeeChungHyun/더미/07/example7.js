@@ -1,4 +1,55 @@
+<<<<<<< HEAD
 $(document).ready(function () {
+=======
+// Function to dynamically load JavaScript with Promise
+function loadScript(src) {
+  return new Promise(function(resolve, reject) {
+    var script = document.createElement('script');
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.body.appendChild(script);
+  });
+}
+
+// Function to dynamically load CSS
+function loadCSS(href) {
+  return new Promise(function(resolve, reject) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    link.onload = resolve;
+    link.onerror = reject;
+    document.head.appendChild(link);
+  });
+}
+
+// Load CSS files
+var cssLinks = [
+  'https://fonts.googleapis.com/css?family=Raleway:100,200,400,600',
+  'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.css',
+  'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css',
+  'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css',
+  'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'
+];
+
+Promise.all(cssLinks.map(loadCSS)).then(function() {
+  // All CSS files have been loaded
+  console.log('All CSS files have been loaded');
+});
+
+var scripts = [
+  'https://code.jquery.com/jquery-2.1.1.min.js',
+  'https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js',
+  'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js',
+  'https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.4/jquery.fullPage.min.js'
+];
+
+// Load JS files in sequence using Promise
+Promise.all(scripts.map(loadScript)).then(function() {
+  // All JS files have been loaded
+  $(document).ready(function () {
+>>>>>>> main
     // typing animation
     (function ($) {
       $.fn.writeText = function (content) {
@@ -12,6 +63,7 @@ $(document).ready(function () {
         }, 80);
       };
     })(jQuery);
+<<<<<<< HEAD
   
     // input text for typing animation
     $("#holder").writeText("WEB DESIGNER + FRONT-END DEVELOPER");
@@ -19,6 +71,15 @@ $(document).ready(function () {
     // initialize wow.js
     new WOW().init();
   
+=======
+
+    // input text for typing animation
+    $("#holder").writeText("WEB DESIGNER + FRONT-END DEVELOPER");
+
+    // initialize wow.js
+    new WOW().init();
+
+>>>>>>> main
     // Push the body and the nav over by 285px over
     var main = function () {
       $(".fa-bars").click(function () {
@@ -28,7 +89,11 @@ $(document).ready(function () {
           },
           200
         );
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> main
         $("body").animate(
           {
             right: "285px"
@@ -36,7 +101,11 @@ $(document).ready(function () {
           200
         );
       });
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> main
       // Then push them back */
       $(".fa-times").click(function () {
         $(".nav-screen").animate(
@@ -45,7 +114,11 @@ $(document).ready(function () {
           },
           200
         );
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> main
         $("body").animate(
           {
             right: "0px"
@@ -53,7 +126,11 @@ $(document).ready(function () {
           200
         );
       });
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> main
       $(".nav-links a").click(function () {
         $(".nav-screen").animate(
           {
@@ -61,7 +138,11 @@ $(document).ready(function () {
           },
           500
         );
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> main
         $("body").animate(
           {
             right: "0px"
@@ -70,11 +151,19 @@ $(document).ready(function () {
         );
       });
     };
+<<<<<<< HEAD
   
     $(document).ready(main);
   
     // initiate full page scroll
   
+=======
+
+    $(document).ready(main);
+
+    // initiate full page scroll
+
+>>>>>>> main
     $("#fullpage").fullpage({
       scrollBar: true,
       responsiveWidth: 400,
@@ -83,10 +172,17 @@ $(document).ready(function () {
       anchors: ["home", "about", "portfolio", "contact", "connect"],
       menu: "#myMenu",
       fitToSection: false,
+<<<<<<< HEAD
   
       afterLoad: function (anchorLink, index) {
         var loadedSection = $(this);
   
+=======
+
+      afterLoad: function (anchorLink, index) {
+        var loadedSection = $(this);
+
+>>>>>>> main
         //using index
         if (index == 1) {
           /* add opacity to arrow */
@@ -103,7 +199,11 @@ $(document).ready(function () {
           });
           $(".header-links").css("background-color", "white");
         }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> main
         //using index
         if (index == 2) {
           /* animate skill bars */
@@ -120,16 +220,25 @@ $(document).ready(function () {
         }
       }
     });
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> main
     // move section down one
     $(document).on("click", "#moveDown", function () {
       $.fn.fullpage.moveSectionDown();
     });
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> main
     // fullpage.js link navigation
     $(document).on("click", "#skills", function () {
       $.fn.fullpage.moveTo(2);
     });
+<<<<<<< HEAD
   
     $(document).on("click", "#projects", function () {
       $.fn.fullpage.moveTo(3);
@@ -139,6 +248,17 @@ $(document).ready(function () {
       $.fn.fullpage.moveTo(4);
     });
   
+=======
+
+    $(document).on("click", "#projects", function () {
+      $.fn.fullpage.moveTo(3);
+    });
+
+    $(document).on("click", "#contact", function () {
+      $.fn.fullpage.moveTo(4);
+    });
+
+>>>>>>> main
     // smooth scrolling
     $(function () {
       $("a[href*=#]:not([href=#])").click(function () {
@@ -163,23 +283,41 @@ $(document).ready(function () {
         }
       });
     });
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> main
     //ajax form
     $(function () {
       // Get the form.
       var form = $("#ajax-contact");
+<<<<<<< HEAD
   
       // Get the messages div.
       var formMessages = $("#form-messages");
   
+=======
+
+      // Get the messages div.
+      var formMessages = $("#form-messages");
+
+>>>>>>> main
       // Set up an event listener for the contact form.
       $(form).submit(function (e) {
         // Stop the browser from submitting the form.
         e.preventDefault();
+<<<<<<< HEAD
   
         // Serialize the form data.
         var formData = $(form).serialize();
   
+=======
+
+        // Serialize the form data.
+        var formData = $(form).serialize();
+
+>>>>>>> main
         // Submit the form using AJAX.
         $.ajax({
           type: "POST",
@@ -190,10 +328,17 @@ $(document).ready(function () {
             // Make sure that the formMessages div has the 'success' class.
             $(formMessages).removeClass("error");
             $(formMessages).addClass("success");
+<<<<<<< HEAD
   
             // Set the message text.
             $(formMessages).text(response);
   
+=======
+
+            // Set the message text.
+            $(formMessages).text(response);
+
+>>>>>>> main
             // Clear the form.
             $("#name").val("");
             $("#email").val("");
@@ -203,7 +348,11 @@ $(document).ready(function () {
             // Make sure that the formMessages div has the 'error' class.
             $(formMessages).removeClass("success");
             $(formMessages).addClass("error");
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> main
             // Set the message text.
             if (data.responseText !== "") {
               $(formMessages).text(data.responseText);
@@ -216,4 +365,8 @@ $(document).ready(function () {
       });
     });
   });
+<<<<<<< HEAD
   
+=======
+});
+>>>>>>> main
