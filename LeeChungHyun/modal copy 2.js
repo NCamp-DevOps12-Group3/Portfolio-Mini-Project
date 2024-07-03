@@ -118,8 +118,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     portfolioData.reverse().forEach(function (portfolio, index) {
                         var portfolioItem = `
-                            <div class="col-md-3 portfolio-item number-${portfolioData.length - 1 - index}" data-index="${portfolioData.length - 1 - index}" style="position: relative;">
-                                <img src="${portfolio.thumbnailImage}" alt="Portfolio ${index + 1}" class="portfolio-img" data-index="${portfolioData.length - 1 - index}" style="width: 100%; height: auto;">
+                            <div class="col-md-3 portfolio-item">
+                                <img src="${portfolio.thumbnailImage}" alt="Portfolio ${index + 1}" class="portfolio-img" data-index="${portfolioData.length - 1 - index}">
+                                <div id = "hover-content"> </div>
                                 </div>
                         `;
                         portfolioContainer.insertAdjacentHTML('beforeend', portfolioItem);
@@ -139,105 +140,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (portfolio) {
                         currentPortfolioIndex = index;
                         loadIframeContent(portfolio, index);
-                    }
-                }
-            });
-
-            // hover 시 iframe 내용 로드 및 표시
-            function showHoverContent(portfolioItem, portfolio) {
-                var iframe = portfolioItem.querySelector('#hover-content');
-                var portfolioImg = portfolioItem.querySelector('.portfolio-img');
-
-                if (!iframe) {
-                    iframe = document.createElement('iframe');
-                    iframe.id = 'hover-content';
-                    iframe.style.position = 'absolute';
-                    iframe.style.top = '0';
-                    iframe.style.left = '0';
-                    iframe.style.width = '120%';
-                    iframe.style.height = '120%';
-                    iframe.style.padding = '0';
-                    iframe.style.margin = '0 auto';
-                    iframe.style.zIndex = '1'; // iframe이 이미지 위에 표시되도록 함
-                    iframe.style.border = 'none';
-                    iframe.style.borderRadius ='10px';
-                    
-                    portfolioItem.appendChild(iframe);
-
-                    // mouseout 이벤트 리스너 추가
-                    iframe.addEventListener('mouseout', function (e) {
-                        if (e.target.id === 'hover-content') {
-                            const portfolioItem = e.target.closest('.portfolio-item');
-                            hideHoverContent(portfolioItem);
-                        }
-                    });
-
-                }
-
-                const scaleX = portfolioImg.offsetWidth / portfolioImg.naturalWidth;
-
-                const scaleY = portfolioImg.offsetHeight / portfolioImg.naturalHeight;
-
-                const htmlContent = `
-                    <!DOCTYPE html>
-                    <html lang="en">
-                    <head>
-                        <meta charset="UTF-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <style>
-                            ${portfolio.cssContent}
-                            body::-webkit-scrollbar {
-                            display: none;
-                            }
-                            body, html {
-                                margin: 0 auto;
-                                padding: 0;
-                                width: 100%;
-                                height: 100%;
-                            }
-                            .content {
-                                width: ${portfolioImg.naturalWidth*1.2}px;
-                                height: ${portfolioImg.naturalHeight*1.2}px;
-                                transform: scale(${scaleX}, ${scaleY});
-                                transform-origin: top left;
-                                margin: 0 auto;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        ${portfolio.htmlContent}
-                        <script type="text/javascript">
-                            ${portfolio.jsContent}
-                        <\/script>
-                    </body>
-                    </html>
-                `;
-                iframe.srcdoc = htmlContent;
-                iframe.style.display = 'block'; // iframe 보이기
-            }
-
-            // hover 해제 시 iframe 숨기기
-            function hideHoverContent(portfolioItem) {
-                var iframe = portfolioItem.querySelector('#hover-content');
-
-                if (iframe) {
-                    iframe.style.display = 'none'; // iframe 숨기기
-                }
-
-            }
-
-
-            // 이미지 hover 이벤트 핸들러 설정
-            document.getElementById('portfolioContainer').addEventListener('mouseover', function (e) {
-                if (e.target.classList.contains('portfolio-img')) {
-                    let index = e.target.getAttribute('data-index');
-                    var portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
-                    var portfolio = portfolioData[index];
-                    const portfolioItem = document.querySelector(`.number-${parseInt(index)}`);
-                    if (portfolio) {
-                        portfolio.originalWidth = e.target.naturalWidth;
-                        portfolio.originalHeight = e.target.naturalHeight;
-                        showHoverContent(portfolioItem, portfolio);
                     }
                 }
             });

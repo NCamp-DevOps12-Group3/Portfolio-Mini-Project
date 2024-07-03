@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poro - Worker Portfolios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css(test)/company,worker01.css">
+    <link rel="stylesheet" href="modal copy2.css">
+</head>
+
+<body>
+
+    <!--네비게이션 바-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="homepage02.html">Poro</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link2" href="newpage.html">개인</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link2" href="company01.html">기업</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link2" href="ranking01.html">랭킹</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link2" href="recentP01.html">최근기록</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item notification-wrapper">
+                    <a class="nav-link" href="#notification" id="notificationIcon"><i class="fas fa-bell"></i></a>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notification-item">알림 1</div>
+                        <div class="notification-item">알림 2</div>
+                        <div class="notification-item">알림 3</div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mypage02.html">
+                        <div class="profile-icon"></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <button id="darkModeToggle" class="btn btn-outline-secondary">다크 모드</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--사이드바-->
+    <div class="wrapper">
+        <div class="sidebar">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="homepage02.html"><i class="fas fa-home" style="margin-top: 20px;"></i>
+                        홈페이지</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="searchButton"><i class="fas fa-search"
+                            style="margin-top: 20px;"></i> 검색</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="fileUploadD1(darkMode).html" data-bs-toggle="modal"
+                        data-bs-target="#uploadModal"><i class="fas fa-upload" style="margin-top: 20px;"></i> 업로드</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Mypage02.html"><i class="fas fa-user" style="margin-top: 20px;"></i>
+                        마이페이지</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="setting01.html"><i class="fas fa-cog" style="margin-top: 20px;"></i>
+                        설정</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h1 class="text-center">개인 포트폴리오</h1>
+            <div class="portfolio-grid">
+                <div id="portfolioContainer" class="row">
+                    <!-- 포트폴리오 항목이 여기 동적으로 추가됨 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메인 모달 : 부트스트랩과의 css 충돌 방지를 위해 클래스명에 -main 추가-->
+
+    <!--modal-overlay는 모달 외부까지 포함한 화면, fixed로 설정-->
+    <div class="modal-portfolio-overlay" id="modalPortfolioOverlay">
+
+        <!--position : absolute를 쓰기 위한 접착용 박스-->
+        <div class="modal-portfolio-overlay-bond" id="modalPortfolioOverlayBond">
+
+            <!--modal은 렌더링한 문서가 보일 뷰포트의 크기 및 위치를 지정-->
+            <div class="modal-portfolio" id="modalPortfolio">
+
+                <!--position : absolute를 쓰기 위한 접착용 박스-->
+                <!--렌더링 이외에 modal-portfolio에 부착되어야 하는 코멘트창 등이 있기 때문에 bond가 필요-->
+                <div class="modal-portfolio-bond" id="modalPortfolioBond">
+
+                    <!-- iframe을 사용하여 콘텐츠 로드 -->
+                    <iframe class="modal-portfolio-iframe" id="modalPortfolioIframe" src="about:blank"></iframe>
+
+                    <!--코멘트창 오픈-->
+                    <div class="model-comment-openBtn-section" id="modalCommentOpenBtnSection">
+                        <div class="model-comment-openBtn" id="modalCommentOpenBtn"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.354 1.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 0 .708l6 6a.5.5 0 0 0 .708-.708L5.707 8l4.647-4.646a.5.5 0 0 0 0-.708z" />
+                            </svg></div>
+                    </div>
+
+                    <!--코멘트 모달-->
+                    <div class="modal-comment-section" id="modalCommentSection">
+                        <div class="modal-comment-section-bond" id="modalCommentSectionBond">
+                            <div class="modal-comment-content" id="modalCommentContent">
+
+                                <!--코멘트 헤더-->
+                                <div class="modal-comment-header" id="modalCommentHeader">
+
+                                    <!--사용자 로고-->
+                                    <div class="modal-comment-header-logo" id="modalCommentHeaderLogo"></div>
+
+                                    <!--사용자 아이디-->
+                                    <div class="modal-comment-header-userId"> <strong>cat1</strong></div>
+
+                                    <!--옵션 버튼-->
+                                    <div class="modal-comment-header-option" id="modalCommentHeaderOption">
+                                        <div class="modal-comment-header-optionBtn" id="modalCommentHeaderOptionBtn">
+                                            <svg aria-label="옵션 더 보기" class="x1lliihq x1n2onr6 x5n08af"
+                                                fill="currentColor" height="24" role="img" viewBox="0 0 24 24"
+                                                width="24">
+                                                <title>옵션 더 보기</title>
+                                                <circle cx="12" cy="12" r="1.5"></circle>
+                                                <circle cx="6" cy="12" r="1.5"></circle>
+                                                <circle cx="18" cy="12" r="1.5"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--코멘트 메인-->
+                                <div class="modal-comment-main" id="modalCommentMain">
+                                    <!-- 여기에 코멘트 추가-->
+                                </div>
+
+                                <!--코멘트 푸터-->
+                                <div class="modal-comment-footer" id="modalCommentFooter">
+
+                                    <!--좋아요-->
+                                    <div class="modal-likeCnt" id="modalLikeCnt">
+                                        <div class="modal-like-logo" id="modalLikeLogo"> <svg width="24" height="24"
+                                                viewBox="0 0 50 50">
+                                                <path
+                                                    d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                                                    stroke="black" stroke-width="2" fill="none"
+                                                    transform="translate(1, 0)" />
+                                            </svg></div>
+
+                                        <!--현재 좋아요 수-->
+                                        <div class="modal-likeCnt-text" id="modalLikeCntText">
+                                            <!-- js로 현재까지 클릭된 좋아요 수-->
+                                        </div>
+                                    </div>
+
+                                    <!--댓글 입력창-->
+                                    <div class="modal-leaveComment" id="modalLeaveComment">
+                                        <input type="text" id="modalCommentInput" class="form-control"
+                                            autocomplete="off" placeholder="댓글을 입력하세요...">
+                                    </div>
+                                </div>
+
+                                <!--코멘트창 클로즈-->
+                                <div class="modal-comment-closeBtn-section" id="modalCommentCloseBtnSection">
+                                    <div class="modal-comment-closeBtn" id="modalCommentCloseBtn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                            fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.646 1.646a.5.5 0 0 1 .708 0L12.354 8l-6 6a.5.5 0 0 1-.708-.708L10.293 8 5.646 3.354a.5.5 0 0 1 0-.708z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 옵션 모달 -->
+    <div class="modal-options-overlay" id="modalOptionsOverlay">
+        <div class="modal-options-overlay-bond" id="modalOptionsOverlayBond">
+            <div class="modal-options">
+                <div class="modal-options-item" id="modalOptionsItemModify" data-bs-toggle="modal"
+                    data-bs-target="#modifyModal">게시글 수정</div>
+                <div class="modal-options-item" id="modalOptionsItemDelete">게시글 삭제</div>
+                <div class="modal-options-item" id="modalOptionsItemReport">신고</div>
+                <div class="modal-options-item" id="modalOptionsItemCancle">취소</div>
+            </div>
+        </div>
+    </div>
+
+    <!--수정 모달-->
+    <div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="modifyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form id="modifyForm" autocomplete="off">
+                        <div class="modify-section">
+                            <label for="modifyCodeFiles">수정하신 HTML, CSS, JS 파일만 업로드 가능합니다.</label>
+                            <input type="file" class="form-control" id="modifyCodeFiles" accept=".html,.css,.js"
+                                multiple required>
+                        </div>
+                        <div class="modify-section">
+                            <label for="modifyThumbnailImage">수정하신 썸네일 이미지를 올려주세요.</label>
+                            <input type="file" class="form-control" id="modifyThumbnailImage" accept="image/*" required>
+                            <img id="modifyThumbnailPreview" class="thumbnail-preview" src="#" alt="Thumbnail Preview">
+                        </div>
+                        <div class="modify-section">
+                            <label for="modifyPortfolioDescription">수정하신 포트폴리오 설명</label>
+                            <textarea class="form-control" id="modifyPortfolioDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="modify-section">
+                            <label for="modifyPortfolioTags">수정하신 태그</label>
+                            <input type="text" class="form-control" id="modifyPortfolioTags"
+                                placeholder="태그를 쉼표로 구분하여 입력하세요" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">수정</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 삭제 모달-->
+    <div class="modal-delete" id="modalDelete">
+        <div class="modal-delete-bond" id="modalDeleteBond">
+            <div class="modal-delete-alert" id="modalDeleteAlert">정말로 삭제하시겠습니까?</div>
+            <div class="modal-deleteBtn-section" id="modalDeleteBtnSection">
+                <div class="modal-deleteBtn-yes" id="modalDeleteBtnYes">예</div>
+                <div class="modal-deleteBtn-no" id="modalDeleteBtnNo">아니오</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--업로드 모달-->
+    <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadModalLabel">포트폴리오 업로드</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="uploadForm" autocomplete="off">
+                        <div class="upload-section">
+                            <label for="uploadCodeFiles">HTML, CSS, JS 파일만 업로드 가능합니다.</label>
+                            <input type="file" class="form-control" id="uploadCodeFiles" accept=".html,.css,.js"
+                                multiple required>
+                        </div>
+                        <div class="upload-section">
+                            <label for="uploadThumbnailImage">본인만의 썸네일 이미지를 올려주세요.</label>
+                            <input type="file" class="form-control" id="uploadThumbnailImage" accept="image/*" required>
+                            <img id="uploadThumbnailPreview" class="thumbnail-preview" src="#" alt="Thumbnail Preview">
+                        </div>
+                        <div class="upload-section">
+                            <label for="uploadPortfolioDescription">포트폴리오 설명</label>
+                            <textarea class="form-control" id="uploadPortfolioDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="upload-section">
+                            <label for="uploadPortfolioTags">태그</label>
+                            <input type="text" class="form-control" id="uploadPortfolioTags"
+                                placeholder="태그를 쉼표로 구분하여 입력하세요" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">업로드</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-bar" id="searchBar">
+        <h5>검색</h5>
+        <input type="text" class="form-control mb-3" placeholder="검색어를 입력하세요">
+        <button type="button" class="btn btn-primary btn-block">검색</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script src="darkmode.js"></script>
+    <script src="notificationIcon.js"></script>
+    <script src="searchBtn.js"></script>
+    <script src="modal copy2.js"></script>
+</body>
+
+</html>
