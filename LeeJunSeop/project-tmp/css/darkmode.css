@@ -2,4 +2,15 @@
 body.dark-mode *{
     background: #121212;
     color: #e0e0e0;
+    
+}
+
+
+.dark-mode a{
+    transition: background 0s, color 0s;
+}
+
+.dark-mode a:hover *{
+    background:#dddddd;
+    color:#121212;
 }

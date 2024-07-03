@@ -20,10 +20,10 @@ function applyDarkMode(isDarkMode) {
 
 function applyDisplayDarkMode(isDarkMode){
     if(isDarkMode){
-        $('#darModeToggle').parent.childeren.hover(function(){
-            $(this).childeren().addClass(".sidebar-item-dark-mode");
+        $('#darkModeToggle').parent().children().hover(function(){
+            $(this).children().addClass("sidebar-item-dark-mode");
         }, function(){
-            $(this).childeren().removeClass(".sidebar-item-dark-mode");
+            $(this).children().removeClass("sidebar-item-dark-mode");
         })
     }
 }
