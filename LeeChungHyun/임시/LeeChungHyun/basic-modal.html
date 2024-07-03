@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="modal.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .grid-item {
+            width: 33.33%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="grid-container" id="gridContainer">
+        </div>
+    </div>
+
+    <!-- 메인 모달 : 부트스트랩과의 css 충돌 방지를 위해 클래스명에 -main 추가-->
+
+    <!--modal-overlay는 모달 외부까지 포함한 화면, fixed로 설정-->
+    <div class="modal-portfolio-overlay" id="modalPortfolioOverlay">
+
+        <!--position : absolute를 쓰기 위한 접착용 박스-->
+        <div class="modal-portfolio-overlay-bond" id="modalPortfolioOverlayBond">
+
+            <!--modal은 렌더링한 문서가 보일 뷰포트의 크기 및 위치를 지정-->
+            <div class="modal-portfolio" id="modalPortfolio">
+
+                <!--position : absolute를 쓰기 위한 접착용 박스-->
+                <!--렌더링 이외에 modal-portfolio에 부착되어야 하는 코멘트창 등이 있기 때문에 bond가 필요-->
+                <div class="modal-portfolio-bond" id="modalPortfolioBond">
+
+                    <!-- shadow-host에 shadow-dom 렌더링-->
+                    <div class="modal-portfolio-shadow-host" id="modalPortfolioShadowHost"></div>
+
+                    <!--코멘트창 오픈-->
+                    <div class="model-comment-openBtn-section" id="modalCommentOpenBtnSection">
+                        <div class="model-comment-openBtn" id="modalCommentOpenBtn"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.354 1.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 0 .708l6 6a.5.5 0 0 0 .708-.708L5.707 8l4.647-4.646a.5.5 0 0 0 0-.708z" />
+                            </svg></div>
+                    </div>
+
+                    <!--코멘트 모달-->
+                    <div class="modal-comment-section" id="modalCommentSection">
+                        <div class="modal-comment-section-bond" id="modalCommentSectionBond">
+                            <div class="modal-comment-content" id="modalCommentContent">
+
+                                <!--코멘트 헤더-->
+                                <div class="modal-comment-header" id="modalCommentHeader">
+
+                                    <!--사용자 로고-->
+                                    <div class="modal-comment-header-logo" id="modalCommentHeaderLogo"></div>
+
+                                    <!--사용자 아이디-->
+                                    <div class="modal-comment-header-userId"> <strong>cat1</strong></div>
+
+                                    <!--옵션 버튼-->
+                                    <div class="modal-comment-header-option" id="modalCommentHeaderOption">
+                                        <div class="modal-comment-header-optionBtn" id="modalCommentHeaderOptionBtn">
+                                            <svg aria-label="옵션 더 보기" class="x1lliihq x1n2onr6 x5n08af"
+                                                fill="currentColor" height="24" role="img" viewBox="0 0 24 24"
+                                                width="24">
+                                                <title>옵션 더 보기</title>
+                                                <circle cx="12" cy="12" r="1.5"></circle>
+                                                <circle cx="6" cy="12" r="1.5"></circle>
+                                                <circle cx="18" cy="12" r="1.5"></circle>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--코멘트 메인-->
+                                <div class="modal-comment-main" id="modalCommentMain">
+                                    <!-- 여기에 코멘트 추가-->
+                                </div>
+
+                                <!--코멘트 푸터-->
+                                <div class="modal-comment-footer" id="modalCommentFooter">
+
+                                    <!--좋아요-->
+                                    <div class="modal-likeCnt" id="modalLikeCnt">
+                                        <div class="modal-like-logo" id="modalLikeLogo"> <svg width="24" height="24"
+                                                viewBox="0 0 50 50">
+                                                <path
+                                                    d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                                                    stroke="black" stroke-width="2" fill="none"
+                                                    transform="translate(1, 0)" />
+                                            </svg></div>
+
+                                        <!--현재 좋아요 수-->
+                                        <div class="modal-likeCnt-text" id="modalLikeCntText">
+                                            <!-- js로 현재까지 클릭된 좋아요 수-->
+                                        </div>
+                                    </div>
+
+                                    <!--댓글 입력창-->
+                                    <div class="modal-leaveComment" id="modalLeaveComment">
+                                        <input type="text" id="modalCommentInput" class="form-control"
+                                            placeholder="댓글을 입력하세요...">
+                                    </div>
+                                </div>
+
+                                <!--코멘트창 클로즈-->
+                                <div class="modal-comment-closeBtn-section" id="modalCommentCloseBtnSection">
+                                    <div class="modal-comment-closeBtn" id="modalCommentCloseBtn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                            fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.646 1.646a.5.5 0 0 1 .708 0L12.354 8l-6 6a.5.5 0 0 1-.708-.708L10.293 8 5.646 3.354a.5.5 0 0 1 0-.708z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 옵션 모달 -->
+    <div class="modal-options" id="modalOptions">
+        <div class="modal-options-bond" id="modalOptionsBond">
+            <div class="modal-options-item" id="modalOptionsItemModify">게시글 수정</div>
+            <div class="modal-options-item" id="modalOptionsItemDelete">게시글 삭제</div>
+            <div class="modal-options-item" id="modalOptionsItemReport">신고</div>
+            <div class="modal-options-item" id="modalOptionsItemCancle">취소</div>
+        </div>
+    </div>
+
+    <!--수정 모달-->
+    <div class="modal-modify" id="modalModify">
+        <div class="modal-modify-bond" id="modalModifyBond">
+            <div style="font-size: 14px;"> <strong>소개글 수정</strong></div>
+            <div class="modify-intro"><input type="text" id="intro-input" placeholder="소개글을 입력하세요"></div>
+        </div>
+    </div>
+
+    <!-- 삭제 모달-->
+
+    <script src="modal copy.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let page = 1;
+
+            // Function to load images
+            function loadImages() {
+                const gridContainer = document.getElementById('gridContainer');
+                for (let i = 0; i < 9; i++) {
+                    const gridItem = document.createElement('div');
+                    gridItem.classList.add('grid-item');
+                    gridItem.innerHTML = `<img src="img/cat${(page - 1) * 9 + i + 1}.jpg" alt="Image">`;
+                    gridContainer.appendChild(gridItem);
+                }
+            }
+
+            // Initial image load
+            loadImages();
+
+            // Scroll event handler
+            window.addEventListener('scroll', function () {
+                if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 100) {
+                    page++;
+                    loadImages();
+                }
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
