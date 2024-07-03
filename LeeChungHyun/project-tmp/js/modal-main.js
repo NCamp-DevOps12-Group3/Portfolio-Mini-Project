@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 reader.readAsDataURL(this.files[0]);
             });
 
-            $('#uploadModal').on('hidden.bs.modal', function () {
+            $('#uploadModal').on('show.bs.modal', function () {
                 // 폼을 초기화
                 $('#uploadForm')[0].reset();
                 // 썸네일 미리보기도 초기화
