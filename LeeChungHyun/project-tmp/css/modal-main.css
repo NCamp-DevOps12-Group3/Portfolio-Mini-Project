@@ -432,3 +432,11 @@ p {
 .modal-options-item:hover {
     background-color: #f0f0f0;
 }
+
+
+.thumbnail-preview {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+    display: none;
+}
