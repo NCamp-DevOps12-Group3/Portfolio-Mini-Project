@@ -4,7 +4,9 @@ body.dark-mode *{
     color: #e0e0e0;
     
 }
-
+body.dark-mode .sidebar{
+    border-right:1px solid #262626;
+}
 
 .dark-mode a{
     transition: background 0s, color 0s;
