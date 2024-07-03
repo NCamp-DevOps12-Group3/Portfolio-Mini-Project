@@ -21,9 +21,9 @@ function applyDarkMode(isDarkMode) {
 function applyDisplayDarkMode(isDarkMode){
     if(isDarkMode){
         $('#darModeToggle').parent.childeren.hover(function(){
-            $(this).childeren().css("background", "#dddddd");
+            $(this).childeren().addClass(".sidebar-item-dark-mode");
         }, function(){
-            $(this).childeren().css("background", "#121212");
+            $(this).childeren().removeClass(".sidebar-item-dark-mode");
         })
     }
 }

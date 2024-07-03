@@ -20,7 +20,7 @@ function applyDarkMode(isDarkMode) {
 
 function applyDisplayDarkMode(isDarkMode){
     if(isDarkMode){
-        $('#darModeToggle').parent.childeren.hover(function(){
+        $('#darkModeToggle').parent().childeren().hover(function(){
             $(this).childeren().css("background", "#dddddd");
         }, function(){
             $(this).childeren().css("background", "#121212");

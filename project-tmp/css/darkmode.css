@@ -3,3 +3,8 @@ body.dark-mode *{
     background: #121212;
     color: #e0e0e0;
 }
+
+.sidebar-item-dark-mode{
+    background:#dddddd;
+    color:#121212;
+}
