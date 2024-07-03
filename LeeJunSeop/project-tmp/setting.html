@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta  name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>setting</title>
+  <title>설정</title>
   <link href="css/bootstrap.css" rel="stylesheet">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/bootstrap.bundle.js"></script>
@@ -51,6 +51,7 @@
             width: 250px;
             background-color: #f8f9fa;
             padding-top: 20px;
+            border-right: 1px solid black;
         }
         .sidebar a {
             display: block;
@@ -70,28 +71,28 @@
       position: fixed;
       height: 100vh;
       background: #f8f9fa;
-      width: 200px;
+      width: 190px;
       display:  inline-block;
       left: 250px;
-      border-left: 1px solid black;
+      border-right: 1px solid black;
     }
     .pobox a {
       
       display: flex;
       flex-direction: column;
       height: 70px;
-      width: 200px;
+      width: auto;
       background: #ffffff;
       text-align: center;
       line-height: 60px;
       padding: 30px;
       position: relative;
       border: 1px solid black;
-      margin-top: 10%;
-      border-right: none;;
+      margin-left: 5%;
+      margin-right: 5%;
       
     }
-    
+    /* 수정 */
     .boardt{
     margin-left:10%;
     
@@ -111,7 +112,7 @@
    }
    
     a{
-     
+      
       color: black;
       text-decoration: none;
     }
@@ -141,10 +142,10 @@
     background: -moz-linear-gradient( 90deg , #ddd, white);
     background: -o-linear-gradient( 90deg , #ddd, white);
     background: linear-gradient( 90deg , #ddd, white);
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right: none;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
     color: black;
     font-weight: bolder;
     text-transform: uppercase;
@@ -173,6 +174,8 @@
     }
     img{
       border-radius: 50%;
+      width: 75%;
+      height: 75%;
     }
     #website{
       border-radius: 7px;
@@ -206,10 +209,10 @@
       position: fixed;
       height: 100vh;
       background: #f8f9fa;
-      width: 200px;
+      width: 190px;
       display:  inline-block;
       left: 100px;
-      border-left: 1px solid black;
+      border-left:none;
     }
     .boardt{
       margin-right: 10%;
@@ -262,6 +265,9 @@
       padding: 0px 20px;
       padding-top: 30px; 
     }
+    button{
+      margin-right: 10px;
+    }
 }
 @media screen and (max-width: 500px) {
     .pobox {
@@ -281,8 +287,15 @@
           padding: 20px 0px;
           
         }
-        
-        
+        .m-3{
+          margin: 0;
+        }
+      img { 
+        width: 70px;
+        height: 70px;
+      } 
+    
+      
 }
 </style>
 </head>
@@ -290,18 +303,18 @@
       <div class="row">
           <div class="col-3"><body>
                 <div class="sidebar">
-                  <a href="main.html" class="active nav-link" data-page="main.html">Home</a>
-                  <a href="setting.html" class="nav-link" data-page="setting.html">setting</a>
-                  <a href="search.html" class="nav-link" data-page="search.html">search</a>
+                  <a href="main.html" class="active nav-link" data-page="main.html">홈페이지</a>
+                  <a href="setting.html" class="nav-link" data-page="setting.html">설정</a>
+                  <a href="search.html" class="nav-link" data-page="search.html">검색</a>
                   
                 </div>
             <div id="#setting-list" class=" list-group">
               
                 <div class="pobox">      
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-profile">Profile</a><br>
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-locksandsecurity">Locks And Security</a>        <br>                
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-account">Account</a><br>
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-termsofuse">Terms Of Use</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action mt-4 "  href="#list-profile">프로필</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-locksandsecurity">잠금과 보안</a>                       <br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-account">계정</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-termsofuse">이용약관</a>
                 </div>
               
             </div>
@@ -311,7 +324,7 @@
           <div class="col-9" data-bs-spy="scroll">
             <div class="boardt" data-bs-spy="scroll">
             <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy gap-2" tabindex="0">
-                <h4 id="list-profile">Profile</h4>
+                <h4 id="list-profile">프로필</h4>
                 <form action="#" method="get">
                   <div class="container position-relative">
                     <div class="modal fade" id="modalPic">
@@ -339,14 +352,14 @@
                     </div>
                     <header class="w-100 h-25 box d-flex align-items-center">
                       <div class="box d-inline-block m-3">
-                        <img src="img/cat1.jpg" alt="" class="w-75">
+                        <img src="img/cat1.jpg" alt="" >
                       </div>
                       <div class="d-inline-block">
                         <h2 style="width: 100px;">닉네임</h2>
                         <p>아이디</p>
                       </div>
                       <div class="d-inline-block">
-                        <button type="button" style="width: 100px; " class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPic">
+                        <button type="button" style="width: 75px; padding-top: 12px; padding-bottom: 12px" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modalPic">
                           사진 변경
                         </button>
                       </div>
@@ -367,8 +380,8 @@
                 </form><br><br><br><br>
                
                 
-                <div><h4 id="list-locksandsecurity">Locks And Security</h4>
-                <h5>Change Password</h5>
+                <div><h4 id="list-locksandsecurity">잠금과 보안</h4>
+                <h5>비밀번호 변경</h5>
                   <p>사용자님의 개인정보보호와 안전한 사이트사용을 위해 3개월마다  비밀번호 변경을 권장하고있습니다 <br>비밀번호 가 사용된지 3개월이지났다면 변경을 권장하는 바입니다  </p> 
                  <h5>비밀번호 변경 시 유의사항</h5><br>
                   <ul>
@@ -395,22 +408,22 @@
                 <div>
                   <h4 id="list-locksandsecurity"></h4>
                     <button type="button" class="btn bg-secondary-subtle " data-bs-toggle="modal" data-bs-target="#staticpassswordBackdrop">
-                    Change Password
+                      비밀번호 변경
                     </button>
                     <div class="modal fade" id="staticpassswordBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content" >
                           <div class="modal-header" style="border-bottom:1px solid rgb(163, 163, 163) ; margin: 0px; text-align: center; justify-content: center;">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Change Password</h1>
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">비밀번호 변경</h1>
                             
                           </div>
                           <div class="modal-body">
                             <h3>비밀번호를 변경 하시겠습니까?</h3>
                           </div>
                           <div class="modal-footer" style="border-top:1px solid rgb(163, 163, 163) ; margin: 0px; text-align: center; justify-content: center;">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancle</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">취소</button>
                             <a href="passwordchangesChk.html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
-                              Change Password
+                              비밀번호 변경
                               
                             </button></a>
                             
@@ -424,11 +437,11 @@
 
                 
                 <div><br><br><br><br>
-                  <h4 id="list-account">Account</h4>
+                  <h4 id="list-account">계정</h4>
 
-                    <h5 style="color: red ;">멤버쉽 해지시 유의사항</h5>
+                    <h5 style="color: red ;">계정 삭제시 유의사항</h5>
                     <ul>
-                      <li>회원정보삭제
+                      <li>회원정보 삭제
                         <ul>
                           <li>회원 탈퇴와 함께  브랜드 이름  에 등록된 모든 개인정보는 삭제, 폐기 처리되며 복구되지 않습니다.</li>
                           <li>회원탈퇴 시 동일 아이디(이메일)로 재가입하실 수 없습니다.</li>
@@ -455,22 +468,22 @@
 
                     
                     <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                      Delete Account
+                    계정 삭제
                     </button>
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" >
                         <div class="modal-content" >
                           <div class="modal-header" >
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Account</h1>
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">계정 삭제</h1>
                             
                           </div>
                           <div class="modal-body">
-                                정말로 멤버쉽을 해제하시겠습니까?
+                                정말로계정을 삭제 하시겠습니까?
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancle</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">취소</button>
                             <a href="index.html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
-                              Delete Account
+                              계정 삭제
                               
                             </button></a>
                             
@@ -489,7 +502,7 @@
 
 
                 <div class="termsofuse">
-                  <h4 id="list-termsofuse">Terms Of Use</h4><br>
+                  <h4 id="list-termsofuse">이용약관</h4><br>
 
                   <p>
                     저희가 명시적으로 별도의 약관(본 약관이 아님)이 적용된다고 밝히지 않는 한
