@@ -64,6 +64,7 @@
         .sidebar i{
             font-size:1.5em;
         }
+        /*  */
         .content {
             padding: 20px;
             margin-left:15vw;
@@ -71,17 +72,17 @@
 
         }
 
-        .top-line-list{
+        /* .top-line-list{
             position:fixed;
-        }
+        } */
 
 
         /* 메인화면 프로필 영역 */
         .top-line-personal-info{
-            margin-right: 1vw;
+            margin-right: 3vw;
         }
         .top-line-personal-info img{
-            width:40px;
+            width:40px; 
             height:40px;
             border-radius: 50%;
             border: 2px solid #222;
@@ -246,16 +247,16 @@
         <div class="content d-flex flex-column justify-content-start" id="main-content">
             <div class="top-line-list d-flex justify-content-between">
                 <div class="base-header d-flex justify-content-center align-items-center">
-                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-primary" id="baseViewAllBtn">
+                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" id="mainTopLineBtnSet">
+                        <button type="button" class="btn btn-dark" id="baseViewAllBtn">
                             <i class="bi bi-collection"></i>
                             <div>전체보기</div>
                         </button>
-                        <button type="button" class="btn btn-outline-primary" id="basePersonalBtn">
+                        <button type="button" class="btn btn-outline-dark" id="basePersonalBtn">
                             <i class="bi bi-card-list"></i>
                             <div>개인 포트폴리오</div>
                         </button>
-                        <button type="button" class="btn btn-outline-primary" id="baseCompanyBtn">
+                        <button type="button" class="btn btn-outline-dark   " id="baseCompanyBtn">
                             <i class="bi bi-building"></i>
                             <div>기업 채용</div>
                         </button>

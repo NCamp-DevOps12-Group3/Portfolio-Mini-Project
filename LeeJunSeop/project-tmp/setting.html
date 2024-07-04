@@ -67,14 +67,21 @@
       margin-left: 15%;
     }
     .sidebar {
-            position: fixed;
+            position:fixed;
             width: 15vw;
             height: 100vh;
             top: 0;
             left: 0;
-            background: #f8f9fa;
             padding-top: 20px;
-            z-index: 99;
+            border-right:1px solid #dbdbdb;
+        }
+        .sidebar-icon{
+            padding: 0px 0px 2vh;
+            margin-left:2vw;
+        }
+        .sidebar-icon .sidebar-icon-text{
+            font-size:2em;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         }
 
         .sidebar a {
@@ -84,7 +91,7 @@
             padding: 10px 20px;
             color: #333;
             text-decoration: none;
-            
+            /* transition: background-color 0.3s, color 0.3s; */
         }
 
         .sidebar a:hover {
@@ -96,7 +103,7 @@
             height: auto;
         }
 
-        .sidebar div {
+        .sidebar-list div {
             display: inline-block;
             margin-left: 10px;
 
@@ -114,12 +121,12 @@
     .pobox{
       position: fixed;
       height: 100vh;
-      background: #f8f9fa;
+      background: #ffffff;
       width: 200px;
       display:  inline-block;
-      left: 200px;
-      border-right: 1px solid black;
-      border-left: 1px solid black;
+      margin-left:15vw;
+      border-right: 1px solid #dbdbdb;
+      box-shadow: 1px 0px 10px 1px #eeeeee;
       z-index: 100;
       
     }
@@ -129,15 +136,15 @@
       flex-direction: column;
       height: 70px;
       width: auto;
-      background: #ffffff;
+      background: #f3f3f3;
       text-align: center;
       line-height: 60px;
       padding: 30px;
       position: relative;
-      border: 1px solid black;
+      /* border: 1px solid black; */
       margin-left: 5%;
       margin-right: 5%;
-      color: black;
+      color: #606060;
     }
     /* 수정 */
     .boardt{
@@ -180,7 +187,7 @@
    
    
    a.list-group-item.active {
-    background-color: #ebebeb;
+    background-color: #ddd;
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-bottom: 2px solid black;
@@ -188,7 +195,7 @@
     color: black;
     font-weight: bolder;
     text-transform: uppercase;
-    
+    font-size: larger;
     
    }
    
@@ -342,37 +349,42 @@
       <div class="row">
           <div class="col-3">
             <div class="sidebar">
-              <a href="main.html" class="active nav-link" data-page="main.html">
-                  <i class="bi bi-house-door"></i><div>홈</div>
-              </a>
-              <a href="setting.html" class="nav-link" data-page="setting.html">
-                  <i class="bi bi-gear"></i>
-                  <div>설정</div>
-              </a>    
-              <a href="#" class="nav-link" data-page="search.html">
-                  <i class="bi bi-search"></i>
-                  <div>검색</div>
-              </a>
-              <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
-                  <i class="bi bi-person-circle"></i>
-                  <div>내 프로필</div></a>
-              <a class="nav-link" id="uploadWindowBtn">
-                  <i class="bi bi-upload"></i>
-                  <div>업로드</div>
-              </a>
-              <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon" >
-                  <i class="bi bi-bell"></i>
-                  <div>알림</div></a>
-              <ul class="dropdown-menu">
-                  <li><a class="dropdown-item notification-item" href="#"><div>알람1</div></a></li>
-                  <li><a class="dropdown-item notification-item" href="#"><div>알람2</div></a></li>
-                  <li><a class="dropdown-item notification-item" href="#"><div>알람3</div></a></li>
-                </ul>
-              <a href="#" id="darkModeToggle">
-                  <i class="bi bi-brightness-low"></i>
-                  <div>다크모드</div>
-              </a>
-              <a href="#">..</a>
+              <div class="sidebar-icon">
+                  <div class="sidebar-icon-text">Poro</div>
+              </div>
+              <div class="sidebar-list">
+                  <a href="main.html" class="active nav-link" data-page="main.html">
+                      <i class="bi bi-house-door"></i><div>홈</div>
+                  </a>
+                  <a href="setting.html" class="nav-link" data-page="setting.html">
+                      <i class="bi bi-gear"></i>
+                      <div>설정</div>
+                  </a>    
+                  <a href="#" class="nav-link" data-page="search.html">
+                      <i class="bi bi-search"></i>
+                      <div>검색</div>
+                  </a>
+                  <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
+                      <i class="bi bi-person-circle"></i>
+                      <div>내 프로필</div></a>
+                  <a class="nav-link" id="uploadWindowBtn">
+                      <i class="bi bi-upload"></i>
+                      <div>업로드</div>
+                  </a>
+                  <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon" >
+                      <i class="bi bi-bell"></i>
+                      <div>알림</div></a>
+                  <ul class="dropdown-menu">
+                      <li><a class="dropdown-item notification-item" href="#"><div>알람1</div></a></li>
+                      <li><a class="dropdown-item notification-item" href="#"><div>알람2</div></a></li>
+                      <li><a class="dropdown-item notification-item" href="#"><div>알람3</div></a></li>
+                    </ul>
+                  <a href="#" id="darkModeToggle">
+                      <i class="bi bi-brightness-low"></i>
+                      <div>다크모드</div>
+                  </a>
+                  <a href="#">..</a>
+              </div>
           </div>
               
             <!--업로드 모달-->
@@ -538,8 +550,8 @@
                             <h3>비밀번호를 변경 하시겠습니까?</h3>
                           </div>
                           <div class="modal-footer" style=" margin: 0px; text-align: center; justify-content: center;">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">취소</button>
-                            <a href="passwordchangesChk.html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="background-color:#0D6EFD;">취소</button>
+                            <a href="passwordchangesChk.html" style="color: white;"><button type="button" style="background-color:#DB3545;" class="btn btn-danger"  id="Unsubscribe">
                               비밀번호 변경
                               
                             </button></a>
