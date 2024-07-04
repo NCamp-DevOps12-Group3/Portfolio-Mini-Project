@@ -130,9 +130,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // 현재 저장되어 있는 모든 포트폴리오 표시
     loadPortfolios();
 
+    // 태그를 #으로 변환하여 표시
+    function displayTags(portfolioTags) {
+        const tagsArray = portfolioTags.split(',').map(tag => tag.trim()).filter(tag => tag !== '');
+        const formattedTags = tagsArray.map(tag => `#${tag}`).join(' ');
+        return formattedTags;
+    }
+
     portfolioContainer.addEventListener('mouseover', function (e) {
         if (e.target.classList.contains('portfolio-img')) {
             let index = e.target.getAttribute('data-index');
+            currentPortfolioIndex = index;
             const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
             const portfolio = portfolioData[index];
             if (portfolio) {
@@ -194,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // hover-content 크기 확대
                     hoverContent.style.transform = 'scale(1.3)';
                     hoverContent.style.transformOrigin = 'center center';
-                    hoverContent.style.zIndex = '1500';
+                    hoverContent.style.zIndex = '1050';
                     hoverContent.style.transition = 'transform 0.3s ease-in-out';
                     hoverContent.style.borderRadius = '10px';
 
@@ -222,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     descriptionText.style.justifyContent = 'center';
 
                     const tagsText = document.createElement('div');
-                    tagsText.innerText = portfolio.portfolioTags;
+                    tagsText.innerText = displayTags(portfolio.portfolioTags);
                     tagsText.style.fontSize = '12px';
                     tagsText.style.marginLeft = '2%';
                     tagsText.style.display = 'flex';
@@ -552,11 +560,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 수정 클릭시 수정하는 모달 열기
     document.getElementById('modalOptionsItemModify').addEventListener('click', function (event) {
+        console.log(currentPortfolioIndex);
         document.getElementById('modalOptionsOverlay').classList.remove('modal-options-active');
         const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
         const portfolio = portfolioData[currentPortfolioIndex];
         if (portfolio) {
             // 수정 폼에 기존 포트폴리오 데이터 채우기
+            console.log(currentPortfolioIndex);
             document.getElementById('modifyPortfolioDescription').value = portfolio.portfolioDescription;
             document.getElementById('modifyPortfolioTags').value = portfolio.portfolioTags;
             const thumbnailPreview = document.getElementById('modifyThumbnailPreview');
@@ -597,7 +607,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const cssFiles = [];
             const jsFiles = [];
 
-            for (const i = 0; i < files.length; i++) {
+            for (let i = 0; i < files.length; i++) {
                 const file = files[i];
                 if (file.name.endsWith('.html')) {
                     htmlFiles.push(file);
@@ -652,6 +662,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function saveUpdatedPortfolioData(portfolioData) {
+        console.log("여");
         localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
         alert('포트폴리오가 수정되었습니다.');
         

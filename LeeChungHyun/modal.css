@@ -5,7 +5,7 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
-    z-index: 2000;
+    z-index: 1050;
     overflow-y: auto;
 }
 
@@ -275,7 +275,7 @@ p {
     height: 100vh;
 
     display: none;
-    z-index: 1100;
+    z-index: 1050;
 
     background-color: rgba(0, 0, 0, 0.3);
 }
@@ -324,6 +324,15 @@ p {
     box-sizing: border-box
 }
 
+.modal-options-item:last-child {
+    border-bottom: none;
+}
+
+.modal-options-item:hover {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
 #modalOptionsItemDelete {
     color: red;
 }
@@ -335,7 +344,7 @@ p {
     display: none;
     position: absolute;
     /* 기본적으로 숨김 */
-    z-index: 1100;
+    z-index: 1050;
     background-color: rgba(0, 0, 0, 0.3);
     top: 50%;
     left: 50%;
@@ -369,7 +378,7 @@ p {
     width: 100vw;
     height: 100vh;
     display: none;
-    z-index: 1100;
+    z-index: 1050;
     background-color: rgba(0, 0, 0, 0.3);
     top: 50%;
     left: 50%;
@@ -422,8 +431,4 @@ p {
     flex-wrap: nowrap;
     font-size: 14px;
     cursor: pointer;
-}
-
-.modal-options-item:hover {
-    background-color: #f0f0f0;
 }
