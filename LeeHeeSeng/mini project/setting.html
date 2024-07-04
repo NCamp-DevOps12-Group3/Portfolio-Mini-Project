@@ -20,6 +20,7 @@
   <style>
     body {
         font-family: Arial, sans-serif;
+        line-height: 40px;
         
     }
 
@@ -136,7 +137,7 @@
       border: 1px solid black;
       margin-left: 5%;
       margin-right: 5%;
-      
+      color: black;
     }
     /* 수정 */
     .boardt{
@@ -334,24 +335,7 @@
         .notification-dropdown {
             transition: background-color 0.3s, border-color 0.3s;
         }
-@media screen and (max-width: 500px) {
-    .pobox {
-        display: none;
-        
-    }
-    .sidebar {
-                width: 45px;
-               
-            }
-    
-            
-    .col-9{
-      padding: 0%;
-      
-    }
-    
-    
-}
+
 </style>
 </head>
 <body>
@@ -392,15 +376,16 @@
           </div>
               
             <!--업로드 모달-->
-              <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+              <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true" >
                 <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
+                    <div class="modal-content" style="border: 0.7px solid rgb(201, 201, 201);padding: 0px;  border-radius: 15px;">
+                        <div class="modal-header" style="  border-radius: 14px;">
                             <h5 class="modal-title" id="uploadModalLabel">포트폴리오 업로드</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" style="  border-radius: 14px;">
                             <form id="uploadForm" autocomplete="off">
+
                                 <div class="upload-section">
                                     <label for="uploadCodeFiles">HTML, CSS, JS 파일만 업로드 가능합니다.</label>
                                     <input type="file" class="form-control" id="uploadCodeFiles" accept=".html,.css,.js"
@@ -417,10 +402,10 @@
                                 </div>
                                 <div class="upload-section">
                                     <label for="uploadPortfolioTags">태그</label>
-                                    <input type="text" class="form-control" id="uploadPortfolioTags"
+                                    <input  type="text" class="form-control" id="uploadPortfolioTags"
                                         placeholder="태그를 쉼표로 구분하여 입력하세요" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-block">업로드</button>
+                                <button type="submit" class="btn  btn-block" style=" color: white; background-color:#0D6EFD; ">업로드</button>
                             </form>
                         </div>
                     </div>
@@ -446,8 +431,10 @@
 
           
           <div class="col-9" data-bs-spy="scroll">
-            <div class="boardt" data-bs-spy="scroll"id="list-profile">
+            <div class="boardt" data-bs-spy="scroll" >
             <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy_gap-2" tabindex="0"><br><br>
+              <div id="list-profile"><br><br><br></div>
+              
               <h4  style="margin-top: 2%; ">프로필</h4>
               
               
@@ -469,7 +456,7 @@
                             </div>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                            <button type="button" class="btn " style=" color: white; background-color:#0D6EFD; " data-bs-dismiss="modal">
                               닫기
                             </button>
                           </div>
@@ -477,7 +464,7 @@
                       </div>
                     </div>
                     <header class=" w-auto h-25 box d-flex align-items-center justify-content-around" style=" padding: 0;">
-                      <div class="box d-inline-block m-3" style="border-radius: 16px; margin-left: 10vmax;">
+                      <div class="box d-inline-block " style="border-radius: 16px; margin-left: 10px; margin-top: 20px; margin-bottom: 20px;">
                         <img src="img/cat1.jpg" alt="" >
                       </div>
                       <div class="d-inline-block">
@@ -501,7 +488,7 @@
                       <div class="form-text">유저 상세페이지 상단에 출력되는 글입니다</div>
                     </div>
                 
-                    <button type="submit" class="btn  w-25" style="margin: 10px; background-color: #ddd;"> 제출</button>
+                    <button type="submit" class="btn  w-25" style="margin: 10px; background-color: #ddd; color: black;"> 제출</button>
                   </div>
                 </form>
                
@@ -537,7 +524,7 @@
                 </div>  
                 <div>
                   
-                    <button type="button" class="btn  " style="background-color: #ddd;" data-bs-toggle="modal" data-bs-target="#staticpassswordBackdrop">
+                    <button type="button" class="btn  " style="background-color: #ddd; color: black;" data-bs-toggle="modal" data-bs-target="#staticpassswordBackdrop">
                       비밀번호 변경
                     </button>
                     <div class="modal fade" id="staticpassswordBackdrop"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -572,7 +559,7 @@
                   <div style="border: 1px solid rgb(201, 201, 201);padding: 10px;  border-radius: 7px;">
                   
 
-                    <h5 style="color: red ;">계정 삭제시 유의사항</h5>
+                    <h5 style="color: #DB3545 ;">계정 삭제시 유의사항</h5>
                     <ul>
                       <li>회원정보 삭제
                         <ul>
@@ -600,7 +587,7 @@
                     </ul>
 
                     
-                    <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <button type="button" class="btn  " style="background-color:#DB3545; color: white; border-radius: 10px;"data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     계정 삭제
                     </button>
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -614,8 +601,8 @@
                                 정말로계정을 삭제 하시겠습니까?
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">취소</button>
-                            <a href="index.html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
+                            <button type="button" style=" color: white; background-color:#0D6EFD; " class="btn " data-bs-dismiss="modal">취소</button>
+                            <a href="index.html" style="color: white; border-radius: 15px;"><button type="button" style=" background-color: #DB3545; " class="btn btn-danger"  id="Unsubscribe">
                               계정 삭제
                               
                             </button></a>
@@ -649,9 +636,9 @@
                   </p>
                   <div class="accordion" id="accordionExample" >
                     <div class="accordion-item"style="margin: 10px;">
-                      <h2 class="accordion-header" >
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="#collapse">
-                          <h3>이용약관</h3>
+                      <h2 class="accordion-header"  >
+                        <button class="accordion-button collapsed" style="background-color: #ddd;"type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="#collapse">
+                          <h3 style="background-color: rgba(0, 0, 0, 0) ; color: black;"> 이용약관</h3>
                         </button>
                       </h2>
                       <div id="collapse" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
@@ -974,7 +961,7 @@
                       </div>
                     </div>
                   </div>
-                  <h6 style="margin: 10px;">
+                  <h6 style="margin: 10px; line-height: 40px;" >
                     브랜드 이름 은 사람들이 자유롭게 자신을 표현하고 서로
                      영감을 얻을 수 있는 공간입니다. 계속해서 안전하고 
                      믿을 수 있는 브랜드 이름 을 만들어 갈 수 있도록 함께 도와주세요.
@@ -1000,12 +987,12 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
  <script src="js/jquery-3.7.1.min.js"></script> 
 
 <script src="js/darkmode.js"></script>
