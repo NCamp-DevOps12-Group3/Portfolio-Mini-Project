@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
             portfolioData.reverse().forEach(function (portfolio, index) {
                 const portfolioItem = `
-                    <div class="portfolio-item" style="position: relative;" >
+                    <div class="col-md-3" style="position: relative;" >
                         <img src="${portfolio.thumbnailImage}" alt="Portfolio ${index + 1}" class="portfolio-img" data-index="${portfolioData.length - 1 - index}" style="width : 300px; height : 200px;">
                         <div class="hover-content" id="hover-content-${portfolioData.length - 1 - index}" data-index="${portfolioData.length - 1 - index}"></div>
                     </div>
