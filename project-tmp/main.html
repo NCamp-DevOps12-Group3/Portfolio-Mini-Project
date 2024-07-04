@@ -44,6 +44,7 @@
             padding: 10px 20px;
             color: #333;
             text-decoration: none;
+            /* transition: background-color 0.3s, color 0.3s; */
         }
 
         .sidebar a:hover {
@@ -70,10 +71,10 @@
 
         }
 
-        /* 상단 바 */
         .top-line-list{
             position:fixed;
         }
+
 
         /* 메인화면 프로필 영역 */
         .top-line-personal-info{
@@ -105,7 +106,7 @@
             font-size:0.7em;
             padding:1px;
         }
-        
+
         /* .base-sector{
 
         } */
@@ -344,28 +345,78 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="uploadForm" autocomplete="off">
-                        <div class="upload-section">
-                            <label for="uploadCodeFiles">HTML, CSS, JS 파일만 업로드 가능합니다.</label>
-                            <input type="file" class="form-control" id="uploadCodeFiles" accept=".html,.css,.js"
-                                multiple required>
+                    <ul class="nav nav-tabs" id="uploadTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="personal-tab" data-bs-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="true">개인</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="company-tab" data-bs-toggle="tab" href="#company" role="tab" aria-controls="company" aria-selected="false">기업</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="uploadTabContent">
+                        <div class="tab-pane fade show active" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+                            <!-- <form id="uploadFormPersonal"> -->
+                            <form id="uploadForm">
+                                <div class="upload-section">
+                                    <label for="codeFiles">HTML, CSS, JS 파일만 업로드 가능합니다.</label>
+                                    <!-- <input type="file" class="form-control" id="codeFiles" accept=".html,.css,.js" multiple required> -->
+                                    <input type="file" class="form-control" id="uploadCodeFiles" accept=".html,.css,.js" multiple required>
+                                </div>
+                                <div class="upload-section">
+                                    <label for="thumbnailImage">본인만의 썸네일 이미지를 올려주세요.</label>
+                                    <!-- <input type="file" class="form-control" id="thumbnailImage" accept="image/*" required> -->
+                                    <input type="file" class="form-control" id="uploadThumbnailImage" accept="image/*" required>
+                                    <img id="thumbnailPreview" class="thumbnail-preview" src="#" alt="Thumbnail Preview">
+                                </div>
+                                <div class="upload-section">
+                                    <label for="portfolioDescription">포트폴리오 설명</label>
+                                    <!-- <textarea class="form-control" id="portfolioDescription" rows="3" required></textarea> -->
+                                    <textarea class="form-control" id="uploadPortfolioDescription" rows="3" required></textarea>
+                                </div>
+                                <div class="upload-section">
+                                    <label for="portfolioTags">태그</label>
+                                    <!-- <input type="text" class="form-control" id="portfolioTags" placeholder="태그를 쉼표로 구분하여 입력하세요" required> -->
+                                    <input type="text" class="form-control" id="uploadPortfolioTags" placeholder="태그를 쉼표로 구분하여 입력하세요" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">업로드</button>
+                            </form>
                         </div>
-                        <div class="upload-section">
-                            <label for="uploadThumbnailImage">본인만의 썸네일 이미지를 올려주세요.</label>
-                            <input type="file" class="form-control" id="uploadThumbnailImage" accept="image/*" required>
-                            <img id="uploadThumbnailPreview" class="thumbnail-preview" src="#" alt="Thumbnail Preview">
+                        <div class="tab-pane fade" id="company" role="tabpanel" aria-labelledby="company-tab">
+                            <form id="uploadFormCompany">
+                                <div class="upload-section">
+                                    <label for="companyThumbnailImage">썸네일 이미지를 올려주세요.</label>
+                                    <input type="file" class="form-control" id="companyThumbnailImage" accept="image/*" required>
+                                    <img id="companyThumbnailPreview" class="thumbnail-preview" src="#" alt="Thumbnail Preview">
+                                </div>
+                                <div class="upload-section">
+                                    <label for="companyRecruitmentImage">기업 채용 이미지를 올려주세요.</label>
+                                    <input type="file" class="form-control" id="companyRecruitmentImage" accept="image/*" required>
+                                    <img id="companyRecruitmentPreview" class="thumbnail-preview" src="#" alt="Recruitment Preview">
+                                </div>
+                                <div class="upload-section">
+                                    <label for="companyTitle">제목</label>
+                                    <input type="text" class="form-control" id="companyTitle" required>
+                                </div>
+                                <div class="upload-section">
+                                    <label for="companyName">기업 이름</label>
+                                    <input type="text" class="form-control" id="companyName" required>
+                                </div>
+                                <div class="upload-section">
+                                    <label for="companyLocation">지역</label>
+                                    <input type="text" class="form-control" id="companyLocation" required>
+                                </div>
+                                <div class="upload-section">
+                                    <label for="companyExperience">경력 조건</label>
+                                    <input type="text" class="form-control" id="companyExperience" required>
+                                </div>
+                                <div class="upload-section">
+                                    <label for="companyEducation">학력 조건</label>
+                                    <input type="text" class="form-control" id="companyEducation" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">업로드</button>
+                            </form>
                         </div>
-                        <div class="upload-section">
-                            <label for="uploadPortfolioDescription">포트폴리오 설명</label>
-                            <textarea class="form-control" id="uploadPortfolioDescription" rows="3" required></textarea>
-                        </div>
-                        <div class="upload-section">
-                            <label for="uploadPortfolioTags">태그</label>
-                            <input type="text" class="form-control" id="uploadPortfolioTags"
-                                placeholder="태그를 쉼표로 구분하여 입력하세요" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">업로드</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
