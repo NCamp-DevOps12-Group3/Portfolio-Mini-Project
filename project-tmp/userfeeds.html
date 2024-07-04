@@ -526,7 +526,7 @@
 
             <a href="">
                 <img src="img/${(((page - 1) * 9 + i)%12 + 1)}.jpg" class="card-img-top" alt=".">
-                <iframe src="" class="card-iframe ratio ratio-1x1" style="display:none"></iframe>
+                <iframe height="1076" src="" class="card-iframe ratio ratio-1x1" style="display:none"></iframe>
             </a>
             <div class="card-body">
             <p class="card-text">
@@ -559,7 +559,6 @@
         let hoverTimeout;
         $(".card-img-top").on("mouseenter",
             function (evt){
-                console.log($(".bottom-section").width())
                 hoverTimeout = setTimeout(() => {
                     $(this).css("display","none");
                     $(this).siblings().first().attr('src',urlSources[0]);
@@ -575,16 +574,14 @@
                 clearTimeout(hoverTimeout);
             }
         );
-        // $(".card-iframe").on("mouseenter",function (evt){
-        //         $(this).css("transform-origin","top right");
-        //         $(this).css("transform","scale(2)");
-        //         $(this).css("z-index",1000);
-        //         imagesLoaded(grid, function() {
-        //         msnry.reloadItems();
-        //         msnry.layout();
-        //         });
-        //     }
-        // );
+        $(".card-iframe").on("mouseenter",function (evt){
+                $(this).height($(".bottom-section").height());
+                imagesLoaded(grid, function() {
+                msnry.reloadItems();
+                msnry.layout();
+                });
+            }
+        );
         $(".card-iframe").on("mouseleave",function (evt){
                 clearTimeout(hoverTimeout);
                 $(this).attr('src',"");
