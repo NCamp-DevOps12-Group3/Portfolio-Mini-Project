@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta  name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>setting</title>
+  <title>설정</title>
+
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
   <link href="css/bootstrap.css" rel="stylesheet">
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/bootstrap.bundle.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+  <link rel="stylesheet" href="css/modal-main.css">
   <style>
     body {
         font-family: Arial, sans-serif;
@@ -16,8 +26,15 @@
     max-width: auto;
     margin: 0 auto;
     padding: 0 4%;
+    }
     
-}
+    a{
+      
+      color: black;
+      text-decoration: none;
+    }
+    
+
     h3{
       margin-bottom: 0px;
     }
@@ -44,26 +61,48 @@
       margin-left: 15%;
     }
     .sidebar {
-            height: 100vh;
             position: fixed;
+            width: 15vw;
+            height: 100vh;
             top: 0;
             left: 0;
-            width: 250px;
-            background-color: #f8f9fa;
+            background: #f8f9fa;
             padding-top: 20px;
+            z-index: 99;
         }
+
         .sidebar a {
-            display: block;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
             padding: 10px 20px;
             color: #333;
             text-decoration: none;
+            
         }
+
         .sidebar a:hover {
             background-color: #ddd;
         }
+
+        .sidebar img {
+            width: 30px;
+            height: auto;
+        }
+
+        .sidebar div {
+            display: inline-block;
+            margin-left: 10px;
+
+        }
+        .sidebar i{
+            font-size:1.5em;
+        }
         .content {
-            margin-left: 270px;
-            padding:  0 20px;
+            padding: 20px;
+            width: 100vw;
+            height: 100vh;
+
         }
 
     .pobox{
@@ -72,26 +111,29 @@
       background: #f8f9fa;
       width: 200px;
       display:  inline-block;
-      left: 250px;
+      left: 200px;
+      border-right: 1px solid black;
       border-left: 1px solid black;
+      z-index: 100;
+      
     }
     .pobox a {
       
       display: flex;
       flex-direction: column;
       height: 70px;
-      width: 200px;
+      width: auto;
       background: #ffffff;
       text-align: center;
       line-height: 60px;
       padding: 30px;
       position: relative;
       border: 1px solid black;
-      margin-top: 10%;
-      border-right: none;;
+      margin-left: 5%;
+      margin-right: 5%;
       
     }
-    
+    /* 수정 */
     .boardt{
     margin-left:10%;
     
@@ -110,16 +152,8 @@
           margin-bottom: 250px;
    }
    
-    a{
-     
-      color: black;
-      text-decoration: none;
-    }
-    /* .pobox a:hover {
-        background-color: #ddd;
-        text-decoration: none;
-        
-    } */
+    
+    
     .col-9 h4{
       margin: 30px 0;
       font-weight: bolder;
@@ -141,10 +175,10 @@
     background: -moz-linear-gradient( 90deg , #ddd, white);
     background: -o-linear-gradient( 90deg , #ddd, white);
     background: linear-gradient( 90deg , #ddd, white);
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right: none;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
     color: black;
     font-weight: bolder;
     text-transform: uppercase;
@@ -173,6 +207,8 @@
     }
     img{
       border-radius: 50%;
+      width: 75%;
+      height: 75%;
     }
     #website{
       border-radius: 7px;
@@ -194,28 +230,28 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100px;
+            width: 200px;
             
         }
         .sidebar a {
           text-align: center;
-          padding: 20px 0px;
+          padding: 20px 20px;
           
         }
     .pobox{
       position: fixed;
       height: 100vh;
       background: #f8f9fa;
-      width: 200px;
+      width: 190px;
       display:  inline-block;
-      left: 100px;
-      border-left: 1px solid black;
+      left: 140px;
+      border-left:none;
     }
     .boardt{
       margin-right: 10%;
     }
       }
-    @media screen and (max-width: 925px) {
+    @media screen and (max-width: 1025px) {
     .col-3{
       padding-right: 0%;
 
@@ -241,8 +277,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 115px;
-            border-right: 1px solid black;
+            width: 150px;
+            border-right: none;
         }
         .boardt{
           margin-left: 0%;
@@ -255,53 +291,151 @@
         }
         .sidebar a {
           text-align: center;
-          padding: 20px 0px;
+          padding: 20px 20px;
           
         }
         .scrollspy{
       padding: 0px 20px;
       padding-top: 30px; 
     }
+    button{
+      margin-right: 10px;
+    }
 }
+@media screen and (max-width:770px) {
+            .sidebar {
+                width: 45px;
+            }
+
+            .sidebar a {
+                padding: 10px 10px;
+
+            }
+
+            .sidebar div {
+                display: none;
+            }
+            .sidebar li div  {
+                display: inline-block;
+                margin-left: 10px;
+            }
+            .content {
+                padding: 20px;
+            }
+
+            .card-content-item {
+                margin: 2vh
+            }
+        }
+
+        .notification-dropdown {
+            transition: background-color 0.3s, border-color 0.3s;
+        }
 @media screen and (max-width: 500px) {
     .pobox {
         display: none;
+        
     }
     .sidebar {
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 115px;    
+                width: 45px;
+               
+            }
+    
             
-            
-        }
-        .sidebar a {
-          text-align: center;
-          padding: 20px 0px;
-          
-        }
-        
-        
+    .col-9{
+      padding: 0%;
+      
+    }
+    
+    
 }
 </style>
 </head>
-
+<body>
       <div class="row">
-          <div class="col-3"><body>
-                <div class="sidebar">
-                  <a href="main.html" class="active nav-link" data-page="main.html">Home</a>
-                  <a href="setting.html" class="nav-link" data-page="setting.html">setting</a>
-                  <a href="search.html" class="nav-link" data-page="search.html">search</a>
-                  
+          <div class="col-3">
+            <div class="sidebar">
+              <a href="main.html" class="active nav-link" data-page="main.html">
+                  <i class="bi bi-house-door"></i><div>홈</div>
+              </a>
+              <a href="setting.html" class="nav-link" data-page="setting.html">
+                  <i class="bi bi-gear"></i>
+                  <div>설정</div>
+              </a>    
+              <a href="#" class="nav-link" data-page="search.html">
+                  <i class="bi bi-search"></i>
+                  <div>검색</div>
+              </a>
+              <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
+                  <i class="bi bi-person-circle"></i>
+                  <div>내 프로필</div></a>
+              <a class="nav-link" id="uploadWindowBtn">
+                  <i class="bi bi-upload"></i>
+                  <div>업로드</div>
+              </a>
+              <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon" >
+                  <i class="bi bi-bell"></i>
+                  <div>알림</div></a>
+              <ul class="dropdown-menu">
+                  <li><a class="dropdown-item notification-item" href="#"><div>알람1</div></a></li>
+                  <li><a class="dropdown-item notification-item" href="#"><div>알람2</div></a></li>
+                  <li><a class="dropdown-item notification-item" href="#"><div>알람3</div></a></li>
+                </ul>
+              <a href="#" id="darkModeToggle">
+                  <i class="bi bi-brightness-low"></i>
+                  <div>다크모드</div>
+              </a>
+              <a href="#">..</a>
+          </div>
+              
+            <!--업로드 모달-->
+              <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="uploadModalLabel">포트폴리오 업로드</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="uploadForm" autocomplete="off">
+                                <div class="upload-section">
+                                    <label for="uploadCodeFiles">HTML, CSS, JS 파일만 업로드 가능합니다.</label>
+                                    <input type="file" class="form-control" id="uploadCodeFiles" accept=".html,.css,.js"
+                                        multiple required>
+                                </div>
+                                <div class="upload-section">
+                                    <label for="uploadThumbnailImage">본인만의 썸네일 이미지를 올려주세요.</label>
+                                    <input type="file" class="form-control" id="uploadThumbnailImage" accept="image/*" required>
+                                    <img id="uploadThumbnailPreview" class="thumbnail-preview" src="#" alt="Thumbnail Preview">
+                                </div>
+                                <div class="upload-section">
+                                    <label for="uploadPortfolioDescription">포트폴리오 설명</label>
+                                    <textarea class="form-control" id="uploadPortfolioDescription" rows="3" required></textarea>
+                                </div>
+                                <div class="upload-section">
+                                    <label for="uploadPortfolioTags">태그</label>
+                                    <input type="text" class="form-control" id="uploadPortfolioTags"
+                                        placeholder="태그를 쉼표로 구분하여 입력하세요" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">업로드</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+            </div>  
+
+
+
+
+
+
             <div id="#setting-list" class=" list-group">
               
                 <div class="pobox">      
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-profile">Profile</a><br>
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-locksandsecurity">Locks And Security</a>        <br>                
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-account">Account</a><br>
-                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-termsofuse">Terms Of Use</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action mt-4 "  href="#list-profile">프로필</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-locksandsecurity">잠금과 보안</a>                       <br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-account">계정</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-termsofuse">이용약관</a>
                 </div>
               
             </div>
@@ -310,8 +444,8 @@
           
           <div class="col-9" data-bs-spy="scroll">
             <div class="boardt" data-bs-spy="scroll">
-            <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy gap-2" tabindex="0">
-                <h4 id="list-profile">Profile</h4>
+            <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy_gap-2" tabindex="0">
+                <h4 id="list-profile">프로필</h4>
                 <form action="#" method="get">
                   <div class="container position-relative">
                     <div class="modal fade" id="modalPic">
@@ -339,14 +473,14 @@
                     </div>
                     <header class="w-100 h-25 box d-flex align-items-center">
                       <div class="box d-inline-block m-3">
-                        <img src="img/cat1.jpg" alt="" class="w-75">
+                        <img src="img/cat1.jpg" alt="" >
                       </div>
                       <div class="d-inline-block">
                         <h2 style="width: 100px;">닉네임</h2>
                         <p>아이디</p>
                       </div>
                       <div class="d-inline-block">
-                        <button type="button" style="width: 100px; " class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPic">
+                        <button type="button" style="width: 95px; padding-top: 12px; padding-bottom: 12px" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modalPic">
                           사진 변경
                         </button>
                       </div>
@@ -367,8 +501,8 @@
                 </form><br><br><br><br>
                
                 
-                <div><h4 id="list-locksandsecurity">Locks And Security</h4>
-                <h5>Change Password</h5>
+                <div><h4 id="list-locksandsecurity">잠금과 보안</h4>
+                <h5>비밀번호 변경</h5>
                   <p>사용자님의 개인정보보호와 안전한 사이트사용을 위해 3개월마다  비밀번호 변경을 권장하고있습니다 <br>비밀번호 가 사용된지 3개월이지났다면 변경을 권장하는 바입니다  </p> 
                  <h5>비밀번호 변경 시 유의사항</h5><br>
                   <ul>
@@ -394,23 +528,23 @@
                 </div>  
                 <div>
                   <h4 id="list-locksandsecurity"></h4>
-                    <button type="button" class="btn bg-secondary-subtle " data-bs-toggle="modal" data-bs-target="#staticpassswordBackdrop">
-                    Change Password
+                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#staticpassswordBackdrop">
+                      비밀번호 변경
                     </button>
-                    <div class="modal fade" id="staticpassswordBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="staticpassswordBackdrop"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content" >
-                          <div class="modal-header" style="border-bottom:1px solid rgb(163, 163, 163) ; margin: 0px; text-align: center; justify-content: center;">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Change Password</h1>
+                          <div class="modal-header" style=" margin: 0px; text-align: center; justify-content: center;">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">비밀번호 변경</h1>
                             
                           </div>
                           <div class="modal-body">
                             <h3>비밀번호를 변경 하시겠습니까?</h3>
                           </div>
-                          <div class="modal-footer" style="border-top:1px solid rgb(163, 163, 163) ; margin: 0px; text-align: center; justify-content: center;">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancle</button>
+                          <div class="modal-footer" style=" margin: 0px; text-align: center; justify-content: center;">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">취소</button>
                             <a href="passwordchangesChk.html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
-                              Change Password
+                              비밀번호 변경
                               
                             </button></a>
                             
@@ -424,11 +558,11 @@
 
                 
                 <div><br><br><br><br>
-                  <h4 id="list-account">Account</h4>
+                  <h4 id="list-account">계정</h4>
 
-                    <h5 style="color: red ;">멤버쉽 해지시 유의사항</h5>
+                    <h5 style="color: red ;">계정 삭제시 유의사항</h5>
                     <ul>
-                      <li>회원정보삭제
+                      <li>회원정보 삭제
                         <ul>
                           <li>회원 탈퇴와 함께  브랜드 이름  에 등록된 모든 개인정보는 삭제, 폐기 처리되며 복구되지 않습니다.</li>
                           <li>회원탈퇴 시 동일 아이디(이메일)로 재가입하실 수 없습니다.</li>
@@ -455,22 +589,22 @@
 
                     
                     <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                      Delete Account
+                    계정 삭제
                     </button>
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" >
                         <div class="modal-content" >
                           <div class="modal-header" >
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Account</h1>
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">계정 삭제</h1>
                             
                           </div>
                           <div class="modal-body">
-                                정말로 멤버쉽을 해제하시겠습니까?
+                                정말로계정을 삭제 하시겠습니까?
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancle</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">취소</button>
                             <a href="index.html" style="color: white;"><button type="button" class="btn btn-danger"  id="Unsubscribe">
-                              Delete Account
+                              계정 삭제
                               
                             </button></a>
                             
@@ -489,7 +623,7 @@
 
 
                 <div class="termsofuse">
-                  <h4 id="list-termsofuse">Terms Of Use</h4><br>
+                  <h4 id="list-termsofuse">이용약관</h4><br>
 
                   <p>
                     저희가 명시적으로 별도의 약관(본 약관이 아님)이 적용된다고 밝히지 않는 한
@@ -847,6 +981,19 @@
   </p>
 
 </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script> -->
+<script src="js/jquery-3.7.1.min.js"></script>
+
+<script src="js/darkmode.js"></script>
+<script src="js/modal-main.js"></script>
 <script>
   $(()=>{
     document.getElementById('formFile').addEventListener('change', function(event) {
@@ -887,6 +1034,30 @@
 
 
     });
-  })
+     // Load dark mode state
+     var isDarkMode = loadDarkModeState();
+            applyDarkMode(isDarkMode);
+
+            $('#darkModeToggle').on('click', function () {
+                isDarkMode = !$('body').hasClass('dark-mode');
+                applyDarkMode(isDarkMode);
+                saveDarkModeState(isDarkMode);
+            });
+
+            $("#baseViewAllBtn").on("click", function () {
+                window.location.href = "main.html";
+            });
+            $("#basePersonalBtn").on("click", function () {
+                window.location.href = "mini_project.html";
+            });
+            $("#baseCompanyBtn").on("click", function () {
+                window.location.href = "mini_project(company).html";
+            });
+
+            // 업로드 버튼 이벤트
+            $('#uploadWindowBtn').on('click', function () {
+                $('#uploadModal').modal('show');
+            });
+  });
 </script>
 </html>
