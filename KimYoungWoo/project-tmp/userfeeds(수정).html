@@ -163,7 +163,6 @@
             margin-top: 40px;
             display: grid;
             grid-template-columns: repeat(10, 1fr);
-            grid-template-rows: repeat(5, 1fr);
             gap: 20px;
             grid-template-areas:
                 "profile profile profile introduce introduce introduce introduce introduce nav nav"
@@ -171,33 +170,110 @@
                 "profile profile profile introduce introduce introduce introduce introduce nav nav"
                 "foot foot foot foot foot foot foot foot foot foot"
                 "foot foot foot foot foot foot foot foot foot foot";
-            background-color: lightblue;
-            flex: 45%;
+            /* background-color: lightblue; */
             width: 100%;
         }
 
         .profile {
             grid-area: profile;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .introduce {
-            background-color: lightgoldenrodyellow;
+            /* background-color: lightgoldenrodyellow; */
             grid-area: introduce;
+            padding-top: 35px;
+        }
+
+        .additionalExplanation {
+            font-size: 13px;
+            color: rgb(115, 115, 115);
+        }
+
+        .introduceMe {
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .userId {
+            display: flex;
+            align-items: center;
+            font-size: 19px;
+            position: relative;
+        }
+
+        .gear2 {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .gear2 img {
+            width: 40px;
+            height: 40px;
+        }
+
+
+        .sendMessage {
+            margin-left: 15px;
+        }
+
+        .post {
+            font-size: 15px;
+            padding-top: 40px;
+        }
+
+        .numberCnt {
+            font-weight: bold;
         }
 
         .nav {
-            background-color: lightgreen;
+            /* background-color: lightgreen; */
             grid-area: nav;
         }
 
         .foot {
-            background-color: lightsteelblue;
+            /* background-color: lightsteelblue; */
             grid-area: foot;
         }
 
         .bottom {
-            background-color: lightcoral;
+            /* background-color: lightcoral; */
             flex: 55%;
+            border-top: 1px solid rgb(219, 219, 219);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding-top: 10px;
+            justify-content: center;
+            grid-template-rows: repeat(auto-fit, minmax(259px, 259px));
+        }
+
+        /* .bottom div {
+            aspect-ratio: 1;
+        } */
+
+        .bottom div img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .main-flex {
@@ -261,12 +337,36 @@
         <div class="container">
             <div class="top">
                 <div class="profile">
+                    <div class="picture">
+                        <img src="./img/20.jpg" alt="">
+                    </div>
                 </div>
-                <div class="introduce"></div>
+                <div class="introduce">
+                    <div>
+                        <div class="userId">soundrawing
+                            <!-- 모달로 수정 or 다른 html 만들기 -->
+                            <button class="sendMessage">프로필 편집</button>
+                            <div class="gear2"><img src="./img/setting.png" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="post">게시물
+                        <span class="numberCnt">number</span>
+                    </div>
+                    <div class="introduceMe">포토그래퍼 송철의</div>
+                    <div class="additionalExplanation">백엔드 개발자</div>
+                    <div class="additionalExplanation">기술보유: JAVA, JavaScript, Vue, React, Spring</div>
+                </div>
                 <div class="nav"></div>
                 <div class="foot"></div>
             </div>
-            <div class="bottom"></div>
+            <div class="bottom">
+                <div><img src="./img/1.jpg" alt=""></div>
+                <div><img src="./img/10.jpg" alt=""></div>
+                <div><img src="./img/11.jpg" alt=""></div>
+                <div><img src="./img/1.jpg" alt=""></div>
+                <div><img src="./img/10.jpg" alt=""></div>
+                <div><img src="./img/11.jpg" alt=""></div>
+            </div>
         </div>
     </div>
 
@@ -480,7 +580,7 @@
     </div>
 
     <!-- 삭제 모달-->
-    <div class="modal-delete" id="modalDelete">
+        <div class="modal-delete" id="modalDelete">
         <div class="modal-delete-bond" id="modalDeleteBond">
             <div class="modal-delete-alert" id="modalDeleteAlert">정말로 삭제하시겠습니까?</div>
             <div class="modal-deleteBtn-section" id="modalDeleteBtnSection">
