@@ -340,15 +340,16 @@
         </button>
 
         <div class="top-section d-flex align-items-center">
-            <button class="ratio ratio-1x1" type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
+            <button class="ratio ratio-1x1 mx-3" type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
                 <img src="img/1.jpg" alt="" class="mouse-Cursor" id="profileImg">
             </button>
             <div class="w-50">
                 <div class="mouse-Cursor mb-3" id="profileName">
                     <p class="d-inline-block" >name</p>
-                    <i class="bi bi-check-circle-fill d-inline-block" id="checkImg"></i>
-                    <a href="setting.html">
-                        <button type="button" id="profileEdit">edit</button>
+                    <i class="bi bi-check-circle-fill d-inline-block mx-1" id="checkImg"></i>
+                    <a href="setting.html" class=" d-inline-block" style="color: #6c757d">
+                        <i class="bi bi-gear d-inline-block" style="text-decoration:none">Setting</i> 
+                        <!-- <button type="button" id="profileEdit">edit</button> -->
                     </a>
                 </div>
                 <div class="mb-3">
@@ -358,16 +359,16 @@
                 <div>
                     <b class="mb-3">이메일 혹은 이름</b>
                     <p class="overflow-x-scroll sil">
-                        소개내용소개내용소개내용소개내용소개내용소개내용소개내용소개내용소개내용소개내용소개내용소개내용소개내용소개내용소개내용소개내용
-                        기술스택기술스택기술스택기술스택기술스택기술스택기술스택기술스택기술스택기술스택기술스택기술스택기술스택기술스택기술스택기술스택
+                        소개내용
+                        기술스택
                     </p>
                 </div>
             </div>
-            <!-- <div class="list-group text-center">
-                <a href="#" class="list-group-item">follow</a>
-                <a href="#" class="list-group-item">message</a>
+            <div class="list-group text-center">
+                <!-- <a href="#" class="list-group-item">follow</a>
+                <a href="#" class="list-group-item">message</a> -->
                 <button type="button" class="list-group-item inactive" id="portfolioDelete">delete</button>
-            </div> -->
+            </div>
 
         </div>
         <div class="bottom-section">
@@ -525,7 +526,7 @@
 
             <a href="">
                 <img src="img/${(((page - 1) * 9 + i)%12 + 1)}.jpg" class="card-img-top" alt=".">
-               
+                <iframe height="1076" src="" class="card-iframe ratio ratio-1x1" style="display:none"></iframe>
             </a>
             <div class="card-body">
             <p class="card-text">
@@ -555,20 +556,45 @@
             $('#numberOfPortfolio').text(portfolioNum);
         }
         load();
-        // <iframe src="${urlSources[((page - 1) * 9 + i)%12]}" class="card-iframe ratio ratio-1x1 h-100" style="display:none"></iframe>
-        // $(".card-img-top").hover(
-        //     function (evt){
-        //         $(this).height;
-        //         $(this).css("display","none");
-        //         $(this).siblings().first().width($(this).width);
-        //         $(this).siblings().first().height($(this).height);
-        //         $(this).siblings().first().css("display","block");
-        //     }
-        //     ,
-        //     function (evt){
-
-        //     }
-        // )
+        let hoverTimeout;
+        $(".card-img-top").on("mouseenter",
+            function (evt){
+                hoverTimeout = setTimeout(() => {
+                    $(this).css("display","none");
+                    $(this).siblings().first().attr('src',urlSources[0]);
+                    $(this).siblings().first().css("display","block");
+                    imagesLoaded(grid, function() {
+                        msnry.reloadItems();
+                        msnry.layout();
+                    });
+                }, 2000);
+            }
+        );
+        $(".card-img-top").on("mouseleave",function (evt){
+                clearTimeout(hoverTimeout);
+            }
+        );
+        $(".card-iframe").on("mouseenter",function (evt){
+                $(this).height($(".bottom-section").height());
+                imagesLoaded(grid, function() {
+                msnry.reloadItems();
+                msnry.layout();
+                });
+            }
+        );
+        $(".card-iframe").on("mouseleave",function (evt){
+                clearTimeout(hoverTimeout);
+                $(this).attr('src',"");
+                $(this).css("transform","scale(1)");
+                $(this).siblings().first().css("display","block");
+                $(this).css("display","none");
+                imagesLoaded(grid, function() {
+                msnry.reloadItems();
+                msnry.layout();
+                });
+            }
+        );
+        
         $(window).scroll(function() {
 
             if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
@@ -644,6 +670,13 @@
 
         $(document).on('mouseleave', '.card-text', function(){
             $(this).siblings('.card-info-toggle').css("display", "none");
+            imagesLoaded('.grid', function() {
+                msnry.reloadItems();
+                msnry.layout();
+            });
+        });
+        $(document).on('mouseleave', '.card-info-toggle', function(){
+            $(this).css("display", "none");
             imagesLoaded('.grid', function() {
                 msnry.reloadItems();
                 msnry.layout();
