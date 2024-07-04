@@ -79,7 +79,7 @@
                 ` <div>${message}</div>`, /*wrapper에들어갈메세지*/
                 '</div>' /*div닫기*/
             ].join(''); /*위내용을 문자열로 바꾸기 */
-            alertPlaceholder.append(wrapper); /*liveAlertPlaceholder 에 써 넣기*/
+            
             
             const alerts = alertPlaceholder.querySelectorAll('.alert');
                 if (alerts.length >= 2) {
@@ -98,9 +98,10 @@
                 wrapper.querySelector('.alert').classList.add('fade'); 
                 setTimeout(() => { 
                     wrapper.remove(); 
-                }, 1500); // fade-out 효과를 위해 약간의 지연을 줍니다.
-            }, 1500); 
+                }, 100); // fade-out 효과를 위해 약간의 지연을 줍니다.
+            }, 1200); 
         }
+
          
         $("#email").on("keydown", (e) => {
             if(e.key.toLowerCase() === 'enter') {
@@ -116,6 +117,9 @@
                 $("#signIn").click();
             }
         });
+
+
+
         $("#signIn").on("click", (e) => {  
             
             // 이메일 미 입력시
@@ -156,7 +160,7 @@
             } 
             userdata.info(); 
 
-            window.location.href='base.html';
+            window.location.href='main.html';
         });
      
         $('#signUp').on('click',(e)=>{
