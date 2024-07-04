@@ -16,3 +16,11 @@ body.dark-mode .sidebar{
     background:#dddddd;
     color:#121212;
 }
+
+.dark-mode .top-line-personal-info img{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    border: 2px solid #eeeeee;
+    background: #dddddd;
+}
