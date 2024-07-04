@@ -8,32 +8,22 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/darkmode.css">
     <link rel="stylesheet" href="css/modal-main.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mini_project(company).css">
+    <link rel="stylesheet" href="css/upload-modal.css"> <!-- New CSS for upload modal -->
+    <link rel="stylesheet" href="css/company-portfolio-modal.css"> <!-- New CSS for company portfolio modal -->
 
     <style>
         .sidebar {
-            position:fixed;
             width: 15vw;
             height: 100vh;
             top: 0;
             left: 0;
+            background: #f8f9fa;
             padding-top: 20px;
-            border-right:1px solid #dbdbdb;
-        }
-        .sidebar-icon{
-            padding: 0px 0px 2vh;
-            margin-left:2vw;
-        }
-        .sidebar-icon .sidebar-icon-text{
-            font-size:2em;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         }
 
         .sidebar a {
@@ -54,65 +44,25 @@
             height: auto;
         }
 
-        .sidebar-list div {
+        .sidebar div {
             display: inline-block;
             margin-left: 10px;
 
         }
-        .sidebar i{
-            font-size:1.5em;
+
+        .sidebar i {
+            font-size: 1.5em;
         }
+
         .content {
             padding: 20px;
-            margin-left:15vw;
-            height: 100vh;
-
+            width: 100vw;
         }
 
-        .top-line-list{
-            position:fixed;
-        }
-
-
-        /* 메인화면 프로필 영역 */
-        .top-line-personal-info{
-            margin-right: 1vw;
-        }
-        .top-line-personal-info img{
-            width:40px;
-            height:40px;
-            border-radius: 50%;
-            border: 2px solid #222;
-            background: #ffffff;
-        }
-        .top-line-personal-info-identifier{
-            padding-left: 10px;
-        }
-        .top-line-personal-info-identifier i{
-            color:blue;
-            padding-left:2px;
-            vertical-align: center;
-            display:none;
-        }
-        .top-line-personal-info-identifier div:first-child{
-            font-size:0.8em;
-            font-weight:600;
-            padding:1px;
-        }
-        
-        .top-line-personal-info-identifier div:last-child{
-            font-size:0.7em;
-            padding:1px;
-        }
-
-        /* .base-sector{
-
-        } */
         .base-sector-personal,
         .base-sector-company {
             margin: 5vh auto;
         }
-
 
         .base-sector-personal-title,
         .base-sector-company-title {
@@ -155,19 +105,13 @@
             margin-left: 10px;
         }
 
-        @media screen and (max-width:1000px) {
+        @media screen and (max-width:900px) {
             .base-header button div {
                 display: none;
             }
-            .sidebar-list div {
-                display: none;
-            }
 
-            .sidebar{
-                width:8vw;
-            } 
-            .sidebar-icon-text{
-                display:none;
+            .sidebar div {
+                display: none;
             }
         }
 
@@ -176,12 +120,12 @@
                 width: 50px;
             }
 
-            .sidebar-list a {
+            .sidebar a {
                 padding: 10px 10px;
 
             }
 
-            .sidebar-list div {
+            .sidebar div {
                 display: none;
             }
 
@@ -201,187 +145,359 @@
 </head>
 
 <body>
-    <div class="container-content d-flex fixed">
+
+    <div class="modal fade" id="CompanyPortFolioModal" tabindex="-1" aria-labelledby="CompanyPortFolioModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <iframe id="imageIframe" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-content d-flex">
         <div class="sidebar">
-            <div class="sidebar-icon">
-                <div class="sidebar-icon-text">Poro</div>
-            </div>
-            <div class="sidebar-list">
-                <a href="main.html" class="active nav-link" data-page="main.html">
-                    <i class="bi bi-house-door"></i><div>홈</div>
-                </a>
-                <a href="setting.html" class="nav-link" data-page="setting.html">
-                    <i class="bi bi-gear"></i>
-                    <div>설정</div>
-                </a>    
-                <a href="#" class="nav-link" data-page="search.html">
-                    <i class="bi bi-search"></i>
-                    <div>검색</div>
-                </a>
-                <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
-                    <i class="bi bi-person-circle"></i>
-                    <div>내 프로필</div></a>
-                <a class="nav-link" id="uploadWindowBtn">
-                    <i class="bi bi-upload"></i>
-                    <div>업로드</div>
-                </a>
-                <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon" >
-                    <i class="bi bi-bell"></i>
-                    <div>알림</div></a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item notification-item" href="#"><div>알람1</div></a></li>
-                    <li><a class="dropdown-item notification-item" href="#"><div>알람2</div></a></li>
-                    <li><a class="dropdown-item notification-item" href="#"><div>알람3</div></a></li>
-                  </ul>
-                <a href="#" id="darkModeToggle">
-                    <i class="bi bi-brightness-low"></i>
-                    <div>다크모드</div>
-                </a>
-                <a href="#">..</a>
-            </div>
+            <a href="main.html" class="active nav-link" data-page="main.html">
+                <i class="bi bi-house-door"></i>
+                <div>홈</div>
+            </a>
+            <a href="setting.html" class="nav-link" data-page="setting.html">
+                <i class="bi bi-gear"></i>
+                <div>설정</div>
+            </a>
+            <a href="#" class="nav-link" data-page="search.html">
+                <i class="bi bi-search"></i>
+                <div>검색</div>
+            </a>
+            <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
+                <i class="bi bi-person-circle"></i>
+                <div>내 프로필</div>
+            </a>
+            <a class="nav-link" id="uploadWindowBtn">
+                <i class="bi bi-upload"></i>
+                <div>업로드</div>
+            </a>
+            <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon">
+                <i class="bi bi-bell"></i>
+                <div>알림</div>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item notification-item" href="#">
+                        <div>알람1</div>
+                    </a></li>
+                <li><a class="dropdown-item notification-item" href="#">
+                        <div>알람2</div>
+                    </a></li>
+                <li><a class="dropdown-item notification-item" href="#">
+                        <div>알람3</div>
+                    </a></li>
+            </ul>
+            <a href="#" id="darkModeToggle">
+                <i class="bi bi-brightness-low"></i>
+                <div>다크모드</div>
+            </a>
+            <a href="#">..</a>
         </div>
 
         <div class="content d-flex flex-column justify-content-start" id="main-content">
-            <div class="top-line-list d-flex justify-content-between">
-                <div class="base-header d-flex justify-content-center align-items-center">
-                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-primary" id="baseViewAllBtn">
-                            <i class="bi bi-collection"></i>
-                            <div>전체보기</div>
-                        </button>
-                        <button type="button" class="btn btn-outline-primary" id="basePersonalBtn">
-                            <i class="bi bi-card-list"></i>
-                            <div>개인 포트폴리오</div>
-                        </button>
-                        <button type="button" class="btn btn-outline-primary" id="baseCompanyBtn">
-                            <i class="bi bi-building"></i>
-                            <div>기업 채용</div>
-                        </button>
-                    </div>
-                </div>
-                <div class="top-line-personal-info d-flex justify-content-start align-items-center">
-                    <img src="img/home.png" alt=""">
-                    <div class="top-line-personal-info-identifier d-flex flex-column justify-content-center">
-                        <div>닉네임<i class="bi bi-check-circle-fill"></i></div>
-                        <div>이메일</div>
-                    </div>
+            <div class="base-header d-flex justify-content-center align-items-center">
+                <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-primary" id="baseViewAllBtn">
+                        <i class="bi bi-collection"></i>
+                        <div>전체보기</div>
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" id="basePersonalBtn">
+                        <i class="bi bi-card-list"></i>
+                        <div>개인 포트폴리오</div>
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" id="baseCompanyBtn">
+                        <i class="bi bi-building"></i>
+                        <div>기업 채용</div>
+                    </button>
                 </div>
             </div>
 
+            <ul class="container">
+                <li class="item">
+                    <a class="company com1">
+                        <span class="logo">
+                            <img src="img/이모티콘/3.png" alt="">
+                        </span>
+                        <strong class="tit">이카운트 2024년 신입, 경력 개발자 공개채용</strong>
+                        <span class="corp">(주)이카운트</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                서울 구로구 /
+                            </li>
+                            <li class="company_local">
+                                신입/경력 ·
+                            </li>
+                            <li class="company_local">
+                                학력무관
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">D-5</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="company com2">
+                        <span class="logo">
+                            <img src="img/이모티콘/4.png" alt="">
+                        </span>
+                        <strong class="tit">2024년 각 부문 신입 및 경력 채용</strong>
+                        <span class="corp">(주)디지털프론티어</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                경기전체 외 /
+                            </li>
+                            <li class="company_local">
+                                신입/경력 ·
+                            </li>
+                            <li class="company_local">
+                                초대졸
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">D-5</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="company com1">
+                        <span class="logo">
+                            <img src="img/이모티콘/5.jpg" alt="">
+                        </span>
+                        <strong class="tit">하반기 공채(신입&경력)</strong>
+                        <span class="corp">토마토그룹</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                서울전체 외 /
+                            </li>
+                            <li class="company_local">
+                                신입/경력 ·
+                            </li>
+                            <li class="company_local">
+                                대졸
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">D-5</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="company com2">
+                        <span class="logo">
+                            <img src="img/이모티콘/6.png" alt="">
+                        </span>
+                        <strong class="tit">웹개발자(PHP/JAVA/프론트) 경력</strong>
+                        <span class="corp">(주)캐럿글로벌</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                서울전체 외 /
+                            </li>
+                            <li class="company_local">
+                                2년 ·
+                            </li>
+                            <li class="company_local">
+                                초대졸
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">~07.28(일)</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="company com1">
+                        <span class="logo">
+                            <img src="img/이모티콘/7.png" alt="">
+                        </span>
+                        <strong class="tit">경력직 채용 (서울/대구)</strong>
+                        <span class="corp">주식회사 리만코리아</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                서울전체 외 /
+                            </li>
+                            <li class="company_local">
+                                경력 ·
+                            </li>
+                            <li class="company_local">
+                                학력무관
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">~07.23(화)</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="company com2">
+                        <span class="logo">
+                            <img src="img/이모티콘/8.png" alt="">
+                        </span>
+                        <strong class="tit">[코스닥 상장사] 신입 및 경력 채용</strong>
+                        <span class="corp">이에이트 주식회사</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                서울 송파구 외 /
+                            </li>
+                            <li class="company_local">
+                                신입/경력 ·
+                            </li>
+                            <li class="company_local">
+                                학력무관
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">~09.30(월)</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="company com1">
+                        <span class="logo">
+                            <img src="img/이모티콘/9.png" alt="">
+                        </span>
+                        <strong class="tit">[웹개발] 제노소프트(주) 웹 파트 개발자 채용 공고</strong>
+                        <span class="corp">제노소프트(주)</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                서울 금천구 외 /
+                            </li>
+                            <li class="company_local">
+                                신입/경력 ·
+                            </li>
+                            <li class="company_local">
+                                고졸
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">~07.27.(토)</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="company com2">
+                        <span class="logo">
+                            <img src="img/이모티콘/10.jpg" alt="">
+                        </span>
+                        <strong class="tit">2024년도 분야별 인원모집</strong>
+                        <span class="corp">유비벨록스(주)</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                서울전체 외 /
+                            </li>
+                            <li class="company_local">
+                                신입/경력 ·
+                            </li>
+                            <li class="company_local">
+                                고졸
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">~07.21(일)</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="company com1">
+                        <span class="logo">
+                            <img src="img/이모티콘/11.png" alt="">
+                        </span>
+                        <strong class="tit">신입사원 공개모집</strong>
+                        <span class="corp">(주) 멤로</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                서울 영등포구 /
+                            </li>
+                            <li class="company_local">
+                                경력무관 ·
+                            </li>
+                            <li class="company_local">
+                                대졸
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">~07.21(일)</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="company com2">
+                        <span class="logo">
+                            <img src="img/이모티콘/12.png" alt="">
+                        </span>
+                        <strong class="tit">H&iruja 신입/경력 채용</strong>
+                        <span class="corp">(주)에이치앤이루자</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                충남전체 /
+                            </li>
+                            <li class="company_local">
+                                신입/경력 ·
+                            </li>
+                            <li class="company_local">
+                                고졸
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">~07.15(월)</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="company com1">
+                        <span class="logo">
+                            <img src="img/이모티콘/13.png" alt="">
+                        </span>
+                        <strong class="tit">각 부문별 채용</strong>
+                        <span class="corp">제닉스(주)</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                충북전체 /
+                            </li>
+                            <li class="company_local">
+                                신입/경력 ·
+                            </li>
+                            <li class="company_local">
+                                학력무관
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">D-7</span>
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="company com2">
+                        <span class="logo">
+                            <img src="img/이모티콘/14.png" alt="">
+                        </span>
+                        <strong class="tit">Kotlin을 이용한 Spring Boot 백엔드 서비스 개발</strong>
+                        <span class="corp">(주)플렉티</span>
+                        <ul class="desc">
+                            <li>
+                                <span><img src="img/이모티콘/1.png" alt=""></span>
+                                서울 마포구 /
+                            </li>
+                            <li class="company_local">
+                                신입 ·
+                            </li>
+                            <li class="company_local">
+                                초대졸
+                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
+                            </li>
+                        </ul>
+                        <span class="date">채용시</span>
+                    </a>
+                </li>
+            </ul>
 
-            <div class="base-sector" id="baseContentSector">
-                <div class="base-sector-personal">
-                    <div class="base-sector-personal-title">
-                        <h4 class="mb-2">개인 포트폴리오</h4>
-                        <div id="portfolioContainer" class="row"></div> <!-- 포트폴리오 항목을 표시할 컨테이너 -->
-                    </div>
-
-                </div>
-
-
-                <div class="base-sector-company">
-                    <div class="base-sector-company-title">
-                        <h4 class="mb-2">기업 채용</h4>
-                    </div>
-                    <div class="base-sector-company-content row row row-cols-md-4 row-cols-1">
-                        <div class="col">
-                            <div class="card border-light card-content-item" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="img/cute.jpg" alt=""
-                                    class="content-img-thumbnail card-img-top card-img-bottom">
-                                <div class="card-body">
-                                    <h5 class="card-title">personal Name</h5>
-                                    <p class="card-subtitle">R&B</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card border-light card-content-item" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="img/cute.jpg" alt=""
-                                    class="content-img-thumbnail card-img-top card-img-bottom">
-                                <div class="card-body">
-                                    <h5 class="card-title">personal Name</h5>
-                                    <p class="card-subtitle">R&B</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card border-light card-content-item" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="img/cute.jpg" alt=""
-                                    class="content-img-thumbnail card-img-top card-img-bottom">
-                                <div class="card-body">
-                                    <h5 class="card-title">personal Name</h5>
-                                    <p class="card-subtitle">R&B</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card border-light card-content-item" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="img/cute.jpg" alt=""
-                                    class="content-img-thumbnail card-img-top card-img-bottom">
-                                <div class="card-body">
-                                    <h5 class="card-title">personal Name</h5>
-                                    <p class="card-subtitle">R&B</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="base-sector-company">
-                    <div class="base-sector-company-title">
-                        <h4 class="mb-2">기업 채용</h4>
-                    </div>
-                    <div class="base-sector-company-content row row row-cols-md-4 row-cols-1">
-                        <div class="col">
-                            <div class="card border-light card-content-item" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="img/cute.jpg" alt=""
-                                    class="content-img-thumbnail card-img-top card-img-bottom">
-                                <div class="card-body">
-                                    <h5 class="card-title">personal Name</h5>
-                                    <p class="card-subtitle">R&B</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card border-light card-content-item" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="img/cute.jpg" alt=""
-                                    class="content-img-thumbnail card-img-top card-img-bottom">
-                                <div class="card-body">
-                                    <h5 class="card-title">personal Name</h5>
-                                    <p class="card-subtitle">R&B</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card border-light card-content-item" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="img/cute.jpg" alt=""
-                                    class="content-img-thumbnail card-img-top card-img-bottom">
-                                <div class="card-body">
-                                    <h5 class="card-title">personal Name</h5>
-                                    <p class="card-subtitle">R&B</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card border-light card-content-item" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                <img src="img/cute.jpg" alt=""
-                                    class="content-img-thumbnail card-img-top card-img-bottom">
-                                <div class="card-body">
-                                    <h5 class="card-title">personal Name</h5>
-                                    <p class="card-subtitle">R&B</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -442,7 +558,7 @@
     </div>
 
     <!-- 메인 모달 : 부트스트랩과의 css 충돌 방지를 위해 클래스명에 -main 추가-->
-                                                                
+
     <!--modal-overlay는 모달 외부까지 포함한 화면, fixed로 설정-->
     <div class="modal-portfolio-overlay" id="modalPortfolioOverlay">
 
@@ -647,6 +763,11 @@
         })
 
     </script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="js/mini_project(company).js"></script>
 </body>
 
 </html>
