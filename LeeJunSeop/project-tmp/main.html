@@ -68,12 +68,37 @@
             height: 100vh;
 
         }
-
+        /* 메인화면 프로필 영역 */
+        .top-line-personal-info{
+            margin-right: 1vw;
+        }
         .top-line-personal-info img{
             width:40px;
             height:40px;
+            border-radius: 50%;
+            border: 2px solid #222;
+            background: #ffffff;
+        }
+        .top-line-personal-info-identifier{
+            padding-left: 10px;
+        }
+        .top-line-personal-info-identifier i{
+            color:blue;
+            padding-left:2px;
+            vertical-align: center;
+            display:none;
+        }
+        .top-line-personal-info-identifier div:first-child{
+            font-size:0.8em;
+            font-weight:600;
+            padding:1px;
         }
         
+        .top-line-personal-info-identifier div:last-child{
+            font-size:0.7em;
+            padding:1px;
+        }
+
         /* .base-sector{
 
         } */
@@ -228,10 +253,10 @@
                         </button>
                     </div>
                 </div>
-                <div class="top-line-personal-info d-flex justify-content-start">
-                    <img src="img/home.png" alt="">
+                <div class="top-line-personal-info d-flex justify-content-start align-items-center">
+                    <img src="img/home.png" alt=""">
                     <div class="top-line-personal-info-identifier d-flex flex-column justify-content-center">
-                        <div>닉네임</div>
+                        <div>닉네임<i class="bi bi-check-circle-fill"></i></div>
                         <div>이메일</div>
                     </div>
                 </div>
