@@ -3,9 +3,7 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 40px;
     justify-content: center;
-    overflow: auto;
-    min-width: 320px;
-    padding-top: 300px;
+    padding-top: 45px;
     padding-bottom: 300px;
 }
 
