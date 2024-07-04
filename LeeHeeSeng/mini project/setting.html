@@ -22,6 +22,10 @@
         font-family: Arial, sans-serif;
         
     }
+
+    button.chgpicture{
+      text-align: right;
+    }
     .wrapper {
     max-width: auto;
     margin: 0 auto;
@@ -175,7 +179,7 @@
    
    
    a.list-group-item.active {
-    background-color: #e4e4e4;
+    background-color: #ebebeb;
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-bottom: 2px solid black;
@@ -442,18 +446,18 @@
 
           
           <div class="col-9" data-bs-spy="scroll">
-            <div class="boardt" data-bs-spy="scroll">
+            <div class="boardt" data-bs-spy="scroll"id="list-profile">
             <div data-bs-spy="scroll" data-bs-target="#setting-list" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy_gap-2" tabindex="0"><br><br>
-              <h4 id="list-profile" style="margin-top: 2%; ">프로필</h4>
-              <div style="border: 1px solid rgb(201, 201, 201);padding: 0px;  border-radius: 16px;">
+              <h4  style="margin-top: 2%; ">프로필</h4>
+              
               
                 <form action="#" method="get">
-                  <div class="container position-relative" style="padding: 0%;">
+                  <div class="container position-relative" style="border: 1px solid rgb(201, 201, 201);padding: 0px;  border-radius: 14.9px;">
                     <div class="modal fade" id="modalPic">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-head">
-                            <h3 class="text-lg-center mt-3">정보</h3>
+                            <h3 class="text-lg-center m-3">정보</h3>
                           </div>
                           <div class="modal-body h-75">
                             <div class="mb-3">
@@ -472,16 +476,16 @@
                         </div>
                       </div>
                     </div>
-                    <header class="  h-25 box d-flex align-items-center" style="width: 100%; padding: 0;">
-                      <div class="box d-inline-block m-3">
+                    <header class=" w-auto h-25 box d-flex align-items-center justify-content-around" style=" padding: 0;">
+                      <div class="box d-inline-block m-3" style="border-radius: 16px; margin-left: 10vmax;">
                         <img src="img/cat1.jpg" alt="" >
                       </div>
                       <div class="d-inline-block">
                         <h2 style="width: 100px;">닉네임</h2>
                         <p>아이디</p>
                       </div>
-                      <div class="d-inline-block">
-                        <button type="button" style="width: 95px; padding-top: 12px; padding-bottom: 12px" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modalPic">
+                      <div class="d-inline-block " >
+                        <button type="button" style="width: 95px; padding-top: 12px; padding-bottom: 12px; border-radius: 10px; background-color: #333;color: white; float: left;" class="btn  " data-bs-toggle="modal" data-bs-target="#modalPic">
                           사진 변경
                         </button>
                       </div>
@@ -497,10 +501,10 @@
                       <div class="form-text">유저 상세페이지 상단에 출력되는 글입니다</div>
                     </div>
                 
-                    <button type="submit" class="btn btn-primary w-25" style="margin: 10px;"> 제출</button>
+                    <button type="submit" class="btn  w-25" style="margin: 10px; background-color: #ddd;"> 제출</button>
                   </div>
                 </form>
-               </div > 
+               
                <br><br><br><br><br><br><br><br>
 
 
@@ -533,7 +537,7 @@
                 </div>  
                 <div>
                   
-                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#staticpassswordBackdrop">
+                    <button type="button" class="btn  " style="background-color: #ddd;" data-bs-toggle="modal" data-bs-target="#staticpassswordBackdrop">
                       비밀번호 변경
                     </button>
                     <div class="modal fade" id="staticpassswordBackdrop"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -623,7 +627,7 @@
 
                 </div>
               </div>
-              <br><br><br><br><br><br><br><br>
+              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             
 
 
@@ -996,12 +1000,12 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script> -->
+    crossorigin="anonymous"></script>
  <script src="js/jquery-3.7.1.min.js"></script> 
 
 <script src="js/darkmode.js"></script>
