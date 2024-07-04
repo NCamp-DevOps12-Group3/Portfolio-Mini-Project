@@ -18,12 +18,23 @@
 
     <style>
         .sidebar {
+            position: fixed;
             width: 15vw;
             height: 100vh;
             top: 0;
             left: 0;
-            background: #f8f9fa;
             padding-top: 20px;
+            border-right: 1px solid #dbdbdb;
+        }
+
+        .sidebar-icon {
+            padding: 0px 0px 2vh;
+            margin-left: 2vw;
+        }
+
+        .sidebar-icon .sidebar-icon-text {
+            font-size: 2em;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         }
 
         .sidebar a {
@@ -44,7 +55,7 @@
             height: auto;
         }
 
-        .sidebar div {
+        .sidebar-list div {
             display: inline-block;
             margin-left: 10px;
 
@@ -56,9 +67,45 @@
 
         .content {
             padding: 20px;
-            width: 100vw;
+            margin-left: 15vw;
+            height: 100vh;
+
+        }
+        
+        /* 메인화면 프로필 영역 */
+        .top-line-personal-info {
+            margin-right: 1vw;
         }
 
+        .top-line-personal-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #222;
+            background: #ffffff;
+        }
+
+        .top-line-personal-info-identifier {
+            padding-left: 10px;
+        }
+
+        .top-line-personal-info-identifier i {
+            color: blue;
+            padding-left: 2px;
+            vertical-align: center;
+            display: none;
+        }
+
+        .top-line-personal-info-identifier div:first-child {
+            font-size: 0.8em;
+            font-weight: 600;
+            padding: 1px;
+        }
+
+        .top-line-personal-info-identifier div:last-child {
+            font-size: 0.7em;
+            padding: 1px;
+        }
         /* .base-sector{
 
         } */
@@ -154,6 +201,9 @@
 
         <!--사이드바-->
         <div class="sidebar">
+            <div class="sidebar-icon">
+                <div class="sidebar-icon-text">Poro</div>
+            </div>
             <a href="main.html" class="active nav-link" data-page="main.html">
                 <i class="bi bi-house-door"></i>
                 <div>홈</div>
@@ -200,20 +250,29 @@
         <div class="content d-flex flex-column justify-content-start" id="main-content">
 
             <!--콘텐츠 헤더-->
-            <div class="base-header d-flex justify-content-center align-items-center">
-                <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-primary" id="baseViewAllBtn">
-                        <i class="bi bi-collection"></i>
-                        <div>전체보기</div>
-                    </button>
-                    <button type="button" class="btn btn-outline-primary" id="basePersonalBtn">
-                        <i class="bi bi-card-list"></i>
-                        <div>개인 포트폴리오</div>
-                    </button>
-                    <button type="button" class="btn btn-outline-primary" id="baseCompanyBtn">
-                        <i class="bi bi-building"></i>
-                        <div>기업 채용</div>
-                    </button>
+            <div class="top-line-list d-flex justify-content-between">
+                <div class="base-header d-flex justify-content-center align-items-center">
+                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" id="mainTopLineBtnSet">
+                        <button type="button" class="btn btn-outline-dark" id="baseViewAllBtn">
+                            <i class="bi bi-collection"></i>
+                            <div>전체보기</div>
+                        </button>
+                        <button type="button" class="btn btn-dark" id="basePersonalBtn">
+                            <i class="bi bi-card-list"></i>
+                            <div>개인 포트폴리오</div>
+                        </button>
+                        <button type="button" class="btn btn-outline-dark" id="baseCompanyBtn">
+                            <i class="bi bi-building"></i>
+                            <div>기업 채용</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="top-line-personal-info d-flex justify-content-start align-items-center">
+                    <img src="img/home.png" alt="">
+                    <div class="top-line-personal-info-identifier d-flex flex-column justify-content-center">
+                        <div>닉네임<i class="bi bi-check-circle-fill"></i></div>
+                        <div>이메일</div>
+                    </div>
                 </div>
             </div>
 
