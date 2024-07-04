@@ -6,6 +6,7 @@ ol {
 
 .container {
     display: grid;
+    padding-top: 45px;
     padding-bottom: 32px;
     background-color: transparent;
     grid-template-columns: repeat(3, 1fr);
@@ -130,6 +131,7 @@ iframe {
     display: block;
     border: none;
 }
+
 
 
 
