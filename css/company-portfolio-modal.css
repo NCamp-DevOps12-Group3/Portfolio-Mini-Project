@@ -1,0 +1,26 @@
+/* company-portfolio-modal.css */
+#CompanyPortFolioModal .modal-content {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+#CompanyPortFolioModal .modal-dialog {
+  margin: auto;
+  height: auto;
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+#CompanyPortFolioModal iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+#CompanyPortFolioModal .modal-body {
+  padding: 0;
+}
