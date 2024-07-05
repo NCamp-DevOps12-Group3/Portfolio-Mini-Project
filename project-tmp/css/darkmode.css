@@ -47,11 +47,22 @@ body.dark-mode .sidebar{
 }
 
 .dark-mode #mainTopLineBtnSet button.btn-light{
+    background:#aaa;
+    transition: background 0s;
+}
+.dark-mode #mainTopLineBtnSet button.btn-light *{
+    background:#aaa;
+    color:#121212;
     transition: background 0s;
 }
 
 .dark-mode #mainTopLineBtnSet button.btn-outline-light{
     transition: background 0s;
+}
+
+
+.dark-mode #mainTopLineBtnSet button.btn-light:hover{
+    background:#d3d4d5;
 }
 
 .dark-mode #mainTopLineBtnSet button.btn-light:hover *{
