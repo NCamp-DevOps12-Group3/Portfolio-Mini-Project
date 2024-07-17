@@ -262,6 +262,10 @@
             height: auto;
         }
 
+        .sidebar-list a:hover{
+            cursor: pointer	
+        }
+
         .sidebar-list div {
             display: inline-block;
             margin-left: 10px;
@@ -344,6 +348,14 @@
                 <i class="bi bi-person-circle"></i>
                 <div>내 프로필</div>
             </a>
+            <a href="mini_project.html" class="nav-link" data-page="mini_project.html">
+                <i class="bi bi-card-list"></i>
+                <div>개인 포트폴리오</div>
+            </a>
+            <a href="mini_project.html" class="nav-link" data-page="mini_project(company).html">
+                <i class="bi bi-building"></i>
+                <div>기업 채용</div>
+            </a>
             <a class="nav-link" id="uploadWindowBtn">
                 <i class="bi bi-upload"></i>
                 <div>업로드</div>
@@ -373,7 +385,7 @@
             </a>
             <a href="#">..</a>
         </div>
-    </div>  
+    </div>
     <div class="container d-inline-block w-100 content">
         <button class="btn-toggle btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProfile" id="profileInfoBtn">
             profile
