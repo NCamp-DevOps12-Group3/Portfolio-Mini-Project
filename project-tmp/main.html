@@ -16,60 +16,8 @@
     <link rel="stylesheet" href="css/add-main.css">
     <link rel="stylesheet" href="css/darkmode.css">
     <link rel="stylesheet" href="css/modal-main.css">
-
+    <link rel="stylesheet" href="css/main_sidebar.css">
     <style>        
-        .sidebar {
-            position: fixed;
-            width: 15vw;
-            height: 100vh;
-            top: 0;
-            left: 0;
-            padding-top: 20px;
-            border-right: 1px solid #dbdbdb;
-        }
-
-        .sidebar-icon {
-            padding: 0px 0px 2vh;
-            margin-left: 2vw;
-        }
-
-        .sidebar-icon .sidebar-icon-text {
-            font-size: 2em;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        }
-
-        .sidebar a {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 10px 20px;
-            color: #333;
-            text-decoration: none;
-        }
-
-        .sidebar a:hover {
-            background-color: #ddd;
-        }
-
-        .sidebar img {
-            width: 30px;
-            height: auto;
-        }
-
-        .sidebar-list a:hover{
-            cursor: pointer	
-        }
-
-        .sidebar-list div {
-            display: inline-block;
-            margin-left: 10px;
-
-        }
-
-        .sidebar i {
-            font-size: 1.5em;
-        }
-
         .content {
             padding: 20px;
             margin-left: 20vw;
@@ -217,7 +165,7 @@
 
 <body>
     <div class="container-content d-flex align-items-start">
-        <div class="sidebar">
+        <div class="sidebar d-flex flex-column">
             <div class="sidebar-icon">
                 <div class="sidebar-icon-text">Poro</div>
             </div>
@@ -269,7 +217,12 @@
                     <i class="bi bi-gear"></i>
                     <div>설정</div>
                 </a>
-                <a href="#">..</a>
+            </div>
+            <div class="sidebar-list-etc">
+                <a href="#" class="nav-link" data-page="setting.html">
+                    <i class="bi bi-list"></i>
+                    <div>더보기</div>
+                </a>
             </div>
         </div>
 
