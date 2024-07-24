@@ -290,11 +290,17 @@
             height: 80%;
             border: none;
         }
+        container{
+            display: flex;
+            flex-direction: column;
+            max-width: 930px;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
 <button type="button" id="toTop">↑</button>
-<div class="container-fluid d-flex">
+<div class="container-fluid  d-flex">
     <div class="sidebar">
         <a href="main.html" class="active nav-link" data-page="main.html">
             <i class="bi bi-house-door"></i><div>홈</div>
@@ -328,29 +334,39 @@
         </a>
         <a href="#">..</a>
     </div>  
-    <div class="h-100 d-inline-block w-100">
+    <div class="container d-inline-block w-100">
         <button class="btn-toggle btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProfile" id="profileInfoBtn">
             profile
         </button>
 
-        <div class="top-section d-flex align-items-center justify-content-around">
-            <button class="ratio ratio-1x1" type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
+        <div class="top-section d-flex align-items-center">
+            <button class="ratio ratio-1x1 mx-3" type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
                 <img src="img/1.jpg" alt="" class="mouse-Cursor" id="profileImg">
             </button>
-            <div class="mouse-Cursor" id="profileName">
-                <p class="d-inline-block" >name</p>
-                <i class="bi bi-check-circle-fill d-inline-block" id="checkImg"></i>
-            </div>
-            <div>
-           <pre class="overflow-x-scroll sil">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</pre>
+            <div class="w-50">
+                <div class="mouse-Cursor mb-3" id="profileName">
+                    <p class="d-inline-block" >name</p>
+                    <i class="bi bi-check-circle-fill d-inline-block mx-1" id="checkImg"></i>
+                    <a href="setting.html" class=" d-inline-block" style="color: #6c757d">
+                        <i class="bi bi-gear d-inline-block" style="text-decoration:none">Setting</i> 
+                        <!-- <button type="button" id="profileEdit">edit</button> -->
+                    </a>
+                </div>
+                <div class="mb-3">
+                    <p class="d-inline-block">게시물 숫자</p>
+                    <b class="d-inline-block" id="numberOfPortfolio"></b>
+                </div>
+                <div>
+                    <b class="mb-3">이메일 혹은 이름</b>
+                    <p class="overflow-x-scroll sil">
+                        소개내용
+                        기술스택
+                    </p>
+                </div>
             </div>
             <div class="list-group text-center">
-                <a href="#" class="list-group-item">follow</a>
-                <a href="#" class="list-group-item">message</a>
+                <!-- <a href="#" class="list-group-item">follow</a>
+                <a href="#" class="list-group-item">message</a> -->
                 <button type="button" class="list-group-item inactive" id="portfolioDelete">delete</button>
             </div>
 
@@ -473,7 +489,7 @@
                 $('.delete-dot').css('display','inline-block');
             }
         }
-
+        
         $('#portfolioDelete').on('click',()=>{
             toggleButtonState();
         });
@@ -490,9 +506,14 @@
         $('#profileName').on('click',()=>{
             $('#profileInfoBtn').click();
         });
-
+       const urlSources = [
+                'https://rogierdeboeve.com/', 'https://des.obys.agency/', 'https://cedroweb3.ai/',
+                'https://www.umault.com/', 'https://www.hellokuya.co/', 'https://dolceactivation.dolcegabbana.com/',
+                'https://hailstonelabs.com/', 'https://www.kreyda.art/', 'https://awsmd.com/',
+                'https://youniqlabs.io/', 'https://awsmd.com', 'https://awsmd.com/'
+            ];
         let page = 1;
-
+        let portfolioNum=0;
         function load(){
             for (let i = 0; i < 9; i++) {
                 $('#feed').append(`
@@ -504,7 +525,8 @@
             <input type="checkbox" class="delete-dot">
 
             <a href="">
-            <img src="img/${(((page - 1) * 9 + i)%12 + 1)}.jpg" class="card-img-top" alt=".">
+                <img src="img/${(((page - 1) * 9 + i)%12 + 1)}.jpg" class="card-img-top" alt=".">
+                <iframe height="1076" src="" class="card-iframe ratio ratio-1x1" style="display:none"></iframe>
             </a>
             <div class="card-body">
             <p class="card-text">
@@ -525,37 +547,54 @@
         </div>
     </div>
                 `);
+                portfolioNum++;
             }
             imagesLoaded(grid, function() {
                 msnry.reloadItems();
                 msnry.layout();
             });
+            $('#numberOfPortfolio').text(portfolioNum);
         }
         load();
-        $(".card-img-top").hover(
+        let hoverTimeout;
+        $(".card-img-top").on("mouseenter",
             function (evt){
-
-                var target = event.target;
-
-                var rect = target.getBoundingClientRect();
-                var startX = rect.left + window.scrollX;
-                console.log(startX);
-                let a=window.innerWidth/2;
-                let pos;
-                if(startX < a){
-                    pos="top left";
-                }
-                else{
-                    pos = "top right";
-                }
-
-                console.log(pos);
+                hoverTimeout = setTimeout(() => {
+                    $(this).css("display","none");
+                    $(this).siblings().first().attr('src',urlSources[parseInt(Math.random()*12)]);
+                    $(this).siblings().first().css("display","block");
+                    imagesLoaded(grid, function() {
+                        msnry.reloadItems();
+                        msnry.layout();
+                    });
+                }, 2000);
             }
-            ,
-            function (evt){
-
+        );
+        $(".card-img-top").on("mouseleave",function (evt){
+                clearTimeout(hoverTimeout);
             }
-        )
+        );
+        $(".card-iframe").on("mouseenter",function (evt){
+                $(this).height($(".bottom-section").height());
+                imagesLoaded(grid, function() {
+                msnry.reloadItems();
+                msnry.layout();
+                });
+            }
+        );
+        $(".card-iframe").on("mouseleave",function (evt){
+                clearTimeout(hoverTimeout);
+                $(this).attr('src',"");
+                $(this).css("transform","scale(1)");
+                $(this).siblings().first().css("display","block");
+                $(this).css("display","none");
+                imagesLoaded(grid, function() {
+                msnry.reloadItems();
+                msnry.layout();
+                });
+            }
+        );
+        
         $(window).scroll(function() {
 
             if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
@@ -631,6 +670,13 @@
 
         $(document).on('mouseleave', '.card-text', function(){
             $(this).siblings('.card-info-toggle').css("display", "none");
+            imagesLoaded('.grid', function() {
+                msnry.reloadItems();
+                msnry.layout();
+            });
+        });
+        $(document).on('mouseleave', '.card-info-toggle', function(){
+            $(this).css("display", "none");
             imagesLoaded('.grid', function() {
                 msnry.reloadItems();
                 msnry.layout();

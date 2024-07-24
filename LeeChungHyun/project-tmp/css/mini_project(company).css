@@ -9,15 +9,15 @@ ol {
     padding-top: 45px;
     padding-bottom: 32px;
     background-color: transparent;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 208px;
     gap: 24px;
     grid-auto-flow: row;
 }
 
 .container .item {
-    width: 300px;
-    height: 200px;
+    width: 404px;
+    height: 208px;
     border: none;
     border-radius: 16px;
     position: relative;

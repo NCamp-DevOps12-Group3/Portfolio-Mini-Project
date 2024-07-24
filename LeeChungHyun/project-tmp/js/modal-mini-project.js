@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     hoverContent.style.overflow = 'hidden'; // 부모 컨테이너에서 오버플로우 숨기기
 
                     // hover-content 크기 확대
-                    hoverContent.style.transform = 'scale(1.05)';
+                    hoverContent.style.transform = 'scale(1.3)';
                     hoverContent.style.transformOrigin = 'center center';
                     hoverContent.style.zIndex = '1050';
                     hoverContent.style.transition = 'transform 0.3s ease-in-out';
