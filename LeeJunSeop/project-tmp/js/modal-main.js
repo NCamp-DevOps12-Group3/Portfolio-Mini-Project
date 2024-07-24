@@ -117,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
             portfolioData.reverse().forEach(function (portfolio, index) {
                 const portfolioItem = `
-                    <div class="col-md-3 portfolio-item" style="position: relative;">
-                        <img src="${portfolio.thumbnailImage}" alt="Portfolio ${index + 1}" class="portfolio-img" data-index="${portfolioData.length - 1 - index}">
+                    <div class="col-md-3" style="position: relative;" >
+                        <img src="${portfolio.thumbnailImage}" alt="Portfolio ${index + 1}" class="portfolio-img" data-index="${portfolioData.length - 1 - index}" style="width : 300px; height : 200px;">
                         <div class="hover-content" id="hover-content-${portfolioData.length - 1 - index}" data-index="${portfolioData.length - 1 - index}"></div>
                     </div>
                 `;
@@ -200,11 +200,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     hoverContent.style.overflow = 'hidden'; // 부모 컨테이너에서 오버플로우 숨기기
 
                     // hover-content 크기 확대
-                    hoverContent.style.transform = 'scale(1.1)';
+                    hoverContent.style.transform = 'scale(1.05)';
                     hoverContent.style.transformOrigin = 'center center';
                     hoverContent.style.zIndex = '1050';
                     hoverContent.style.transition = 'transform 0.3s ease-in-out';
                     hoverContent.style.borderRadius = '10px';
+                    hoverContent.style.border = '1px, rgba(128, 128, 128, 0.8), solid';
 
                     // 설명, 태그, 상세보기 버튼을 포함한 div 추가
                     const descriptionDiv = document.createElement('div');

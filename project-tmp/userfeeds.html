@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/darkmode.css">
     <link rel="stylesheet" href="css/modal-main.css">
+
+    <link rel="stylesheet" href="css/main_sidebar.css">
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -48,12 +50,12 @@
                 color: white !important;
             }
 
-            .sidebar{
+            /* .sidebar{
                 background-color: #262626;
-            }
-            .sidebar *{
+            } */
+            /* .sidebar *{
                 color: white;
-            }
+            } */
 
             .sidebar .dropdown-menu{
                 background-color: black;
@@ -63,8 +65,8 @@
                 background: black;
                 color: white;
             }
-        
         }
+        
         .top-section {
             padding: 20px;
             background: #fff;
@@ -224,36 +226,13 @@
         .grid-item {
             margin-bottom: 20px;
         }
-        .sidebar {
-            width: 15vw;
-            height: 100vh;
-            top: 0;
-            left: 0;
-            background: #f8f9fa;
-            padding-top: 20px;
-        }
-        .sidebar a {
-            display:flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 10px 20px;
-            color: #333;
-            text-decoration: none;
-        }
-        .sidebar a:hover {
-            background-color: #ddd;
-        }
-        .sidebar img{
-            width:30px;
-            height:auto;
-        }
-        .sidebar div{
-            display: inline-block;
-            margin-left:10px;
-        }
-        .sidebar i{
-            font-size:1.5em;
-        }
+      .content {
+          padding: 20px;
+          margin-left:20vw;
+          margin-right:5vw;
+          height: 100vh;
+
+      }
         @media screen and (max-width:900px){
             .sidebar div{
                 display:none;
@@ -302,50 +281,72 @@
 <button type="button" id="toTop">↑</button>
 <div class="container-fluid  d-flex">
     <div class="sidebar">
-        <a href="main.html" class="active nav-link" data-page="main.html">
-            <i class="bi bi-house-door"></i><div>홈</div>
-        </a>
-        <a href="setting.html" class="nav-link" data-page="setting.html">
-            <i class="bi bi-gear"></i>
-            <div>설정</div>
-        </a>    
-        <a href="#" class="nav-link" data-page="search.html">
-            <i class="bi bi-search"></i>
-            <div>검색</div>
-        </a>
-        <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
-            <i class="bi bi-person-circle"></i>
-            <div>내 프로필</div></a>
-        <a class="nav-link" id="uploadWindowBtn">
-            <i class="bi bi-upload"></i>
-            <div>업로드</div>
-        </a>
-        <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon" >
-            <i class="bi bi-bell"></i>
-            <div>알림</div></a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item notification-item" href="#"><div>알람1</div></a></li>
-            <li><a class="dropdown-item notification-item" href="#"><div>알람2</div></a></li>
-            <li><a class="dropdown-item notification-item" href="#"><div>알람3</div></a></li>
-          </ul>
-        <a href="#" id="darkModeToggle">
-            <i class="bi bi-brightness-low"></i>
-            <div>다크모드</div>
-        </a>
-        <a href="#">..</a>
-    </div>  
-    <div class="container d-inline-block w-100">
+        <div class="sidebar-icon">
+            <div class="sidebar-icon-text">Poro</div>
+        </div>
+        <div class="sidebar-list">
+            <a href="main.html" class="active nav-link" data-page="main.html">
+                <i class="bi bi-house-door"></i>
+                <div>홈</div>
+            </a>
+            <a href="#" class="nav-link" data-page="search.html">
+                <i class="bi bi-search"></i>
+                <div>검색</div>
+            </a>
+            <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
+                <i class="bi bi-person-circle"></i>
+                <div>내 프로필</div>
+            </a>
+            <a href="mini_project.html" class="nav-link" data-page="mini_project.html">
+                <i class="bi bi-card-list"></i>
+                <div>개인 포트폴리오</div>
+            </a>
+            <a href="mini_project.html" class="nav-link" data-page="mini_project(company).html">
+                <i class="bi bi-building"></i>
+                <div>기업 채용</div>
+            </a>
+            <a class="nav-link" id="uploadWindowBtn">
+                <i class="bi bi-upload"></i>
+                <div>업로드</div>
+            </a>
+            <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon">
+                <i class="bi bi-bell"></i>
+                <div>알림</div>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item notification-item" href="#">
+                        <div>알람1</div>
+                    </a></li>
+                <li><a class="dropdown-item notification-item" href="#">
+                        <div>알람2</div>
+                    </a></li>
+                <li><a class="dropdown-item notification-item" href="#">
+                        <div>알람3</div>
+                    </a></li>
+            </ul>
+            <a href="#" id="darkModeToggle">
+                <i class="bi bi-brightness-low"></i>
+                <div>화면 모드</div>
+            </a>
+            <a href="setting.html" class="nav-link" data-page="setting.html">
+                <i class="bi bi-gear"></i>
+                <div>설정</div>
+            </a>
+            <a href="#">..</a>
+        </div>
+    </div>
+    <div class="container d-inline-block w-100 content">
         <button class="btn-toggle btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProfile" id="profileInfoBtn">
             profile
         </button>
 
         <div class="top-section d-flex align-items-center">
             <button class="ratio ratio-1x1 mx-3" type="button" data-bs-toggle="modal" data-bs-target="#modal-short" id="profileImgBtn">
-                <img src="img/1.jpg" alt="" class="mouse-Cursor" id="profileImg">
+                <img src="img/cat1.jpg" alt="" class="mouse-Cursor" id="profileImg">
             </button>
             <div class="w-50">
                 <div class="mouse-Cursor mb-3" id="profileName">
-                    <p class="d-inline-block" >name</p>
+                    <p class="d-inline-block" >이준섭</p>
                     <i class="bi bi-check-circle-fill d-inline-block mx-1" id="checkImg"></i>
                     <a href="setting.html" class=" d-inline-block" style="color: #6c757d">
                         <i class="bi bi-gear d-inline-block" style="text-decoration:none">Setting</i> 
@@ -357,10 +358,11 @@
                     <b class="d-inline-block" id="numberOfPortfolio"></b>
                 </div>
                 <div>
-                    <b class="mb-3">이메일 혹은 이름</b>
+                    <b class="mb-3">bitcamp502@naver.com</b>
                     <p class="overflow-x-scroll sil">
-                        소개내용
-                        기술스택
+                        <!-- 소개내용
+                        기술스택 -->
+                        Java html css javascript
                     </p>
                 </div>
             </div>

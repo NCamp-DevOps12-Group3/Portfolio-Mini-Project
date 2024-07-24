@@ -139,13 +139,15 @@
             }  
             const getpassword = document.getElementById("password"); 
             
-            if($("#email").val() !== 'helldive@naver.com') {
-                    appendAlert('이메일이나 비밀번호에 문제가있습니다.', 'success')
+            // if($("#email").val() !== 'helldive@naver.com') {
+            if($("#email").val() !== 'bitcamp502@naver.com') {
+                appendAlert('이메일이나 비밀번호에 문제가있습니다.', 'success')
                     e.preventDefault(); 
                     return;
                 }
-            if($("#password").val() !== 'helldive@2') {
-                    appendAlert('이메일이나 비밀번호에 문제가있습니다.', 'success')
+            // if($("#password").val() !== 'helldive@2') {
+            if($("#password").val() !== '1') {
+                appendAlert('이메일이나 비밀번호에 문제가있습니다.', 'success')
                     e.preventDefault(); 
                     return;
                 }

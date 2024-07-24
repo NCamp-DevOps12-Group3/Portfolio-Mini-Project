@@ -14,60 +14,13 @@
     <link rel="stylesheet" href="css/modal-main.css">
     <link rel="stylesheet" href="css/add-main.css">
     <link rel="stylesheet" href="css/mini_project.css">
-
+    <link rel="stylesheet" href="css/main_sidebar.css">
 
     <style>
-        .sidebar {
-            position: fixed;
-            width: 15vw;
-            height: 100vh;
-            top: 0;
-            left: 0;
-            padding-top: 20px;
-            border-right: 1px solid #dbdbdb;
-        }
-
-        .sidebar-icon {
-            padding: 0px 0px 2vh;
-            margin-left: 2vw;
-        }
-
-        .sidebar-icon .sidebar-icon-text {
-            font-size: 2em;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        }
-
-        .sidebar a {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 10px 20px;
-            color: #333;
-            text-decoration: none;
-        }
-
-        .sidebar a:hover {
-            background-color: #ddd;
-        }
-
-        .sidebar img {
-            width: 30px;
-            height: auto;
-        }
-
-        .sidebar-list div {
-            display: inline-block;
-            margin-left: 10px;
-
-        }
-
-        .sidebar i {
-            font-size: 1.5em;
-        }
-
         .content {
             padding: 20px;
-            margin-left: 15vw;
+            margin-left: 20vw;
+            margin-right:5vw;
             height: 100vh;
 
         }
@@ -204,54 +157,64 @@
             <div class="sidebar-icon">
                 <div class="sidebar-icon-text">Poro</div>
             </div>
-            <a href="main.html" class="active nav-link" data-page="main.html">
-                <i class="bi bi-house-door"></i>
-                <div>홈</div>
-            </a>
-            <a href="setting.html" class="nav-link" data-page="setting.html">
-                <i class="bi bi-gear"></i>
-                <div>설정</div>
-            </a>
-            <a href="#" class="nav-link" data-page="search.html">
-                <i class="bi bi-search"></i>
-                <div>검색</div>
-            </a>
-            <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
-                <i class="bi bi-person-circle"></i>
-                <div>내 프로필</div>
-            </a>
-            <a class="nav-link" id="uploadWindowBtn">
-                <i class="bi bi-upload"></i>
-                <div>업로드</div>
-            </a>
-            <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon">
-                <i class="bi bi-bell"></i>
-                <div>알림</div>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item notification-item" href="#">
-                        <div>알람1</div>
-                    </a></li>
-                <li><a class="dropdown-item notification-item" href="#">
-                        <div>알람2</div>
-                    </a></li>
-                <li><a class="dropdown-item notification-item" href="#">
-                        <div>알람3</div>
-                    </a></li>
-            </ul>
-            <a href="#" id="darkModeToggle">
-                <i class="bi bi-brightness-low"></i>
-                <div>다크모드</div>
-            </a>
-            <a href="#">..</a>
+            <div class="sidebar-list">
+                <a href="main.html" class="active nav-link" data-page="main.html">
+                    <i class="bi bi-house-door"></i>
+                    <div>홈</div>
+                </a>
+                <a href="#" class="nav-link" data-page="search.html">
+                    <i class="bi bi-search"></i>
+                    <div>검색</div>
+                </a>
+                <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
+                    <i class="bi bi-person-circle"></i>
+                    <div>내 프로필</div>
+                </a>
+                <a href="mini_project.html" class="nav-link" data-page="mini_project.html">
+                    <i class="bi bi-card-list"></i>
+                    <div>개인 포트폴리오</div>
+                </a>
+                <a href="mini_project(company).html" class="nav-link" data-page="mini_project(company).html">
+                    <i class="bi bi-building"></i>
+                    <div>기업 채용</div>
+                </a>
+                <a class="nav-link" id="uploadWindowBtn">
+                    <i class="bi bi-upload"></i>
+                    <div>업로드</div>
+                </a>
+                <a class="nav-link btn-secondary alarm-dropdown" data-bs-toggle="dropdown" id="notificationIcon">
+                    <i class="bi bi-bell"></i>
+                    <div>알림</div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item notification-item" href="#">
+                            <div>알람1</div>
+                        </a></li>
+                    <li><a class="dropdown-item notification-item" href="#">
+                            <div>알람2</div>
+                        </a></li>
+                    <li><a class="dropdown-item notification-item" href="#">
+                            <div>알람3</div>
+                        </a></li>
+                </ul>
+                <a href="#" id="darkModeToggle">
+                    <i class="bi bi-brightness-low"></i>
+                    <div>화면 모드</div>
+                </a>
+                <a href="setting.html" class="nav-link" data-page="setting.html">
+                    <i class="bi bi-gear"></i>
+                    <div>설정</div>
+                </a>
+                <a href="#">..</a>
+            </div>
         </div>
 
         <!--콘텐츠-->
         <div class="content d-flex flex-column justify-content-start" id="main-content">
 
             <!--콘텐츠 헤더-->
-            <div class="top-line-list d-flex justify-content-between">
-                <div class="base-header d-flex justify-content-center align-items-center">
+            <div class="top-line-list d-flex justify-content-end">
+                <!-- <div class="base-header d-flex justify-content-center align-items-center">
                     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" id="mainTopLineBtnSet">
                         <button type="button" class="btn btn-outline-dark" id="baseViewAllBtn">
                             <i class="bi bi-collection"></i>
@@ -266,7 +229,7 @@
                             <div>기업 채용</div>
                         </button>
                     </div>
-                </div>
+                </div> -->
                 <div class="top-line-personal-info d-flex justify-content-start align-items-center">
                     <img src="img/home.png" alt="">
                     <div class="top-line-personal-info-identifier d-flex flex-column justify-content-center">
@@ -535,15 +498,15 @@
                 saveDarkModeState(isDarkMode);
             });
 
-            $("#baseViewAllBtn").on("click", function () {
-                window.location.href = "main.html";
-            });
-            $("#basePersonalBtn").on("click", function () {
-                window.location.href = "mini_project.html";
-            });
-            $("#baseCompanyBtn").on("click", function () {
-                window.location.href = "mini_project(company).html";
-            });
+            // $("#baseViewAllBtn").on("click", function () {
+            //     window.location.href = "main.html";
+            // });
+            // $("#basePersonalBtn").on("click", function () {
+            //     window.location.href = "mini_project.html";
+            // });
+            // $("#baseCompanyBtn").on("click", function () {
+            //     window.location.href = "mini_project(company).html";
+            // });
 
             // 업로드 버튼 이벤트
             $('#uploadWindowBtn').on('click', function () {
