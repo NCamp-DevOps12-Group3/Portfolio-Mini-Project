@@ -10,10 +10,6 @@
   transition: margin-left 0.3s ease;
 } */
 
-.modal-content {
-  border-radius: 10px;
-  transition: background-color 0.3s, color 0.3s;
-}
 
 .upload-section {
   margin: 20px 0;
@@ -145,22 +141,6 @@
   margin-top: 40px;
 }
 
-.portfolio-item {
-  margin-bottom: 20px;
-}
-
-.portfolio-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-
-.portfolio-item img:hover {
-  transform: scale(1.05);
-}
-
 .settings-card {
   background-color: #fff;
   padding: 20px;
@@ -180,79 +160,3 @@
 .settings-card .form-control {
   margin-bottom: 20px;
 }
-
-/* 다크 모드 스타일 */
-/* body.dark-mode {
-  background-color: #121212;
-  color: #e0e0e0;
-}
-
-.dark-mode .navbar {
-  background-color: #1f1f1f;
-  border-color: #333;
-}
-
-.dark-mode .sidebar {
-  background-color: #1f1f1f;
-  border-color: #333;
-}
-
-.dark-mode .navbar-brand, 
-.dark-mode .nav-link, 
-.dark-mode .sidebar .nav-link, 
-.dark-mode .nav-link2 {
-  color: #e0e0e0;
-}
-
-.dark-mode .sidebar a {
-  color: #ccc;
-}
-
-.dark-mode .sidebar a:hover {
-  background-color: #333;
-}
-
-.dark-mode .profile-card {
-  background-color: #1f1f1f;
-  color: #e0e0e0;
-}
-
-.dark-mode .profile-card p {
-  color: #ccc;
-}
-
-.dark-mode .profile-card .social-icons i {
-  color: #ccc;
-}
-
-.dark-mode .portfolio-item img {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .notification-dropdown {
-  background-color: #1f1f1f;
-  border-color: #333;
-}
-
-.dark-mode .notification-item {
-  border-color: #333;
-}
-
-.dark-mode .profile-icon {
-  background-color: #e0e0e0;
-}
-
-.dark-mode .modal-content {
-  background-color: #1f1f1f;
-  color: #e0e0e0;
-}
-
-.dark-mode .search-bar {
-  background-color: #1f1f1f;
-  border-color: #333;
-}
-
-.dark-mode .settings-card {
-  background-color: #1f1f1f;
-  color: #e0e0e0;
-} */

@@ -38,9 +38,6 @@ body.dark-mode .sidebar{
     color:#121212; */
 }
 
-<<<<<<< HEAD
-.dark-mode #mainTopLineBtnSet button.btn-light{
-=======
 #mainTopLineBtnSet button.btn-light{
     transition: background 0s;
 }
@@ -56,7 +53,6 @@ body.dark-mode .sidebar{
 .dark-mode #mainTopLineBtnSet button.btn-light *{
     background:#aaa;
     color:#121212;
->>>>>>> main
     transition: background 0s;
 }
 
@@ -64,14 +60,11 @@ body.dark-mode .sidebar{
     transition: background 0s;
 }
 
-<<<<<<< HEAD
-=======
 
 .dark-mode #mainTopLineBtnSet button.btn-light:hover{
     background:#d3d4d5;
 }
 
->>>>>>> main
 .dark-mode #mainTopLineBtnSet button.btn-light:hover *{
     background:#d3d4d5;
     color:#121212;
@@ -79,8 +72,4 @@ body.dark-mode .sidebar{
 .dark-mode #mainTopLineBtnSet button.btn-outline-light:hover *{
     background:#f8f9fa;
     color:#121212;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> main

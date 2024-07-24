@@ -12,14 +12,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/darkmode.css">
     <link rel="stylesheet" href="css/modal-main.css">
-    <link rel="stylesheet" href="css/add-main.css">
     <link rel="stylesheet" href="css/mini_project.css">
     <link rel="stylesheet" href="css/main_sidebar.css">
 
     <style>
         .content {
             padding: 20px;
-            margin-left: 20vw;
+            margin-left: 30vw;
             margin-right: 5vw;
             height: 100vh;
 
@@ -147,6 +146,59 @@
         .notification-dropdown {
             transition: background-color 0.3s, border-color 0.3s;
         }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            /* Space between grid items */
+            padding: 10px;
+        }
+
+        .content-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 17vw;
+            height: 26vh;
+            position: relative;
+        }
+
+        .content-item:hover {
+            background-color: #ddd;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            /* 반투명한 검은색 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .content-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .likes,
+        .comments {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin: 8px;
+        }
     </style>
 </head>
 
@@ -215,22 +267,7 @@
 
             <!--콘텐츠 헤더-->
             <div class="top-line-list d-flex justify-content-end">
-                <!-- <div class="base-header d-flex justify-content-center align-items-center">
-                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" id="mainTopLineBtnSet">
-                        <button type="button" class="btn btn-outline-dark" id="baseViewAllBtn">
-                            <i class="bi bi-collection"></i>
-                            <div>전체보기</div>
-                        </button>
-                        <button type="button" class="btn btn-dark" id="basePersonalBtn">
-                            <i class="bi bi-card-list"></i>
-                            <div>개인 포트폴리오</div>
-                        </button>
-                        <button type="button" class="btn btn-outline-dark" id="baseCompanyBtn">
-                            <i class="bi bi-building"></i>
-                            <div>기업 채용</div>
-                        </button>
-                    </div>
-                </div> -->
+
                 <div class="top-line-personal-info d-flex justify-content-start align-items-center">
                     <img src="img/home.png" alt="">
                     <div class="top-line-personal-info-identifier d-flex flex-column justify-content-center">
@@ -241,8 +278,218 @@
             </div>
 
             <!--콘텐츠 메인 콘테이너-->
-            <div class="container" id="miniProjectContainer">
+            <div class="container" id="miniProjectContainer" style="margin-top : 2vh;">
                 <!--로컬 스토리지 파일을 동적으로 로드-->
+                <div class="content-item" style="background-image: url('더미/01/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/02/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/03/3.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/04/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/05/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/06/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/07/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/08/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/09/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/01/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/02/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/03/3.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/04/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/05/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
+                <div class="content-item" style="background-image: url('더미/06/thumbnail.png'); background-size: cover;">
+                    <div class="overlay">
+                        <div class="likes" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                            </svg> 3만</div>
+                        <div class="comments" style="font-size: 18px;"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="18" height="18" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15" />
+                            </svg>3만</div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -486,7 +733,7 @@
     <script src="js/jquery-3.7.1.min.js"></script>
 
     <script src="js/darkmode.js"></script>
-    <script src="js/modal-mini-project.js"></script>
+    <!-- <script src="js/modal-mini-project.js"></script> -->
     <script>
         $(() => {
             // Load dark mode state
@@ -498,16 +745,6 @@
                 applyDarkMode(isDarkMode);
                 saveDarkModeState(isDarkMode);
             });
-
-            // $("#baseViewAllBtn").on("click", function () {
-            //     window.location.href = "main.html";
-            // });
-            // $("#basePersonalBtn").on("click", function () {
-            //     window.location.href = "mini_project.html";
-            // });
-            // $("#baseCompanyBtn").on("click", function () {
-            //     window.location.href = "mini_project(company).html";
-            // });
 
             // 업로드 버튼 이벤트
             $('#uploadWindowBtn').on('click', function () {
