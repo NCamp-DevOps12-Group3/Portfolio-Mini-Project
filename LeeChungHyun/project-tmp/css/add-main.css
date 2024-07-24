@@ -1,74 +1,14 @@
-/* body {
-  font-family: 'Arial', sans-serif;
-  background-color: #fafafa;
-  transition: background-color 0.3s, color 0.3s;
-}
 
-.navbar {
-  background-color: #fff;
-  border-bottom: 1px solid #dbdbdb;
-  z-index: 1030;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.navbar .navbar-brand {
-  margin-left: 10px;
-}
-
-.sidebar {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  width: 250px;
-  height: calc(100vh - 60px);
-  padding-top: 20px;
-  background-color: #f8f9fa;
-  border-right: 1px solid #dbdbdb;
-  z-index: 1020;
-  overflow-y: auto;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.navbar-brand {
-  font-family: 'Brush Script MT', cursive;
-  font-size: 2rem;
-  color: #000;
-  margin: 0;
-  padding: 10px 20px;
-}
-
-.sidebar .nav-item {
-  margin-bottom: 20px;
-}
-
-.sidebar .nav-link {
+/* .sidebar .nav-link {
   color: #000;
   font-size: 1.2rem;
   transition: color 0.3s;
 } */
 
-.sidebar a {
-  display: block;
-  padding: 10px 20px;
-  color: #333;
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.sidebar a:hover {
-  background-color: #ddd;
-}
-
-.content {
+/* .content {
   padding-left: 20px;
-  margin-top: 30px; /* Adjusted to ensure navbar is not covered */
   transition: margin-left 0.3s ease;
-}
+} */
 
 .modal-content {
   border-radius: 10px;
@@ -242,7 +182,7 @@
 }
 
 /* 다크 모드 스타일 */
-body.dark-mode {
+/* body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
 }
@@ -315,4 +255,4 @@ body.dark-mode {
 .dark-mode .settings-card {
   background-color: #1f1f1f;
   color: #e0e0e0;
-}
+} */
