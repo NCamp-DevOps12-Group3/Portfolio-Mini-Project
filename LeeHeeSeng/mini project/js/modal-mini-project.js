@@ -111,18 +111,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function loadPortfolios() {
         const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
-        const portfolioContainer = document.getElementById('portfolioContainer');
-        if (portfolioContainer) {
-            portfolioContainer.innerHTML = ''; // 기존 항목을 비움
+        const miniProjectContainer = document.getElementById('miniProjectContainer');
+        if (miniProjectContainer) {
+            miniProjectContainer.innerHTML = ''; // 기존 항목을 비움
     
             portfolioData.reverse().forEach(function (portfolio, index) {
                 const portfolioItem = `
-                    <div class="col-md-3" style="position: relative;" >
-                        <img src="${portfolio.thumbnailImage}" alt="Portfolio ${index + 1}" class="portfolio-img" data-index="${portfolioData.length - 1 - index}" style="width : 300px; height : 200px;">
+                    <div class="portfolio-item" style="position: relative">
+                        <img src="${portfolio.thumbnailImage}" alt="Portfolio ${index + 1}" class="portfolio-img" data-index="${portfolioData.length - 1 - index}" >
                         <div class="hover-content" id="hover-content-${portfolioData.length - 1 - index}" data-index="${portfolioData.length - 1 - index}"></div>
                     </div>
                 `;
-                portfolioContainer.insertAdjacentHTML('beforeend', portfolioItem);
+                miniProjectContainer.insertAdjacentHTML('beforeend', portfolioItem);
             });
         }
     }
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return formattedTags;
     }
 
-    portfolioContainer.addEventListener('mouseover', function (e) {
+    miniProjectContainer.addEventListener('mouseover', function (e) {
         if (e.target.classList.contains('portfolio-img')) {
             let index = e.target.getAttribute('data-index');
             currentPortfolioIndex = index;
@@ -200,12 +200,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     hoverContent.style.overflow = 'hidden'; // 부모 컨테이너에서 오버플로우 숨기기
 
                     // hover-content 크기 확대
-                    hoverContent.style.transform = 'scale(1.05)';
+                    hoverContent.style.transform = 'scale(1.3)';
                     hoverContent.style.transformOrigin = 'center center';
                     hoverContent.style.zIndex = '1050';
                     hoverContent.style.transition = 'transform 0.3s ease-in-out';
                     hoverContent.style.borderRadius = '10px';
-                    hoverContent.style.border = '1px, rgba(128, 128, 128, 0.8), solid';
 
                     // 설명, 태그, 상세보기 버튼을 포함한 div 추가
                     const descriptionDiv = document.createElement('div');
@@ -284,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    portfolioContainer.addEventListener('mouseout', function (e) {
+    miniProjectContainer.addEventListener('mouseout', function (e) {
         console.log("Dsad");
 
         if(e.target.classList.contains('preview') || e.target.classList.contains('descriptionDiv')){
