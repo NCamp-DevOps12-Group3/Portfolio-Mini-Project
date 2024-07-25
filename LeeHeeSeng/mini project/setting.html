@@ -20,13 +20,11 @@
   <style>
     body {
         font-family: Arial, sans-serif;
-        /* line-height: 40px; */
+       
         
     }
 
-    button.chgpicture{
-      text-align: right;
-    }
+    
     
     
     
@@ -42,8 +40,8 @@
       margin-bottom: 0px;
     }
     .col-9{
+      padding-right: 10%;
       padding-right: 0%;
-      
     }
     .sidebar {
             position: fixed;
@@ -336,7 +334,7 @@
 
 </style>
 </head>
-<body>
+<body style="overflow-x: hidden">
       <div class="row">
           <div class="col-3">
             <div class="sidebar">
@@ -433,6 +431,7 @@
               
                 <div class="pobox">      
                         <a class="p-1 rounded list-group-item list-group-item-action mt-4 "  href="#list-profile">프로필</a><br>
+                        <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-myhistory">내 활동</a>                       <br>
                         <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-locksandsecurity">잠금과 보안</a>                       <br>
                         <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-account">계정</a><br>
                         <a class="p-1 rounded list-group-item list-group-item-action "  href="#list-termsofuse">이용약관</a>
@@ -450,21 +449,19 @@
               <h4  style="margin-top: 2%; ">프로필</h4>
               
               
-                <form action="#" method="get"  style="border: 1px solid rgb(201, 201, 201); padding: 0px;  border-radius: 17px; margin: 0%; width: 100%;">
-                  <div class="container position-relative"  style="margin-bottom: 20px;margin-bottom: 20px; padding: 0; border-radius: 15px;">
+                <form action="#" method="get" id="modify-form">
+                  <div class="container position-relative"  style=" padding: 0; border-radius: 15px;   margin: 0%; width: 100%;  ">
                     <div class="modal fade" id="modalPic">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-head">
-                            <h3 class="text-lg-center m-3">정보</h3>
+                            <h3 class="text-lg-center m-3">사진변경</h3>
                           </div>
-                          <div class="modal-body h-75">
+                          <div class="modal-body h-75" >
                             <div class="mb-3">
                               <label for="formFile" class="form-label">변경할 프로필 사진</label>
-                              <input class="form-control" type="file" id="formFile">
-                              <div id="imagePreview" class="mt-3">
-                                <!-- Preview will be displayed here -->
-                              </div>
+                              <input class="form-control" type="file" id="formFile" >
+                              
                             </div>
                           </div>
                           <div class="modal-footer">
@@ -475,35 +472,134 @@
                         </div>
                       </div>
                     </div>
-                    <header class=" w-auto h-25 box d-flex align-items-center justify-content-around " style="background-color: #ddd; padding: 0; margin: 0; border-top-left-radius: 15px; border-top-right-radius: 15px;">
-                      <div class="box d-inline-block " style="border-radius: 16px; margin-left: 10px; margin-top: 20px; margin-bottom: 20px;background-color: #ddd;">
-                        <img src="img/cat1.jpg" alt="" style="background-color: #ddd;">
+                    <header class=" w-auto h-auto box d-flex align-items-center justify-content-around " style="background-color: #ddd; padding: 0; margin: 0; border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                      <div class="d-inline-block " style="border-radius: 16px; margin-left: 10px; margin-top: 20px; margin-bottom: 20px; background-color: #ddd;">
+                              <div id="imagePreview" class="mt-3" style="border-radius:25% ; width:100%;height: 100%; ">
+                                <!-- Preview will be displayed here -->
+                              </div>
+                              <div id="imgholder">
+                              <img src="img/cat1.jpg" alt="" style="background-color: #ddd;"><!--<img id="img${file.id}" class="profile-img" alt="${file.fileoriginname}" onclick="(${})"> -->
+                              </div>
                       </div>
                       <div class="d-inline-block" style="background-color: #ddd;">
-                        <h2 style="width: 100px;background-color: #ddd; color: black;">이준섭</h2>
-                        <p style="background-color: #ddd; color: black;">bitcamp502@naver.com</p>
+                        
+                        <h5 type="text" class="from-control" id="name" name="name"style="background-color: #ddd; color: black;">${loginMember.Nickname}</h5>
+                        <p style="background-color: #ddd; color: black;">${loginMember.name}</p>
+                        <p style="background-color: #ddd; color: black;">${loginMember.email}</p>
+                        <p style="background-color: #ddd; color: black;">${loginMember.gender}</p>
+                        <p style="background-color: #ddd; color: black;">${loginMember.tel}</p>
+                        <p style="background-color: #ddd; color: black;">${loginMember.introduction}</p>
+
                       </div>
-                      <div class="d-inline-block " style="background-color: #ddd;" >
-                        <button type="button" style="width: 100px; padding-top: 12px; padding-bottom: 12px; border-radius: 10px; background-color: #333;color: white; float: left;" class="btn  " data-bs-toggle="modal" data-bs-target="#modalPic">
-                          사진 변경
-                        </button>
+                      <div class="d-inline-block " style="background-color: #ddd; margin-right: 20px; " >
+                        <p style="background-color: #ddd; color: black;">${loginMember.status}</p>
                       </div>
+
+                      
                     </header>
-                    <div style="padding: 10px;">
-                      <label for="siteUrl" class="form-label" >웹 사이트</label>
-                      <input type="url" name="siteUrl" id="siteUrl" placeholder="웹사이트 주소" class="w-100 form-control" row="2">
-                      <div class="form-text">연락 사이트나 개인 포폴이 모아진 주소를 입력해 주세요</div>
+
+                    <div class="accordion" id="accordionExample" style="background-color: #ddd;">
+                      <div class="accordion-item" style="border: none;" >
+                        <h2 class="accordion-header"  >
+                          <button class="accordion-button collapsed" style="background-color: #ddd ; border-radius: 0%;border: none;"type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="#collapse">
+                            <h3 style="background-color: #ddd ; color: black;">프로필 정보 변경하기</h3>
+                          </button>
+                        </h2>
+                        <div id="collapse" class="accordion-collapse collapse " data-bs-parent="#accordionExample" >
+                          <div class="accordion-body" >
+                            <div style="padding: 10px;">
+                            <button type="button" style="width: 100px; padding-top: 12px; padding-bottom: 12px; border-radius: 10px; border: 1px solid #ddd; " class="btn  " data-bs-toggle="modal" data-bs-target="#modalPic">
+                              사진 변경
+                            </button>
+                            </div>
+                            <div style="padding: 10px;">
+                              <label for="siteUrl" class="form-label" >닉네임</label>
+                              <input type="text" name="Nickname" id="Nickname" value="${loginMember.Nickname}" class="w-100 form-control" row="2">
+                              <div class="form-text">변경할 닉네임을 입력해주세요</div>
+                            </div>
+                            <div style="padding: 10px;">
+                              <label for="siteUrl" class="form-label" >이름</label>
+                              <input type="text" name="name" id="name" value="${loginMember.name}" class="w-100 form-control" row="2">
+                              <div class="form-text">변경할 이름을 입력해 주세요</div>
+                            </div>
+                            <div style="padding: 10px;">
+                              <label for="siteUrl" class="form-label" >성별</label>
+                              <input type="text" name="gender" id="gender" value="${loginMember.gender}" class="w-100 form-control" row="2">
+                              <div class="form-text"> 변경할 성별을 입력해 주세요</div>
+                            </div>
+                            
+                            <div style="padding: 10px;">
+                              <label for="siteUrl" class="form-label" >전화번호</label>
+                              <input type="tel" name="tel" id="tel" value="${loginMember.tel}" class="w-100 form-control" row="2">
+                              <div class="form-text">변경할 전화번호를 입력해 주세요</div>
+                            </div>
+                            
+                            <div style="padding: 10px;">
+                              <label for="introduction" class="form-label">상태</label>
+                              <textarea name="status" id="status" class="w-100 form-control">${loginMember.status}</textarea>
+                              <div class="form-text">변경할 직업을 입력해주세요</div>
+                            </div>
+                            <div style="padding: 10px;">
+                              <label for="introduction" class="form-label">소개</label>
+                              <textarea type="text" name="introduction" id="introduction" class="w-100 form-control">${loginMember.introduction}</textarea>
+                              <div class="form-text">유저 상세페이지 상단에 출력되는 글입니다</div>
+                            </div>
+                        
+                            <button type="submit" class="btn  w-25" style="margin: 10px; background-color: #ddd; color: black;"> 제출</button>
+                          </div>
+                            
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div style="padding: 10px;">
-                      <label for="introduction" class="form-label">소개</label>
-                      <textarea name="introduction" id="introduction" class="w-100 form-control"></textarea>
-                      <div class="form-text">유저 상세페이지 상단에 출력되는 글입니다</div>
-                    </div>
-                
-                    <button type="submit" class="btn  w-25" style="margin: 10px; background-color: #ddd; color: black;"> 제출</button>
-                  </div>
-                </form>
+
+
+                    
+                </form><br><br><br><br><br><br><br><br>
                
+                <h4 id="list-myhistory" style="margin-top: 0px;">내 활동</h4>
+                <div style="border: 1px solid rgb(201, 201, 201);padding: 20px;  border-radius: 7px; ">
+                  <div class="container">
+                    <table class="table table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th>제목</th>
+                                <th>작성자</th>
+                                <th>등록일</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <c:forEach items="${myhistory}" var="historylog">
+                                <tr class="board-tr" onclick="location.href='/board/update-cnt.do?id=${historylog.id}'">
+                                    <td>${historylog.id}</td>
+                                    <c:choose>
+                                      <c:when test="${historylog.type != comment}">
+                                        <td>${historylog.title}</td>
+                                      </c:when>
+                                      <c:otherwise>
+                                        <td>${historylog.comment}</td>
+                                      </c:otherwise>
+                                    </c:choose>
+                                    <td>${historylog.nickname}</td>
+                                    <td>
+                                        <javatime:format value="${historylog.regdate}" pattern="yyyy-MM-dd"/>
+                                    </td>
+                                    
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+
+
+
+
+
+
+
                <br><br><br><br><br><br><br><br>
 
 
@@ -1008,6 +1104,7 @@
     document.getElementById('formFile').addEventListener('change', function(event) {
       const input = event.target;
       const previewContainer = document.getElementById('imagePreview');
+      const removepreviewContainer = document.getElementById('imgholder');
       previewContainer.innerHTML = ''; // Clear any existing preview
 
       if (input.files && input.files[0]) {
@@ -1019,9 +1116,10 @@
           imgElement.src = e.target.result;
           imgElement.classList.add('img-fluid', 'mt-2'); // Bootstrap classes for styling
           imgElement.style.maxWidth = '100%';
-          imgElement.style.height = 'auto';
-
+          imgElement.style.maxHeight = '100%';
+          removepreviewContainer.remove()
           previewContainer.appendChild(imgElement);
+
         };
 
         reader.readAsDataURL(file);
