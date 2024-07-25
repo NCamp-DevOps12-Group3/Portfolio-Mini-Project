@@ -1,26 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // 댓글 헤더의 옵션버튼 클릭하면 옵션창이 뜸
-    document.getElementById('modalCommentHeaderOptionBtn').addEventListener('click', function (e) {
-        document.getElementById('modalOptionsOverlay').classList.add('modal-options-active');
-    });
-
-
     let currentPortfolioIndex = null;
-
-    // // 포트폴리오 이미지 클릭 시 모달 표시
-    // document.querySelectorAll('.portfolio-item img').forEach(function (img) {
-    //     img.addEventListener('click', function () {
-    //         const index = this.getAttribute('data-index');
-    //         const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
-    //         const portfolio = portfolioData[index];
-    //         currentPortfolioIndex = index;
-
-    //         if (portfolio) {
-    //             loadIframeContent(portfolio, index);
-    //         }
-    //     });
-    // });
 
     // 업로드 모달에서 썸네일 이미지가 올라갔을때 (change) 실행되는 콜백
     document.getElementById('uploadThumbnailImage').addEventListener('change', function () {
@@ -137,107 +117,215 @@ document.addEventListener('DOMContentLoaded', function () {
     
             portfolioData.reverse().forEach(function (portfolio, index) {
                 const portfolioItem = `
-                      <div class="content-item-wrapper" style="border-bottom: gainsboro 1px solid;">
-
-
-                                    <div class="content-item-header"
-                                        style="padding: 5px; display:flex; align-items: center; padding-bottom:10px; margin-top: 5px;">
-                                        <div class="content-item-header-user-logo" style="background-image: url('더미/img/cat1.jpg'); display: flex;
-                                                justify-content: center;
-                                                align-items: center;
-                                                height: 2vw;
-                                                width : 2vw;
-                                                border-radius: 50%;
-                                                background-size: cover;
-                                                flex-shrink: 0;">
-                                        </div>
-                                        <div class="content-item-header-main" style="display: flex;
-                                                                flex-direction: column;
-                                                                flex-grow: 1;">
-                                            <div class="content-item-header-userid" style="font-size: 14px;
-                                                            margin-left: 10px;">
-                                                <strong>cat1</strong> <strong style="color: gray;">1주전</strong>
-                                            </div>
-                                            <div class="content-item-header-content" style="
-                                                        font-size: 14px;
-                                                        margin-left: 10px;">
-                                                description1
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="content-item"
-                                        style="background-image: url('${portfolio.thumbnailImage}'); background-size: cover; border-radius : 5px;" data-index="${portfolioData.length - 1 - index}">
-                                    </div>
-
-
-                                    <div class="content-item-footer"
-                                        style="padding-top:10px; display: flex; flex-direction : column;">
-                                        <div class="content-item-footer-logos" style="margin:1px;">
-                                            <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24"
-                                                fill="currentColor" class="bi bi-suit-heart" viewBox="0 0 16 16"
-                                                style="margin-right : 3px;">
-                                                <path
-                                                    d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.6 7.6 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                            </svg>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                fill="currentColor" class="bi bi-chat" viewBox="0 1 16 16"
-                                                style="margin-right : 3px;">
-                                                <path
-                                                    d="M2.678 11.894a1 1 0 0 1 .287.801 11 11 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8 8 0 0 0 8 14c3.996 0 7-2.807 7-6s-3.004-6-7-6-7 2.808-7 6c0 1.468.617 2.83 1.678 3.894m-.493 3.905a22 22 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a10 10 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105" />
-                                            </svg>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                                                fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
-                                            </svg>
-                                        </div>
-                                        <div class="content-item-footer-like" style="font-size: 0.8rem; margin:1px">
-                                            <strong>좋아요 3만개 </strong>
-                                        </div>
-                                        <div class="content-item-footer-user" style="font-size: 0.8rem; margin:1px">
-                                            <strong>cat1 : description1</strong>
-                                        </div>
-                                        <div class="content-item-footer-comment"
-                                            style="font-size: 0.8rem; color : gray; margin:1px">
-                                            <strong>댓글 3만개 모두 보기</strong>
-                                        </div>
-                                        <div class="content-item-footer-postcomment"
-                                            style="font-size: 0.8rem; color : gray; margin:1px; margin-bottom:10px;">
-                                            <strong>댓글 달기</strong>
-                                        </div>
-                                    </div>
-                                </div>
-                   
-                `; 
-                // <div class="col-md-3 portfolio-item" style="position: relative;">
-                //         <img src="${portfolio.thumbnailImage}" alt="Portfolio ${index + 1}" class="portfolio-img" data-index="${portfolioData.length - 1 - index}">
-                //         <div class="hover-content" id="hover-content-${portfolioData.length - 1 - index}" data-index="${portfolioData.length - 1 - index}"></div>
-                //     </div>
+                    <div class="col-md-3 portfolio-item" style="position: relative;">
+                        <img src="${portfolio.thumbnailImage}" alt="Portfolio ${index + 1}" class="portfolio-img" data-index="${portfolioData.length - 1 - index}">
+                        <div class="hover-content" id="hover-content-${portfolioData.length - 1 - index}" data-index="${portfolioData.length - 1 - index}"></div>
+                    </div>
+                `;
                 portfolioContainer.insertAdjacentHTML('beforeend', portfolioItem);
             });
         }
-        // 포트폴리오 항목을 클릭했을 때 모달을 열도록 이벤트 리스너를 추가합니다.
-        document.querySelectorAll('.content-item').forEach(function (item) {
-            item.addEventListener('click', function () {
-                console.log('ads');
-                const index = this.getAttribute('data-index');
-                console.log(this);
-                console.log(index);
-                const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
-                const portfolio = portfolioData[index];
-                currentPortfolioIndex = index;
-
-                if (portfolio) {
-                    loadIframeContent(portfolio, index);
-                }
-            });
-        });
     }
     
     // 현재 저장되어 있는 모든 포트폴리오 표시
     loadPortfolios();
+
+    // 태그를 #으로 변환하여 표시
+    function displayTags(portfolioTags) {
+        const tagsArray = portfolioTags.split(',').map(tag => tag.trim()).filter(tag => tag !== '');
+        const formattedTags = tagsArray.map(tag => `#${tag}`).join(' ');
+        return formattedTags;
+    }
+
+    portfolioContainer.addEventListener('mouseover', function (e) {
+        if (e.target.classList.contains('portfolio-img')) {
+            let index = e.target.getAttribute('data-index');
+            currentPortfolioIndex = index;
+            const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
+            const portfolio = portfolioData[index];
+            if (portfolio) {
+                const hoverContent = document.getElementById(`hover-content-${index}`);
+                hoverContent.style.display = 'block';
+
+                const portfolioImg = e.target;
+    
+                if (hoverContent && !hoverContent.querySelector('iframe')) { // 중복 로드를 방지
+                    const iframe = document.createElement('iframe');
+
+                    const htmlContent = `
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <style>
+                                ${portfolio.cssContent}
+                                /* 내부 HTML에서 스크롤 바 숨기기 */
+                                body::-webkit-scrollbar { 
+                                    display: none; 
+                                }
+                                body {
+                                    margin: 0;
+                                    padding: 0;
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            ${portfolio.htmlContent}
+                            <script>${portfolio.jsContent}</script>
+                        </body>
+                        </html>
+                    `;
+                    iframe.srcdoc = htmlContent;
+                    iframe.style.border = 'none';
+                    iframe.setAttribute('data-index', `${index}`);
+                    iframe.setAttribute('class', 'preview');
+    
+                    // 이미지 크기를 가져와 iframe에 설정
+                    const imgRect = portfolioImg.getBoundingClientRect();
+                    iframe.width = imgRect.width + 'px';
+                    iframe.height = imgRect.height + 'px';
+    
+                    // Scale을 적용하여 iframe 내용 축소
+                    iframe.style.transform = 'scale(0.25)';
+                    iframe.style.transformOrigin = '0 0'; // 스케일링 원점을 왼쪽 상단으로 설정
+                    iframe.style.width = imgRect.width * 4 + 'px'; // 스케일링에 맞         게 iframe 크기 조정
+                    iframe.style.height = imgRect.height * 4 + 'px'; // 스케일링에 맞게 iframe 크기 조정
+    
+                    hoverContent.style.position = 'absolute';
+                    hoverContent.style.top = portfolioImg.offsetTop + 'px';
+                    hoverContent.style.left = portfolioImg.offsetLeft + 'px';
+                    hoverContent.style.width = imgRect.width + 'px';
+                    hoverContent.style.height = imgRect.height + 'px';
+                    hoverContent.style.overflow = 'hidden'; // 부모 컨테이너에서 오버플로우 숨기기
+
+                    // hover-content 크기 확대
+                    hoverContent.style.transform = 'scale(1.3)';
+                    hoverContent.style.transformOrigin = 'center center';
+                    hoverContent.style.zIndex = '1050';
+                    hoverContent.style.transition = 'transform 0.3s ease-in-out';
+                    hoverContent.style.borderRadius = '10px';
+
+                    // 설명, 태그, 상세보기 버튼을 포함한 div 추가
+                    const descriptionDiv = document.createElement('div');
+                    descriptionDiv.style.position = 'absolute';
+                    descriptionDiv.style.bottom = '0';
+                    descriptionDiv.style.width = '100%';
+                    descriptionDiv.style.height = '20%';
+                    descriptionDiv.style.backgroundColor = 'rgba(128, 128, 128, 0.8)'; // 회색 배경
+                    descriptionDiv.style.color = 'white';
+                    descriptionDiv.style.padding = '1%';
+                    descriptionDiv.style.display = 'flex';
+                    descriptionDiv.style.flexDirection = 'column';
+                    descriptionDiv.style.justifyContent = 'center';
+                    descriptionDiv.classList.add('descriptionDiv');
+                    descriptionDiv.setAttribute('data-index', index);
+
+                    const descriptionText = document.createElement('div');
+                    descriptionText.innerText = portfolio.portfolioDescription;
+                    descriptionText.style.fontSize = '12px';
+                    descriptionText.style.marginLeft = '2%';
+                    descriptionText.style.display = 'flex';
+                    descriptionText.style.flexDirection = 'column';
+                    descriptionText.style.justifyContent = 'center';
+
+                    const tagsText = document.createElement('div');
+                    tagsText.innerText = displayTags(portfolio.portfolioTags);
+                    tagsText.style.fontSize = '12px';
+                    tagsText.style.marginLeft = '2%';
+                    tagsText.style.display = 'flex';
+                    tagsText.style.flexDirection = 'column';
+                    tagsText.style.justifyContent = 'center';
+
+                    const detailsButton = document.createElement('div');
+                    detailsButton.innerText = 'Full-size';
+                    detailsButton.style.fontSize = '12px';
+                    detailsButton.style.position = 'absolute';
+                    detailsButton.style.right = '5%';
+                    detailsButton.style.top = '50%';
+                    detailsButton.style.transform = 'translateY(-50%)';
+                    detailsButton.style.cursor = 'pointer';
+                    detailsButton.setAttribute('data-index', index);
+
+                    detailsButton.addEventListener('click', function (e) {
+                        const index = e.target.getAttribute('data-index');
+
+                        const hoverContent = document.getElementById(`hover-content-${index}`);
+
+                        if (hoverContent && hoverContent.innerHTML !== '') {
+                            hoverContent.innerHTML = ''; // iframe을 제거하여 내용 초기화
+                            hoverContent.style.transform = 'scale(1)';
+                            hoverContent.style.display = 'none'; // hoverContent 숨기기
+                            const portfolioImg = document.querySelector(`img[data-index="${index}"]`);
+                            if (portfolioImg) {
+                                portfolioImg.style.display = 'block'; // 이미지를 다시 표시
+                            }
+                        }
+
+                        const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
+                        const portfolio = portfolioData[index];
+                        if (portfolio) {
+                            currentPortfolioIndex = index;
+                            loadIframeContent(portfolio, index);
+                        }
+                    });
+
+                    descriptionDiv.appendChild(descriptionText);
+                    descriptionDiv.appendChild(tagsText);
+                    descriptionDiv.appendChild(detailsButton);
+
+                    hoverContent.appendChild(iframe);
+                    hoverContent.appendChild(descriptionDiv);
+                }
+            
+            }
+        }
+    });
+
+
+    portfolioContainer.addEventListener('mouseout', function (e) {
+        console.log("Dsad");
+
+        if(e.target.classList.contains('preview') || e.target.classList.contains('descriptionDiv')){
+
+            const targetElement = e.relatedTarget || e.toElement;
+
+            if (e.target.classList.contains('preview') && targetElement && targetElement.classList.contains('descriptionDiv')) {
+                return; 
+            } 
+
+            if (e.target.classList.contains('descriptionDiv')  && targetElement && targetElement.closest('.descriptionDiv')) {
+                return;
+            }
+
+            const index = e.target.getAttribute('data-index');
+            const hoverContent = document.getElementById(`hover-content-${index}`);
+
+            if (hoverContent && hoverContent.innerHTML !== '') {
+                hoverContent.innerHTML = ''; // iframe을 제거하여 내용 초기화
+                hoverContent.style.transform = 'scale(1)';
+                hoverContent.style.display = 'none'; // hoverContent 숨기기
+            }
+        }
+    });
+
+    // window.addEventListener('resize', function() {
+    //     const iframes = document.querySelectorAll('.hover-content iframe');
+    //     iframes.forEach(function(iframe) {
+    //         const index = iframe.parentElement.getAttribute('id').split('-')[2];
+    //         const portfolioImg = document.querySelector(`img[data-index="${index}"]`);
+    //         if (portfolioImg) {
+    //             const imgRect = portfolioImg.getBoundingClientRect();
+    //             iframe.style.width = imgRect.width * 2 + 'px'; // 스케일링에 맞게 iframe 크기 조정
+    //             iframe.style.height = imgRect.height * 2 + 'px'; // 스케일링에 맞게 iframe 크기 조정
+    //             iframe.parentElement.style.width = imgRect.width + 'px';
+    //             iframe.parentElement.style.height = imgRect.height + 'px';
+    //             iframe.parentElement.style.top = portfolioImg.offsetTop + 'px';
+    //             iframe.parentElement.style.left = portfolioImg.offsetLeft + 'px';
+    //         }
+    //     });
+    // });
+
 
     function loadIframeContent(portfolio, index) {
         const iframe = document.getElementById('modalPortfolioIframe');
@@ -364,9 +452,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('modalCommentMain').insertAdjacentHTML('beforeend', commentElement);
     }
 
-    // window.addEventListener('click', function(e) {
-    //     console.log('Clicked element:', e.target.id);
-    // });
+    window.addEventListener('click', function(e) {
+        console.log('Clicked element:', e.target.id);
+    });
 
     // 모달이 떴을 때 iframe 외부를 클릭하면 닫히는 방식으로 이벤트 핸들러 추가
     document.getElementById('modalPortfolioOverlay').addEventListener('click', function (e) {
@@ -383,7 +471,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // openBtn과 코멘트창이 스크롤시 따라옴
     document.getElementById('modalPortfolioOverlay').addEventListener('scroll', function (e) {
         const scrollTop = this.scrollTop;
+        document.getElementById('modalCommentOpenBtnSection').style.top = scrollTop + 'px';
         document.getElementById('modalCommentSection').style.top = scrollTop + 'px';
+    });
+
+    // // openBtn을 누르면 코멘트창이 나타나고 뒤 배경 불투명도 증가
+    // document.getElementById('modalCommentOpenBtn').addEventListener('click', function (e) {
+    //     document.getElementById('modalCommentSection').classList.add('modal-comment-section-active');
+    //     document.getElementById('modalPortfolioIframe').classList.add('modal-portfolio-iframe-faded');
+    // });
+
+    // closeBtn을 누르면 코멘트창이 사라지고 뒤 배경 불투명도 감소
+    document.getElementById('modalCommentCloseBtn').addEventListener('click', function (e) {
+        document.getElementById('modalCommentSection').classList.remove('modal-comment-section-active');
+        document.getElementById('modalPortfolioIframe').classList.remove('modal-portfolio-iframe-faded');
     });
 
     // 현재의 좋아요 수를 댓글창에 표시
@@ -454,7 +555,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 신고 클릭시 신고하는 이유 물어봄
     document.getElementById('modalOptionsItemReport').addEventListener('click', function (event) {
-        console.log('asdsad');
         window.alert("신고하시는 이유가 무엇인가요?");
     });
 
