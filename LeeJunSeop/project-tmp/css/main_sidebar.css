@@ -135,6 +135,17 @@
     border-bottom: 1px solid #dbdbdb;
 }
 
+.search-item-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #222;
+    background: #ffffff;
+}
+
+
+
+
 @media screen and (max-width:1000px) {
     .base-header button div {
         display: none;
