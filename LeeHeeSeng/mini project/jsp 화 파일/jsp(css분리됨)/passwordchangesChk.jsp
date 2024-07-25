@@ -14,37 +14,7 @@
 	<script src="js/jquery-3.7.1.min.js"></script>
 	<script src="js/bootstrap.bundle.js"></script>
 	<style>
-        /* 컨테이너 스타일 */
-        .container {
-            height: 90vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        /* 카드 스타일 */
-        .card {
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        /* 폰트 스타일 */
-        .text-muted {
-            font-size: 0.8rem;
-        }
-        /* 경고창 위치 마커 스타일 */
-        #liveAlertPlaceholder {
-            justify-content: center;
-            align-items: center;
-            height: 50px;
-            width:auto;
-            text-align: center;
-            padding-top: 90px;
-        }
-	
-	
-	
-	
+ 
 	</style>
 </head>
 <body>
@@ -56,18 +26,19 @@
 		<p class="text-center" >본인확인을 위해서 다시한번  <br>비밀번호를 입력하세요 </p><!-- 회원가입 양식 텍스트 -->
 		<form  action="" id="login-form">
 			<div class="mb-3">
-				비밀번호
-				<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호">
+				<div style="height: 60px; margin-bottom: 50px;">비밀번호
+					<input type="password" class="form-control" id="password" name="password" placeholder="특수문자, 숫자, 영문자 조합의 8자리 이상">
+					<div id="PasswordAlertholder"></div>
+				</div>
+				<div class="d-grid mb-3">
+					<button type="button" class="btn btn-dark" id="ChangePassword">비밀번호변경</button>
+				</div>
+				<div style="text-align: center;">
+					<a href="setting.html" style="color: white;">
+						<button type="button" class="btn border border-dark" >취소
+						</button></a>
+				</div>
 			</div>
-			<div class="d-grid mb-3">
-				<button type="button" class="btn btn-dark" id="ChangePassword">비밀번호변경</button>
-			</div>
-			<div style="text-align: center;">
-				<a href="setting.html" style="color: white;">
-					<button type="button" class="btn border border-dark" >취소
-					</button></a>
-			</div>
-		
 		</form>
 	</div>
 </div>
@@ -76,13 +47,13 @@
     $(()=>{
         const userdata = new Object();
         const apassword = document.querySelector("input[name='password']"); /*비밀번호 선택*/
-        const alertPlaceholder = document.getElementById('liveAlertPlaceholder'); /*경고창 위치 마커 선택*/
+        const alertPlaceholder = document.getElementById('PasswordAlertholder'); /*경고창 위치 마커 선택*/
 
         const appendAlert = (message, type) => {
             const wrapper = document.createElement('div'); /*wrapper선언하고 div만들기*/
 
             wrapper.innerHTML = [  /*wrapper 의 내용물(String 배열) 넣기*/
-                `<div class="alert alert-danger alert-dismissible" role="alert">`, /*div 열고 wrapper 스타일 부트스트랩*/
+                `<div class="alert" role="alert">`, /*div 열고 wrapper 스타일 부트스트랩*/
                 ` <div>${message}</div>`, /*wrapper에들어갈메세지*/
                 '</div>' /*div닫기*/
             ].join(''); /*위내용을 문자열로 바꾸기 */
@@ -92,7 +63,7 @@
 
 
             const alerts = alertPlaceholder.querySelectorAll('.alert');
-            if (alerts.length >= 2) {
+            if (alerts.length >= 1) {
                 alertPlaceholder.removeChild(alerts[0]);
             }
 
