@@ -83,12 +83,10 @@
 .sidebar-content-search-title{
     margin-left:2vh;
 }
-.sidebar-content-searchbar-area{
-    height:3vh;
-    padding-bottom:2vh;
-}
 .sidebar-content-searchbar-area form{
     width:100%;
+    height:5vh;
+    margin-bottom:3vh;
 }
 
 .sidebar-content-search-bar{
@@ -109,8 +107,9 @@
 }
 
 .search-recent-body-list-title{
+    height:4vh;
     margin-left:1vw;
-    height:5vh;
+    margin-top:2vh;
 }
 .search-recent-body-list-title span{
     vertical-align: middle;
@@ -118,7 +117,7 @@
 
 
 .search-recent-body-list{
-    height:80vh;
+    height:76vh;
 }
 
 .search-recent-body-list-empty-text{
