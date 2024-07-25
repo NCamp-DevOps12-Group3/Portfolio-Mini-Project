@@ -27,18 +27,7 @@
             font-size: 0.8rem;
         }
         /* 경고창 위치 마커 스타일 */
-        #liveAlertPlaceholder {
-            
-            /* justify-content: center;
-            align-items: center;
-            height: 50px;
-            text-align: center;
-            padding-top: 90px; */
-            width:auto;
-            padding: 0%;
-            margin: 0%;
-
-        }
+        
         .alert{
             width:auto;
             padding: 0%;
@@ -94,7 +83,7 @@
                 <input type="email" class="form-control" id="email" name="email" placeholder="이메일">
                 <div id="EmailAlertholder"></div>
                 </div>
-                <div style="height: 60px; margin-bottom: 25px;">비밀번호
+                <div style="height: 60px; margin-bottom: 50px;">비밀번호
                 <input type="password" class="form-control" id="password" name="password" placeholder="특수문자, 숫자, 영문자 조합의 8자리 이상">
                 <div id="PasswordAlertholder"></div>
                 </div>
@@ -103,7 +92,7 @@
                 <div id="PasswordChkAlertholder"></div>
                 </div>
                 
-                <div style="height: 60px; margin-bottom: 25px;">
+                <div style="height: 60px; margin-bottom: 40px;">
                 <div class="types" style="text-align: center;">
 
                     <br>
@@ -122,7 +111,7 @@
                 </div>
             </div>
             <div class="d-grid mb-3"><!-- 회원가입 양식 텍스트 보내기버튼 -->
-                <button type="button" class="btn btn-dark" id="signUp">Sign up with email</button>
+                <button type="button" class="btn btn-dark" id="signUp">회원가입</button>
             </div>
         </form>
         
@@ -135,6 +124,7 @@
         // HTML 요소를 선택합니다.
         const aNickname = document.querySelector("input[name='Nickname']"); /*닉네임 선택*/
         const aName = document.querySelector("input[name='Name']"); /*닉네임 선택*/
+        const agender = document.querySelector("input[name='btngender']"); /*닉네임 선택*/        
         const aTel = document.querySelector("input[name='tel']"); /*전화번호 선택*/
         const aemail = document.querySelector("input[name='email']"); /*이메일 선택*/
         const apassword = document.querySelector("input[name='password']"); /*비밀번호 선택*/
@@ -173,16 +163,19 @@
             setTimeout(() => { wrapper.remove();}, 5000); 
         }
 
+        const GenderappendAlert = (message, type) => { 
+            const wrapper = document.createElement('div'); /*wrapper선언하고 div만들기*/
+            wrapper.innerHTML = [  /*wrapper 의 내용물(String 배열) 넣기*/`<div class="alert " role="alert">`, 
+                /*div 열고 wrapper 스타일 부트스트랩*/` <div>${message}</div>`, /*wrapper에들어갈메세지*/'</div>' 
+                /*div닫기*/].join(''); /*위내용을 문자열로 바꾸기 */
+                const alerts = GenderAlertholder.querySelectorAll('.alert');
+                if (alerts.length >= 1) {GenderAlertholder.removeChild(alerts[0]);}
+                GenderAlertholder.append(wrapper); /*Alert holder 에 써 넣기*/            
+            setTimeout(() => { wrapper.remove();}, 5000); 
+        }
 
 
 
-
-
-
-
-
-
-        
         const TelappendAlert = (message, type) => { 
             const wrapper = document.createElement('div'); /*wrapper선언하고 div만들기*/
             wrapper.innerHTML = [  /*wrapper 의 내용물(String 배열) 넣기*/`<div class="alert " role="alert">`, 
@@ -191,6 +184,50 @@
                 const alerts = TelAlertholder.querySelectorAll('.alert');
                 if (alerts.length >= 1) {TelAlertholder.removeChild(alerts[0]);}
                 TelAlertholder.append(wrapper); /*Alert holder 에 써 넣기*/            
+            setTimeout(() => { wrapper.remove();}, 5000); 
+        }
+
+        const EmailappendAlert = (message, type) => { 
+            const wrapper = document.createElement('div'); /*wrapper선언하고 div만들기*/
+            wrapper.innerHTML = [  /*wrapper 의 내용물(String 배열) 넣기*/`<div class="alert " role="alert">`, 
+                /*div 열고 wrapper 스타일 부트스트랩*/` <div>${message}</div>`, /*wrapper에들어갈메세지*/'</div>' 
+                /*div닫기*/].join(''); /*위내용을 문자열로 바꾸기 */
+                const alerts = EmailAlertholder.querySelectorAll('.alert');
+                if (alerts.length >= 1) {EmailAlertholder.removeChild(alerts[0]);}
+                EmailAlertholder.append(wrapper); /*Alert holder 에 써 넣기*/            
+            setTimeout(() => { wrapper.remove();}, 5000); 
+        }
+
+        const PasswordappendAlert = (message, type) => { 
+            const wrapper = document.createElement('div'); /*wrapper선언하고 div만들기*/
+            wrapper.innerHTML = [  /*wrapper 의 내용물(String 배열) 넣기*/`<div class="alert " role="alert">`, 
+                /*div 열고 wrapper 스타일 부트스트랩*/` <div>${message}</div>`, /*wrapper에들어갈메세지*/'</div>' 
+                /*div닫기*/].join(''); /*위내용을 문자열로 바꾸기 */
+                const alerts = PasswordAlertholder.querySelectorAll('.alert');
+                if (alerts.length >= 1) {PasswordAlertholder.removeChild(alerts[0]);}
+                PasswordAlertholder.append(wrapper); /*Alert holder 에 써 넣기*/            
+            setTimeout(() => { wrapper.remove();}, 5000); 
+        }
+
+        const PasswordChkappendAlert = (message, type) => { 
+            const wrapper = document.createElement('div'); /*wrapper선언하고 div만들기*/
+            wrapper.innerHTML = [  /*wrapper 의 내용물(String 배열) 넣기*/`<div class="alert " role="alert">`, 
+                /*div 열고 wrapper 스타일 부트스트랩*/` <div>${message}</div>`, /*wrapper에들어갈메세지*/'</div>' 
+                /*div닫기*/].join(''); /*위내용을 문자열로 바꾸기 */
+                const alerts = PasswordChkAlertholder.querySelectorAll('.alert');
+                if (alerts.length >= 1) {PasswordChkAlertholder.removeChild(alerts[0]);}
+                PasswordChkAlertholder.append(wrapper); /*Alert holder 에 써 넣기*/            
+            setTimeout(() => { wrapper.remove();}, 5000); 
+        }
+
+        const UserappendAlert = (message, type) => { 
+            const wrapper = document.createElement('div'); /*wrapper선언하고 div만들기*/
+            wrapper.innerHTML = [  /*wrapper 의 내용물(String 배열) 넣기*/`<div class="alert " role="alert">`, 
+                /*div 열고 wrapper 스타일 부트스트랩*/` <div>${message}</div>`, /*wrapper에들어갈메세지*/'</div>' 
+                /*div닫기*/].join(''); /*위내용을 문자열로 바꾸기 */
+                const alerts = UserAlertholder.querySelectorAll('.alert');
+                if (alerts.length >= 1) {UserAlertholder.removeChild(alerts[0]);}
+                UserAlertholder.append(wrapper); /*Alert holder 에 써 넣기*/            
             setTimeout(() => { wrapper.remove();}, 5000); 
         }
 
@@ -238,7 +275,7 @@
             const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             
             if (!emailPattern.test(e.target.value)) {
-                appendAlert('올바른 이메일 형식을 입력해주세요.', 'success'); 
+                EmailappendAlert('올바른 이메일 형식을 입력해주세요.', 'success'); 
                 emailValidation = false; 
                 return; 
             } 
@@ -252,7 +289,7 @@
         apassword.addEventListener("blur", (e) => { 
             let reg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*+=-])(?=.*[0-9]).{8,15}$/; 
             if(!reg.test(e.target.value)) { 
-                appendAlert('비밀번호는 특수문자, 숫자, 영문자 조합의 8자리 이상으로 지정하세요.', 'success'); 
+                PasswordappendAlert('비밀번호는 특수문자, 숫자, 영문자 조합의 8자리 이상으로 지정하세요.', 'success'); 
                 passwordValidation = false; 
                 return; 
             } 
@@ -263,7 +300,7 @@
         apasswordchk.addEventListener("blur", (e) => { 
             console.log(e.target.value); 
             if($("#password").val() !== $("#passwordChk").val()) { 
-                appendAlert('비밀번호가 비밀번호확인과 일치하지 않습니다.', 'success'); 
+                PasswordChkappendAlert('비밀번호가 비밀번호확인과 일치하지 않습니다.', 'success'); 
                 passwordChkValidation = false;
                  
                 return; 
@@ -305,7 +342,7 @@
             });
 
             if(genderTypeCtn === 0) {
-                appendAlert('성별 유형을 지정해주세요.', 'success'); 
+                GenderappendAlert('성별 유형을 지정해주세요.', 'success'); 
                 e.preventDefault(); 
                 return; 
             }
@@ -330,19 +367,19 @@
             userdata.email = getemail.value; 
             // 비밀번호 미 입력시
             if($("#password").val() === '') { 
-                appendAlert('비밀번호를 입력하세요', 'success'); 
+                PasswordappendAlert('비밀번호를 입력하세요', 'success'); 
                 e.preventDefault(); 
                 return; 
             } 
             // 비밀번호확인 미 입력시
             if($("#passwordChk").val() === '') { 
-                appendAlert('비밀번호확인을  입력하세요', 'success'); 
+                PasswordChkappendAlert('비밀번호확인을  입력하세요', 'success'); 
                 e.preventDefault(); 
                 return; 
             }
             //비밀번호와 비밀번호확인 불일치시 
             if($("#password").val() !== $("#passwordChk").val()) { 
-                appendAlert('비밀번호가 일치하지 않습니다.', 'success'); 
+                PasswordChkappendAlert('비밀번호가 일치하지 않습니다.', 'success'); 
                 e.preventDefault(); 
                 return; 
             } 
@@ -362,7 +399,7 @@
             });
 
             if(userTypeCtn === 0) {
-                appendAlert('사용자 유형을 지정해주세요.', 'success'); 
+                UserappendAlert('사용자 유형을 지정해주세요.', 'success'); 
                 e.preventDefault(); 
                 return; 
             }
