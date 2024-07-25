@@ -12,10 +12,58 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/darkmode.css">
     <link rel="stylesheet" href="css/modal-main.css">
-    <link rel="stylesheet" href="css/mini_project(company).css">
-    <link rel="stylesheet" href="css/main_sidebar.css">
+    <link rel="stylesheet" href="css/add-main.css">
+    <link rel="stylesheet" href="css/mini_project.css">
+
 
     <style>
+        .sidebar {
+            position: fixed;
+            width: 15vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            border-right: 1px solid #dbdbdb;
+        }
+
+        .sidebar-icon {
+            padding: 0px 0px 2vh;
+            margin-left: 2vw;
+        }
+
+        .sidebar-icon .sidebar-icon-text {
+            font-size: 2em;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        .sidebar a {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+
+        .sidebar img {
+            width: 30px;
+            height: auto;
+        }
+
+        .sidebar-list div {
+            display: inline-block;
+            margin-left: 10px;
+
+        }
+
+        .sidebar i {
+            font-size: 1.5em;
+        }
 
         .content {
             padding: 20px;
@@ -24,7 +72,7 @@
             height: 100vh;
 
         }
-
+        
         /* 메인화면 프로필 영역 */
         .top-line-personal-info {
             margin-right: 1vw;
@@ -59,7 +107,6 @@
             font-size: 0.7em;
             padding: 1px;
         }
-
         /* .base-sector{
 
         } */
@@ -110,6 +157,40 @@
             margin-left: 10px;
         }
 
+        @media screen and (max-width:900px) {
+            .base-header button div {
+                display: none;
+            }
+
+            .sidebar div {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width:770px) {
+            .sidebar {
+                width: 50px;
+            }
+
+            .sidebar a {
+                padding: 10px 10px;
+
+            }
+
+            .sidebar div {
+                display: none;
+            }
+
+            .content {
+                padding: 20px;
+                margin-top: 0px;
+            }
+
+            .card-content-item {
+                margin: 2vh
+            }
+        }
+
         .notification-dropdown {
             transition: background-color 0.3s, border-color 0.3s;
         }
@@ -117,20 +198,10 @@
 </head>
 
 <body>
-
-    <div class="modal fade" id="CompanyPortFolioModal" tabindex="-1" aria-labelledby="CompanyPortFolioModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <iframe id="imageIframe" frameborder="0"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="container-content d-flex">
-        <div class="sidebar-content">
+
+        <!--사이드바-->
+        <div class="sidebar">
             <div class="sidebar-icon">
                 <div class="sidebar-icon-text">Poro</div>
             </div>
@@ -146,14 +217,6 @@
                 <a href="userfeeds.html" class="nav-link" data-page="userfeeds.html">
                     <i class="bi bi-person-circle"></i>
                     <div>내 프로필</div>
-                </a>
-                <a href="mini_project.html" class="nav-link" data-page="mini_project.html">
-                    <i class="bi bi-card-list"></i>
-                    <div>개인 포트폴리오</div>
-                </a>
-                <a href="mini_project(company).html" class="nav-link" data-page="mini_project(company).html">
-                    <i class="bi bi-building"></i>
-                    <div>기업 채용</div>
                 </a>
                 <a class="nav-link" id="uploadWindowBtn">
                     <i class="bi bi-upload"></i>
@@ -182,28 +245,31 @@
                     <i class="bi bi-gear"></i>
                     <div>설정</div>
                 </a>
-
+                <a href="#">..</a>
             </div>
         </div>
 
+        <!--콘텐츠-->
         <div class="content d-flex flex-column justify-content-start" id="main-content">
-            <div class="top-line-list d-flex justify-content-end">
-                <!-- <div class="base-header d-flex justify-content-center align-items-center">
+
+            <!--콘텐츠 헤더-->
+            <div class="top-line-list d-flex justify-content-between">
+                <div class="base-header d-flex justify-content-center align-items-center">
                     <div class="btn-group btn-group-lg" role="group" aria-label="Basic example" id="mainTopLineBtnSet">
                         <button type="button" class="btn btn-outline-dark" id="baseViewAllBtn">
                             <i class="bi bi-collection"></i>
                             <div>전체보기</div>
                         </button>
-                        <button type="button" class="btn btn-outline-dark" id="basePersonalBtn">
+                        <button type="button" class="btn btn-dark" id="basePersonalBtn">
                             <i class="bi bi-card-list"></i>
                             <div>개인 포트폴리오</div>
                         </button>
-                        <button type="button" class="btn btn-dark" id="baseCompanyBtn">
+                        <button type="button" class="btn btn-outline-dark" id="baseCompanyBtn">
                             <i class="bi bi-building"></i>
                             <div>기업 채용</div>
                         </button>
                     </div>
-                </div> -->
+                </div>
                 <div class="top-line-personal-info d-flex justify-content-start align-items-center">
                     <img src="img/home.png" alt="">
                     <div class="top-line-personal-info-identifier d-flex flex-column justify-content-center">
@@ -213,287 +279,17 @@
                 </div>
             </div>
 
-            <ul class="container">
-                <li class="item">
-                    <a class="company com1">
-                        <span class="logo">
-                            <img src="img/이모티콘/3.png" alt="">
-                        </span>
-                        <strong class="tit">이카운트 2024년 신입, 경력 개발자 공개채용</strong>
-                        <span class="corp">(주)이카운트</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                서울 구로구 /
-                            </li>
-                            <li class="company_local">
-                                신입/경력 ·
-                            </li>
-                            <li class="company_local">
-                                학력무관
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">D-5</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a class="company com2">
-                        <span class="logo">
-                            <img src="img/이모티콘/4.png" alt="">
-                        </span>
-                        <strong class="tit">2024년 각 부문 신입 및 경력 채용</strong>
-                        <span class="corp">(주)디지털프론티어</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                경기전체 외 /
-                            </li>
-                            <li class="company_local">
-                                신입/경력 ·
-                            </li>
-                            <li class="company_local">
-                                초대졸
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">D-5</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a class="company com1">
-                        <span class="logo">
-                            <img src="img/이모티콘/5.jpg" alt="">
-                        </span>
-                        <strong class="tit">하반기 공채(신입&경력)</strong>
-                        <span class="corp">토마토그룹</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                서울전체 외 /
-                            </li>
-                            <li class="company_local">
-                                신입/경력 ·
-                            </li>
-                            <li class="company_local">
-                                대졸
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">D-5</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a class="company com2">
-                        <span class="logo">
-                            <img src="img/이모티콘/6.png" alt="">
-                        </span>
-                        <strong class="tit">웹개발자(PHP/JAVA/프론트) 경력</strong>
-                        <span class="corp">(주)캐럿글로벌</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                서울전체 외 /
-                            </li>
-                            <li class="company_local">
-                                2년 ·
-                            </li>
-                            <li class="company_local">
-                                초대졸
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">~07.28(일)</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a class="company com1">
-                        <span class="logo">
-                            <img src="img/이모티콘/7.png" alt="">
-                        </span>
-                        <strong class="tit">경력직 채용 (서울/대구)</strong>
-                        <span class="corp">주식회사 리만코리아</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                서울전체 외 /
-                            </li>
-                            <li class="company_local">
-                                경력 ·
-                            </li>
-                            <li class="company_local">
-                                학력무관
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">~07.23(화)</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a class="company com2">
-                        <span class="logo">
-                            <img src="img/이모티콘/8.png" alt="">
-                        </span>
-                        <strong class="tit">[코스닥 상장사] 신입 및 경력 채용</strong>
-                        <span class="corp">이에이트 주식회사</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                서울 송파구 외 /
-                            </li>
-                            <li class="company_local">
-                                신입/경력 ·
-                            </li>
-                            <li class="company_local">
-                                학력무관
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">~09.30(월)</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a class="company com1">
-                        <span class="logo">
-                            <img src="img/이모티콘/9.png" alt="">
-                        </span>
-                        <strong class="tit">[웹개발] 제노소프트(주) 웹 파트 개발자 채용 공고</strong>
-                        <span class="corp">제노소프트(주)</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                서울 금천구 외 /
-                            </li>
-                            <li class="company_local">
-                                신입/경력 ·
-                            </li>
-                            <li class="company_local">
-                                고졸
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">~07.27.(토)</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a class="company com2">
-                        <span class="logo">
-                            <img src="img/이모티콘/10.jpg" alt="">
-                        </span>
-                        <strong class="tit">2024년도 분야별 인원모집</strong>
-                        <span class="corp">유비벨록스(주)</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                서울전체 외 /
-                            </li>
-                            <li class="company_local">
-                                신입/경력 ·
-                            </li>
-                            <li class="company_local">
-                                고졸
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">~07.21(일)</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a class="company com1">
-                        <span class="logo">
-                            <img src="img/이모티콘/11.png" alt="">
-                        </span>
-                        <strong class="tit">신입사원 공개모집</strong>
-                        <span class="corp">(주) 멤로</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                서울 영등포구 /
-                            </li>
-                            <li class="company_local">
-                                경력무관 ·
-                            </li>
-                            <li class="company_local">
-                                대졸
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">~07.21(일)</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a class="company com2">
-                        <span class="logo">
-                            <img src="img/이모티콘/12.png" alt="">
-                        </span>
-                        <strong class="tit">H&iruja 신입/경력 채용</strong>
-                        <span class="corp">(주)에이치앤이루자</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                충남전체 /
-                            </li>
-                            <li class="company_local">
-                                신입/경력 ·
-                            </li>
-                            <li class="company_local">
-                                고졸
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">~07.15(월)</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a class="company com1">
-                        <span class="logo">
-                            <img src="img/이모티콘/13.png" alt="">
-                        </span>
-                        <strong class="tit">각 부문별 채용</strong>
-                        <span class="corp">제닉스(주)</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                충북전체 /
-                            </li>
-                            <li class="company_local">
-                                신입/경력 ·
-                            </li>
-                            <li class="company_local">
-                                학력무관
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">D-7</span>
-                    </a>
-                </li>
-                <li class="item">
-                    <a class="company com2">
-                        <span class="logo">
-                            <img src="img/이모티콘/14.png" alt="">
-                        </span>
-                        <strong class="tit">Kotlin을 이용한 Spring Boot 백엔드 서비스 개발</strong>
-                        <span class="corp">(주)플렉티</span>
-                        <ul class="desc">
-                            <li>
-                                <span><img src="img/이모티콘/1.png" alt=""></span>
-                                서울 마포구 /
-                            </li>
-                            <li class="company_local">
-                                신입 ·
-                            </li>
-                            <li class="company_local">
-                                초대졸
-                                <span class="above"><img src="img/이모티콘/2.png" alt=""></span>
-                            </li>
-                        </ul>
-                        <span class="date">채용시</span>
-                    </a>
-                </li>
-            </ul>
+            <!--콘텐츠 메인 콘테이너-->
+            <div class="container" id="miniProjectContainer">
+                <!--로컬 스토리지 파일을 동적으로 로드-->
 
+            </div>
         </div>
     </div>
+    </div>
+
+
+
 
     <!--업로드 모달-->
     <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
@@ -530,6 +326,8 @@
             </div>
         </div>
     </div>
+
+
 
 
     <!-- 상세보기 모달 -->
@@ -727,7 +525,7 @@
     <script src="js/jquery-3.7.1.min.js"></script>
 
     <script src="js/darkmode.js"></script>
-    <script src="js/modal-main.js"></script>
+    <script src="js/modal-mini-project.js"></script>
     <script>
         $(() => {
             // Load dark mode state
@@ -740,28 +538,22 @@
                 saveDarkModeState(isDarkMode);
             });
 
-            // $("#baseViewAllBtn").on("click", function () {
-            //     window.location.href = "main.html";
-            // });
-            // $("#basePersonalBtn").on("click", function () {
-            //     window.location.href = "mini_project.html";
-            // });
-            // $("#baseCompanyBtn").on("click", function () {
-            //     window.location.href = "mini_project(company).html";
-            // });
+            $("#baseViewAllBtn").on("click", function () {
+                window.location.href = "main.html";
+            });
+            $("#basePersonalBtn").on("click", function () {
+                window.location.href = "mini_project.html";
+            });
+            $("#baseCompanyBtn").on("click", function () {
+                window.location.href = "mini_project(company).html";
+            });
 
             // 업로드 버튼 이벤트
             $('#uploadWindowBtn').on('click', function () {
                 $('#uploadModal').modal('show');
             });
         })
-
     </script>
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="js/mini_project(company).js"></script>
 </body>
 
 </html>
