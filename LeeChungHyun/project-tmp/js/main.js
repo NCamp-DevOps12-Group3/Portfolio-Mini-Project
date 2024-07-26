@@ -1,4 +1,4 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
 
   function showModal(imageUrl) {
       var iframe = $('#imageIframe');
@@ -36,17 +36,5 @@ $(document).ready(function () {
       var imageUrl = 'img/웹홈페이지 더미/2.jpg'; // 이미지 URL 설정
       showModal(imageUrl);
   });
-
-  $('#CompanyPortFolioModal').on('hidden.bs.modal', function () {
-      // 모달이 숨겨질 때 iframe의 src를 초기화
-      $('#imageIframe').attr('src', '');
-  });
-
-    const bookmarkIcon = document.querySelector('.recommend-item-bookmark svg');
-    const bookmarkPath = bookmarkIcon.querySelector('.bookmark-path');
-
-    bookmarkIcon.addEventListener('click', function() {
-        bookmarkPath.classList.toggle('filled');
-    });
 
 });

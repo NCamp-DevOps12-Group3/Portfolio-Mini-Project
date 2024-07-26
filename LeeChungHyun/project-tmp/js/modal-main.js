@@ -574,4 +574,5 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('modalOptionsOverlay').classList.remove('modal-options-active');
         loadPortfolios();
     }
+
 });

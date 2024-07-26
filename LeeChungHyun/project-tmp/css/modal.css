@@ -1,7 +1,7 @@
 .modal-portfolio-overlay {
     position: fixed;
     top: 0;
-    display: none;
+    /* display: none; */
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
@@ -173,7 +173,7 @@ p {
 
 .modal-comment {
     width: 95%;
-    margin: 10px;
+    margin: 5px;
     display: flex;
 }
 
@@ -187,6 +187,13 @@ p {
     border-radius: 50%;
     background-size: cover;
     flex-shrink: 0;
+}
+
+.modal-comment.reply{
+    width: 95%;
+    margin: 5px;
+    display:none;
+    margin-left: 55px;
 }
 
 .modal-comment-main {
@@ -204,7 +211,7 @@ p {
     display: flex;
     justify-content: left;
     align-items: center;
-    margin-left: 5%;
+    margin-left: 5px;
     margin-right: 1px;
 }
 
@@ -212,10 +219,9 @@ p {
     display: flex;
     font-size: 14px;
     justify-content: left;
-    margin-left: 5%;
+    margin-left: 9px;
     margin-right: 1px;
     flex-wrap: wrap;
-    white-space: pre-wrap;
 }
 
 .modal-comment-closeBtn-section {
