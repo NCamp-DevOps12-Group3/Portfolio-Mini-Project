@@ -6,6 +6,11 @@
     left: 0;
     padding-top: 20px;
     border-right: 1px solid #dbdbdb;
+    /* transition: width, 1s; */
+}
+
+.sidebar-content.active{
+    width:15vw;
 }
 
 .sidebar-icon-text{
@@ -68,18 +73,17 @@
     width:20vw;
     border-right: 1px solid #dbdbdb;
     box-shadow: 1px 0px 10px 1px #eeeeee;
+    border-radius: 0 20px 20px 0;
     z-index: 1000;
     transform:translateX(-5vw);
-    opacity: 0;
-    transition: transform, 1s;
+    transition: transform 1s ease 0.1s, visibility 0.5s;
     
 }
-
 .sidebar-content-search.active{
     visibility: visible;
     transform:translateX(0);
-    opacity: 1;
 }
+
 
 
 .sidebar-content-search-top{

@@ -7,10 +7,14 @@ $(()=>{
         // }else{
         //     searchTap.hide();
         // }
-        if(!searchTap.hasClass("active"))
+        if(!searchTap.hasClass("active")){
             searchTap.addClass("active");
-        else
+            $(".sidebar-content").addClass("active");
+        }
+        else{
             searchTap.removeClass("active");
+            $(".sidebar-content").removeClass("active");
+        }
     });
 
     // 지우기 버튼 활성화
