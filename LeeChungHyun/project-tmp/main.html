@@ -8,8 +8,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
@@ -190,6 +188,105 @@
             stroke: none;
             /* 원하는 색상으로 설정 */
         }
+
+        /* styles.css */
+
+        .modal-trigger:hover {
+            background-color: #0056b3;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 2% auto;
+            padding: 50px;
+            border: 1px solid #888;
+            width: 95%;
+            max-width: 1200px;
+            height: 75%;
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+            border-radius: 10px;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .step {
+            display: none;
+        }
+
+        #step1 {
+            display: block;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 70vh;
+            /* 화면 높이의 70%로 설정 */
+            border: none;
+            overflow-y: auto;
+            /* 스크롤 가능하도록 설정 */
+        }
+
+        textarea {
+            width: 100%;
+            font-size: 18px;
+            /* 폰트 크기 조정 */
+            padding: 10px;
+            /* 패딩 추가 */
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            /* 테두리를 포함한 크기 설정 */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            /* 수직 크기 조정 가능 */
+            min-height: 100px;
+            /* 최소 높이 설정 */
+        }
+
+        .modal-button {
+            width: 30%;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 
@@ -220,7 +317,7 @@
                     <i class="bi bi-building"></i>
                     <div>기업 채용</div>
                 </a>
-                <a class="nav-link" id="uploadWindowBtn">
+                <a class="modal-trigger" id="openModal">
                     <i class="bi bi-upload"></i>
                     <div>업로드</div>
                 </a>
@@ -440,37 +537,29 @@
     </div>
 
     <!--업로드 모달-->
-    <div class=" modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="uploadModalLabel">포트폴리오 업로드</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="uploadForm" autocomplete="off">
-                        <div class="upload-section">
-                            <label for="uploadCodeFiles">HTML, CSS, JS 파일만 업로드 가능합니다.</label>
-                            <input type="file" class="form-control" id="uploadCodeFiles" accept=".html,.css,.js"
-                                multiple required>
-                        </div>
-                        <div class="upload-section">
-                            <label for="uploadThumbnailImage">본인만의 썸네일 이미지를 올려주세요.</label>
-                            <input type="file" class="form-control" id="uploadThumbnailImage" accept="image/*" required>
-                            <img id="uploadThumbnailPreview" class="thumbnail-preview" src="#" alt="Thumbnail Preview">
-                        </div>
-                        <div class="upload-section">
-                            <label for="uploadPortfolioDescription">포트폴리오 설명</label>
-                            <textarea class="form-control" id="uploadPortfolioDescription" rows="3" required></textarea>
-                        </div>
-                        <div class="upload-section">
-                            <label for="uploadPortfolioTags">태그</label>
-                            <input type="text" class="form-control" id="uploadPortfolioTags"
-                                placeholder="태그를 쉼표로 구분하여 입력하세요" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">업로드</button>
-                    </form>
-                </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModal">&times;</span>
+            <div id="step1" class="step">
+                <h2>Step 1: 포트폴리오 Zip 파일로 올려주세요.</h2>
+                <input type="file" id="zipFile" accept=".zip">
+                <button id="toStep2" class="modal-button">다음</button>
+            </div>
+            <div id="step2" class="step">
+                <h2>Step 2: index.html 프리뷰/ 썸네일 추가(선택)</h2>
+                <iframe id="preview"></iframe>
+                <input type="file" id="thumbnailFile" accept="image/*">
+                <button id="backToStep1" class="modal-button">이전</button>
+                <button id="toStep3" class="modal-button">다음</button>
+            </div>
+            <div id="step3" class="step">
+                <h2>Step 3: 설명, 태그 추가</h2><br>
+                <h3>설명</h3>
+                <textarea id="description" placeholder="Enter description" class="modal-textarea"></textarea>
+                <h3>태그</h3>
+                <textarea id="tags" placeholder="Enter tags" class="modal-textarea"></textarea>
+                <button id="backToStep2" class="modal-button">이전</button>
+                <button id="submit" class="modal-button">업로드</button>
             </div>
         </div>
     </div>
@@ -672,11 +761,7 @@
 
 
     <!-- 스크립트 -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
@@ -712,6 +797,139 @@
 
         })
 
+        document.addEventListener('DOMContentLoaded', () => {
+            const openModalButton = document.getElementById('openModal');
+            const closeModalButton = document.getElementById('closeModal');
+            const modal = document.getElementById('modal');
+            const steps = document.querySelectorAll('.step');
+            const toStep2Button = document.getElementById('toStep2');
+            const toStep3Button = document.getElementById('toStep3');
+            const backToStep1Button = document.getElementById('backToStep1'); // step2에서 이전으로 가는 버튼
+            const backToStep2Button = document.getElementById('backToStep2'); // step3에서 이전으로 가는 버튼
+            const submitButton = document.getElementById('submit');
+            const zipFileInput = document.getElementById('zipFile');
+            const previewIframe = document.getElementById('preview');
+
+            let currentStep = 0;
+            let fileMap = {};
+
+            openModalButton.addEventListener('click', () => {
+                modal.style.display = 'block';
+            });
+
+            closeModalButton.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            function showStep(stepIndex) {
+                steps.forEach((step, index) => {
+                    step.style.display = index === stepIndex ? 'block' : 'none';
+                });
+            }
+
+            toStep2Button.addEventListener('click', () => {
+                currentStep = 1;
+                showStep(currentStep);
+            });
+
+            backToStep1Button.addEventListener('click', () => {
+                currentStep = 0;
+                showStep(currentStep);
+            });
+
+            toStep3Button.addEventListener('click', () => {
+                currentStep = 2;
+                showStep(currentStep);
+            });
+
+            backToStep2Button.addEventListener('click', () => {
+                currentStep = 1;
+                showStep(currentStep);
+            });
+
+            submitButton.addEventListener('click', () => {
+                alert('Files Submitted!');
+                modal.style.display = 'none';
+            });
+
+            zipFileInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (file && file.name.endsWith('.zip')) {
+                    const zip = new JSZip();
+                    zip.loadAsync(file)
+                        .then((zipContent) => {
+                            fileMap = {};
+                            const promises = [];
+
+                            zipContent.forEach((relativePath, zipEntry) => {
+                                if (!zipEntry.dir) {
+                                    promises.push(zipEntry.async('blob').then((content) => {
+                                        const url = URL.createObjectURL(content);
+                                        fileMap[relativePath] = url;
+                                    }));
+                                }
+                            });
+
+                            Promise.all(promises).then(() => {
+                                if (fileMap['index.html']) {
+                                    const iframeDoc = previewIframe.contentDocument || previewIframe.contentWindow.document;
+                                    iframeDoc.open();
+                                    iframeDoc.write('<!DOCTYPE html><html><head><base href="/" /></head><body></body></html>');
+                                    iframeDoc.close();
+
+                                    const base = iframeDoc.createElement('base');
+                                    base.href = fileMap['index.html'];
+                                    iframeDoc.head.appendChild(base);
+
+                                    Object.keys(fileMap).forEach((path) => {
+                                        if (path.endsWith('.css')) {
+                                            const link = iframeDoc.createElement('link');
+                                            link.rel = 'stylesheet';
+                                            link.href = fileMap[path];
+                                            iframeDoc.head.appendChild(link);
+                                        } else if (path.endsWith('.js')) {
+                                            const script = iframeDoc.createElement('script');
+                                            script.src = fileMap[path];
+                                            iframeDoc.body.appendChild(script);
+                                        }
+                                    });
+
+                                    fetch(fileMap['index.html']).then(response => response.text()).then(html => {
+                                        // Replace image sources with blob URLs
+                                        const parser = new DOMParser();
+                                        const doc = parser.parseFromString(html, 'text/html');
+                                        doc.querySelectorAll('img').forEach(img => {
+                                            const src = img.getAttribute('src');
+                                            if (fileMap[src]) {
+                                                img.setAttribute('src', fileMap[src]);
+                                            }
+                                        });
+                                        iframeDoc.body.innerHTML = doc.documentElement.innerHTML;
+                                    });
+                                } else {
+                                    alert('index.html file not found in the zip.');
+                                }
+                            });
+                        })
+                        .catch((error) => {
+                            console.error('Error reading zip file:', error);
+                            alert('Failed to read zip file');
+                        });
+                } else {
+                    alert('Please upload a valid zip file.');
+                }
+            });
+
+            showStep(currentStep);
+        });
+
+
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -719,9 +937,6 @@
     <script src="js/main.js"></script>
     <script src="js/modal-main.js"></script>
 
-
-
-</body>
 
 </body>
 
