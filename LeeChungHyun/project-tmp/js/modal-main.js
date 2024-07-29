@@ -22,112 +22,112 @@ document.addEventListener('DOMContentLoaded', function () {
     //     });
     // });
 
-    // 업로드 모달에서 썸네일 이미지가 올라갔을때 (change) 실행되는 콜백
-    document.getElementById('uploadThumbnailImage').addEventListener('change', function () {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            const upload_thumbnailPreview = document.getElementById('uploadThumbnailPreview');
-            upload_thumbnailPreview.src = e.target.result;
-            upload_thumbnailPreview.style.display = 'block';
-        };
-        reader.readAsDataURL(this.files[0]);
-    });
+    // // 업로드 모달에서 썸네일 이미지가 올라갔을때 (change) 실행되는 콜백
+    // document.getElementById('uploadThumbnailImage').addEventListener('change', function () {
+    //     const reader = new FileReader();
+    //     reader.onload = function (e) {
+    //         const upload_thumbnailPreview = document.getElementById('uploadThumbnailPreview');
+    //         upload_thumbnailPreview.src = e.target.result;
+    //         upload_thumbnailPreview.style.display = 'block';
+    //     };
+    //     reader.readAsDataURL(this.files[0]);
+    // });
 
-    $('#uploadModal').on('hidden.bs.modal', function () {
-        // 폼을 초기화
-        $('#uploadForm')[0].reset();
-        // 썸네일 미리보기도 초기화
-        const thumbnailPreview = document.getElementById('uploadThumbnailPreview');
-        thumbnailPreview.src = '';
-        thumbnailPreview.style.display = 'none';
-    }); 
+    // $('#uploadModal').on('hidden.bs.modal', function () {
+    //     // 폼을 초기화
+    //     $('#uploadForm')[0].reset();
+    //     // 썸네일 미리보기도 초기화
+    //     const thumbnailPreview = document.getElementById('uploadThumbnailPreview');
+    //     thumbnailPreview.src = '';
+    //     thumbnailPreview.style.display = 'none';
+    // }); 
 
-    // 업로드 버튼 클릭(submit)시 실행되는 콜백
-    document.getElementById('uploadForm').addEventListener('submit', function (e) {
+    // // 업로드 버튼 클릭(submit)시 실행되는 콜백
+    // document.getElementById('uploadForm').addEventListener('submit', function (e) {
 
-        e.preventDefault();
+    //     e.preventDefault();
 
-        // 실제 로컬 스토리지 저장 형태는 [{...}, {...}, {...}] 형태
-        const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
+    //     // 실제 로컬 스토리지 저장 형태는 [{...}, {...}, {...}] 형태
+    //     const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
 
-        // 포트폴리오 데이터 형식 지정
-        // html, css, js, 썸네일 이미지, 소개글, 태그, 댓글
-        const newPortfolio = {
-            htmlContent: '',
-            cssContent: '',
-            jsContent: '',
-            thumbnailImage: '',
-            portfolioDescription: document.getElementById('uploadPortfolioDescription').value,
-            portfolioTags: document.getElementById('uploadPortfolioTags').value,
-            comments: []
-        };
+    //     // 포트폴리오 데이터 형식 지정
+    //     // html, css, js, 썸네일 이미지, 소개글, 태그, 댓글
+    //     const newPortfolio = {
+    //         htmlContent: '',
+    //         cssContent: '',
+    //         jsContent: '',
+    //         thumbnailImage: '',
+    //         portfolioDescription: document.getElementById('uploadPortfolioDescription').value,
+    //         portfolioTags: document.getElementById('uploadPortfolioTags').value,
+    //         comments: []
+    //     };
 
-        // FileReader 객체 생성
-        const thumbnailReader = new FileReader();
+    //     // FileReader 객체 생성
+    //     const thumbnailReader = new FileReader();
 
-        // thumbnailReader의 onload 이벤트시 콜백함수 선언
-        thumbnailReader.onload = function (e) {
-            newPortfolio.thumbnailImage = e.target.result;
+    //     // thumbnailReader의 onload 이벤트시 콜백함수 선언
+    //     thumbnailReader.onload = function (e) {
+    //         newPortfolio.thumbnailImage = e.target.result;
 
-            const files = document.getElementById('uploadCodeFiles').files;
-            const fileReaders = [];
+    //         const files = document.getElementById('uploadCodeFiles').files;
+    //         const fileReaders = [];
 
-            const htmlFiles = [];
-            const cssFiles = [];
-            const jsFiles = [];
+    //         const htmlFiles = [];
+    //         const cssFiles = [];
+    //         const jsFiles = [];
 
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                if (file.name.endsWith('.html')) {
-                    htmlFiles.push(file);
-                } else if (file.name.endsWith('.css')) {
-                    cssFiles.push(file);
-                } else if (file.name.endsWith('.js')) {
-                    jsFiles.push(file);
-                }
-            }
+    //         for (let i = 0; i < files.length; i++) {
+    //             const file = files[i];
+    //             if (file.name.endsWith('.html')) {
+    //                 htmlFiles.push(file);
+    //             } else if (file.name.endsWith('.css')) {
+    //                 cssFiles.push(file);
+    //             } else if (file.name.endsWith('.js')) {
+    //                 jsFiles.push(file);
+    //             }
+    //         }
 
-            const orderedFiles = htmlFiles.concat(cssFiles, jsFiles);
+    //         const orderedFiles = htmlFiles.concat(cssFiles, jsFiles);
 
-            orderedFiles.forEach(function (file) {
-                const reader = new FileReader();
+    //         orderedFiles.forEach(function (file) {
+    //             const reader = new FileReader();
 
-                const promise = new Promise(function (resolve, reject) {
-                    reader.onload = function (e) {
-                        if (file.name.endsWith('.html')) {
-                            newPortfolio.htmlContent = e.target.result;
-                        } else if (file.name.endsWith('.css')) {
-                            newPortfolio.cssContent = e.target.result;
-                        } else if (file.name.endsWith('.js')) {
-                            newPortfolio.jsContent = e.target.result;
-                        }
-                        resolve();
-                    };
+    //             const promise = new Promise(function (resolve, reject) {
+    //                 reader.onload = function (e) {
+    //                     if (file.name.endsWith('.html')) {
+    //                         newPortfolio.htmlContent = e.target.result;
+    //                     } else if (file.name.endsWith('.css')) {
+    //                         newPortfolio.cssContent = e.target.result;
+    //                     } else if (file.name.endsWith('.js')) {
+    //                         newPortfolio.jsContent = e.target.result;
+    //                     }
+    //                     resolve();
+    //                 };
 
-                    reader.onerror = function (e) {
-                        reject(e);
-                    };
-                });
+    //                 reader.onerror = function (e) {
+    //                     reject(e);
+    //                 };
+    //             });
 
-                reader.readAsText(file);
-                fileReaders.push(promise);
-            });
+    //             reader.readAsText(file);
+    //             fileReaders.push(promise);
+    //         });
 
-            Promise.all(fileReaders).then(function () {
-                portfolioData.push(newPortfolio);
-                localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
-                alert('대기열에 등록되었습니다! 감사합니다.');
-                $('#uploadModal').modal('hide');
-                document.getElementById('uploadForm').reset();
-                document.getElementById('uploadThumbnailPreview').style.display = 'none';
-                loadPortfolios();
-            }).catch(function (error) {
-                console.error('파일 읽기 중 오류 발생:', error);
-            });
-        };
+    //         Promise.all(fileReaders).then(function () {
+    //             portfolioData.push(newPortfolio);
+    //             localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
+    //             alert('대기열에 등록되었습니다! 감사합니다.');
+    //             $('#uploadModal').modal('hide');
+    //             document.getElementById('uploadForm').reset();
+    //             document.getElementById('uploadThumbnailPreview').style.display = 'none';
+    //             loadPortfolios();
+    //         }).catch(function (error) {
+    //             console.error('파일 읽기 중 오류 발생:', error);
+    //         });
+    //     };
 
-        thumbnailReader.readAsDataURL(document.getElementById('uploadThumbnailImage').files[0]);
-    });
+    //     thumbnailReader.readAsDataURL(document.getElementById('uploadThumbnailImage').files[0]);
+    // });
 
     function loadPortfolios() {
         const portfolioData = JSON.parse(localStorage.getItem('portfolioData') || '[]');
