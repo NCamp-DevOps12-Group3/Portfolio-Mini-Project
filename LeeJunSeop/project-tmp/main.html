@@ -32,7 +32,7 @@
         } */
 
         /* 메인화면 프로필 영역 */
-        .top-line-personal-info {
+        /* .top-line-personal-info {
             margin-right: 1vw;
         }
 
@@ -64,7 +64,7 @@
         .top-line-personal-info-identifier div:last-child {
             font-size: 0.7em;
             padding: 1px;
-        }
+        } */
 
         /* .base-sector{
 
@@ -197,15 +197,22 @@
                             <div class="form-control sidebar-content-search-bar d-flex align-items-center">
                                 <div class="sidebar-content-search-bar-icon"><i class="bi bi-search"></i></div>    
                                 <input type="text" placeholder="검색" id="sidebar-search-input" class="no-border-input sidebar-search-input">
+                                <div class="sidebar-content-search-delete-icon"><i class="bi bi-x-circle"></i></div> 
                             </div>
                         </form>
                     </div>
                     <div class="search-recent-body">
-                        <div class="search-recent-body-list-title d-flex align-items-center">
-                            <span class="h5">최근 검색 항목</span>
+                        <div class="search-item-profile d-flex flex-column justify-content-start">
+                            
+                            
                         </div>
-                        <div class="search-recent-body-list d-flex justify-content-center align-items-center">
-                            <span class="search-recent-body-list-empty-text">최근 검색 내역 없음.</span>
+                        <div class="search-recent-body-list-empty">
+                            <div class="search-recent-body-list-title d-flex align-items-center">
+                                <span class="h5">최근 검색 항목</span>
+                            </div>
+                            <div class="search-recent-body-list d-flex justify-content-center align-items-center">
+                                <span class="search-recent-body-list-empty-text">최근 검색 내역 없음</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -821,6 +828,10 @@
                 $('#uploadWindowBtn').on('click', function () {
                     $('#uploadModal').modal('show');
                 });
+
+
+
+                
             })
 
         </script>

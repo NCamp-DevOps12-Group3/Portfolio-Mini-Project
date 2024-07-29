@@ -6,6 +6,11 @@
     left: 0;
     padding-top: 20px;
     border-right: 1px solid #dbdbdb;
+    /* transition: width, 1s; */
+}
+
+.sidebar-content.active{
+    width:15vw;
 }
 
 .sidebar-icon-text{
@@ -59,18 +64,27 @@
     font-size: 1.5em;
 }
 
-
-
 .sidebar-content-search{
-    display:none;
+    /* display:none; */
+    visibility: hidden;
     position: fixed;
     background-color: #fff; 
     margin-left:15vw;
     width:20vw;
     border-right: 1px solid #dbdbdb;
     box-shadow: 1px 0px 10px 1px #eeeeee;
-    z-index:1000;   
+    border-radius: 0 20px 20px 0;
+    z-index: 1000;
+    transform:translateX(-5vw);
+    transition: transform 1s ease 0.1s, visibility 0.5s;
+    
 }
+.sidebar-content-search.active{
+    visibility: visible;
+    transform:translateX(0);
+}
+
+
 
 .sidebar-content-search-top{
     height:10vh;
@@ -83,12 +97,10 @@
 .sidebar-content-search-title{
     margin-left:2vh;
 }
-.sidebar-content-searchbar-area{
-    height:3vh;
-    padding-bottom:2vh;
-}
 .sidebar-content-searchbar-area form{
     width:100%;
+    height:5vh;
+    margin-bottom:3vh;
 }
 
 .sidebar-content-search-bar{
@@ -105,12 +117,27 @@
     width:100%;
 }
 .search-recent-body{
+    height:82vh;
+    overflow-y: auto;
+}
 
+.search-recent-body::-webkit-scrollbar {
+    width: 10px;
+}
+.search-recent-body::-webkit-scrollbar-track {
+    background-color: gray;
+}
+.search-recent-body::-webkit-scrollbar-thumb { 
+    background-color: skyblue;
+}
+.search-recent-body::-webkit-scrollbar-button {
+    display: none;
 }
 
 .search-recent-body-list-title{
+    height:4vh;
     margin-left:1vw;
-    height:5vh;
+    margin-top:2vh;
 }
 .search-recent-body-list-title span{
     vertical-align: middle;
@@ -118,12 +145,54 @@
 
 
 .search-recent-body-list{
-    height:80vh;
+    height:76vh;
 }
 
 .search-recent-body-list-empty-text{
     font-size: 0.8em;
     
+}
+
+.search-item{
+    margin-left:1vw;
+    margin-top:2vh;
+}
+
+.search-item-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #222;
+    background: #ffffff;
+}
+
+.search-item-info {
+    padding-left: 10px;
+}
+
+.search-item-info i {
+    color: blue;
+    padding-left: 2px;
+    vertical-align: center;
+    display: none;
+}
+
+.search-item-info div:first-child {
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 1px;
+}
+
+.search-item-info div:last-child {
+    font-size: 0.7em;
+    padding: 1px;
+}
+
+.sidebar-content-search-delete-icon{
+    display:none;
+    margin-left:0.5vw;
+    cursor: pointer;
+    z-index:1100;
 }
 
 
@@ -135,7 +204,6 @@
 .sidebar-content-body-outline{
     border-bottom: 1px solid #dbdbdb;
 }
-
 @media screen and (max-width:1000px) {
     .base-header button div {
         display: none;
